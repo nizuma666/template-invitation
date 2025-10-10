@@ -5,10 +5,17 @@
 @theme {
   --font-allura: "Allura", sans-serif;
   --font-quicksand: "Quicksand", sans-serif;
+  --text-heading1: 32px;
+  --text-heading2: 24px;
+  --text-subheading1: 22px;
+  --text-subheading2: 18px;
+  --text-bodytext1: 16px;
+  --text-bodytext2: 14px;
+  --text-caption: 12px;
+  --color-peach4: #FFF1E8;
+  --color-rose1: #9E354A;
 }
 
 body {
-  @apply font-quicksand
+  @apply font-quicksand;
 }
-
-

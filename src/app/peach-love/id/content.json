@@ -1,0 +1,95 @@
+{
+    "section1": {
+        "title": "Undangan Pernikahan",
+        "name": "Asep & Putri",
+        "date": "02 02 2022",
+        "inviteTo": "Kepada Yth.",
+        "inviteName": "Ferdian Septiawan"
+    },
+    "section2": {
+        "title": "Dua Hati, Satu Doa",
+        "desc": "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram di sisinya, dan dijadikan-Nya di antara kamu rasa kasih dan sayang.\n\nQ.S. Ar-Rum: 21",
+        "couple": [
+            {
+                "name": "Putri Mangku Bumi",
+                "ref": "Putri dari",
+                "parents": "Bpk. Ahmad Wijaya & Ibu Siti Aminah",
+                "ig": "mangkubumi"
+            },
+            {
+                "name": "Asep Setiawan",
+                "ref": "Putra dari",
+                "parents": "Bpk. Hendra Saputra & Ibu Lina Kartika",
+                "ig": "asep-setia"
+            }
+        ]
+    },
+    "section3": {
+        "title": "Hari Bahagia Kami",
+        "desc": "Dengan memohon rahmat dan ridho Allah SWT, kami akan mengadakan pernikahan pada:",
+        "events": [
+            {
+                "title": "Akad Nikah",
+                "date": "Minggu 16 Januari 2027",
+                "time": "12:00 - 20:00",
+                "address": "Jl. Nama alamat lengkap disini",
+                "city": "Jakarta Pusat"
+            },
+            {
+                "title": "Resepsi",
+                "date": "Minggu 16 Januari 2027",
+                "time": "12:00 - 20:00",
+                "address": "Jl. Nama alamat lengkap disini",
+                "city": "Jakarta Pusat"
+            }
+        ]
+    },
+    "section4": {
+        "title": "Restu Tanpa Cinta",
+        "desc": "Kami percaya, setiap  doa yang ditulis adalah berkah. namun bila ingin turu berbagi kasih, berikut cara yang kamu sediakan:",
+        "card": [
+            {
+                "bank": "BCA",
+                "name": "Jhon Doe",
+                "noBank": "1234 5678 9876 5431"
+            },
+            {
+                "bank": "BRI",
+                "name": "Jhon Doe",
+                "noBank": "1234 5678 9876 5431"
+            }
+        ]
+    },
+    "section5": {
+        "title": "Potret Cinta Kami",
+        "desc": "Beberapa momen yang kami abadikan dengan penuh rasa dan kenangan indah."
+    },
+    "section6": {
+        "title": "RSVP & Confirmation",
+        "desc": "Hadirmu membuat momen bahagia ini semakin sempurna",
+        "form": {
+            "name": {
+                "label": "Nama",
+                "placeholder": "ContohL Jhon Doe"
+            },
+            "attendance": {
+                "label": "Kehadiran",
+                "options": [
+                    {
+                        "label": "Ya, hadir",
+                        "value": "hadir"
+                    },
+                    {
+                        "label": "Tidak hadir",
+                        "value": "tidakHadir"
+                    }
+                ]
+            },
+            "message": {
+                "label": "Pesan",
+                "placeholder": "Tulis pesan disini"
+            },
+            "button": "Kirim Pesan"
+        }
+    }
+}

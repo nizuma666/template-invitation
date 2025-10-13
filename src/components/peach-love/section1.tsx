@@ -1,13 +1,13 @@
 "use client"
 import Image from "next/image";
 import background from "@/assets/peach-love/background.png"
-import Logo from "../../../public/Arunara.svg"
-import FlowerLeft from "../../../public/flowerleft.svg"
-import FlowerRight from "../../../public/flowerright.svg"
-import Button from "../general/button";
-import BottomGradient from "../../../public/bottomgradient.png"
-import ArrowRight from "../../../public/arrowright.svg"
-import ArrowLeft from "../../../public/arrowleft.svg"
+import Logo from "!/Arunara.svg"
+import FlowerLeft from "!/flowerleft.svg"
+import FlowerRight from "!/flowerright.svg"
+import Button from "./components/button";
+import BottomGradient from "!/bottomgradient.png"
+import ArrowRight from "!/arrowright.svg"
+import ArrowLeft from "!/arrowleft.svg"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section1({ content }: { content: any }) {
     console.log("content: ", content);
@@ -34,12 +34,12 @@ export default function Section1({ content }: { content: any }) {
                     </div>
                     <div className="border border-color-peach4 py-4 px-6 flex flex-col gap-2 items-center rounded-lg">
                         <p className="text-white">{content.inviteTo}</p>
-                        <div className="border border-color-peach4 w-full h-[1px]"></div>
+                        <div className="border border-peach4 w-full h-[1px]"></div>
                         <p className="text-white text-subheading2">{content.inviteName}</p>
                     </div>
                     <div className="absolute bottom-0 z-20 flex gap-6 justify-center items-center">
                         <Image src={ArrowRight} alt="Arunara" width={23} height={23} />
-                        <Button label="Open Invitation" onClick={() => console.log("")} />
+                        <Button onClick={() => console.log("")}>Open Invitation</Button>
                         <Image src={ArrowLeft} alt="Arunara" width={23} height={23} />
                     </div>
                     <Image src={BottomGradient} alt="Arunara" width={175} height={32} className="w-full absolute -bottom-30" />

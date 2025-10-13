@@ -14,13 +14,15 @@
                 "name": "Putri Mangku Bumi",
                 "ref": "Putri dari",
                 "parents": "Bpk. Ahmad Wijaya & Ibu Siti Aminah",
-                "ig": "mangkubumi"
+                "ig": "mangkubumi",
+                "img": "/PhotoWife.png"
             },
             {
                 "name": "Asep Setiawan",
                 "ref": "Putra dari",
                 "parents": "Bpk. Hendra Saputra & Ibu Lina Kartika",
-                "ig": "asep-setia"
+                "ig": "asep-setia",
+                "img": "/PhotoHusband.png"
             }
         ]
     },
@@ -33,14 +35,16 @@
                 "date": "Minggu 16 Januari 2027",
                 "time": "12:00 - 20:00",
                 "address": "Jl. Nama alamat lengkap disini",
-                "city": "Jakarta Pusat"
+                "city": "Jakarta Pusat",
+                "icon": "/ringicon.svg"
             },
             {
                 "title": "Resepsi",
                 "date": "Minggu 16 Januari 2027",
                 "time": "12:00 - 20:00",
                 "address": "Jl. Nama alamat lengkap disini",
-                "city": "Jakarta Pusat"
+                "city": "Jakarta Pusat",
+                "icon": "/cheersicon.svg"
             }
         ]
     },
@@ -51,12 +55,18 @@
             {
                 "bank": "BCA",
                 "name": "Jhon Doe",
-                "noBank": "1234 5678 9876 5431"
+                "rekening": "1234 5678 9876 5431",
+                "chip": "/chip.svg",
+                "masterCard": "master-card.svg",
+                "background": "bg-rose1"
             },
             {
                 "bank": "BRI",
                 "name": "Jhon Doe",
-                "noBank": "1234 5678 9876 5431"
+                "rekening": "1234 5678 9876 5431",
+                "chip": "/chip.svg",
+                "masterCard": "master-card.svg",
+                "background": "bg-rose2"
             }
         ]
     },

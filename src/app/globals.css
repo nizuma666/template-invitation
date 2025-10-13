@@ -14,6 +14,16 @@
   --text-caption: 12px;
   --color-peach4: #FFF1E8;
   --color-rose1: #9E354A;
+  --color-rose4: #FAE4E8;
+  --color-rose3: #F4C4CD;
+  --color-rose2: #C76679;
+  --color-rose5: #FFF4F6;
+  --color-neutral-text3: #909090;
+  --color-neutral-text4: #757575;
+  --color-border-default: #E2E8F0;
+  --color-green200: #B9F8CF;
+  --color-success-pressed: #008236;
+  --color-success-surface: #F0FDF4;
 }
 
 body {

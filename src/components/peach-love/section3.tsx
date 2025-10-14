@@ -10,10 +10,7 @@ export default function Section3({ content }: { content: any }) {
         window.open(url, "_blank")
     }
     return (
-        <div className="px-6 py-10 flex flex-col gap-10 items-center">
-            <div>
-                <CountdownTimer targetDate="2025-12-31T00:00:00" />
-            </div>
+        <div className="px-6 py-10 flex flex-col gap-10 items-center bg-white">
             <div className="flex flex-col items-center gap-4">
                 <p className="text-rose1 text-heading1 font-bold">{content.title}</p>
                 <p className="text-neutral-text4 text-center">{content.desc}</p>

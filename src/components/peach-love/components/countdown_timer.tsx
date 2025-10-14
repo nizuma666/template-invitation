@@ -40,7 +40,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   ];
 
   return (
-    <div className="flex justify-center items-center gap-2 p-2 flex-wrap bg-rose3 rounded-lg">
+    <div className="flex justify-center items-center gap-2 p-2 bg-rose3 rounded-lg border border-white">
       {items.map((item, index) => (
         <div
           key={index}

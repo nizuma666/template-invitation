@@ -61,7 +61,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
     }
 
     return (
-        <div className="w-full relative h-dvh mb-24">
+        <div className="w-full relative h-dvh">
             <motion.div
                 key="show"
                 initial={{ scaleX: 0 }}
@@ -70,7 +70,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
             />
             <Image src={background} alt="background" fill className="object-cover z-0" />
             <div className="absolute inset-0 bg-black/60 z-10"></div>
-            <div className="absolute inset-0 z-20 text-white flex flex-col gap-[60px] items-center py-[120px]">
+            <div className="absolute inset-0 z-20 text-white flex flex-col gap-[60px] items-center py-[50px]">
                 <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
@@ -80,7 +80,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                     <Image src={Logo} alt="Arunara" width={175} height={32} />
                 </motion.div>
 
-                <div className="flex flex-col gap-10 items-center">
+                <div className="flex flex-col gap-5 items-center">
                     {/* 1️⃣ Title muncul dari atas */}
                     <motion.p
                         className="text-white text-subheading1 font-medium"

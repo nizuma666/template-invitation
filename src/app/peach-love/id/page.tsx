@@ -8,6 +8,9 @@ import Section5 from "@/components/peach-love/section5";
 import Section6 from "@/components/peach-love/section6";
 import Section7 from "@/components/peach-love/section7";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import onMusic from "!/onMusic.svg"
+import offMusic from "!/offMusic.svg"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function PeachLove() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +26,15 @@ export default function PeachLove() {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
+  useEffect(() => {
+    if (!isOpen) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, []);
   return (
-    <div className="w-full max-w-md mx-auto">
-      <Section1 content={content?.section1}  onOpen={() => setIsOpen(true)} />
+    <div className="w-full max-w-md mx-auto relative h-dvh">
+      <Image src={onMusic} alt="music" width={40} height={40} className="fixed bottom-5 right-5 z-99 animate-spin" />
+      <Section1 content={content?.section1} onOpen={() => setIsOpen(true)} />
       <Section2 content={content?.section2} />
       <Section3 content={content?.section3} />
       <Section4 content={content?.section4} />

@@ -7,7 +7,7 @@ export default function Section2({ content }: { content: any }) {
         hidden: {},
         visible: {
             transition: {
-                staggerChildren: 0.8, // tiap elemen anak delay 0.3 detik
+                staggerChildren: 0.3, // tiap elemen anak delay 0.3 detik
             },
         },
     };
@@ -17,7 +17,7 @@ export default function Section2({ content }: { content: any }) {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: "easeOut" },
+            transition: { duration: 0.5, ease: "easeOut" },
         },
     };
 

@@ -40,7 +40,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                     transition: { duration: 0.6, ease: "easeOut", delay: 1 },
                 });
 
-                await new Promise((resolve) => setTimeout(resolve, 1000));
+                await new Promise((resolve) => setTimeout(resolve, 500));
 
                 await controls.start({
                     scaleY: 0,
@@ -75,7 +75,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: false, amount: 0.4 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
                 >
                     <Image src={Logo} alt="Arunara" width={175} height={32} />
                 </motion.div>
@@ -87,7 +87,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         initial={{ y: -50, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: false, amount: 0.4 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        transition={{ duration: 1, ease: "easeOut" }}
                     >
                         {content.title}
                     </motion.p>
@@ -111,7 +111,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             initial={{ opacity: 0, x: 150 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: false, amount: 0.4 }}
-                            transition={{ duration: 1.5, ease: "easeOut" }}
+                            transition={{ duration: 1, ease: "easeOut" }}
                         >
                             <Image src={FlowerLeft} alt="Arunara" width={40} height={60} />
                         </motion.div>
@@ -119,7 +119,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         {/* Text name */}
                         <motion.p
                             className="text-white font-allura text-[50px]"
-                            initial={{ scaleX: 0.2, opacity: 0 }}
+                            initial={{ scaleX: 0, opacity: 0 }}
                             viewport={{ once: false, amount: 0.4 }}
                             whileInView={{ scaleX: 1, opacity: 1 }}
                             transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
@@ -132,7 +132,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             initial={{ opacity: 0, x: -150 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: false, amount: 0.4 }}
-                            transition={{ duration: 1.5, ease: "easeOut" }}
+                            transition={{ duration: 1, ease: "easeOut" }}
                         >
                             <Image src={FlowerRight} alt="Arunara" width={40} height={60} />
                         </motion.div>
@@ -172,17 +172,19 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                     </motion.div>
 
                     {/* 4️⃣ Kotak undangan scale 0 -> 1 */}
-                    <motion.div
-                        className="border border-color-peach4 py-4 px-6 flex flex-col gap-2 items-center rounded-lg"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: false, amount: 0.4 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                    >
-                        <p className="text-white">{content.inviteTo}</p>
-                        <div className="border border-peach4 w-full h-[1px]"></div>
-                        <p className="text-white text-subheading2">{content.inviteName}</p>
-                    </motion.div>
+                    {!isOpen && (
+                        <motion.div
+                            className="border border-color-peach4 py-4 px-6 flex flex-col gap-2 items-center rounded-lg"
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: false, amount: 0.4 }}
+                            transition={{ duration: 1.5, ease: "easeOut" }}
+                        >
+                            <p className="text-white">{content.inviteTo}</p>
+                            <div className="border border-peach4 w-full h-[1px]"></div>
+                            <p className="text-white text-subheading2">{content.inviteName}</p>
+                        </motion.div>
+                    )}
 
                     {/* 5️⃣ Tombol “Open Invitation” muncul dengan scale */}
                     <div className="w-full absolute -bottom-10 z-20">

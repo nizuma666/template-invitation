@@ -10,7 +10,7 @@ export default function Section3({ content }: { content: any }) {
     const container: Variants = {
         hidden: {},
         visible: {
-            transition: { staggerChildren: 0.25, delayChildren: 0.2 },
+            transition: { staggerChildren: 0.2 },
         },
     };
 
@@ -33,7 +33,7 @@ export default function Section3({ content }: { content: any }) {
             scale: 1,
             y: 0,
             rotateY: 0,
-            transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] },
+            transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
         },
     };
     const handleMap = (url: string) => {

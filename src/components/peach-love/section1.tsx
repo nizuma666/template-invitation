@@ -18,6 +18,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
     const [data, setData] = useState([{}])
     const [isOpen, setIsOpen] = useState(false)
     const controls = useAnimationControls();
+    const controlCard = useAnimationControls();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,15 +43,25 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
 
                 await new Promise((resolve) => setTimeout(resolve, 500));
 
+                await controlCard.start({
+                    scale: 0,
+                    transition: {duration: 0.3, ease: "easeInOut"}
+                })
+
                 await controls.start({
                     scaleY: 0,
                     transition: { duration: 0.6, ease: "easeInOut" },
                 });
+            } else {
+                await controlCard.start({
+                    scaleX: 1,
+                    transition: {duration: 1, ease: "easeInOut"}
+                })
             }
         };
 
         runAnimation();
-    }, [isOpen, controls]);
+    }, [isOpen, controls, controlCard]);
 
     const handleOpenInvite = () => {
         setIsOpen(true)
@@ -68,7 +79,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                 animate={controls}
                 className="absolute w-full bg-white h-dvh z-30"
             />
-            <Image src={background} alt="background" fill className="object-cover z-0" />
+            <Image src={background} alt="background" width={370} height={750} className="object-cover w-full h-full z-0" />
             <div className="absolute inset-0 bg-black/60 z-10"></div>
             <div className="absolute inset-0 z-20 text-white flex flex-col gap-[60px] items-center py-[50px]">
                 <motion.div
@@ -172,19 +183,16 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                     </motion.div>
 
                     {/* 4️⃣ Kotak undangan scale 0 -> 1 */}
-                    {!isOpen && (
-                        <motion.div
-                            className="border border-color-peach4 py-4 px-6 flex flex-col gap-2 items-center rounded-lg"
-                            initial={{ scale: 0 }}
-                            whileInView={{ scale: 1 }}
-                            viewport={{ once: false, amount: 0.4 }}
-                            transition={{ duration: 1.5, ease: "easeOut" }}
-                        >
-                            <p className="text-white">{content.inviteTo}</p>
-                            <div className="border border-peach4 w-full h-[1px]"></div>
-                            <p className="text-white text-subheading2">{content.inviteName}</p>
-                        </motion.div>
-                    )}
+                    <motion.div
+                        className="border border-color-peach4 py-4 px-6 flex flex-col gap-2 items-center rounded-lg"
+                        initial={{ scaleX: 0 }}
+                        animate={controlCard}
+                        // transition={{ duration: 1.5, ease: "easeOut" }}
+                    >
+                        <p className="text-white">{content.inviteTo}</p>
+                        <div className="border border-peach4 w-full h-[1px]"></div>
+                        <p className="text-white text-subheading2">{content.inviteName}</p>
+                    </motion.div>
 
                     {/* 5️⃣ Tombol “Open Invitation” muncul dengan scale */}
                     <div className="w-full absolute -bottom-10 z-20">

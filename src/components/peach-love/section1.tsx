@@ -11,12 +11,13 @@ import ArrowLeft from "!/arrowleft.svg"
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/service/firebase"
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence, motion, useAnimationControls } from "motion/react"
 import CountdownTimer from "./components/countdown_timer";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section1({ content, onOpen }: { content: any, onOpen: () => void }) {
     const [data, setData] = useState([{}])
     const [isOpen, setIsOpen] = useState(false)
+    const controls = useAnimationControls();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,20 +32,49 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
         fetchData();
     }, []);
 
+    useEffect(() => {
+        const runAnimation = async () => {
+            if (isOpen) {
+                await controls.start({
+                    scaleX: 1,
+                    transition: { duration: 0.6, ease: "easeOut", delay: 1 },
+                });
+
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+
+                await controls.start({
+                    scaleY: 0,
+                    transition: { duration: 0.6, ease: "easeInOut" },
+                });
+            }
+        };
+
+        runAnimation();
+    }, [isOpen, controls]);
+
     const handleOpenInvite = () => {
         setIsOpen(true)
         onOpen()
+        // setTimeout(() => {
+        //     setIsOpen(false);
+        // }, 1500);
     }
 
     return (
         <div className="w-full relative h-dvh mb-24">
+            <motion.div
+                key="show"
+                initial={{ scaleX: 0 }}
+                animate={controls}
+                className="absolute w-full bg-white h-dvh z-30"
+            />
             <Image src={background} alt="background" fill className="object-cover z-0" />
             <div className="absolute inset-0 bg-black/60 z-10"></div>
             <div className="absolute inset-0 z-20 text-white flex flex-col gap-[60px] items-center py-[120px]">
                 <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{once: false, amount: 0.4}}
+                    viewport={{ once: false, amount: 0.4 }}
                     transition={{ duration: 1.5, ease: "easeInOut" }}
                 >
                     <Image src={Logo} alt="Arunara" width={175} height={32} />
@@ -56,7 +86,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         className="text-white text-subheading1 font-medium"
                         initial={{ y: -50, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{once: false, amount: 0.4}}
+                        viewport={{ once: false, amount: 0.4 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                     >
                         {content.title}
@@ -67,7 +97,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         className="flex gap-1 items-center"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{once: false, amount: 0.4}}
+                        viewport={{ once: false, amount: 0.4 }}
                         variants={{
                             hidden: { opacity: 0 },
                             visible: {
@@ -80,7 +110,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         <motion.div
                             initial={{ opacity: 0, x: 150 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{once: false, amount: 0.4}}
+                            viewport={{ once: false, amount: 0.4 }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
                         >
                             <Image src={FlowerLeft} alt="Arunara" width={40} height={60} />
@@ -90,7 +120,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         <motion.p
                             className="text-white font-allura text-[50px]"
                             initial={{ scaleX: 0.2, opacity: 0 }}
-                            viewport={{once: false, amount: 0.4}}
+                            viewport={{ once: false, amount: 0.4 }}
                             whileInView={{ scaleX: 1, opacity: 1 }}
                             transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
                         >
@@ -101,7 +131,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         <motion.div
                             initial={{ opacity: 0, x: -150 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{once: false, amount: 0.4}}
+                            viewport={{ once: false, amount: 0.4 }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
                         >
                             <Image src={FlowerRight} alt="Arunara" width={40} height={60} />
@@ -113,13 +143,13 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         className="flex gap-6 items-center"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        viewport={{once: false, amount: 0.4}}
+                        viewport={{ once: false, amount: 0.4 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                     >
                         <motion.div
                             className="w-[9px] h-[9px] rounded-full bg-[#D9D9D9]"
                             initial={{ x: 100, opacity: 0 }}
-                            viewport={{once: false, amount: 0.4}}
+                            viewport={{ once: false, amount: 0.4 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 1.5 }}
                         />
@@ -127,7 +157,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             className="text-white text-subheading1"
                             initial={{ scaleX: 0.2, opacity: 0 }}
                             whileInView={{ scaleX: 1, opacity: 1 }}
-                            viewport={{once: false, amount: 0.4}}
+                            viewport={{ once: false, amount: 0.4 }}
                             transition={{ duration: 1, delay: 1 }}
                         >
                             {content.date}
@@ -136,7 +166,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             className="w-[9px] h-[9px] rounded-full bg-[#D9D9D9]"
                             initial={{ x: -100, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
-                            viewport={{once: false, amount: 0.4}}
+                            viewport={{ once: false, amount: 0.4 }}
                             transition={{ duration: 1.5 }}
                         />
                     </motion.div>
@@ -146,7 +176,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         className="border border-color-peach4 py-4 px-6 flex flex-col gap-2 items-center rounded-lg"
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
-                        viewport={{once: false, amount: 0.4}}
+                        viewport={{ once: false, amount: 0.4 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                     >
                         <p className="text-white">{content.inviteTo}</p>
@@ -160,7 +190,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             className="flex gap-6 justify-center items-center translate-y-15"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{once: false, amount: 0.4}}
+                            viewport={{ once: false, amount: 0.4 }}
                             variants={{
                                 hidden: { opacity: 0 },
                                 visible: {
@@ -177,14 +207,14 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                                         className="flex gap-6 justify-center items-center"
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.8, y: -50, transition: {delay: 1} }}
+                                        exit={{ opacity: 0, scale: 0.8, y: -50, transition: { delay: 1 } }}
                                         transition={{ duration: 1.5, ease: "easeInOut" }}
                                     >
                                         {/* Arrow kanan */}
                                         <motion.div
                                             initial={{ opacity: 0, x: 150 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: 150, transition: {delay: 0.5, ease: "easeInOut", duration: 0.5} }}
+                                            exit={{ opacity: 0, x: 150, transition: { delay: 0.5, ease: "easeInOut", duration: 0.5 } }}
                                             transition={{ duration: 1.5, ease: "easeOut" }}
                                         >
                                             <Image src={ArrowRight} alt="Arunara" width={23} height={23} />
@@ -194,7 +224,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                                         <motion.div
                                             initial={{ scaleY: 0.2, opacity: 0 }}
                                             animate={{ scaleY: 1, opacity: 1 }}
-                                            exit={{ scale: 0.8, opacity: 0, transition: {duration: 0.5} }}
+                                            exit={{ scale: 0.8, opacity: 0, transition: { duration: 0.5 } }}
                                             transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
                                         >
                                             <Button onClick={handleOpenInvite}>Open Invitation</Button>
@@ -204,7 +234,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                                         <motion.div
                                             initial={{ opacity: 0, x: -150 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -150, transition: {delay: 0.5, ease: "easeInOut", duration: 0.5} }}
+                                            exit={{ opacity: 0, x: -150, transition: { delay: 0.5, ease: "easeInOut", duration: 0.5 } }}
                                             transition={{ duration: 1.5, ease: "easeOut" }}
                                         >
                                             <Image src={ArrowLeft} alt="Arunara" width={23} height={23} />
@@ -216,7 +246,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                                         key="countdown"
                                         initial={{ opacity: 0, scale: 0.8, y: 20 }}
                                         whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                        viewport={{once: false, amount: 0.4}}
+                                        viewport={{ once: false, amount: 0.4 }}
                                         exit={{ opacity: 0, scale: 0.8, y: -20 }}
                                         transition={{ duration: 1, ease: "easeOut" }}
                                     >

@@ -72,7 +72,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
     }
 
     return (
-        <div className="w-full relative h-dvh">
+        <div className="w-full relative min-h-screen">
             <motion.div
                 key="show"
                 initial={{ scaleX: 0 }}

@@ -1,0 +1,129 @@
+import Image from "next/image";
+import instagram from "!/peach-love/instagram.svg"
+import { motion, Variants } from "motion/react"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default function Section2({ data }: { data: any }) {
+    console.log("data: ", data);
+    
+    const container: Variants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.3,
+            },
+        },
+    };
+
+    const fadeUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, ease: "easeOut" },
+        },
+    };
+
+    const scaleIn: Variants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
+    };
+    return (
+        <motion.div
+            className="px-4 py-10 w-full bg-white"
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }} // 🟢 aktif tiap kali muncul di viewport
+        >
+            <div className="flex flex-col gap-10 items-center">
+                <motion.div
+                    className="flex flex-col gap-4 items-center"
+                    variants={fadeUp}
+                >
+                    <p className="text-heading1 font-bold text-rose1 text-center">Dua Hati, Satu Doa</p>
+                    <p className="text-center">Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram di sisinya, dan dijadikan-Nya di antara kamu rasa kasih dan sayang.</p>
+                </motion.div>
+
+                <motion.div
+                    className="flex flex-col gap-4 items-center"
+                    variants={fadeUp}
+                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                >
+                    <motion.div variants={scaleIn}>
+                        <Image
+                            src={data.image_pengantin_wanita}
+                            width={220}
+                            height={240}
+                            alt={data.nama_pengantin_wanita}
+                            className="object-cover rounded-2xl shadow-md"
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        className="flex flex-col gap-2 items-center"
+                        variants={fadeUp}
+                    >
+                        <p className="text-[40px] font-allura text-rose1">{data.nama_pengantin_wanita}</p>
+                        <p className="text-neutral-text3">Putri dari</p>
+                        <p>Bpk. {data.nama_pengantin_bapak_wanita} & Ibu {data.nama_pengantin_ibu_wanita}</p>
+                    </motion.div>
+
+                    {/* <motion.div
+                        className="bg-rose4 flex justify-center items-center gap-1 rounded-2xl px-2 py-1"
+                        variants={fadeUp}
+                    >
+                        <Image
+                            src={instagram}
+                            width={20}
+                            height={20}
+                            alt="Instagram"
+                        />
+                        <p className="text-rose1 text-sm font-semibold">{item.ig}</p>
+                    </motion.div> */}
+                </motion.div>
+
+                <motion.div
+                    className="flex flex-col gap-4 items-center"
+                    variants={fadeUp}
+                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                >
+                    <motion.div variants={scaleIn}>
+                        <Image
+                            src={data.image_pengantin_pria}
+                            width={220}
+                            height={240}
+                            alt={data.nama_pengantin_pria}
+                            className="object-cover rounded-2xl shadow-md"
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        className="flex flex-col gap-2 items-center"
+                        variants={fadeUp}
+                    >
+                        <p className="text-[40px] font-allura text-rose1">{data.nama_pengantin_pria}</p>
+                        <p className="text-neutral-text3">Putri dari</p>
+                        <p>Bpk. {data.nama_pengantin_bapak_pria} & Ibu {data.nama_pengantin_ibu_pria}</p>
+                    </motion.div>
+
+                    {/* <motion.div
+                        className="bg-rose4 flex justify-center items-center gap-1 rounded-2xl px-2 py-1"
+                        variants={fadeUp}
+                    >
+                        <Image
+                            src={instagram}
+                            width={20}
+                            height={20}
+                            alt="Instagram"
+                        />
+                        <p className="text-rose1 text-sm font-semibold">{item.ig}</p>
+                    </motion.div> */}
+                </motion.div>
+            </div>
+        </motion.div>
+    )
+}

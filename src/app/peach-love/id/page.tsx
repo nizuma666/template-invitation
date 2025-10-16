@@ -11,7 +11,6 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import onMusic from "!/peach-love/onMusic.svg"
 import offMusic from "!/peach-love/offMusic.svg"
-// import musicFile from "!/music/backsound.mp3"
 import { motion, AnimatePresence } from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function PeachLove() {
@@ -39,7 +38,7 @@ export default function PeachLove() {
 
     const playAudio = async () => {
       try {
-        if (isOpen) { // 👈 hanya main ketika isOpen true
+        if (isOpen) {
           await audio.play();
           setIsPlaying(true);
         }
@@ -50,14 +49,12 @@ export default function PeachLove() {
     };
     playAudio();
 
-    // Hentikan audio saat keluar dari halaman atau browser
     const handleUnload = () => {
       audio.pause();
-      audio.currentTime = 0; // reset posisi
+      audio.currentTime = 0;
       setIsPlaying(!isPlaying);
     };
 
-    // Juga hentikan kalau tab jadi tidak aktif
     const handleVisibilityChange = () => {
       if (document.hidden && audioRef.current) {
         audioRef.current.pause();

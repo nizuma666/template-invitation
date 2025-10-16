@@ -9,29 +9,16 @@ import BottomGradient from "!/peach-love/bottomgradient.png"
 import ArrowRight from "!/peach-love/arrowright.svg"
 import ArrowLeft from "!/peach-love/arrowleft.svg"
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/service/firebase"
 import { AnimatePresence, motion, useAnimationControls } from "motion/react"
 import CountdownTimer from "./components/countdown_timer";
+import { useParams } from "next/navigation";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section1({ content, onOpen }: { content: any, onOpen: () => void }) {
-    const [data, setData] = useState([{}])
+export default function Section1({ data, onOpen }: { data: any, onOpen: () => void }) {
     const [isOpen, setIsOpen] = useState(false)
     const controls = useAnimationControls();
     const controlCard = useAnimationControls();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const querySnapshot = await getDocs(collection(db, "acara"));
-            const items = querySnapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setData(items);
-        };
-
-        fetchData();
-    }, []);
+    const params = useParams();
+    const filterUndangan = data.listUndangan.filter((item: any) => item.nama === params.subslug )
 
     useEffect(() => {
         const runAnimation = async () => {
@@ -45,7 +32,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
 
                 await controlCard.start({
                     scale: 0,
-                    transition: {duration: 0.3, ease: "easeInOut"}
+                    transition: { duration: 0.3, ease: "easeInOut" }
                 })
 
                 await controls.start({
@@ -55,7 +42,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
             } else {
                 await controlCard.start({
                     scaleX: 1,
-                    transition: {duration: 1, ease: "easeInOut"}
+                    transition: { duration: 1, ease: "easeInOut" }
                 })
             }
         };
@@ -96,7 +83,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 1, ease: "easeOut" }}
                     >
-                        {content.title}
+                        Undangan Pernikahan
                     </motion.p>
 
                     <motion.div
@@ -128,7 +115,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             whileInView={{ scaleX: 1, opacity: 1 }}
                             transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
                         >
-                            {content.name}
+                            {data.cover[0].pengantin_pria} & {data.cover[0].pengantin_wanita}
                         </motion.p>
 
                         <motion.div
@@ -162,7 +149,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 1, delay: 1 }}
                         >
-                            {content.date}
+                            {data.acara[0].tanggal_1}
                         </motion.p>
                         <motion.div
                             className="w-[9px] h-[9px] rounded-full bg-[#D9D9D9]"
@@ -178,9 +165,9 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         initial={{ scaleX: 0 }}
                         animate={controlCard}
                     >
-                        <p className="text-white">{content.inviteTo}</p>
+                        <p className="text-white">Kepada Yth.</p>
                         <div className="border border-peach4 w-full h-[1px]"></div>
-                        <p className="text-white text-subheading2">{content.inviteName}</p>
+                        <p className="text-white text-subheading2">{filterUndangan[0].nama}</p>
                     </motion.div>
 
                     <div className="w-full absolute bottom-0 z-20">

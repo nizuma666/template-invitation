@@ -7,7 +7,7 @@ export default function Section2({ content }: { content: any }) {
         hidden: {},
         visible: {
             transition: {
-                staggerChildren: 0.3, // tiap elemen anak delay 0.3 detik
+                staggerChildren: 0.3,
             },
         },
     };
@@ -38,7 +38,6 @@ export default function Section2({ content }: { content: any }) {
             viewport={{ once: true, amount: 0.3 }} // 🟢 aktif tiap kali muncul di viewport
         >
             <div className="flex flex-col gap-10 items-center">
-                {/* ✨ Title + Description */}
                 <motion.div
                     className="flex flex-col gap-4 items-center"
                     variants={fadeUp}
@@ -47,13 +46,12 @@ export default function Section2({ content }: { content: any }) {
                     <p className="text-center">{content.desc}</p>
                 </motion.div>
 
-                {/* ✨ Couple Section */}
                 {content.couple.map((item: any, index: number) => (
                     <motion.div
                         key={index}
                         className="flex flex-col gap-4 items-center"
                         variants={fadeUp}
-                        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} // 🩷 efek lembut saat hover
+                        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                     >
                         <motion.div variants={scaleIn}>
                             <Image

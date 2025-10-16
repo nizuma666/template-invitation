@@ -9,8 +9,8 @@ import Section6 from "@/components/peach-love/section6";
 import Section7 from "@/components/peach-love/section7";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import onMusic from "!/onMusic.svg"
-import offMusic from "!/offMusic.svg"
+import onMusic from "!/peach-love/onMusic.svg"
+import offMusic from "!/peach-love/offMusic.svg"
 // import musicFile from "!/music/backsound.mp3"
 import { motion, AnimatePresence } from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */

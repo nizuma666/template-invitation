@@ -1,13 +1,13 @@
 "use client"
 import Image from "next/image";
 import background from "@/assets/peach-love/background.png"
-import Logo from "!/Arunara.svg"
-import FlowerLeft from "!/flowerleft.svg"
-import FlowerRight from "!/flowerright.svg"
+import Logo from "!/peach-love/Arunara.svg"
+import FlowerLeft from "!/peach-love/flowerleft.svg"
+import FlowerRight from "!/peach-love/flowerright.svg"
 import Button from "./components/button";
-import BottomGradient from "!/bottomgradient.png"
-import ArrowRight from "!/arrowright.svg"
-import ArrowLeft from "!/arrowleft.svg"
+import BottomGradient from "!/peach-love/bottomgradient.png"
+import ArrowRight from "!/peach-love/arrowright.svg"
+import ArrowLeft from "!/peach-love/arrowleft.svg"
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/service/firebase"

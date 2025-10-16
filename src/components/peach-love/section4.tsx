@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-import Image from "next/image"
-import chip from "!/chip.svg"
-import masterCard from "!/master-card.svg"
+import chip from "!/peach-love/chip.svg"
+import masterCard from "!/peach-love/master-card.svg"
 import { Copy } from "lucide-react"
 import DebitCard from "./components/debit-card"
 import { useRef } from "react"

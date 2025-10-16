@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import CountdownTimer from "./components/countdown_timer";
 import Button from "./components/button";
 import { MapPin } from "lucide-react";
 import { motion, Variants } from "motion/react"

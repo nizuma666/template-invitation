@@ -1,5 +1,5 @@
 import Image from "next/image";
-import instagram from "!/instagram.svg"
+import instagram from "!/peach-love/instagram.svg"
 import {motion, Variants} from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section2({ content }: { content: any }) {

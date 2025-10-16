@@ -7,7 +7,7 @@ import { useInView, motion, Variants } from "motion/react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section6({ content }: { content: any }) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, amount: 0.2 });
+    const isInView = useInView(ref, { once: true, amount: 0.2 });
     const [formData, setFormData] = useState({
         nama: "",
         kehadiran: "",
@@ -65,94 +65,7 @@ export default function Section6({ content }: { content: any }) {
         setFormData({ nama: "", kehadiran: "", pesan: "" });
     };
     return (
-        // <div className="py-10 px-6 flex flex-col gap-10 bg-white">
-        //     <div className="flex flex-col items-center gap-4">
-        //         <p className="text-rose1 text-heading1 font-bold">{content.title}</p>
-        //         <p className="text-neutral-text4 text-center">{content.desc}</p>
-        //     </div>
-        //     <form
-        //         onSubmit={handleSubmit}
-        //         className="p-6 bg-white rounded-xl border border-rose4 shadow-[0_4px_5px_#9C46571F] space-y-4"
-        //     >
-        //         {/* Input Nama */}
-        //         <div>
-        //             <label className="block text-sm font-medium text-neutral-text4 mb-1">
-        //                 Nama
-        //             </label>
-        //             <input
-        //                 type="text"
-        //                 name="nama"
-        //                 value={formData.nama}
-        //                 onChange={handleChange}
-        //                 placeholder="Contoh: Jhon Doe"
-        //                 className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose4 outline-none"
-        //                 required
-        //             />
-        //         </div>
-
-        //         {/* Kehadiran dengan 2 tombol */}
-        //         <div>
-        //             <label className="block text-sm font-medium text-neutral-text4 mb-2">
-        //                 Kehadiran
-        //             </label>
-        //             <div className="flex gap-3">
-        //                 <button
-        //                     type="button"
-        //                     onClick={() => handleSelectKehadiran("Ya")}
-        //                     className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-rose4 outline-none transition cursor-pointer ${formData.kehadiran === "Ya"
-        //                         ? "bg-rose3 border-transparent text-rose1 font-semibold"
-        //                         : "border-border-default text-gray-700 hover:bg-gray-100"
-        //                         }`}
-        //                 >
-        //                     Ya, hadir
-        //                 </button>
-
-        //                 <button
-        //                     type="button"
-        //                     onClick={() => handleSelectKehadiran("Tidak")}
-        //                     className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-rose4 outline-none transition cursor-pointer ${formData.kehadiran === "Tidak"
-        //                         ? "bg-rose3 text-rose1 border-transparent font-semibold"
-        //                         : "border-border-default text-gray-700 hover:bg-gray-100"
-        //                         }`}
-        //                 >
-        //                     Tidak hadir
-        //                 </button>
-        //             </div>
-        //         </div>
-
-        //         {/* Textarea Pesan */}
-        //         <div>
-        //             <label className="block text-sm font-medium text-gray-700 mb-1">
-        //                 Pesan
-        //             </label>
-        //             <textarea
-        //                 name="pesan"
-        //                 value={formData.pesan}
-        //                 onChange={handleChange}
-        //                 placeholder="Tulis pesan disini"
-        //                 className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:ring-2 focus:ring-rose3 outline-none"
-        //             />
-        //         </div>
-
-        //         {/* Tombol Kirim */}
-        //         <div className="pt-2">
-        //             <Button className="w-full">Kirim Pesan</Button>
-        //         </div>
-        //     </form>
-        //     <div className="flex flex-col gap-4 max-h-[420px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-        //         {[1, 2, 3, 4].map((_, index: number) => (
-        //             <div key={index} className="border border-border-default rounded-lg p-4 flex flex-col gap-2">
-        //                 <div className="flex justify-between">
-        //                     <p className="font-semibold text-sm">Nizuma</p>
-        //                     <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs">Will Attend</div>
-        //                 </div>
-        //                 <p className="text-sm text-neutral-text4">We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below.</p>
-        //             </div>
-        //         ))}
-        //     </div>
-        // </div>
         <section ref={ref} className="py-10 px-6 flex flex-col gap-10 bg-white overflow-hidden">
-            {/* Container untuk judul + form + list supaya stagger children bekerja */}
             <motion.div
                 variants={container}
                 initial="hidden"

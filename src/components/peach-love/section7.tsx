@@ -8,7 +8,7 @@ import { motion, useInView, Variants } from "motion/react"
 import { useRef } from "react"
 export default function Section7() {
     const ref = useRef<HTMLDivElement | null>(null);
-    const isInView = useInView(ref, { once: false, amount: 0.2 });
+    const isInView = useInView(ref, { once: true, amount: 0.2 });
 
     // Variants
     const container: Variants = {

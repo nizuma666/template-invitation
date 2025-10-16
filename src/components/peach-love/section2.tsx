@@ -35,7 +35,7 @@ export default function Section2({ content }: { content: any }) {
             variants={container}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }} // 🟢 aktif tiap kali muncul di viewport
+            viewport={{ once: true, amount: 0.3 }} // 🟢 aktif tiap kali muncul di viewport
         >
             <div className="flex flex-col gap-10 items-center">
                 {/* ✨ Title + Description */}

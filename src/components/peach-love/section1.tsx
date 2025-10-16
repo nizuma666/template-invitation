@@ -38,10 +38,10 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
             if (isOpen) {
                 await controls.start({
                     scaleX: 1,
-                    transition: { duration: 0.6, ease: "easeOut", delay: 1 },
+                    transition: { duration: 0.3, ease: "easeOut", delay: 1 },
                 });
 
-                await new Promise((resolve) => setTimeout(resolve, 500));
+                await new Promise((resolve) => setTimeout(resolve, 300));
 
                 await controlCard.start({
                     scale: 0,
@@ -50,7 +50,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
 
                 await controls.start({
                     scaleY: 0,
-                    transition: { duration: 0.6, ease: "easeInOut" },
+                    transition: { duration: 0.3, ease: "easeInOut" },
                 });
             } else {
                 await controlCard.start({
@@ -85,7 +85,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                 <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.4 }}
+                    viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >
                     <Image src={Logo} alt="Arunara" width={175} height={32} />
@@ -97,7 +97,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         className="text-white text-subheading1 font-medium"
                         initial={{ y: -50, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: false, amount: 0.4 }}
+                        viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 1, ease: "easeOut" }}
                     >
                         {content.title}
@@ -108,7 +108,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         className="flex gap-1 items-center"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: false, amount: 0.4 }}
+                        viewport={{ once: true, amount: 0.4 }}
                         variants={{
                             hidden: { opacity: 0 },
                             visible: {
@@ -121,7 +121,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         <motion.div
                             initial={{ opacity: 0, x: 150 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: false, amount: 0.4 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 1, ease: "easeOut" }}
                         >
                             <Image src={FlowerLeft} alt="Arunara" width={40} height={60} />
@@ -131,7 +131,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         <motion.p
                             className="text-white font-allura text-[50px]"
                             initial={{ scaleX: 0, opacity: 0 }}
-                            viewport={{ once: false, amount: 0.4 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             whileInView={{ scaleX: 1, opacity: 1 }}
                             transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
                         >
@@ -142,7 +142,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         <motion.div
                             initial={{ opacity: 0, x: -150 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: false, amount: 0.4 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 1, ease: "easeOut" }}
                         >
                             <Image src={FlowerRight} alt="Arunara" width={40} height={60} />
@@ -154,13 +154,13 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         className="flex gap-6 items-center"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        viewport={{ once: false, amount: 0.4 }}
+                        viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                     >
                         <motion.div
                             className="w-[9px] h-[9px] rounded-full bg-[#D9D9D9]"
                             initial={{ x: 100, opacity: 0 }}
-                            viewport={{ once: false, amount: 0.4 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 1.5 }}
                         />
@@ -168,7 +168,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             className="text-white text-subheading1"
                             initial={{ scaleX: 0.2, opacity: 0 }}
                             whileInView={{ scaleX: 1, opacity: 1 }}
-                            viewport={{ once: false, amount: 0.4 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 1, delay: 1 }}
                         >
                             {content.date}
@@ -177,7 +177,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             className="w-[9px] h-[9px] rounded-full bg-[#D9D9D9]"
                             initial={{ x: -100, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
-                            viewport={{ once: false, amount: 0.4 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 1.5 }}
                         />
                     </motion.div>
@@ -200,7 +200,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             className="flex gap-6 justify-center items-center translate-y-15"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: false, amount: 0.4 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             variants={{
                                 hidden: { opacity: 0 },
                                 visible: {
@@ -256,7 +256,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                                         key="countdown"
                                         initial={{ opacity: 0, scale: 0.8, y: 20 }}
                                         whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                        viewport={{ once: false, amount: 0.4 }}
+                                        viewport={{ once: true, amount: 0.4 }}
                                         exit={{ opacity: 0, scale: 0.8, y: -20 }}
                                         transition={{ duration: 1, ease: "easeOut" }}
                                     >

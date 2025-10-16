@@ -9,7 +9,7 @@ import { useRef } from "react"
 import { useInView, motion, Variants } from "motion/react"
 export default function Section4({ content }: { content: any }) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, amount: 0.2 });
+    const isInView = useInView(ref, { once: true, amount: 0.2 });
     const textVariant: Variants = {
         hidden: { opacity: 0, y: -30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },

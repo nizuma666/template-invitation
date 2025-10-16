@@ -45,7 +45,7 @@ export default function Section3({ content }: { content: any }) {
             variants={container}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
         >
             {/* 🌷 Title + Description */}
             <motion.div

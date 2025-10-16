@@ -31,6 +31,7 @@ export default function PeachLove() {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
+
   useEffect(() => {
     const audio = new Audio("/music/backsound.mp3");
     audio.loop = true;
@@ -45,13 +46,18 @@ export default function PeachLove() {
         setIsPlaying(false);
       }
     };
-    playAudio();
+    if (isOpen) {
+      playAudio(); // ✅ hanya play ketika isOpen true
+    } else {
+      audio.pause(); // 🔇 pause ketika isOpen false
+      setIsPlaying(false);
+    }
 
     return () => {
       audio.pause();
       audioRef.current = null;
     };
-  }, []);
+  }, [isOpen]);
 
   const handleToggleMusic = () => {
     if (!audioRef.current) return;
@@ -65,49 +71,57 @@ export default function PeachLove() {
 
   return (
     <div className="w-full max-w-md mx-auto relative h-dvh">
-      <motion.button
-        onClick={handleToggleMusic}
-        className="fixed bottom-5 right-5 z-[99] rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer"
-        whileTap={{ scale: 0.9 }}
-        whileHover={{ scale: 1.1 }}
-      >
-        <AnimatePresence mode="wait">
-          {isPlaying ? (
-            <motion.div
-              key="onMusic"
-              initial={{ opacity: 0, scale: 0.8, rotate: -45 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ opacity: 0, scale: 0.8, rotate: 45 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              <Image
-                src={offMusic}
-                alt="Music Off"
-                width={40}
-                height={40}
-                className="animate-spin-slow"
-              />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="offMusic"
-              initial={{ opacity: 0, scale: 0.8, rotate: 45 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ opacity: 0, scale: 0.8, rotate: -45 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              <Image
-                src={onMusic}
-                alt="Music On"
-                width={40}
-                height={40}
-                className="opacity-70"
-              />
+      <AnimatePresence>
+        {isOpen && (
+          <motion.button
+            onClick={handleToggleMusic}
+            className="fixed bottom-5 right-5 z-[99] rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer"
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 2.5 }} // 👈 jeda 0.5 detik
+          >
+            <AnimatePresence mode="wait">
+              {isPlaying ? (
+                <motion.div
+                  key="onMusic"
+                  initial={{ opacity: 0, scale: 0.8, rotate: -45 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, rotate: 45 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <Image
+                    src={offMusic}
+                    alt="Music Off"
+                    width={40}
+                    height={40}
+                    className="animate-spin-slow"
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="offMusic"
+                  initial={{ opacity: 0, scale: 0.8, rotate: 45 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, rotate: -45 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <Image
+                    src={onMusic}
+                    alt="Music On"
+                    width={40}
+                    height={40}
+                    className="opacity-70"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        )}
+      </AnimatePresence>
 
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
       <Section1 content={content?.section1} onOpen={() => setIsOpen(true)} />
       <Section2 content={content?.section2} />
       <Section3 content={content?.section3} />

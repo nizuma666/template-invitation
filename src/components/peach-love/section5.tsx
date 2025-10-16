@@ -6,6 +6,7 @@ import grid3 from "!/peach-love/grid3.png"
 import grid4 from "!/peach-love/grid4.png"
 import grid5 from "!/peach-love/grid5.png"
 import grid6 from "!/peach-love/grid6.png"
+import { X } from "lucide-react"
 import { useInView, motion, Variants, AnimatePresence } from "motion/react"
 import Image, { StaticImageData } from "next/image"
 import { useRef, useState } from "react"
@@ -93,15 +94,21 @@ export default function Section5({ content }: { content: any }) {
                                 exit={{ scale: 0.8, opacity: 0 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
                                 onClick={(e) => e.stopPropagation()} // supaya klik gambar tidak menutup modal
-                                className="relative max-w-[450px] max-h-[600px]"
+                                className="relative"
                             >
                                 <Image
                                     src={selectedImage}
                                     alt="Full Image"
-                                    width={800}
-                                    height={800}
-                                    className="rounded-lg object-contain w-full h-full"
+                                    width={400}
+                                    height={500}
+                                    className="rounded-lg"
                                 />
+                                <button
+                                    onClick={() => setSelectedImage(null)}
+                                    className="absolute top-3 right-3 bg-white/80 text-black rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-white transition"
+                                >
+                                    <X />
+                                </button>
                             </motion.div>
                         </motion.div>
                     )}

@@ -36,7 +36,7 @@
                 "time": "12:00 - 20:00",
                 "address": "Jl. Nama alamat lengkap disini",
                 "city": "Jakarta Pusat",
-                "icon": "/ringicon.svg"
+                "icon": "/peach-love/ringicon.svg"
             },
             {
                 "title": "Resepsi",
@@ -44,7 +44,7 @@
                 "time": "12:00 - 20:00",
                 "address": "Jl. Nama alamat lengkap disini",
                 "city": "Jakarta Pusat",
-                "icon": "/cheersicon.svg"
+                "icon": "/peach-love/cheersicon.svg"
             }
         ]
     },

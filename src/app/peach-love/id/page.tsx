@@ -54,12 +54,14 @@ export default function PeachLove() {
     const handleUnload = () => {
       audio.pause();
       audio.currentTime = 0; // reset posisi
+      setIsPlaying(!isPlaying);
     };
 
     // Juga hentikan kalau tab jadi tidak aktif
     const handleVisibilityChange = () => {
       if (document.hidden && audioRef.current) {
         audioRef.current.pause();
+        setIsPlaying(!isPlaying);
       }
     };
 

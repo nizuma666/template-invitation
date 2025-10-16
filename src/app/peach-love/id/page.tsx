@@ -39,23 +39,40 @@ export default function PeachLove() {
 
     const playAudio = async () => {
       try {
-        await audio.play();
-        setIsPlaying(true);
+        if (isOpen) { // 👈 hanya main ketika isOpen true
+          await audio.play();
+          setIsPlaying(true);
+        }
       } catch {
-        console.warn("Autoplay diblokir browser, tunggu interaksi user dulu 🎧");
+        console.warn("Autoplay diblokir browser, tunggu interaksi user 🎧");
         setIsPlaying(false);
       }
     };
-    if (isOpen) {
-      playAudio(); // ✅ hanya play ketika isOpen true
-    } else {
-      audio.pause(); // 🔇 pause ketika isOpen false
-      setIsPlaying(false);
-    }
+    playAudio();
+
+    // Hentikan audio saat keluar dari halaman atau browser
+    const handleUnload = () => {
+      audio.pause();
+      audio.currentTime = 0; // reset posisi
+    };
+
+    // Juga hentikan kalau tab jadi tidak aktif
+    const handleVisibilityChange = () => {
+      if (document.hidden && audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+
+    window.addEventListener("beforeunload", handleUnload);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       audio.pause();
+      audio.currentTime = 0
       audioRef.current = null;
+
+      window.removeEventListener("beforeunload", handleUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [isOpen]);
 

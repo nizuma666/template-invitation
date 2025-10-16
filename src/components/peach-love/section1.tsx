@@ -195,7 +195,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                     </motion.div>
 
                     {/* 5️⃣ Tombol “Open Invitation” muncul dengan scale */}
-                    <div className="w-full absolute -bottom-10 z-20">
+                    <div className="w-full absolute bottom-0 z-20">
                         <motion.div
                             className="flex gap-6 justify-center items-center translate-y-15"
                             initial="hidden"

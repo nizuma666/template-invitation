@@ -79,7 +79,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                 animate={controls}
                 className="absolute w-full bg-white h-dvh z-30"
             />
-            <Image src={background} alt="background" width={370} height={750} className="object-cover w-full h-full z-0" />
+            <Image src={background} alt="background" fill priority className="object-cover object-center z-0" />
             <div className="absolute inset-0 bg-black/60 z-10"></div>
             <div className="absolute inset-0 z-20 text-white flex flex-col gap-[60px] items-center py-[50px]">
                 <motion.div

@@ -24,6 +24,9 @@
   --color-green200: #B9F8CF;
   --color-success-pressed: #008236;
   --color-success-surface: #F0FDF4;
+  --color-danger200: #FFC9C9;
+  --color-danger-surface: #FEF2F2;
+  --color-danger-presssed: #C10007;
 }
 
 body {

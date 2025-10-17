@@ -42,7 +42,7 @@ export default function Section2({ content }: { content: any }) {
                     className="flex flex-col gap-4 items-center"
                     variants={fadeUp}
                 >
-                    <p className="text-heading1 font-bold text-rose1">{content.title}</p>
+                    <p className="text-heading1 font-bold text-rose1 text-center">{content.title}</p>
                     <p className="text-center">{content.desc}</p>
                 </motion.div>
 

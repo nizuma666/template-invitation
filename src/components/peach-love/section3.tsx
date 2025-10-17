@@ -50,7 +50,7 @@ export default function Section3({ content }: { content: any }) {
                 className="flex flex-col items-center gap-4 text-center"
                 variants={fadeUpElegant}
             >
-                <p className="text-rose1 text-heading1 font-bold">{content.title}</p>
+                <p className="text-rose1 text-heading1 font-bold text-center">{content.title}</p>
                 <p className="text-neutral-text4 max-w-md leading-relaxed">
                     {content.desc}
                 </p>

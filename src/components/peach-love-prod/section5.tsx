@@ -10,7 +10,7 @@ import { X } from "lucide-react"
 import { useInView, motion, Variants, AnimatePresence } from "motion/react"
 import Image, { StaticImageData } from "next/image"
 import { useRef, useState } from "react"
-export default function Section5({ content }: { content: any }) {
+export default function Section5({ data }: { data: any }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
     const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
@@ -39,8 +39,8 @@ export default function Section5({ content }: { content: any }) {
                 animate={isInView ? "visible" : "hidden"}
                 className="flex flex-col items-center gap-4"
             >
-                <p className="text-rose1 text-heading1 font-bold text-center">{content.title}</p>
-                <p className="text-neutral-text4 text-center">{content.desc}</p>
+                <p className="text-rose1 text-heading1 font-bold text-center">Potret Cinta Kami</p>
+                <p className="text-neutral-text4 text-center">Beberapa momen yang kami abadikan dengan penuh rasa dan kenangan indah.</p>
             </motion.div>
 
             <motion.div
@@ -50,7 +50,7 @@ export default function Section5({ content }: { content: any }) {
                 className="flex flex-col gap-2"
             >
                 <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full">
-                    {[grid1, grid2, grid3].map((src, i) => (
+                    {data.images.slice(0, 3).map((src: any, i: number) => (
                         <motion.div
                             key={i}
                             variants={gridItemVariant}
@@ -58,13 +58,13 @@ export default function Section5({ content }: { content: any }) {
                             className={`${i === 0 ? "row-span-2" : ""} h-full w-full cursor-pointer`}
                             onClick={() => setSelectedImage(src)}
                         >
-                            <Image src={src} alt={`Gallery ${i + 1}`} className="object-cover w-full h-full rounded-lg" />
+                            <Image src={src} alt={`Gallery ${i + 1}`} width={400} height={400} className="object-cover w-full h-full rounded-lg" />
                         </motion.div>
                     ))}
                 </div>
 
                 <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full">
-                    {[grid4, grid6, grid5].map((src, i) => (
+                    {data.images.slice(4, 6).map((src: any, i: number) => (
                         <motion.div
                             key={i}
                             variants={gridItemVariant}
@@ -72,7 +72,7 @@ export default function Section5({ content }: { content: any }) {
                             className={`${i === 1 ? "row-span-2" : ""} h-full w-full cursor-pointer`}
                             onClick={() => setSelectedImage(src)}
                         >
-                            <Image src={src} alt={`Gallery ${i + 4}`} className="object-cover w-full h-full rounded-lg" />
+                            <Image src={src} alt={`Gallery ${i + 4}`} width={400} height={400} className="object-cover w-full h-full rounded-lg" />
                         </motion.div>
                     ))}
                 </div>

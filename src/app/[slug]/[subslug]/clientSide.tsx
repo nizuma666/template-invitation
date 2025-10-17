@@ -144,10 +144,10 @@ export default function PeachLoveProd(data: any) {
 
             <Section1 data={data.data} onOpen={() => setIsOpen(true)} />
             <Section2 data={data.data.couple[0]} />
-            <Section3 content={content?.section3} />
-            <Section4 content={content?.section4} />
-            <Section5 content={content?.section5} />
-            <Section6 content={content?.section6} />
+            <Section3 data={data.data.acara[0]} />
+            <Section4 data={data.data.gift[0]} />
+            <Section5 data={data.data.gallery[0]} />
+            <Section6 data={data.data.cover[0]} greeting={data.data.greeting} content={content?.section6} />
             <Section7 />
         </div>
     );

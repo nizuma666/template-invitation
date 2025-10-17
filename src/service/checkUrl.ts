@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { db } from "@/service/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { notFound } from "next/navigation";
 
 interface CoverData {
@@ -28,30 +28,50 @@ async function getDataByField<T>(collectionName: string, field: string, value: s
         };
     }) as T[];
 }
+
+export async function addAcara(data: { nama: string; kehadiran: string; pesan: string; user_id: string }) {
+    try {
+        const docRef = await addDoc(collection(db, "greeting"), {
+            nama: data.nama,
+            kehadiran: data.kehadiran,
+            pesan: data.pesan,
+            user_id: data.user_id,
+        });
+        return { id: docRef.id };
+    } catch (error) {
+        console.error("Gagal menambah acara:", error);
+        return null;
+    }
+}
 export default async function CheckUrl({ params }: { params: any }) {
-    const cover = await getDataByField<CoverData>("cover", "url", params.slug);
+    const decodedSlug = decodeURIComponent(params.slug);
+    const cover = await getDataByField<CoverData>("cover", "url", decodedSlug);
+    console.log("cover: ", cover);
+    console.log("param: ", params.slug);
+    
+    
     if (cover.length < 1) return notFound();
 
     const userId = cover[0].user_id;
 
-    // Ambil semua data paralel
-    const [acara, gallery, gift, listUndangan, couple] = await Promise.all([
+    const [acara, gallery, gift, listUndangan, couple, greeting] = await Promise.all([
         getDataByField("acara", "user_id", userId),
         getDataByField("gallery", "user_id", userId),
         getDataByField("gift", "user_id", userId),
         getDataByField("listUndangan", "uid", userId),
         getDataByField("couple", "user_id", userId),
+        getDataByField("greeting", "user_id", userId),
     ]);
 
-    if (!acara || !gallery || !gift || !listUndangan) {
+    if (!acara || !gallery || !gift || !listUndangan || !couple || !greeting) {
         return notFound();
     }
 
-    const findSubSlug = listUndangan.find((item: any) => item.nama === params.subslug )
+    const findSubSlug = listUndangan.find((item: any) => item.nama === params.subslug)
 
     if (!findSubSlug) {
         return notFound();
     }
 
-    return { acara, gallery, gift, listUndangan, cover, couple }
+    return { acara, gallery, gift, listUndangan, cover, couple, greeting }
 }

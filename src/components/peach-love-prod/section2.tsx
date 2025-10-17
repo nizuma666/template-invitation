@@ -37,7 +37,7 @@ export default function Section2({ data }: { data: any }) {
             variants={container}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }} // 🟢 aktif tiap kali muncul di viewport
+            viewport={{ once: true, amount: 0.3 }}
         >
             <div className="flex flex-col gap-10 items-center">
                 <motion.div

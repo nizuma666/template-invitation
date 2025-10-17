@@ -73,7 +73,7 @@ export default function Section6({ content }: { content: any }) {
                 className="flex flex-col gap-10"
             >
                 <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
-                    <p className="text-rose1 text-heading1 font-bold">{content.title}</p>
+                    <p className="text-rose1 text-heading1 font-bold text-center">{content.title}</p>
                     <p className="text-neutral-text4 text-center">{content.desc}</p>
                 </motion.div>
 

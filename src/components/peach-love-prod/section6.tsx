@@ -3,9 +3,12 @@
 import { useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants } from "motion/react";
+import { addAcara } from "@/service/checkUrl";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section6({ content }: { content: any }) {
+export default function Section6({ content, data, greeting }: { content: any; data: any, greeting: any }) {
+    console.log("Greet: ", greeting);
+    
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
     const [formData, setFormData] = useState({
@@ -54,6 +57,16 @@ export default function Section6({ content }: { content: any }) {
         setFormData({ ...formData, kehadiran: value });
     };
 
+    const handleClick = async () => {
+        const result = await addAcara({
+            nama: formData.nama,
+            kehadiran: formData.kehadiran,
+            pesan: formData.pesan,
+            user_id: data.user_id
+        });
+        console.log("Hasil:", result);
+    };
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.kehadiran) {
@@ -73,7 +86,7 @@ export default function Section6({ content }: { content: any }) {
                 className="flex flex-col gap-10"
             >
                 <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
-                    <p className="text-rose1 text-heading1 font-bold">{content.title}</p>
+                    <p className="text-rose1 text-heading1 font-bold text-center">{content.title}</p>
                     <p className="text-neutral-text4 text-center">{content.desc}</p>
                 </motion.div>
 
@@ -104,8 +117,8 @@ export default function Section6({ content }: { content: any }) {
                                     type="button"
                                     onClick={() => handleSelectKehadiran(status)}
                                     className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-rose4 outline-none transition cursor-pointer ${formData.kehadiran === status
-                                            ? "bg-rose3 border-transparent text-rose1 font-semibold"
-                                            : "border-border-default text-gray-700 hover:bg-gray-100"
+                                        ? "bg-rose3 border-transparent text-rose1 font-semibold"
+                                        : "border-border-default text-gray-700 hover:bg-gray-100"
                                         }`}
                                 >
                                     {status === "Ya" ? "Ya, hadir" : "Tidak hadir"}
@@ -126,7 +139,7 @@ export default function Section6({ content }: { content: any }) {
                     </div>
 
                     <div className="pt-2">
-                        <Button className="w-full">Kirim Pesan</Button>
+                        <Button onClick={handleClick} className="w-full">Kirim Pesan</Button>
                     </div>
                 </motion.form>
 
@@ -151,18 +164,18 @@ export default function Section6({ content }: { content: any }) {
                             </motion.div>
                         ))
                     ) : (
-                        [1, 2, 3, 4].map((_, i) => (
+                        greeting.map((item: any, i: number) => (
                             <motion.div
-                                key={i}
+                                key={item.id}
                                 variants={fadeUp}
                                 className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]"
                             >
                                 <div className="flex justify-between">
-                                    <p className="font-semibold text-sm">Nizuma</p>
-                                    <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs">Will Attend</div>
+                                    <p className="font-semibold text-sm">{item.nama}</p>
+                                    <div className={`${item.kehadiran === "Ya" ? "border-green200 bg-success-surface text-success-pressed" : "border-danger200 bg-danger-surface text-danger-presssed"} border  px-4 py-1 rounded-full text-xs`}>{item.kehadiran === "Ya" ? "Hadir" : "Tidak Hadir"}</div>
                                 </div>
                                 <p className="text-sm text-neutral-text4">
-                                    We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below.
+                                    {item.pesan}
                                 </p>
                             </motion.div>
                         ))

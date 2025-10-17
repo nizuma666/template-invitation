@@ -38,19 +38,19 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
             if (isOpen) {
                 await controls.start({
                     scaleX: 1,
-                    transition: { duration: 0.3, ease: "easeOut", delay: 1 },
+                    transition: { duration: 0.2, ease: "easeOut", delay: 1 },
                 });
 
                 await new Promise((resolve) => setTimeout(resolve, 300));
 
                 await controlCard.start({
                     scale: 0,
-                    transition: {duration: 0.3, ease: "easeInOut"}
+                    transition: {duration: 0.2, ease: "easeInOut"}
                 })
 
                 await controls.start({
                     scaleY: 0,
-                    transition: { duration: 0.3, ease: "easeInOut" },
+                    transition: { duration: 0.2, ease: "easeInOut" },
                 });
             } else {
                 await controlCard.start({

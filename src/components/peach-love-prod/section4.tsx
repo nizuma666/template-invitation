@@ -6,7 +6,7 @@ import { Copy } from "lucide-react"
 import DebitCard from "./components/debit-card"
 import { useRef } from "react"
 import { useInView, motion, Variants } from "motion/react"
-export default function Section4({ content }: { content: any }) {
+export default function Section4({ data }: { data: any }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
     const textVariant: Variants = {
@@ -34,9 +34,9 @@ export default function Section4({ content }: { content: any }) {
                 className="flex flex-col items-center gap-4"
             >
                 <p className="text-rose1 text-heading1 font-bold text-center text-nowrap">
-                    {content.title}
+                    Restu dan Tanda Cinta
                 </p>
-                <p className="text-neutral-text4 text-center">{content.desc}</p>
+                <p className="text-neutral-text4 text-center">Kami percaya, setiap  doa yang ditulis adalah berkah. namun bila ingin turu berbagi kasih, berikut cara yang kamu sediakan:</p>
             </motion.div>
 
             <motion.div
@@ -45,18 +45,26 @@ export default function Section4({ content }: { content: any }) {
                 animate={isInView ? "visible" : "hidden"}
                 className="flex flex-col gap-4"
             >
-                {content.card.map((item: any, index: number) => (
-                    <motion.div key={index} variants={cardVariant}>
-                        <DebitCard
-                            bank={item.bank}
-                            name={item.name}
-                            bg={item.background}
-                            rekening={item.rekening}
-                            chip={chip}
-                            masterCard={masterCard}
-                        />
-                    </motion.div>
-                ))}
+                <motion.div variants={cardVariant}>
+                    <DebitCard
+                        bank={data.bank_rekening_1}
+                        name={data.nama_pemilik_rekening_1}
+                        bg="bg-rose1"
+                        rekening={data.no_rekening_1}
+                        chip={chip}
+                        masterCard={masterCard}
+                    />
+                </motion.div>
+                <motion.div variants={cardVariant}>
+                    <DebitCard
+                        bank={data.bank_rekening_2}
+                        name={data.nama_pemilik_rekening_2}
+                        bg="bg-rose2"
+                        rekening={data.no_rekening_2}
+                        chip={chip}
+                        masterCard={masterCard}
+                    />
+                </motion.div>
             </motion.div>
         </div>
     )

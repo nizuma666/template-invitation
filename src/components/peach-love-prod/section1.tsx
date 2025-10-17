@@ -75,7 +75,7 @@ export default function Section1({ data, onOpen }: { data: any, onOpen: () => vo
                     <Image src={Logo} alt="Arunara" width={175} height={32} />
                 </motion.div>
 
-                <div className="flex flex-col gap-5 items-center">
+                <div className="flex flex-col gap-5 items-center w-full">
                     <motion.p
                         className="text-white text-subheading1 font-medium"
                         initial={{ y: -50, opacity: 0 }}
@@ -87,7 +87,7 @@ export default function Section1({ data, onOpen }: { data: any, onOpen: () => vo
                     </motion.p>
 
                     <motion.div
-                        className="flex gap-1 items-center"
+                        className="flex gap-1 items-center justify-between"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.4 }}
@@ -109,7 +109,7 @@ export default function Section1({ data, onOpen }: { data: any, onOpen: () => vo
                         </motion.div>
 
                         <motion.p
-                            className="text-white font-allura text-[50px]"
+                            className="text-white font-allura text-[45px] text-nowrap text-center"
                             initial={{ scaleX: 0, opacity: 0 }}
                             viewport={{ once: true, amount: 0.4 }}
                             whileInView={{ scaleX: 1, opacity: 1 }}

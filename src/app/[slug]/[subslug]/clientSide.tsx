@@ -36,7 +36,7 @@ export default function PeachLoveProd(data: any) {
     }, [isOpen]);
 
     useEffect(() => {
-        const audio = new Audio(data.music);
+        const audio = new Audio(data.data.cover[0].music);
         audio.loop = true;
         audioRef.current = audio;
 

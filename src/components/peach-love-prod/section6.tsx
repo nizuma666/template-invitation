@@ -7,8 +7,6 @@ import { addAcara } from "@/service/checkUrl";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section6({ content, data, greeting }: { content: any; data: any, greeting: any }) {
-    console.log("Greet: ", greeting);
-    
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
     const [formData, setFormData] = useState({

@@ -2,9 +2,7 @@ import Image from "next/image";
 import instagram from "!/peach-love/instagram.svg"
 import { motion, Variants } from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section2({ data }: { data: any }) {
-    console.log("data: ", data);
-    
+export default function Section2({ data }: { data: any }) {    
     const container: Variants = {
         hidden: {},
         visible: {

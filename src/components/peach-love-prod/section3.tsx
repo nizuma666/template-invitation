@@ -20,7 +20,7 @@ export default function Section3({ data }: { data: any }) {
             y: 0,
             filter: "blur(0px)",
             rotateX: 0,
-            transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+            transition: { duration: 0.9, ease: "easeInOut" },
         },
         exit: { opacity: 0, y: -30, filter: "blur(4px)" },
     };
@@ -32,7 +32,7 @@ export default function Section3({ data }: { data: any }) {
             scale: 1,
             y: 0,
             rotateY: 0,
-            transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+            transition: { duration: 0.5, ease: "easeInOut" },
         },
     };
     const handleMap = (url: string) => {

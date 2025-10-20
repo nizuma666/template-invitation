@@ -19,6 +19,7 @@ export default function Section1({ data, onOpen }: { data: any, onOpen: () => vo
     const controlCard = useAnimationControls();
     const params = useParams();
     const filterUndangan = data.listUndangan.filter((item: any) => item.nama === params.subslug )
+    const targetDate = `${data.acara[0].tanggal_1}T${data.acara[0].waktu_1}:00`;    
 
     useEffect(() => {
         const runAnimation = async () => {
@@ -63,7 +64,7 @@ export default function Section1({ data, onOpen }: { data: any, onOpen: () => vo
                 animate={controls}
                 className="absolute w-full bg-white h-dvh z-30"
             />
-            <Image src={background} alt="background" fill priority className="object-cover object-center z-0" />
+            <Image src={data.cover[0].image_cover} alt="background" fill priority className="object-cover object-center z-0" />
             <div className="absolute inset-0 bg-black/60 z-10"></div>
             <div className="absolute inset-0 z-20 text-white flex flex-col gap-[60px] items-center py-[50px]">
                 <motion.div
@@ -230,7 +231,7 @@ export default function Section1({ data, onOpen }: { data: any, onOpen: () => vo
                                         exit={{ opacity: 0, scale: 0.8, y: -20 }}
                                         transition={{ duration: 1, ease: "easeOut" }}
                                     >
-                                        <CountdownTimer targetDate="2025-12-31T00:00:00" />
+                                        <CountdownTimer targetDate={targetDate} />
                                     </motion.div>
                                 )}
                             </AnimatePresence>

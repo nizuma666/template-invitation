@@ -17,7 +17,6 @@ export default function Section6({ content, data, greeting }: { content: any; da
         pesan: "",
     });
     const [listGreeting, setListGreeting] = useState(greeting)
-console.log("List Greeting di render:", listGreeting);
 
     const container: Variants = {
         hidden: {},
@@ -72,7 +71,7 @@ console.log("List Greeting di render:", listGreeting);
             setListGreeting(newData);
         });
 
-        return () => unsub(); // cleanup listener ketika komponen unmount
+        return () => unsub();
     }, [data.user_id]);
 
     const handleSubmit = async (e: React.FormEvent) => {

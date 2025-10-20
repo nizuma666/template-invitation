@@ -3,6 +3,8 @@ import instagram from "!/peach-love/instagram.svg"
 import { motion, Variants } from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section2({ data }: { data: any }) {    
+    console.log("couple: ", data);
+    
     const container: Variants = {
         hidden: {},
         visible: {
@@ -57,7 +59,7 @@ export default function Section2({ data }: { data: any }) {
                             width={220}
                             height={240}
                             alt={data.nama_pengantin_wanita}
-                            className="object-cover rounded-2xl shadow-md"
+                            className="object-cover max-w-[220px] max-h-[240px] rounded-2xl shadow-md"
                         />
                     </motion.div>
 
@@ -95,7 +97,7 @@ export default function Section2({ data }: { data: any }) {
                             width={220}
                             height={240}
                             alt={data.nama_pengantin_pria}
-                            className="object-cover rounded-2xl shadow-md"
+                            className="object-cover max-w-[220px] max-h-[240] rounded-2xl shadow-md"
                         />
                     </motion.div>
 

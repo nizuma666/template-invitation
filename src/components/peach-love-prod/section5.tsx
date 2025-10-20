@@ -64,7 +64,7 @@ export default function Section5({ data }: { data: any }) {
                 </div>
 
                 <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full">
-                    {data.images.slice(4, 6).map((src: any, i: number) => (
+                    {data.images.slice(3, 6).map((src: any, i: number) => (
                         <motion.div
                             key={i}
                             variants={gridItemVariant}

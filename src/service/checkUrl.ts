@@ -46,9 +46,6 @@ export async function addAcara(data: { nama: string; kehadiran: string; pesan: s
 export default async function CheckUrl({ params }: { params: any }) {
     const decodedSlug = decodeURIComponent(params.slug);
     const cover = await getDataByField<CoverData>("cover", "url", decodedSlug);
-    console.log("cover: ", cover);
-    console.log("param: ", params.slug);
-    
     
     if (cover.length < 1) return notFound();
 

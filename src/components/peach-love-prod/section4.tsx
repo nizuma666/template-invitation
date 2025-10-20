@@ -55,16 +55,19 @@ export default function Section4({ data }: { data: any }) {
                         masterCard={masterCard}
                     />
                 </motion.div>
-                <motion.div variants={cardVariant}>
-                    <DebitCard
-                        bank={data.bank_rekening_2}
-                        name={data.nama_pemilik_rekening_2}
-                        bg="bg-rose2"
-                        rekening={data.no_rekening_2}
-                        chip={chip}
-                        masterCard={masterCard}
-                    />
-                </motion.div>
+                {data.no_rekening_2 && (
+                    <motion.div variants={cardVariant}>
+                        <DebitCard
+                            bank={data.bank_rekening_2}
+                            name={data.nama_pemilik_rekening_2}
+                            bg="bg-rose2"
+                            rekening={data.no_rekening_2}
+                            chip={chip}
+                            masterCard={masterCard}
+                        />
+                    </motion.div>
+                )}
+
             </motion.div>
         </div>
     )

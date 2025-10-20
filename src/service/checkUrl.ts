@@ -10,7 +10,7 @@ interface CoverData {
     [key: string]: any;
 }
 
-async function getDataByField<T>(collectionName: string, field: string, value: string): Promise<T[]> {
+export async function getDataByField<T>(collectionName: string, field: string, value: string): Promise<T[]> {
     const q = query(collection(db, collectionName), where(field, "==", value));
     const snapshot = await getDocs(q);
 

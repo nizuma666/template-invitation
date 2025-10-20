@@ -1,9 +1,11 @@
 "use client"
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants } from "motion/react";
-import { addAcara } from "@/service/checkUrl";
+import { addAcara, getDataByField } from "@/service/checkUrl";
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
+import { db } from "@/service/firebase";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section6({ content, data, greeting }: { content: any; data: any, greeting: any }) {
@@ -14,6 +16,8 @@ export default function Section6({ content, data, greeting }: { content: any; da
         kehadiran: "",
         pesan: "",
     });
+    const [listGreeting, setListGreeting] = useState(greeting)
+console.log("List Greeting di render:", listGreeting);
 
     const container: Variants = {
         hidden: {},
@@ -55,25 +59,44 @@ export default function Section6({ content, data, greeting }: { content: any; da
         setFormData({ ...formData, kehadiran: value });
     };
 
-    const handleClick = async () => {
-        const result = await addAcara({
-            nama: formData.nama,
-            kehadiran: formData.kehadiran,
-            pesan: formData.pesan,
-            user_id: data.user_id
-        });
-        console.log("Hasil:", result);
-    };
+    useEffect(() => {
+        if (!data.user_id) return;
 
-    const handleSubmit = (e: React.FormEvent) => {
+        const q = query(collection(db, "greeting"), where("user_id", "==", data.user_id));
+
+        const unsub = onSnapshot(q, (snapshot) => {
+            const newData = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setListGreeting(newData);
+        });
+
+        return () => unsub(); // cleanup listener ketika komponen unmount
+    }, [data.user_id]);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.kehadiran) {
             alert("Silakan pilih kehadiran terlebih dahulu!");
             return;
         }
-        console.log("Data terkirim:", formData);
-        alert("Terima kasih atas ucapan dan konfirmasinya!");
-        setFormData({ nama: "", kehadiran: "", pesan: "" });
+
+        try {
+            await addDoc(collection(db, "greeting"), {
+                nama: formData.nama,
+                kehadiran: formData.kehadiran,
+                pesan: formData.pesan,
+                user_id: data.user_id,
+                createdAt: serverTimestamp(),
+                updatedAt: serverTimestamp(),
+            });
+
+            // reset form setelah submit
+            setFormData({ nama: "", kehadiran: "", pesan: "" });
+        } catch (err) {
+            console.error("Gagal menambah acara:", err);
+        }
     };
     return (
         <section ref={ref} className="py-10 px-6 flex flex-col gap-10 bg-white overflow-hidden">
@@ -137,7 +160,7 @@ export default function Section6({ content, data, greeting }: { content: any; da
                     </div>
 
                     <div className="pt-2">
-                        <Button onClick={handleClick} className="w-full">Kirim Pesan</Button>
+                        <Button className="w-full">Kirim Pesan</Button>
                     </div>
                 </motion.form>
 
@@ -145,39 +168,23 @@ export default function Section6({ content, data, greeting }: { content: any; da
                     className="flex flex-col gap-4 max-h-[420px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
                     variants={container}
                 >
-                    {content.messages?.length ? (
-                        content.messages.map((msg: any, idx: number) => (
-                            <motion.div
-                                key={idx}
-                                variants={fadeUp}
-                                className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]"
-                            >
-                                <div className="flex justify-between items-center gap-3">
-                                    <p className="font-semibold text-sm">{msg.name}</p>
-                                    <div className={`px-3 py-1 rounded-full text-xs ${msg.attend ? "bg-success-surface text-success-pressed border border-green200" : "bg-gray-100 text-gray-700 border border-border-default"}`}>
-                                        {msg.attend ? "Will Attend" : "Not Attend"}
-                                    </div>
-                                </div>
-                                <p className="text-sm text-neutral-text4">{msg.message}</p>
-                            </motion.div>
-                        ))
-                    ) : (
-                        greeting.map((item: any, i: number) => (
-                            <motion.div
-                                key={item.id}
-                                variants={fadeUp}
-                                className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]"
-                            >
-                                <div className="flex justify-between">
-                                    <p className="font-semibold text-sm">{item.nama}</p>
-                                    <div className={`${item.kehadiran === "Ya" ? "border-green200 bg-success-surface text-success-pressed" : "border-danger200 bg-danger-surface text-danger-presssed"} border  px-4 py-1 rounded-full text-xs`}>{item.kehadiran === "Ya" ? "Hadir" : "Tidak Hadir"}</div>
-                                </div>
-                                <p className="text-sm text-neutral-text4">
-                                    {item.pesan}
-                                </p>
-                            </motion.div>
-                        ))
-                    )}
+                    {listGreeting.map((item: any, i: number) => (
+                        <motion.div
+                            key={item.id}
+                            initial="hidden"
+                            animate="visible"
+                            variants={fadeUp}
+                            className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]"
+                        >
+                            <div className="flex justify-between">
+                                <p className="font-semibold text-sm">{item.nama}</p>
+                                <div className={`${item.kehadiran === "Ya" ? "border-green200 bg-success-surface text-success-pressed" : "border-danger200 bg-danger-surface text-danger-presssed"} border  px-4 py-1 rounded-full text-xs`}>{item.kehadiran === "Ya" ? "Hadir" : "Tidak Hadir"}</div>
+                            </div>
+                            <p className="text-sm text-neutral-text4">
+                                {item.pesan}
+                            </p>
+                        </motion.div>
+                    ))}
                 </motion.div>
             </motion.div>
         </section>

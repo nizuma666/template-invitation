@@ -18,18 +18,18 @@ export default function GreenFlag() {
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {
-    if (!isOpen) {
-      document.body.style.overflow = "hidden";
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      document.body.style.overflow = "auto";
-    }
+  // useEffect(() => {
+  //   if (!isOpen) {
+  //     document.body.style.overflow = "hidden";
+  //     window.scrollTo({ top: 0, behavior: "smooth" });
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
 
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, [isOpen]);
 
   useEffect(() => {
     const audio = new Audio("/music/backsound.mp3");
@@ -141,8 +141,8 @@ export default function GreenFlag() {
       <Section1 content={content?.section1} onOpen={() => setIsOpen(true)} />
       <Section2 content={content?.section2} />
       <Section3 content={content?.section3} />
-      <Section4 content={content?.section4} />
-      <Section5 content={content?.section5} />
+      <Section4 content={content?.section5} />
+      <Section5 content={content?.section4} />
       <Section6 content={content?.section6} />
       <Section7 />
     </div>

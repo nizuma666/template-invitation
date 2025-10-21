@@ -1,6 +1,10 @@
 import Image from "next/image";
 import instagram from "!/peach-love/instagram.svg"
-import {motion, Variants} from "motion/react"
+import { motion, Variants } from "motion/react"
+import iconTopLeft from "!/green-flag/floralSec2TopLeft.png"
+import iconTopRight from "!/green-flag/floraSec2TopRight.png"
+import pengantinWanita from "!/green-flag/pengantinWanita.png"
+import pengantinPria from "!/green-flag/pengantinPria.png"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section2({ content }: { content: any }) {
     const container: Variants = {
@@ -31,61 +35,86 @@ export default function Section2({ content }: { content: any }) {
     };
     return (
         <motion.div
-            className="px-4 py-10 w-full bg-white"
+            className="px-4 py-10 w-full bg-white relative"
             variants={container}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }} // 🟢 aktif tiap kali muncul di viewport
+            viewport={{ once: true, amount: 0.3 }}
         >
-            <div className="flex flex-col gap-10 items-center">
+            <motion.div
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="absolute top-0 left-0 z-0"
+            >
+                <Image src={iconTopLeft} alt="Arunara Green Flag" width={250} height={100} />
+            </motion.div>
+            <motion.div
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="absolute top-0 right-0 z-0"
+            >
+                <Image src={iconTopRight} alt="Arunara Green Flag" width={100} height={100} />
+            </motion.div>
+            <div className="flex flex-col gap-10 items-center mt-30 relative">
                 <motion.div
                     className="flex flex-col gap-4 items-center"
                     variants={fadeUp}
                 >
-                    <p className="text-heading1 font-bold text-rose1 text-center">{content.title}</p>
-                    <p className="text-center">{content.desc}</p>
+                    <p className="text-heading1 font-bold text-green-primary text-center">{content.title}</p>
+                    <p className="text-center text-[#757575]">Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram di sisinya, dan dijadikan-Nya di antara kamu rasa kasih dan sayang.<br /><span className="text-[#212121]">Q.S. Ar-Rum: 21</span></p>
                 </motion.div>
 
-                {content.couple.map((item: any, index: number) => (
-                    <motion.div
-                        key={index}
-                        className="flex flex-col gap-4 items-center"
-                        variants={fadeUp}
-                        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                    >
-                        <motion.div variants={scaleIn}>
-                            <Image
-                                src={item.img}
-                                width={220}
-                                height={240}
-                                alt={item.name}
-                                className="object-cover rounded-2xl shadow-md"
-                            />
-                        </motion.div>
-
-                        <motion.div
-                            className="flex flex-col gap-2 items-center"
-                            variants={fadeUp}
-                        >
-                            <p className="text-[40px] font-allura text-rose1">{item.name}</p>
-                            <p className="text-neutral-text3">{item.ref}</p>
-                            <p>{item.parents}</p>
-                        </motion.div>
-
-                        <motion.div
-                            className="bg-rose4 flex justify-center items-center gap-1 rounded-2xl px-2 py-1"
-                            variants={fadeUp}
-                        >
-                            <Image
-                                src={instagram}
-                                width={20}
-                                height={20}
-                                alt="Instagram"
-                            />
-                            <p className="text-rose1 text-sm font-semibold">{item.ig}</p>
-                        </motion.div>
+                <motion.div
+                    className="flex flex-col gap-4 items-center"
+                    variants={fadeUp}
+                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                >
+                    <motion.div variants={scaleIn} className="border-12 rounded-full border-[#5A7759] shadow-md">
+                        <Image
+                            src={pengantinWanita}
+                            width={175}
+                            height={175}
+                            alt="Putri Mangku Bumi"
+                            className="object-cover max-w-[220px] max-h-[240px] rounded-full"
+                        />
                     </motion.div>
-                ))}
+
+                    <motion.div
+                        className="flex flex-col items-center"
+                        variants={fadeUp}
+                    >
+                        <p className="text-[40px] font-allura text-green-primary">Putri Mangku Bumi</p>
+                        <p className="text-neutral-text3">Putri dari</p>
+                        <p className="text-center text-[#212121]">Bpk. Ahmad Wijaya & Ibu Siti Aminah</p>
+                    </motion.div>
+                </motion.div>
+
+                <motion.div
+                    className="flex flex-col gap-4 items-center"
+                    variants={fadeUp}
+                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                >
+                    <motion.div variants={scaleIn} className="border-12 rounded-full border-[#5A7759] shadow-md">
+                        <Image
+                            src={pengantinPria}
+                            width={175}
+                            height={175}
+                            alt="Putri Mangku Bumi"
+                            className="object-cover max-w-[220px] max-h-[240px] rounded-full"
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        className="flex flex-col items-center"
+                        variants={fadeUp}
+                    >
+                        <p className="text-[40px] font-allura text-green-primary">Asep Setiawan</p>
+                        <p className="text-neutral-text3">Putra dari</p>
+                        <p className="text-center text-[#212121]">Bpk. Ahmad Wijaya & Ibu Siti Aminah</p>
+                    </motion.div>
+                </motion.div>
             </div>
         </motion.div>
     )

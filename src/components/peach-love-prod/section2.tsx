@@ -71,19 +71,6 @@ export default function Section2({ data }: { data: any }) {
                         <p className="text-neutral-text3">Putri dari</p>
                         <p>Bpk. {data.nama_pengantin_bapak_wanita} & Ibu {data.nama_pengantin_ibu_wanita}</p>
                     </motion.div>
-
-                    {/* <motion.div
-                        className="bg-rose4 flex justify-center items-center gap-1 rounded-2xl px-2 py-1"
-                        variants={fadeUp}
-                    >
-                        <Image
-                            src={instagram}
-                            width={20}
-                            height={20}
-                            alt="Instagram"
-                        />
-                        <p className="text-rose1 text-sm font-semibold">{item.ig}</p>
-                    </motion.div> */}
                 </motion.div>
 
                 <motion.div
@@ -106,22 +93,9 @@ export default function Section2({ data }: { data: any }) {
                         variants={fadeUp}
                     >
                         <p className="text-[40px] font-allura text-rose1">{data.nama_pengantin_pria}</p>
-                        <p className="text-neutral-text3">Putri dari</p>
+                        <p className="text-neutral-text3">Putra dari</p>
                         <p>Bpk. {data.nama_pengantin_bapak_pria} & Ibu {data.nama_pengantin_ibu_pria}</p>
                     </motion.div>
-
-                    {/* <motion.div
-                        className="bg-rose4 flex justify-center items-center gap-1 rounded-2xl px-2 py-1"
-                        variants={fadeUp}
-                    >
-                        <Image
-                            src={instagram}
-                            width={20}
-                            height={20}
-                            alt="Instagram"
-                        />
-                        <p className="text-rose1 text-sm font-semibold">{item.ig}</p>
-                    </motion.div> */}
                 </motion.div>
             </div>
         </motion.div>

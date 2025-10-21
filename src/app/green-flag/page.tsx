@@ -18,18 +18,18 @@ export default function GreenFlag() {
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // useEffect(() => {
-  //   if (!isOpen) {
-  //     document.body.style.overflow = "hidden";
-  //     window.scrollTo({ top: 0, behavior: "smooth" });
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = "hidden";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      document.body.style.overflow = "auto";
+    }
 
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, [isOpen]);
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const audio = new Audio("/music/backsound.mp3");

@@ -71,7 +71,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
     }
 
     return (
-        <div className="w-full relative min-h-screen bg-green-primary flex flex-col gap-y-4 items-center px-10 pt-18">
+        <div className="w-full relative min-h-[100dvh] bg-green-primary flex flex-col gap-y-4 items-center px-10 pt-18">
             <motion.div
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}

@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import background from "@/assets/peach-love/background.png"
+import background from "!/peach-love/background.png"
 import Logo from "!/peach-love/Arunara.svg"
 import FlowerLeft from "!/peach-love/flowerleft.svg"
 import FlowerRight from "!/peach-love/flowerright.svg"

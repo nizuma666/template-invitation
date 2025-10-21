@@ -12,10 +12,6 @@ import Image from "next/image";
 import onMusic from "!/peach-love/onMusic.svg"
 import offMusic from "!/peach-love/offMusic.svg"
 import { motion, AnimatePresence } from "motion/react"
-import { useParams, useRouter } from "next/navigation";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "@/service/firebase";
-import CheckUrl from "@/service/checkUrl";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function PeachLoveProd(data: any) {
     const [isOpen, setIsOpen] = useState(false);

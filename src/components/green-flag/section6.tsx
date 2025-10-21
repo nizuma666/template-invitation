@@ -1,15 +1,11 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Button from "./components/button";
-import { useInView, motion, Variants, AnimatePresence } from "motion/react";
-import { addAcara, getDataByField } from "@/service/checkUrl";
-import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
-import { db } from "@/service/firebase";
-import PopUp from "./components/popUp";
+import { useInView, motion, Variants } from "motion/react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section6({ content, data, greeting }: { content: any; data: any, greeting: any }) {
+export default function Section6({ content }: { content: any }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
     const [formData, setFormData] = useState({
@@ -17,8 +13,6 @@ export default function Section6({ content, data, greeting }: { content: any; da
         kehadiran: "",
         pesan: "",
     });
-    const [listGreeting, setListGreeting] = useState(greeting)
-    const [messageSuccess, setMessageSuccess] = useState("")
 
     const container: Variants = {
         hidden: {},
@@ -60,54 +54,15 @@ export default function Section6({ content, data, greeting }: { content: any; da
         setFormData({ ...formData, kehadiran: value });
     };
 
-    useEffect(() => {
-        if (!data.user_id) return;
-
-        const q = query(collection(db, "greeting"), where("user_id", "==", data.user_id));
-
-        const unsub = onSnapshot(q, (snapshot) => {
-            const newData = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setListGreeting(newData);
-        });
-
-        return () => unsub();
-    }, [data.user_id]);
-
-    useEffect(() => {
-        if (messageSuccess !== "") {
-            const timer = setTimeout(() => {
-                setMessageSuccess("");
-            }, 3000); // 3 detik
-            return () => clearTimeout(timer);
-        }
-    }, [messageSuccess]);
-
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.kehadiran) {
             alert("Silakan pilih kehadiran terlebih dahulu!");
             return;
         }
-
-        try {
-            await addDoc(collection(db, "greeting"), {
-                nama: formData.nama,
-                kehadiran: formData.kehadiran,
-                pesan: formData.pesan,
-                user_id: data.user_id,
-                createdAt: serverTimestamp(),
-                updatedAt: serverTimestamp(),
-            });
-
-            // reset form setelah submit
-            setFormData({ nama: "", kehadiran: "", pesan: "" });
-            setMessageSuccess("Berhasil kirim pesan")
-        } catch (err) {
-            console.error("Gagal menambah acara:", err);
-        }
+        console.log("Data terkirim:", formData);
+        alert("Terima kasih atas ucapan dan konfirmasinya!");
+        setFormData({ nama: "", kehadiran: "", pesan: "" });
     };
     return (
         <section ref={ref} className="py-10 px-6 flex flex-col gap-10 bg-white overflow-hidden">
@@ -149,8 +104,8 @@ export default function Section6({ content, data, greeting }: { content: any; da
                                     type="button"
                                     onClick={() => handleSelectKehadiran(status)}
                                     className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-rose4 outline-none transition cursor-pointer ${formData.kehadiran === status
-                                        ? "bg-rose3 border-transparent text-rose1 font-semibold"
-                                        : "border-border-default text-gray-700 hover:bg-gray-100"
+                                            ? "bg-rose3 border-transparent text-rose1 font-semibold"
+                                            : "border-border-default text-gray-700 hover:bg-gray-100"
                                         }`}
                                 >
                                     {status === "Ya" ? "Ya, hadir" : "Tidak hadir"}
@@ -179,40 +134,41 @@ export default function Section6({ content, data, greeting }: { content: any; da
                     className="flex flex-col gap-4 max-h-[420px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
                     variants={container}
                 >
-                    {listGreeting.map((item: any, i: number) => (
-                        <motion.div
-                            key={item.id}
-                            initial="hidden"
-                            animate="visible"
-                            variants={fadeUp}
-                            className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]"
-                        >
-                            <div className="flex justify-between">
-                                <p className="font-semibold text-sm">{item.nama}</p>
-                                <div className={`${item.kehadiran === "Ya" ? "border-green200 bg-success-surface text-success-pressed" : "border-danger200 bg-danger-surface text-danger-presssed"} border  px-4 py-1 rounded-full text-xs`}>{item.kehadiran === "Ya" ? "Hadir" : "Tidak Hadir"}</div>
-                            </div>
-                            <p className="text-sm text-neutral-text4">
-                                {item.pesan}
-                            </p>
-                        </motion.div>
-                    ))}
+                    {content.messages?.length ? (
+                        content.messages.map((msg: any, idx: number) => (
+                            <motion.div
+                                key={idx}
+                                variants={fadeUp}
+                                className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]"
+                            >
+                                <div className="flex justify-between items-center gap-3">
+                                    <p className="font-semibold text-sm">{msg.name}</p>
+                                    <div className={`px-3 py-1 rounded-full text-xs ${msg.attend ? "bg-success-surface text-success-pressed border border-green200" : "bg-gray-100 text-gray-700 border border-border-default"}`}>
+                                        {msg.attend ? "Will Attend" : "Not Attend"}
+                                    </div>
+                                </div>
+                                <p className="text-sm text-neutral-text4">{msg.message}</p>
+                            </motion.div>
+                        ))
+                    ) : (
+                        [1, 2, 3, 4].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                variants={fadeUp}
+                                className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]"
+                            >
+                                <div className="flex justify-between">
+                                    <p className="font-semibold text-sm">Nizuma</p>
+                                    <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs">Will Attend</div>
+                                </div>
+                                <p className="text-sm text-neutral-text4">
+                                    We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below.
+                                </p>
+                            </motion.div>
+                        ))
+                    )}
                 </motion.div>
             </motion.div>
-
-            <AnimatePresence>
-                {messageSuccess && (
-                    <motion.div
-                        key="popup"
-                        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 50, scale: 0.8 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50"
-                    >
-                        <PopUp msg="Pesan berhasil dikirim" />
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </section>
     )
 }

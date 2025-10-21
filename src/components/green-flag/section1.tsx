@@ -71,14 +71,14 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
     }
 
     return (
-        <div className="w-full relative min-h-screen bg-green-primary flex flex-col gap-y-6 items-center px-10 pt-30">
+        <div className="w-full relative min-h-screen bg-green-primary flex flex-col gap-y-4 items-center px-10 pt-18">
             <motion.div
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="absolute -top-10 right-0 z-10"
+                className="absolute top-0 right-0 z-10"
             >
-                <Image src={iconTop} alt="Arunara Green Flag" width={200} height={100} />
+                <Image src={iconTop} alt="Arunara Green Flag" width={140} height={100} />
             </motion.div>
 
             <motion.div
@@ -103,7 +103,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                             exit={{ opacity: 0, y: 50 }}
                         >
-                            <Image src={iconBottomLeft} alt="Arunara Green Flag" width={200} height={100} />
+                            <Image src={iconBottomLeft} alt="Arunara Green Flag" width={150} height={100} />
                         </motion.div>
                     ) : (
                         <motion.div
@@ -129,12 +129,10 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         exit={{ opacity: 0, y: 50 }}
                         className="absolute bottom-0 right-0 z-10"
                     >
-                        <Image src={iconBottomRight} alt="Arunara Green Flag" width={200} height={100} />
+                        <Image src={iconBottomRight} alt="Arunara Green Flag" width={150} height={100} />
                     </motion.div>
                 )}
             </AnimatePresence>
-
-
 
             <motion.div
                 initial={{ y: 50, opacity: 0 }}
@@ -143,9 +141,9 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                     duration: 1,
                     ease: "easeInOut",
                 }}
-                className="absolute top-15 left-1/2 -translate-x-1/2 z-30"
+                className="absolute top-5 left-1/2 -translate-x-1/2 z-30"
             >
-                <Image src={Logo} alt="Arunara" width={175} height={32} />
+                <Image src={Logo} alt="Arunara" width={145} height={32} />
             </motion.div>
             <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -154,13 +152,13 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="rounded-full bg-[#5A7759] p-5">
                 <motion.div
-                    className="border border-white bg-[#FFFFFF0D] rounded-full flex flex-col items-center gap-6 py-[50] px-12"
+                    className="border border-white bg-[#FFFFFF0D] rounded-full flex flex-col items-center gap-2 py-[40px] px-12"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                 >
-                    <p className="font-medium text-subheading2 text-white text-center">UNDANGAN PERNIKAHAN</p>
-                    <p className="text-white text-[70px] font-allura text-center leading-18">Asep <br />&<br /> Putri</p>
+                    <p className="font-medium text-white text-center">UNDANGAN PERNIKAHAN</p>
+                    <p className="text-white text-[50px] font-allura text-center leading-18">Asep <br />&<br /> Putri</p>
                     <motion.div
                         className="flex gap-6 items-center"
                         initial={{ opacity: 0 }}
@@ -176,7 +174,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             transition={{ duration: 1.5 }}
                         />
                         <motion.p
-                            className="text-white text-subheading1 text-nowrap"
+                            className="text-white text-nowrap"
                             initial={{ scaleX: 0.2, opacity: 0 }}
                             whileInView={{ scaleX: 1, opacity: 1 }}
                             viewport={{ once: true, amount: 0.4 }}
@@ -199,7 +197,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
-                className="flex flex-col gap-y-2.5 items-center">
+                className="flex flex-col gap-y-2 items-center">
                 <p className="text-white font-medium text-subheading2 text-center">Dear,<br /><span className="text-white font-bold text-subheading2">Ferdian Septiawan</span></p>
 
                 <motion.div

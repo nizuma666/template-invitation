@@ -35,7 +35,7 @@ export default function Section2({ content }: { content: any }) {
     };
     return (
         <motion.div
-            className="px-4 py-10 w-full bg-white relative"
+            className="px-4 py-10 w-full bg-white relative overflow-hidden"
             variants={container}
             initial="hidden"
             whileInView="visible"

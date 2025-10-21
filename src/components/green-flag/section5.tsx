@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-import chip from "!/peach-love/chip.svg"
+import chip from "!/green-flag/chip.svg"
 import masterCard from "!/peach-love/master-card.svg"
 import { Copy } from "lucide-react"
 import DebitCard from "./components/debit-card"

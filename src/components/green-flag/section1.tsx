@@ -103,7 +103,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                             exit={{ opacity: 0, y: 50 }}
                         >
-                            <Image src={iconBottomLeft} alt="Arunara Green Flag" width={150} height={100} />
+                            <Image src={iconBottomLeft} alt="Arunara Green Flag" width={200} height={100} />
                         </motion.div>
                     ) : (
                         <motion.div
@@ -129,7 +129,7 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                         exit={{ opacity: 0, y: 50 }}
                         className="absolute bottom-0 right-0 z-10"
                     >
-                        <Image src={iconBottomRight} alt="Arunara Green Flag" width={150} height={100} />
+                        <Image src={iconBottomRight} alt="Arunara Green Flag" width={200} height={100} />
                     </motion.div>
                 )}
             </AnimatePresence>

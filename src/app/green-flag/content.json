@@ -56,7 +56,7 @@
                 "bank": "BCA",
                 "name": "Jhon Doe",
                 "rekening": "1234 5678 9876 5431",
-                "chip": "/chip.svg",
+                "chip": "/green-flag/chip.svg",
                 "masterCard": "master-card.svg",
                 "background": "bg-green-primary"
             },
@@ -64,7 +64,7 @@
                 "bank": "BRI",
                 "name": "Jhon Doe",
                 "rekening": "1234 5678 9876 5431",
-                "chip": "/chip.svg",
+                "chip": "/green-flag/chip.svg",
                 "masterCard": "master-card.svg",
                 "background": "bg-[#65A365]"
             }

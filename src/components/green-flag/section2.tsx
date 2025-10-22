@@ -5,6 +5,7 @@ import iconTopLeft from "!/green-flag/floralSec2TopLeft.png"
 import iconTopRight from "!/green-flag/floraSec2TopRight.png"
 import pengantinWanita from "!/green-flag/pengantinWanita.png"
 import pengantinPria from "!/green-flag/pengantinPria.png"
+import IconInFrame from "!/green-flag/floral.png"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section2({ content }: { content: any }) {
     const container: Variants = {
@@ -69,9 +70,10 @@ export default function Section2({ content }: { content: any }) {
                 <motion.div
                     className="flex flex-col gap-4 items-center"
                     variants={fadeUp}
+                    layout
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                 >
-                    <motion.div variants={scaleIn} className="border-12 rounded-full border-[#5A7759] shadow-md">
+                    <motion.div variants={scaleIn} className="border-12 rounded-full border-[#5A7759] shadow-md overflow-hidden relative">
                         <Image
                             src={pengantinWanita}
                             width={175}
@@ -79,6 +81,16 @@ export default function Section2({ content }: { content: any }) {
                             alt="Putri Mangku Bumi"
                             className="object-cover max-w-[220px] max-h-[240px] rounded-full"
                         />
+                        <motion.div
+                            variants={{
+                                hidden: { y: 100 },
+                                visible: {
+                                    y: 0,
+                                    transition: { duration: 1, ease: "easeOut" },
+                                }
+                            }} >
+                            <Image src={IconInFrame} alt="Putri Mangku Bumi" width={150} height={50} className="absolute -bottom-17 left-1/2 -translate-x-1/2" />
+                        </motion.div>
                     </motion.div>
 
                     <motion.div
@@ -96,14 +108,25 @@ export default function Section2({ content }: { content: any }) {
                     variants={fadeUp}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                 >
-                    <motion.div variants={scaleIn} className="border-12 rounded-full border-[#5A7759] shadow-md">
+                    <motion.div variants={scaleIn} className="border-12 rounded-full border-[#5A7759] shadow-md relative overflow-hidden">
                         <Image
                             src={pengantinPria}
                             width={175}
                             height={175}
-                            alt="Putri Mangku Bumi"
+                            alt="Asep Setiawan"
                             className="object-cover max-w-[220px] max-h-[240px] rounded-full"
                         />
+
+                        <motion.div
+                            variants={{
+                                hidden: { y: 100 },
+                                visible: {
+                                    y: 0,
+                                    transition: { duration: 1, ease: "easeOut" },
+                                }
+                            }} >
+                            <Image src={IconInFrame} alt="Asep Setiawan" width={150} height={50} className="absolute -bottom-17 left-1/2 -translate-x-1/2" />
+                        </motion.div>
                     </motion.div>
 
                     <motion.div
@@ -115,7 +138,7 @@ export default function Section2({ content }: { content: any }) {
                         <p className="text-center text-[#212121]">Bpk. Ahmad Wijaya & Ibu Siti Aminah</p>
                     </motion.div>
                 </motion.div>
-            </div>
-        </motion.div>
+            </div >
+        </motion.div >
     )
 }

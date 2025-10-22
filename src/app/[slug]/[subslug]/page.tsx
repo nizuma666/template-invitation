@@ -2,6 +2,7 @@
 import CheckUrl from "@/service/checkUrl";
 import PeachLoveProd from "./PeachLove";
 import GreenFlagProd from "./GreenFlag";
+import { notFound } from "next/navigation";
 
 export default async function PeachServer({ params }: { params: { slug: string } }) {
   try {
@@ -14,7 +15,7 @@ export default async function PeachServer({ params }: { params: { slug: string }
       case "2":
         return <GreenFlagProd data={data} />;
       default:
-        return <div>Template tidak ditemukan</div>;
+        return notFound();
     }
   } catch (error) {
     console.error("Error:", error);

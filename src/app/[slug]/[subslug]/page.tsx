@@ -19,6 +19,6 @@ export default async function PeachServer({ params }: { params: { slug: string }
     }
   } catch (error) {
     console.error("Error:", error);
-    return <div>Terjadi kesalahan saat memuat data.</div>;
+    return notFound();
   }
 }

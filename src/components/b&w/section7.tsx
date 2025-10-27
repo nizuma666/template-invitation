@@ -2,7 +2,7 @@
 import bgFooter from "!/peach-love/bgFooter.png"
 import Image from "next/image"
 import Logo from "!/peach-love/Arunara.svg"
-import instagram from "!/green-flag/instagram.svg"
+import instagram from "!/b&w/instagram.svg"
 import { Globe } from "lucide-react"
 import { motion, useInView, Variants } from "motion/react"
 import { useRef } from "react"
@@ -63,7 +63,7 @@ export default function Section7() {
             </motion.div>
 
             <motion.div
-                className="absolute inset-0 bg-[#2C4F2AE5] z-10"
+                className="absolute inset-0 bg-[#000000CC] z-10"
                 variants={overlayFade}
             ></motion.div>
 
@@ -87,16 +87,16 @@ export default function Section7() {
                     <div className="flex gap-4 items-center">
                         <motion.div
                             variants={fadeUp}
-                            className="bg-white flex gap-1 items-center text-green-primary font-semibold px-2 py-1 rounded-2xl"
+                            className="bg-white flex gap-1 items-center text-[#2C2C2C] font-semibold px-2 py-1 rounded-2xl"
                         >
                             <Image src={instagram} alt="arunara" width={18} height={18} />
                             arunara
                         </motion.div>
                         <motion.div
                             variants={fadeUp}
-                            className="bg-white flex gap-1 items-center text-green-primary font-semibold px-2 py-1 rounded-2xl"
+                            className="bg-white flex gap-1 items-center text-[#2C2C2C] font-semibold px-2 py-1 rounded-2xl"
                         >
-                            <Globe width={16} height={16} color="#506D4F" />
+                            <Globe width={16} height={16} color="#2C2C2C" />
                             arunara.id
                         </motion.div>
                     </div>

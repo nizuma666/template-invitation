@@ -36,7 +36,8 @@
                 "time": "12:00 - 20:00",
                 "address": "Jl. Nama alamat lengkap disini",
                 "city": "Jakarta Pusat",
-                "icon": "/peach-love/ringicon.svg"
+                "icon": "/peach-love/ringicon.svg",
+                "mapLink": "https://maps.app.goo.gl/8w6CskV7inVUunUv8"
             },
             {
                 "title": "Resepsi",
@@ -44,7 +45,8 @@
                 "time": "12:00 - 20:00",
                 "address": "Jl. Nama alamat lengkap disini",
                 "city": "Jakarta Pusat",
-                "icon": "/peach-love/cheersicon.svg"
+                "icon": "/peach-love/cheersicon.svg",
+                "mapLink": "https://maps.app.goo.gl/8w6CskV7inVUunUv8"
             }
         ]
     },

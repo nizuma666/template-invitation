@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants, AnimatePresence } from "motion/react";
+import Image from "next/image";
+import background from "!/b&w/bgSection1.png"
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section6() {
@@ -18,7 +20,7 @@ export default function Section6() {
     const longItem = [1, 2, 3, 4, 5, 6]
 
     const container: Variants = {
-        hidden: { },
+        hidden: {},
         visible: {
             transition: {
                 staggerChildren: 0.12,
@@ -66,16 +68,25 @@ export default function Section6() {
         setFormData({ nama: "", kehadiran: "", pesan: "" });
     };
     return (
-        <section ref={ref} className="py-10 px-6 flex flex-col gap-10 bg-[#FFF7EE] overflow-hidden">
+        <section ref={ref} className="w-full text-white relative overflow-hidden">
+            <motion.div
+                initial={{ scale: 1.1, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 2, ease: "easeOut" }}
+                className="absolute inset-0 z-0"
+            >
+                <Image src={background} fill alt="Gift Background" className="object-cover object-center" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+            </motion.div>
             <motion.div
                 variants={container}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                className="flex flex-col gap-10"
+                animate="visible"
+                className="flex flex-col gap-10 relative z-20  text-white px-6 py-10"
             >
-                <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
-                    <p className="text-green-primary text-heading1 font-bold text-center">Confirm Your Attendance</p>
-                    <p className="text-neutral-text4 text-center">Kindly let us know if you’ll be joining our celebration.</p>
+                <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 px-6">
+                    <p className="text-heading1 font-alice">Confirm Your Attendance</p>
+                    <p className="font-akatab">Kindly let us know if you’ll be joining our celebration.</p>
                 </motion.div>
 
                 <motion.form
@@ -91,7 +102,7 @@ export default function Section6() {
                             value={formData.nama}
                             onChange={handleChange}
                             placeholder="Contoh: Jhon Doe"
-                            className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-green-primary/25 outline-none"
+                            className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
                             required
                         />
                     </div>
@@ -104,8 +115,8 @@ export default function Section6() {
                                     key={status}
                                     type="button"
                                     onClick={() => handleSelectKehadiran(status)}
-                                    className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-green200/25 outline-none transition cursor-pointer ${formData.kehadiran === status
-                                        ? "bg-green-primary border-transparent text-white font-semibold"
+                                    className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none transition cursor-pointer ${formData.kehadiran === status
+                                        ? "bg-[#2C2C2C] border-transparent text-white font-semibold"
                                         : "border-border-default text-gray-700 hover:bg-gray-100"
                                         }`}
                                 >
@@ -122,7 +133,7 @@ export default function Section6() {
                             value={formData.pesan}
                             onChange={handleChange}
                             placeholder="Tulis pesan disini"
-                            className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green200/25 outline-none"
+                            className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
                         />
                     </div>
 
@@ -153,12 +164,12 @@ export default function Section6() {
                                         key={i}
                                         variants={fadeUp}
                                         layout
-                                        className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
+                                        className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
                                         <div className="flex justify-between">
                                             <p className="font-semibold text-sm">Nizuma {i}</p>
                                             <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
                                         </div>
-                                        <p className="text-sm text-neutral-text4"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
+                                        <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
                                     </motion.div>
                                 ))}
                             </motion.div>
@@ -177,12 +188,12 @@ export default function Section6() {
                                         key={i}
                                         variants={fadeUp}
                                         layout
-                                        className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-white/80 backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
+                                        className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
                                         <div className="flex justify-between">
                                             <p className="font-semibold text-sm">Nizuma {i}</p>
                                             <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
                                         </div>
-                                        <p className="text-sm text-neutral-text4"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
+                                        <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
                                     </motion.div>
                                 ))}
                             </motion.div>
@@ -193,7 +204,7 @@ export default function Section6() {
                     <motion.button
                         variants={fadeUp}
                         onClick={() => setShowAll(!showAll)}
-                        className="text-green-primary py-2 border border-green-primary w-full rounded-lg font-medium hover:underline mx-auto mt-2"
+                        className="py-2 border border-white w-full rounded-lg font-medium hover:underline mx-auto mt-2"
                     >
                         {showAll ? "Lihat Sedikit" : "Lihat Semua"}
                     </motion.button>

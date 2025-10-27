@@ -8,12 +8,10 @@ import grid5 from "!/peach-love/grid5.png"
 import grid6 from "!/peach-love/grid6.png"
 import background from "!/b&w/bgSection1.png"
 import { X } from "lucide-react"
-import { useInView, motion, Variants, AnimatePresence } from "motion/react"
+import { motion, Variants, AnimatePresence } from "motion/react"
 import Image, { StaticImageData } from "next/image"
-import { useRef, useState } from "react"
+import { useState } from "react"
 export default function Section5() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.2 });
     const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
 
     const gridItemVariant: Variants = {
@@ -176,7 +174,11 @@ export default function Section5() {
                         )}
                     </AnimatePresence>
                 </motion.div>
-                <p className="font-akatab">Love is not about how many days you’ve been together, but how much you love each other every single day.</p>
+                <motion.p
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="font-akatab">Love is not about how many days you’ve been together, but how much you love each other every single day.</motion.p>
             </div>
         </div>
     )

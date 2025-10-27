@@ -5,58 +5,107 @@ import masterCard from "!/peach-love/master-card.svg"
 import { Copy } from "lucide-react"
 import DebitCard from "./components/debit-card"
 import { useRef } from "react"
-import { useInView, motion, Variants } from "motion/react"
+import { motion, Variants } from "motion/react"
+import background from "!/b&w/bgSection1.png"
+import Image from "next/image"
 export default function Section5() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.2 });
-    const textVariant: Variants = {
-        hidden: { opacity: 0, y: -30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    };
+    const giftContainerVariant: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.25,
+                delayChildren: 0.2,
+                ease: "easeOut",
+            },
+        },
+    }
+
+    const giftTextVariant: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
+    }
 
     const cardContainerVariant: Variants = {
-        hidden: {},
+        hidden: { opacity: 0 },
         visible: {
-            transition: { staggerChildren: 0.25, delayChildren: 0.3 },
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3,
+                delayChildren: 0.3,
+            },
         },
-    };
+    }
 
-    const cardVariant: Variants = {
-        hidden: { opacity: 0, y: 40, scale: 0.95 },
-        visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-    };
+    const cardItemVariant: Variants = {
+        hidden: { opacity: 0, scale: 0.9, y: 30 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+        },
+    }
     return (
-        <div ref={ref} className="py-10 px-6 flex flex-col gap-10 bg-[#FFF7EE]">
+        <div className="w-full text-white relative min-h-[100dvh] overflow-hidden">
+            {/* Background Image + Fade-in Animation */}
             <motion.div
-                variants={textVariant}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                className="flex flex-col items-center gap-4"
+                initial={{ scale: 1.1, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 2, ease: "easeOut" }}
+                className="absolute inset-0 z-0"
             >
-                <p className="text-green-primary text-heading1 font-bold text-center text-nowrap">
-                    Your Love is the Greatest Gift
-                </p>
-                <p className="text-neutral-text4 text-center">If you wish to share a token of love, we’ve prepared a simple way to send your blessings.</p>
+                <Image src={background} fill alt="Gift Background" className="object-cover object-center" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
             </motion.div>
 
+            {/* Content */}
             <motion.div
-                variants={cardContainerVariant}
+                variants={giftContainerVariant}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                className="flex flex-col gap-4"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="absolute inset-0 z-20 flex flex-col gap-y-10 py-10 px-6 text-white"
             >
-                {/* {content.card.map((item: any, index: number) => (
-                    <motion.div key={index} variants={cardVariant}>
-                        <DebitCard
-                            bank={item.bank}
-                            name={item.name}
-                            bg={item.background}
-                            rekening={item.rekening}
-                            chip={chip}
-                            masterCard={masterCard}
-                        />
-                    </motion.div>
-                ))} */}
+                {/* Header Text */}
+                <motion.div variants={giftTextVariant} className="flex flex-col gap-2 text-center">
+                    <p className="font-alice text-4xl">Your Love is the Greatest Gift</p>
+                    <p className="font-akatab text-subheading2">
+                        If you wish to share a token of love, we’ve prepared a simple way to send your blessings.
+                    </p>
+                </motion.div>
+
+                {/* Debit Cards */}
+                <motion.div
+                    variants={cardContainerVariant}
+                    className="flex flex-col gap-4 items-center justify-center w-full"
+                >
+                    {[
+                        { bank: "BCA", bg: "bg-[#333333]", rekening: "19281938", name: "Purbaya" },
+                        { bank: "BRI", bg: "bg-[#555555]", rekening: "19281938", name: "Purbaya" },
+                    ].map((card, i) => (
+                        <motion.div
+                            key={i}
+                            variants={cardItemVariant}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 200 }}
+                            className="w-full"
+                        >
+                            <DebitCard
+                                bank={card.bank}
+                                bg={card.bg}
+                                chip={chip}
+                                masterCard={masterCard}
+                                rekening={card.rekening}
+                                name={card.name}
+                            />
+                        </motion.div>
+                    ))}
+                </motion.div>
             </motion.div>
         </div>
     )

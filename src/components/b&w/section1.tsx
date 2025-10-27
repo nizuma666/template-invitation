@@ -8,6 +8,7 @@ import Logo from "!/b&w/Arunara.svg"
 import ArrowRight from "!/b&w/arrowright.svg"
 import ArrowLeft from "!/b&w/arrowleft.svg"
 import ArrowDown from "!/b&w/ArrowDown.svg"
+import { smoothScrollTo } from "@/utils/smoothScroll";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section1({ onOpen }: { onOpen: () => void }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -75,7 +76,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
             </AnimatePresence>
 
             {/* Content */}
-            <div className="absolute inset-0 z-20 w-full px-8 sm:px-16 text-white flex flex-col">
+            <div className="relative z-20 w-full px-8 sm:px-16 text-white flex flex-col">
                 {/* Logo Section */}
                 <motion.div
                     initial={{ opacity: 0, y: -30 }}
@@ -158,7 +159,8 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                                 onClick={() => {
                                     const nextSection = document.getElementById("section2");
                                     if (nextSection) {
-                                        nextSection.scrollIntoView({ behavior: "smooth" });
+                                        const targetY = nextSection.offsetTop;
+                                        smoothScrollTo(targetY, 1000);
                                     }
                                 }}
                             >

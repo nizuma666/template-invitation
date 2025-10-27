@@ -81,7 +81,7 @@ export default function Section6() {
             <motion.div
                 variants={container}
                 initial="hidden"
-                animate="visible"
+                animate={isInView ? "visible" : "hidden"}
                 className="flex flex-col gap-10 relative z-20  text-white px-6 py-10"
             >
                 <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 px-6">

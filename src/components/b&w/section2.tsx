@@ -8,21 +8,30 @@ export default function Section2() {
   return (
     <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
       {/* Background */}
-      <Image
-        src={background}
-        fill
-        alt="B&W"
-        className="object-cover object-center z-0"
-      />
-      <div className="w-full h-full absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+      >
+        <Image src={background} fill alt="B&W" className="object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+      </motion.div>
 
       {/* Konten utama */}
-      <div className="relative z-20 flex flex-col gap-y-10">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          visible: { transition: { staggerChildren: 0.3 } },
+        }}
+        className="relative z-20 flex flex-col gap-y-10">
         {/* Bagian teks atas */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           animate={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: "all" }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="bg-black p-10 rounded-br-[80px]"
         >
@@ -114,7 +123,7 @@ export default function Section2() {
             </p>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

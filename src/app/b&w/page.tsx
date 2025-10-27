@@ -8,8 +8,8 @@ import Section6 from "@/components/b&w/section6";
 import Section7 from "@/components/b&w/section7";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import onMusic from "!/green-flag/audioOnGreen.svg"
-import offMusic from "!/green-flag/audioOffGreen.svg"
+import onMusic from "!/b&w/audioOnGreen.svg"
+import offMusic from "!/b&w/audioOffGreen.svg"
 import { motion, AnimatePresence } from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function GreenFlag() {
@@ -90,7 +90,7 @@ export default function GreenFlag() {
         {isOpen && (
           <motion.button
             onClick={handleToggleMusic}
-            className="fixed bottom-50 right-5 z-[99] rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer"
+            className="fixed bottom-60 right-5 z-[99] rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer"
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.1 }}
             initial={{ opacity: 0, y: 20 }}

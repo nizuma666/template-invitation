@@ -75,7 +75,7 @@ export default function Section5() {
     }
 
     return (
-        <div className="w-full text-white relative min-h-[100dvh] overflow-hidden">
+        <div className="w-full text-white relative min-h-screen overflow-hidden">
             <Image
                 src={background}
                 fill
@@ -83,7 +83,7 @@ export default function Section5() {
                 className="object-cover object-center z-0"
             />
             <div className="w-full h-full absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
-            <div className="absolute inset-0 z-20 flex flex-col gap-y-10 py-10 px-6 text-white">
+            <div className="relative z-20 flex flex-col gap-y-10 py-10 px-6 text-white">
                 <motion.div
                     variants={headerContainerVariant}
                     initial="hidden"

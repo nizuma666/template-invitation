@@ -51,7 +51,7 @@ export default function Section5() {
         },
     }
     return (
-        <div className="w-full text-white relative min-h-[100dvh] overflow-hidden">
+        <div className="w-full text-white relative min-h-screen overflow-hidden">
             {/* Background Image + Fade-in Animation */}
             <motion.div
                 initial={{ scale: 1.1, opacity: 0 }}
@@ -69,7 +69,7 @@ export default function Section5() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
-                className="absolute inset-0 z-20 flex flex-col gap-y-10 py-10 px-6 text-white"
+                className="relative z-20 flex flex-col gap-y-10 py-10 px-6 text-white"
             >
                 {/* Header Text */}
                 <motion.div variants={giftTextVariant} className="flex flex-col gap-2 text-center">

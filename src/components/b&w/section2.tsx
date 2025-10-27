@@ -6,7 +6,7 @@ import pengantinPria from "!/b&w/pengantinPria.png"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section2() {
   return (
-    <div id="section2" className="w-full text-white relative min-h-[100dvh] overflow-hidden">
+    <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
       {/* Background */}
       <Image
         src={background}
@@ -17,7 +17,7 @@ export default function Section2() {
       <div className="w-full h-full absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
 
       {/* Konten utama */}
-      <div className="absolute inset-0 z-20 flex flex-col gap-y-10">
+      <div className="relative z-20 flex flex-col gap-y-10">
         {/* Bagian teks atas */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -45,7 +45,7 @@ export default function Section2() {
         </motion.div>
 
         {/* Bagian Bride dan Groom */}
-        <div className="flex flex-col gap-y-6 px-10">
+        <div className="flex flex-col gap-y-6 px-10 py-10">
           {/* Bride */}
           <motion.div
             initial={{ opacity: 0, x: -80, rotateY: -10 }}

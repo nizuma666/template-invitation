@@ -20,7 +20,7 @@ export default function Section3() {
         visible: { opacity: 1, transition: { duration: 1.2, ease: "easeOut" } },
     }
     return (
-        <div className="w-full text-white relative min-h-[100dvh] overflow-hidden">
+        <div className="w-full text-white relative min-h-screen overflow-hidden">
             {/* Background */}
             <motion.div
                 className="absolute inset-0 z-0"
@@ -34,7 +34,7 @@ export default function Section3() {
 
             {/* Content */}
             <motion.div
-                className="absolute inset-0 z-20 flex flex-col gap-y-10 px-10 pt-2.5 pb-[70px] text-white"
+                className="relative z-20 flex flex-col gap-y-10 px-10 pt-2.5 pb-[70px] text-white"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}

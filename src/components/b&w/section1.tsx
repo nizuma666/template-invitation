@@ -50,7 +50,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
     }
 
     return (
-        <div className="w-full relative min-h-[100dvh] overflow-hidden">
+        <div className="w-full relative min-h-screen overflow-hidden">
             {/* Background Image */}
             <Image
                 src={background}
@@ -67,7 +67,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1 }}
-                    className={`w-full h-full absolute inset-0 z-10 ${isOpen
+                    className={`w-full h-full absolute inset-0 z-10 ${!isOpen
                         ? "bg-gradient-to-b from-black/0 via-black/85 to-black/100"
                         : "bg-gradient-to-b from-black/60 via-black/70 to-black/80"
                         }`}

@@ -139,6 +139,8 @@ export default function GreenFlag() {
 
       <Section1 onOpen={() => setIsOpen(true)} />
         <Section2 />
+        <Section3 />
+        <Section4 />
       {/* <Section2 />
       <Section3 />
       <Section4 />

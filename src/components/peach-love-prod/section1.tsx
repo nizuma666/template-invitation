@@ -18,7 +18,7 @@ export default function Section1({ data, onOpen }: { data: any, onOpen: () => vo
     const controls = useAnimationControls();
     const controlCard = useAnimationControls();
     const params = useParams();
-    const filterUndangan = data.listUndangan.filter((item: any) => item.nama === params.subslug )
+    const filterUndangan = data.listUndangan.filter((item: any) => item.nama === decodeURIComponent(params.subslug as string))
     const targetDate = `${data.acara[0].tanggal_1}T${data.acara[0].waktu_1}:00`;    
 
     useEffect(() => {

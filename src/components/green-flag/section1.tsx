@@ -198,7 +198,14 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
                 className="flex flex-col gap-y-2 items-center">
-                <p className="text-white font-medium text-subheading2 text-center">Dear,<br /><span className="text-white font-bold text-subheading2">Ferdian Septiawan</span></p>
+                <AnimatePresence mode="wait">
+                    {!isOpen ? (
+                        <motion.p
+                            exit={{ opacity: 0, scale: 0.8, y: 50, transition: { delay: 1 } }}
+                            className="text-white font-medium text-subheading2 text-center">Dear,<br /><span className="text-white font-bold text-subheading2">Ferdian Septiawan</span>
+                        </motion.p>
+                    ) : ""}
+                </AnimatePresence>
 
                 <motion.div
                     className="flex gap-6 justify-center items-center z-20"

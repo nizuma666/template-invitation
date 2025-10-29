@@ -6,20 +6,7 @@ import pengantinPria from "!/b&w/pengantinPria.png"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section2() {
   return (
-    <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
-      {/* Background */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-      >
-        <Image src={background} fill alt="B&W" className="object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
-      </motion.div>
-
-      {/* Konten utama */}
-      <motion.div
+    <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -124,6 +111,5 @@ export default function Section2() {
           </motion.div>
         </div>
       </motion.div>
-    </div>
   )
 }

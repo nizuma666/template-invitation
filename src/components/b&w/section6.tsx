@@ -68,148 +68,137 @@ export default function Section6() {
         setFormData({ nama: "", kehadiran: "", pesan: "" });
     };
     return (
-        <section ref={ref} className="w-full text-white relative overflow-hidden">
-            <motion.div
-                initial={{ scale: 1.1, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 2, ease: "easeOut" }}
-                className="absolute inset-0 z-0"
-            >
-                <Image src={background} fill alt="Gift Background" className="object-cover object-center" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        <motion.div
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col gap-10 relative z-20  text-white px-6 py-10"
+        >
+            <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 px-6">
+                <p className="text-heading1 font-alice">Confirm Your Attendance</p>
+                <p className="font-akatab">Kindly let us know if you’ll be joining our celebration.</p>
             </motion.div>
+
+            <motion.form
+                onSubmit={handleSubmit}
+                variants={cardVariant}
+                className="p-6 bg-white rounded-xl border border-rose4 shadow-[0_4px_5px_#9C46571F] space-y-4"
+            >
+                <div>
+                    <label className="block text-sm font-medium text-neutral-text4 mb-1">Nama</label>
+                    <input
+                        type="text"
+                        name="nama"
+                        value={formData.nama}
+                        onChange={handleChange}
+                        placeholder="Contoh: Jhon Doe"
+                        className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-neutral-text4 mb-2">Kehadiran</label>
+                    <div className="flex gap-3">
+                        {["Ya", "Tidak"].map((status) => (
+                            <button
+                                key={status}
+                                type="button"
+                                onClick={() => handleSelectKehadiran(status)}
+                                className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none transition cursor-pointer ${formData.kehadiran === status
+                                    ? "bg-[#2C2C2C] border-transparent text-white font-semibold"
+                                    : "border-border-default text-gray-700 hover:bg-gray-100"
+                                    }`}
+                            >
+                                {status === "Ya" ? "Ya, hadir" : "Tidak hadir"}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+                    <textarea
+                        name="pesan"
+                        value={formData.pesan}
+                        onChange={handleChange}
+                        placeholder="Tulis pesan disini"
+                        className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
+                    />
+                </div>
+
+                <div className="pt-2">
+                    <Button className="w-full">Kirim Pesan</Button>
+                </div>
+            </motion.form>
+
             <motion.div
+                className="flex flex-col gap-4"
                 variants={container}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                className="flex flex-col gap-10 relative z-20  text-white px-6 py-10"
+                animate="visible"
             >
-                <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 px-6">
-                    <p className="text-heading1 font-alice">Confirm Your Attendance</p>
-                    <p className="font-akatab">Kindly let us know if you’ll be joining our celebration.</p>
-                </motion.div>
-
-                <motion.form
-                    onSubmit={handleSubmit}
-                    variants={cardVariant}
-                    className="p-6 bg-white rounded-xl border border-rose4 shadow-[0_4px_5px_#9C46571F] space-y-4"
-                >
-                    <div>
-                        <label className="block text-sm font-medium text-neutral-text4 mb-1">Nama</label>
-                        <input
-                            type="text"
-                            name="nama"
-                            value={formData.nama}
-                            onChange={handleChange}
-                            placeholder="Contoh: Jhon Doe"
-                            className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-medium text-neutral-text4 mb-2">Kehadiran</label>
-                        <div className="flex gap-3">
-                            {["Ya", "Tidak"].map((status) => (
-                                <button
-                                    key={status}
-                                    type="button"
-                                    onClick={() => handleSelectKehadiran(status)}
-                                    className={`flex-1 py-1.5 text-sm rounded-lg border focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none transition cursor-pointer ${formData.kehadiran === status
-                                        ? "bg-[#2C2C2C] border-transparent text-white font-semibold"
-                                        : "border-border-default text-gray-700 hover:bg-gray-100"
-                                        }`}
-                                >
-                                    {status === "Ya" ? "Ya, hadir" : "Tidak hadir"}
-                                </button>
+                <AnimatePresence mode="wait">
+                    {showAll ? (
+                        <motion.div
+                            key="all"
+                            variants={container}
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            layout
+                            className="flex flex-col gap-4"
+                        >
+                            {longItem.map((_: any, i: number) => (
+                                <motion.div
+                                    key={i}
+                                    variants={fadeUp}
+                                    layout
+                                    className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
+                                    <div className="flex justify-between">
+                                        <p className="font-semibold text-sm">Nizuma {i}</p>
+                                        <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
+                                    </div>
+                                    <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
+                                </motion.div>
                             ))}
-                        </div>
-                    </div>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="short"
+                            variants={container}
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            layout
+                            className="flex flex-col gap-4"
+                        >
+                            {shortItem.map((_: any, i: number) => (
+                                <motion.div
+                                    key={i}
+                                    variants={fadeUp}
+                                    layout
+                                    className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
+                                    <div className="flex justify-between">
+                                        <p className="font-semibold text-sm">Nizuma {i}</p>
+                                        <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
+                                    </div>
+                                    <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
-                        <textarea
-                            name="pesan"
-                            value={formData.pesan}
-                            onChange={handleChange}
-                            placeholder="Tulis pesan disini"
-                            className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
-                        />
-                    </div>
-
-                    <div className="pt-2">
-                        <Button className="w-full">Kirim Pesan</Button>
-                    </div>
-                </motion.form>
-
-                <motion.div
-                    className="flex flex-col gap-4"
-                    variants={container}
-                    initial="hidden"
-                    animate="visible"
+                {/* Tombol "Lihat Semua" */}
+                <motion.button
+                    variants={fadeUp}
+                    onClick={() => setShowAll(!showAll)}
+                    className="py-2 border border-white w-full rounded-lg font-medium hover:underline mx-auto mt-2"
                 >
-                    <AnimatePresence mode="wait">
-                        {showAll ? (
-                            <motion.div
-                                key="all"
-                                variants={container}
-                                initial="hidden"
-                                animate="visible"
-                                exit="hidden"
-                                layout
-                                className="flex flex-col gap-4"
-                            >
-                                {longItem.map((_: any, i: number) => (
-                                    <motion.div
-                                        key={i}
-                                        variants={fadeUp}
-                                        layout
-                                        className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
-                                        <div className="flex justify-between">
-                                            <p className="font-semibold text-sm">Nizuma {i}</p>
-                                            <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
-                                        </div>
-                                        <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        ) : (
-                            <motion.div
-                                key="short"
-                                variants={container}
-                                initial="hidden"
-                                animate="visible"
-                                exit="hidden"
-                                layout
-                                className="flex flex-col gap-4"
-                            >
-                                {shortItem.map((_: any, i: number) => (
-                                    <motion.div
-                                        key={i}
-                                        variants={fadeUp}
-                                        layout
-                                        className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
-                                        <div className="flex justify-between">
-                                            <p className="font-semibold text-sm">Nizuma {i}</p>
-                                            <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
-                                        </div>
-                                        <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    {/* Tombol "Lihat Semua" */}
-                    <motion.button
-                        variants={fadeUp}
-                        onClick={() => setShowAll(!showAll)}
-                        className="py-2 border border-white w-full rounded-lg font-medium hover:underline mx-auto mt-2"
-                    >
-                        {showAll ? "Lihat Sedikit" : "Lihat Semua"}
-                    </motion.button>
-                </motion.div>
+                    {showAll ? "Lihat Sedikit" : "Lihat Semua"}
+                </motion.button>
             </motion.div>
-        </section>
+        </motion.div>
     )
 }

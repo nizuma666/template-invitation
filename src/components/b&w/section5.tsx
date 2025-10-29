@@ -51,62 +51,48 @@ export default function Section5() {
         },
     }
     return (
-        <div className="w-full text-white relative min-h-screen overflow-hidden">
-            {/* Background Image + Fade-in Animation */}
-            <motion.div
-                initial={{ scale: 1.1, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 2, ease: "easeOut" }}
-                className="absolute inset-0 z-0"
-            >
-                <Image src={background} fill alt="Gift Background" className="object-cover object-center" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        <motion.div
+            variants={giftContainerVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative z-20 flex flex-col gap-y-10 py-10 px-6 text-white"
+        >
+            {/* Header Text */}
+            <motion.div variants={giftTextVariant} className="flex flex-col gap-2 text-center">
+                <p className="font-alice text-4xl">Your Love is the Greatest Gift</p>
+                <p className="font-akatab text-subheading2">
+                    If you wish to share a token of love, we’ve prepared a simple way to send your blessings.
+                </p>
             </motion.div>
 
-            {/* Content */}
+            {/* Debit Cards */}
             <motion.div
-                variants={giftContainerVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                className="relative z-20 flex flex-col gap-y-10 py-10 px-6 text-white"
+                variants={cardContainerVariant}
+                className="flex flex-col gap-4 items-center justify-center w-full"
             >
-                {/* Header Text */}
-                <motion.div variants={giftTextVariant} className="flex flex-col gap-2 text-center">
-                    <p className="font-alice text-4xl">Your Love is the Greatest Gift</p>
-                    <p className="font-akatab text-subheading2">
-                        If you wish to share a token of love, we’ve prepared a simple way to send your blessings.
-                    </p>
-                </motion.div>
-
-                {/* Debit Cards */}
-                <motion.div
-                    variants={cardContainerVariant}
-                    className="flex flex-col gap-4 items-center justify-center w-full"
-                >
-                    {[
-                        { bank: "BCA", bg: "bg-[#333333]", rekening: "19281938", name: "Purbaya" },
-                        { bank: "BRI", bg: "bg-[#555555]", rekening: "19281938", name: "Purbaya" },
-                    ].map((card, i) => (
-                        <motion.div
-                            key={i}
-                            variants={cardItemVariant}
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ type: "spring", stiffness: 200 }}
-                            className="w-full"
-                        >
-                            <DebitCard
-                                bank={card.bank}
-                                bg={card.bg}
-                                chip={chip}
-                                masterCard={masterCard}
-                                rekening={card.rekening}
-                                name={card.name}
-                            />
-                        </motion.div>
-                    ))}
-                </motion.div>
+                {[
+                    { bank: "BCA", bg: "bg-[#333333]", rekening: "19281938", name: "Purbaya" },
+                    { bank: "BRI", bg: "bg-[#555555]", rekening: "19281938", name: "Purbaya" },
+                ].map((card, i) => (
+                    <motion.div
+                        key={i}
+                        variants={cardItemVariant}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 200 }}
+                        className="w-full"
+                    >
+                        <DebitCard
+                            bank={card.bank}
+                            bg={card.bg}
+                            chip={chip}
+                            masterCard={masterCard}
+                            rekening={card.rekening}
+                            name={card.name}
+                        />
+                    </motion.div>
+                ))}
             </motion.div>
-        </div>
+        </motion.div>
     )
 }

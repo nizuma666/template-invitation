@@ -9,6 +9,14 @@ import ArrowRight from "!/b&w/arrowright.svg"
 import ArrowLeft from "!/b&w/arrowleft.svg"
 import ArrowDown from "!/b&w/ArrowDown.svg"
 import { smoothScrollTo } from "@/utils/smoothScroll";
+import pengantinWanita from "!/b&w/pengantinWanita.png"
+import pengantinPria from "!/b&w/pengantinPria.png"
+import Section2 from "./section2";
+import Section3 from "./section3";
+import Section4 from "./section4";
+import Section5 from "./section5";
+import Section6 from "./section6";
+import Section7 from "./section7";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section1({ onOpen }: { onOpen: () => void }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -53,30 +61,32 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
     return (
         <div className="w-full relative min-h-screen overflow-hidden">
             {/* Background Image */}
-            <Image
-                src={background}
-                fill
-                alt="B&W"
-                className="object-cover object-center z-0"
-            />
-
-            {/* Background Gradient Transition */}
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={isOpen ? "gradient2" : "gradient1"}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1 }}
-                    className={`w-full h-full absolute inset-0 z-10 ${!isOpen
-                        ? "bg-gradient-to-b from-black/0 via-black/85 to-black/100"
-                        : "bg-gradient-to-b from-black/60 via-black/70 to-black/80"
-                        }`}
+            <div className="fixed top-0 left-0 w-full h-full z-0">
+                <Image
+                    src={background}
+                    fill
+                    alt="B&W"
+                    className="object-cover object-center z-0"
                 />
-            </AnimatePresence>
+
+                {/* Background Gradient Transition */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={isOpen ? "gradient2" : "gradient1"}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1 }}
+                        className={`w-full h-full absolute inset-0 z-10 ${!isOpen
+                            ? "bg-gradient-to-b from-black/0 via-black/85 to-black/100"
+                            : "bg-gradient-to-b from-black/60 via-black/70 to-black/80"
+                            }`}
+                    />
+                </AnimatePresence>
+            </div>
 
             {/* Content */}
-            <div className="relative z-20 w-full px-8 sm:px-16 text-white flex flex-col">
+            <div className="relative z-20 w-full h-screen overflow-y-auto px-8 sm:px-16 text-white flex flex-col">
                 {/* Logo Section */}
                 <motion.div
                     initial={{ opacity: 0, y: -30 }}
@@ -170,6 +180,23 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                     )}
                 </AnimatePresence>
             </div>
+            {/** section 2 */}
+            <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
+                <Section2 />
+            </div>
+            <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
+                <Section3 />
+            </div>
+            <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
+                <Section4 />
+            </div>
+            <div id="section2" className="w-full text-white relative overflow-hidden">
+                <Section5 />
+            </div>
+            <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
+                <Section6 />
+            </div>
+            <Section7 />
         </div>
     )
 }

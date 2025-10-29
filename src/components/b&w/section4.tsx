@@ -11,7 +11,8 @@ import { X } from "lucide-react"
 import { motion, Variants, AnimatePresence } from "motion/react"
 import Image, { StaticImageData } from "next/image"
 import { useState } from "react"
-export default function Section5() {
+
+export default function Section4() {
     const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
 
     const gridItemVariant: Variants = {
@@ -75,111 +76,102 @@ export default function Section5() {
     }
 
     return (
-        <div className="w-full text-white relative min-h-screen overflow-hidden">
-            <Image
-                src={background}
-                fill
-                alt="B&W"
-                className="object-cover object-center z-0"
-            />
-            <div className="w-full h-full absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
-            <div className="relative z-20 flex flex-col gap-y-10 py-10 px-6 text-white">
-                <motion.div
-                    variants={headerContainerVariant}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                    className="flex flex-col gap-2"
-                >
-                    <motion.p
-                        variants={headerItemVariant}
-                        className="font-alice text-4xl"
-                    >
-                        Our Gallery
-                    </motion.p>
-                    <motion.p
-                        variants={headerItemVariant}
-                        className="font-akatab text-subheading2"
-                    >
-                        here’s a glimpse of our story
-                    </motion.p>
-                </motion.div>
-                <motion.div
-                    variants={gridContainerVariant}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                    className="flex flex-col gap-2"
-                >
-                    <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full max-h-[300px]">
-                        {[grid4, grid6, grid5].map((src: any, i: number) => (
-                            <motion.div
-                                key={i}
-                                variants={gridItemVariant}
-                                whileHover={{ scale: 1.05 }}
-                                className={`${i === 1 ? "row-span-2" : ""} h-full w-full cursor-pointer`}
-                                onClick={() => setSelectedImage(src)}
-                            >
-                                <Image src={src} alt={`Gallery ${i + 4}`} width={400} height={400} className="object-cover w-full h-full rounded-lg" />
-                            </motion.div>
-                        ))}
-                    </div>
-                    <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full max-h-[300px]">
-                        {[grid1, grid2, grid3].map((src: any, i: number) => (
-                            <motion.div
-                                key={i}
-                                variants={gridItemVariant}
-                                whileHover={{ scale: 1.05 }}
-                                className={`${i === 0 ? "row-span-2" : ""} h-full w-full cursor-pointer`}
-                                onClick={() => setSelectedImage(src)}
-                            >
-                                <Image src={src} alt={`Gallery ${i + 1}`} width={400} height={400} className="object-cover w-full h-full rounded-lg" />
-                            </motion.div>
-                        ))}
-                    </div>
-                    <AnimatePresence>
-                        {selectedImage && (
-                            <motion.div
-                                key="modal"
-                                className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999] p-4"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                onClick={() => setSelectedImage(null)}
-                            >
-                                <motion.div
-                                    key="image"
-                                    initial={{ scale: 0.8, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    exit={{ scale: 0.8, opacity: 0 }}
-                                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                                    onClick={(e) => e.stopPropagation()}
-                                    className="relative"
-                                >
-                                    <Image
-                                        src={selectedImage}
-                                        alt="Full Image"
-                                        width={400}
-                                        height={500}
-                                        className="rounded-lg"
-                                    />
-                                    <button
-                                        onClick={() => setSelectedImage(null)}
-                                        className="absolute top-3 right-3 bg-white/80 text-black rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-white transition"
-                                    >
-                                        <X />
-                                    </button>
-                                </motion.div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </motion.div>
+        <div className="relative z-20 flex flex-col gap-y-10 py-10 px-6 text-white">
+            <motion.div
+                variants={headerContainerVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-col gap-2"
+            >
                 <motion.p
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="font-akatab">Love is not about how many days you’ve been together, but how much you love each other every single day.</motion.p>
-            </div>
+                    variants={headerItemVariant}
+                    className="font-alice text-4xl"
+                >
+                    Our Gallery
+                </motion.p>
+                <motion.p
+                    variants={headerItemVariant}
+                    className="font-akatab text-subheading2"
+                >
+                    here’s a glimpse of our story
+                </motion.p>
+            </motion.div>
+            <motion.div
+                variants={gridContainerVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-col gap-2"
+            >
+                <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full max-h-[300px]">
+                    {[grid4, grid6, grid5].map((src: any, i: number) => (
+                        <motion.div
+                            key={i}
+                            variants={gridItemVariant}
+                            whileHover={{ scale: 1.05 }}
+                            className={`${i === 1 ? "row-span-2" : ""} h-full w-full cursor-pointer`}
+                            onClick={() => setSelectedImage(src)}
+                        >
+                            <Image src={src} alt={`Gallery ${i + 4}`} width={400} height={400} className="object-cover w-full h-full rounded-lg" />
+                        </motion.div>
+                    ))}
+                </div>
+                <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full max-h-[300px]">
+                    {[grid1, grid2, grid3].map((src: any, i: number) => (
+                        <motion.div
+                            key={i}
+                            variants={gridItemVariant}
+                            whileHover={{ scale: 1.05 }}
+                            className={`${i === 0 ? "row-span-2" : ""} h-full w-full cursor-pointer`}
+                            onClick={() => setSelectedImage(src)}
+                        >
+                            <Image src={src} alt={`Gallery ${i + 1}`} width={400} height={400} className="object-cover w-full h-full rounded-lg" />
+                        </motion.div>
+                    ))}
+                </div>
+                <AnimatePresence>
+                    {selectedImage && (
+                        <motion.div
+                            key="modal"
+                            className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999] p-4"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <motion.div
+                                key="image"
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.8, opacity: 0 }}
+                                transition={{ duration: 0.4, ease: "easeInOut" }}
+                                onClick={(e) => e.stopPropagation()}
+                                className="relative"
+                            >
+                                <Image
+                                    src={selectedImage}
+                                    alt="Full Image"
+                                    width={400}
+                                    height={500}
+                                    className="rounded-lg"
+                                />
+                                <button
+                                    onClick={() => setSelectedImage(null)}
+                                    className="absolute top-3 right-3 bg-white/80 text-black rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-white transition"
+                                >
+                                    <X />
+                                </button>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </motion.div>
+            <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="font-akatab">Love is not about how many days you’ve been together, but how much you love each other every single day.</motion.p>
         </div>
     )
 }

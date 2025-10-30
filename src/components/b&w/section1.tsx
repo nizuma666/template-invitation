@@ -92,7 +92,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="mt-14 mb-[180px] flex justify-center items-center gap-x-5"
+                    className="mt-10 mb-[60px] flex justify-center items-center gap-x-5"
                 >
                     <Image src={ArrowRight} alt="Arunara" width={20} height={20} />
                     <Image src={Logo} alt="Arunara" width={146} height={27} />
@@ -158,7 +158,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -40 }}
                             transition={{ duration: 0.8 }}
-                            className="flex flex-col gap-y-6 justify-center items-center mt-16"
+                            className="flex flex-col gap-y-6 justify-center items-center mt-10"
                         >
                             <p className="font-alice text-heading2">Getting Closer</p>
                             <div className="w-32 h-[1px] bg-white" />

@@ -73,7 +73,7 @@ export default function Section6() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="flex flex-col gap-10 relative z-20  text-white px-6 py-10"
+            className="flex flex-col gap-10 relative text-white px-6 py-10"
         >
             <motion.div
                 initial="hidden"

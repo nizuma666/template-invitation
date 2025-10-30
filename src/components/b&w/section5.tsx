@@ -56,7 +56,7 @@ export default function Section5() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative z-20 flex flex-col gap-y-10 py-10 px-6 text-white"
+            className="relative flex flex-col gap-y-10 py-10 px-6 text-white"
         >
             {/* Header Text */}
             <motion.div variants={giftTextVariant} className="flex flex-col gap-2 text-center">

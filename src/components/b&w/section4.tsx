@@ -10,10 +10,31 @@ import background from "!/b&w/bgSection1.png"
 import { X } from "lucide-react"
 import { motion, Variants, AnimatePresence } from "motion/react"
 import Image, { StaticImageData } from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Section4() {
     const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
+
+    useEffect(() => {
+        if (selectedImage) {
+            // simpan posisi scroll sebelum dikunci
+            const scrollY = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+            document.body.style.width = "100%";
+        } else {
+            // kembalikan posisi scroll
+            const scrollY = document.body.style.top;
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
+            document.body.style.width = "";
+            window.scrollTo(0, parseInt(scrollY || "0") * -1);
+        }
+    }, [selectedImage]);
 
     const gridItemVariant: Variants = {
         hidden: {

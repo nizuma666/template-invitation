@@ -32,7 +32,7 @@ export default function DebitCard({ bank, name, rekening, bg, chip, masterCard }
         <div className={`${bg} rounded-lg py-6 px-4 flex flex-col gap-[45px] justify-between relative overflow-hidden w-full`}>
             <div className="absolute w-[256px] h-[256px] rounded-full bg-[#FFFFFF1A] z-0 -translate-y-1/2 top-1/2 left-1/2"></div>
             <div className="absolute w-[330px] h-[330px] rounded-full bg-[#FFFFFF1A] z-10 -translate-y-1/2 top-1/2 left-22"></div>
-            <div className="flex justify-between items-center z-20">
+            <div className="flex justify-between items-center">
                 <div className="flex gap-3 items-center">
                     <div className="bg-white rounded-md">
                         <Image src={chip} width={31.5} height={20} alt="debit card" />

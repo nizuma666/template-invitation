@@ -25,7 +25,7 @@ export default function Section7() {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.7, ease: [0.25, 0.8, 0.25, 1] },
+            transition: { duration: 1, ease: [0.25, 0.8, 0.25, 1] },
         },
     };
 
@@ -38,38 +38,18 @@ export default function Section7() {
         },
     };
 
-    const overlayFade: Variants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 0.8, transition: { duration: 1.2, ease: "easeInOut" } },
-    };
     return (
         <motion.div
             ref={ref}
-            className="w-full relative h-[400px] overflow-hidden"
+            className="w-full relative h-[400px] overflow-hidden bg-black"
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            whileInView={isInView ? "visible" : "hidden"}
+            viewport={{ once: true, amount: 0.3}}
             variants={container}
         >
             <motion.div
-                className="absolute inset-0 z-0"
-                variants={fadeUp}
-            >
-                <Image
-                    src={bgFooter}
-                    alt="Arunara"
-                    fill
-                    className="object-cover"
-                />
-            </motion.div>
-
-            <motion.div
-                className="absolute inset-0 bg-[#000000CC] z-10"
-                variants={overlayFade}
-            ></motion.div>
-
-            <motion.div
                 variants={container}
-                className="absolute inset-0 z-20 text-white flex flex-col gap-10 items-center justify-center py-10 px-5 text-center"
+                className=" text-white flex flex-col gap-10 items-center justify-center py-10 px-5 text-center"
             >
                 <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
                     <p className="font-semibold text-subheading1">

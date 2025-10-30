@@ -78,8 +78,8 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1 }}
                         className={`w-full h-full absolute inset-0 z-10 ${!isOpen
-                            ? "bg-gradient-to-b from-black/0 via-black/85 to-black/100"
-                            : "bg-gradient-to-b from-black/60 via-black/70 to-black/80"
+                            ? "bg-gradient-to-b from-black/0 via-black/80 to-black/100"
+                            : "bg-gradient-to-b from-black/60 via-black/80 to-black/80"
                             }`}
                     />
                 </AnimatePresence>
@@ -188,16 +188,16 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
             <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
                 <Section2 />
             </div>
-            <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
+            <div id="section3" className="w-full text-white relative min-h-screen overflow-hidden">
                 <Section3 />
             </div>
-            <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
+            <div id="section4" className="w-full text-white relative min-h-screen overflow-hidden">
                 <Section4 />
             </div>
-            <div id="section2" className="w-full text-white relative overflow-hidden">
+            <div id="section5" className="w-full text-white relative overflow-hidden">
                 <Section5 />
             </div>
-            <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
+            <div id="section6" className="w-full text-white relative min-h-screen overflow-hidden">
                 <Section6 />
             </div>
             <Section7 />

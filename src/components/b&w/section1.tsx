@@ -59,9 +59,9 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
     }
 
     return (
-        <div className="w-full relative min-h-screen overflow-hidden">
+        <div className="w-full max-w-md relative min-h-screen overflow-hidden">
             {/* Background Image */}
-            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-full z-0 max-w-md">
+            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-full min-h-screen z-0 max-w-md">
                 <Image
                     src={background}
                     fill

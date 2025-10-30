@@ -71,17 +71,26 @@ export default function Section6() {
         <motion.div
             variants={container}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col gap-10 relative z-20  text-white px-6 py-10"
         >
-            <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 px-6">
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeUp}
+                viewport={{ once: true, amount: 0.2 }}
+                className="flex flex-col items-center gap-4 px-6">
                 <p className="text-heading1 font-alice">Confirm Your Attendance</p>
                 <p className="font-akatab">Kindly let us know if you’ll be joining our celebration.</p>
             </motion.div>
 
             <motion.form
                 onSubmit={handleSubmit}
+                initial="hidden"
+                whileInView="visible"
                 variants={cardVariant}
+                viewport={{ once: true, amount: 0.2 }}
                 className="p-6 bg-white rounded-xl border border-rose4 shadow-[0_4px_5px_#9C46571F] space-y-4"
             >
                 <div>
@@ -136,7 +145,8 @@ export default function Section6() {
                 className="flex flex-col gap-4"
                 variants={container}
                 initial="hidden"
-                animate="visible"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
             >
                 <AnimatePresence mode="wait">
                     {showAll ? (
@@ -144,7 +154,8 @@ export default function Section6() {
                             key="all"
                             variants={container}
                             initial="hidden"
-                            animate="visible"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
                             exit="hidden"
                             layout
                             className="flex flex-col gap-4"
@@ -168,7 +179,8 @@ export default function Section6() {
                             key="short"
                             variants={container}
                             initial="hidden"
-                            animate="visible"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
                             exit="hidden"
                             layout
                             className="flex flex-col gap-4"
@@ -194,6 +206,7 @@ export default function Section6() {
                 <motion.button
                     variants={fadeUp}
                     onClick={() => setShowAll(!showAll)}
+                    viewport={{ once: true, amount: 0.2 }}
                     className="py-2 border border-white w-full rounded-lg font-medium hover:underline mx-auto mt-2"
                 >
                     {showAll ? "Lihat Sedikit" : "Lihat Semua"}

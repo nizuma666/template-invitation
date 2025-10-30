@@ -170,6 +170,7 @@ export default function Section4() {
             <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="font-akatab">Love is not about how many days you’ve been together, but how much you love each other every single day.</motion.p>
         </div>

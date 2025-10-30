@@ -61,7 +61,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
     return (
         <div className="w-full relative min-h-screen overflow-hidden">
             {/* Background Image */}
-            <div className="fixed top-0 left-0 w-full h-full z-0">
+            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-full z-0 max-w-md">
                 <Image
                     src={background}
                     fill
@@ -109,15 +109,19 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                     <motion.p
                         animate={{ x: isOpen ? 105 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-subheading2 font-akatab">the wedding of</motion.p>
+                        className="text-subheading2 font-akatab w-fit">the wedding of</motion.p>
                     <motion.p
                         animate={{ x: isOpen ? 70 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-6xl font-alice">Jane & Nguyen</motion.p>
+                        className="text-6xl font-alice text-wrap w-fit">Jane &</motion.p>
+                    <motion.p
+                        animate={{ x: isOpen ? 70 : 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-6xl font-alice text-wrap w-fit">Nguyen</motion.p>
                     <motion.p
                         animate={{ x: isOpen ? 110 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="font-alice text-heading2">02.02.2025</motion.p>
+                        className="font-alice text-heading2 w-fit">02.02.2025</motion.p>
                 </motion.div>
 
                 {/* Transition Between States */}

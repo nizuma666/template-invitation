@@ -17,23 +17,25 @@ export default function Section2() {
         {/* Bagian teks atas */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: "all" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="bg-black p-10 rounded-br-[80px]"
+          className="bg-black p-10"
         >
           <motion.p
             initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.3, duration: 2 }}
             className="font-alice text-[28px]"
           >
             We are Getting Married
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.3, duration: 2 }}
             className="text-sm"
           >
             With hearts full of love and gratitude, we are delighted to share the most beautiful chapter of our story. We warmly invite you to join us in celebrating our wedding day.
@@ -45,7 +47,7 @@ export default function Section2() {
           {/* Bride */}
           <motion.div
             initial={{ opacity: 0, x: -80, rotateY: -10 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="flex flex-col gap-y-[11px]"
@@ -61,7 +63,7 @@ export default function Section2() {
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                   className="border-8 border-white/50"
@@ -79,7 +81,7 @@ export default function Section2() {
           {/* Groom */}
           <motion.div
             initial={{ opacity: 0, x: 80, rotateY: 10 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="flex flex-col gap-y-[11px]"

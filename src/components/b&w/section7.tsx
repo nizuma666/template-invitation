@@ -44,7 +44,7 @@ export default function Section7() {
             className="w-full relative h-[400px] overflow-hidden bg-black"
             initial="hidden"
             whileInView={isInView ? "visible" : "hidden"}
-            viewport={{ once: true, amount: 0.3}}
+            viewport={{ once: true, amount: 0.3 }}
             variants={container}
         >
             <motion.div
@@ -53,17 +53,17 @@ export default function Section7() {
             >
                 <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
                     <p className="font-semibold text-subheading1">
-                        Dengan Cinta & Rasa Syukur
+                        With Love & Gratitude
                     </p>
                     <p className="text-sm max-w-[320px] leading-relaxed">
-                        Kami sangat berterima kasih atas kasih sayang, doa, dan dukungan yang
-                        diberikan saat kami memulai babak baru kehidupan.
+                        We are deeply grateful for the love, prayers, and support given as we begin
+                        this new chapter of our lives.
                     </p>
                 </motion.div>
 
                 <motion.div variants={scaleIn} className="flex flex-col gap-4 items-center">
                     <Image src={Logo} alt="Arunara" width={175} height={32} />
-                    <p className="text-white text-sm">Awal dari Setiap Momen Indah</p>
+                    <p className="text-white text-sm">The Beginning of Every Beautiful Moment</p>
                     <div className="flex gap-4 items-center">
                         <motion.div
                             variants={fadeUp}

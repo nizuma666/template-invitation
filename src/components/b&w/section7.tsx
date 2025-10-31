@@ -64,7 +64,7 @@ export default function Section7() {
                 <motion.div variants={scaleIn} className="flex flex-col gap-4 items-center">
                     <Image src={Logo} alt="Arunara" width={175} height={32} />
                     <p className="text-white text-sm">The Beginning of Every Beautiful Moment</p>
-                    <div className="flex gap-4 items-center">
+                    <div className="flex gap-4  items-center">
                         <motion.div
                             variants={fadeUp}
                             className="bg-white flex gap-1 items-center text-[#2C2C2C] font-semibold px-2 py-1 rounded-2xl"

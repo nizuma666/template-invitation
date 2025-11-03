@@ -78,8 +78,8 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1 }}
                         className={`w-full h-full absolute inset-0 z-10 ${!isOpen
-                            ? "bg-gradient-to-b from-black/0 via-black/80 to-black/100"
-                            : "bg-gradient-to-b from-black/60 via-black/80 to-black/80"
+                            ? "bg-gradient-to-b from-black/0 via-black/80 to-black/80"
+                            : "bg-gradient-to-b from-black/0 via-black/60 to-black/100"
                             }`}
                     />
                 </AnimatePresence>
@@ -87,6 +87,34 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
 
             {/* Content */}
             <div className="relative z-20 w-full h-screen overflow-y-auto px-8 sm:px-16 text-white flex flex-col">
+                <AnimatePresence mode="wait">
+                    {isOpen && (
+                        <div className="top-0 left-0 w-full h-full min-h-screen z-0 max-w-md absolute">
+                            <Image
+                                src={background}
+                                fill
+                                alt="B&W"
+                                className="object-cover object-center z-0"
+                            />
+
+                            {/* Background Gradient Transition */}
+
+                            <motion.div
+                                key={isOpen ? "gradient2" : "gradient1"}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1 }}
+                                className={`w-full h-full absolute inset-0 z-10 ${!isOpen
+                                    ? "bg-gradient-to-b from-black/0 via-black/80 to-black/80"
+                                    : "bg-gradient-to-b from-black/0 via-black/60 to-black/100"
+                                    }`}
+                            />
+
+                        </div>
+                    )}
+
+                </AnimatePresence>
                 {/* Logo Section */}
                 <motion.div
                     initial={{ opacity: 0, y: -30 }}
@@ -158,7 +186,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -40 }}
                             transition={{ duration: 0.8 }}
-                            className="flex flex-col gap-y-6 justify-center items-center mt-10"
+                            className="flex flex-col gap-y-6 justify-center items-center mt-10 z-20"
                         >
                             <p className="font-alice text-heading2">Getting Closer</p>
                             <div className="w-32 h-[1px] bg-white" />

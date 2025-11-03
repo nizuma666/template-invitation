@@ -15,32 +15,17 @@ export default function Section2() {
         }}
         className="relative z-20 flex flex-col gap-y-10">
         {/* Bagian teks atas */}
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="bg-black p-10"
+        <div className="bg-black p-10"
         >
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.3, duration: 2 }}
-            className="font-alice text-[28px]"
+          <p className="font-alice text-[28px]"
           >
             We are Getting Married
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.3, duration: 2 }}
-            className="text-sm"
+          </p>
+          <p className="text-sm"
           >
             With hearts full of love and gratitude, we are delighted to share the most beautiful chapter of our story. We warmly invite you to join us in celebrating our wedding day.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Bagian Bride dan Groom */}
         <div className="flex flex-col gap-y-6 px-10 py-10">

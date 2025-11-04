@@ -7,7 +7,7 @@ import cheers from "!/b&w/cheersicon.svg"
 import ring from "!/b&w/ringicon.svg"
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section3() {
+export default function Section3({data}: {data: any}) {
     const fadeInUp: Variants = {
         hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -44,16 +44,17 @@ export default function Section3() {
                     </motion.div>
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-center items-center gap-3">
-                            <p className="font-akatab text-nowrap">Akad Nikah</p>
+                            <p className="font-akatab text-nowrap">{data.nama_acara_1}</p>
                             <div className="bg-white w-full h-0.5" />
                         </div>
-                        <p className="font-alice text-heading2 text-nowrap">Minggu 16 Januari 2027</p>
-                        <p className="font-akatab font-semibold">Pukul 12:00 - 20:00</p>
-                        <p className="font-akatab">Jl. Nama alamat lengkap disini, Jakarta Pusat</p>
+                        <p className="font-alice text-heading2 text-nowrap">{data.tanggal_1}</p>
+                        <p className="font-akatab font-semibold">Pukul {data.waktu_1_mulai} - {data.waktu_1_selesai}</p>
+                        <p className="font-akatab">{data.alamat_1}</p>
                     </div>
                 </div>
                 <motion.button
                     type="button"
+                    onClick={() => window.open(data.google_map_1 || "")}
                     className="rounded-lg border border-white bg-[#FFFFFF1A] flex items-center justify-center gap-2 w-full py-2 hover:bg-white/20 transition-colors"
                     whileTap={{ scale: 0.97 }}
                     whileHover={{ scale: 1.03 }}
@@ -68,13 +69,13 @@ export default function Section3() {
                 <div className="flex gap-4 justify-center items-center">
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-center items-center gap-3">
-                            <p className="font-akatab text-nowrap">Resepsi</p>
+                            <p className="font-akatab text-nowrap">{data.nama_acara_2}</p>
                             <div className="bg-white w-full h-0.5" />
                         </div>
                         <div className="text-right">
-                            <p className="font-alice text-heading2 text-nowrap">Minggu 16 Januari 2027</p>
-                            <p className="font-akatab font-semibold">Pukul 12:00 - 20:00</p>
-                            <p className="font-akatab">Jl. Nama alamat lengkap disini, Jakarta Pusat</p>
+                            <p className="font-alice text-heading2 text-nowrap">{data.tanggal_2}</p>
+                            <p className="font-akatab font-semibold">Pukul {data.waktu_1_mulai} - {data.waktu_1_selesai}</p>
+                            <p className="font-akatab">{data.alamat_2}</p>
                         </div>
                     </div>
                     <motion.div whileHover={{ rotate: -10 }} transition={{ type: "spring", stiffness: 200 }}>
@@ -83,6 +84,7 @@ export default function Section3() {
                 </div>
                 <motion.button
                     type="button"
+                    onClick={() => window.open(data.google_map_2 || "")}
                     className="rounded-lg border border-white bg-[#FFFFFF1A] flex items-center justify-center gap-2 w-full py-2 hover:bg-white/20 transition-colors"
                     whileTap={{ scale: 0.97 }}
                     whileHover={{ scale: 1.03 }}

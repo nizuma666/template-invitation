@@ -91,7 +91,7 @@ export default function Section3({ data }: { data: any }) {
                             variants={fadeUpElegant}
                         >
                             <p>{data.tanggal_1}</p>
-                            <p>{data.waktu_1}</p>
+                            <p>{data.waktu_1} - {data.waktu_2 || "Selesai"}</p>
                             <p>{data.alamat_1}</p>
                         </motion.div>
 

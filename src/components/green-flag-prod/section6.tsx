@@ -17,8 +17,6 @@ export default function Section6({ data, greeting }: { data: any, greeting: any 
     const [showAll, setShowAll] = useState(false);
     const [listGreeting, setListGreeting] = useState(greeting)
     const [messageSuccess, setMessageSuccess] = useState("")
-    console.log("list greet: ", listGreeting);
-
 
     const container: Variants = {
         hidden: {},

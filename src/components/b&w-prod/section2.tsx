@@ -3,7 +3,7 @@ import { motion } from "motion/react"
 import pengantinWanita from "!/b&w/pengantinWanita.png"
 import pengantinPria from "!/b&w/pengantinPria.png"
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section2() {
+export default function Section2({data}: {data: any}) {
   return (
     <motion.div
       initial="hidden"
@@ -49,13 +49,13 @@ export default function Section2() {
                 viewport={{ once: true }}
                 className="border-8 border-white/50"
               >
-                <Image src={pengantinWanita} alt="Jane Angelina" width={200} height={200} />
+                <Image src={data.image_pengantin_wanita} alt="Jane Angelina" width={200} height={200} />
               </motion.div>
             </motion.div>
-            <p className="font-alice text-heading1 text-center mt-3">Jane Angeline</p>
+            <p className="font-alice text-heading1 text-center mt-3">{data.pengantin_wanita}</p>
           </div>
           <p className="font-akatab text-sm text-center text-nowrap">
-            Putri dari Bpk Sumanto & Ibu Sriyatun Marfuah
+            Bpk. {data.nama_pengantin_bapak_wanita} & Ibu {data.nama_pengantin_ibu_wanita}
           </p>
         </motion.div>
 
@@ -83,13 +83,13 @@ export default function Section2() {
                 viewport={{ once: true }}
                 className="border-8 border-white/50"
               >
-                <Image src={pengantinPria} alt="Nguyen Fanhouten" width={200} height={200} />
+                <Image src={data?.image_pengantin_pria} alt="Nguyen Fanhouten" width={200} height={200} />
               </motion.div>
             </motion.div>
-            <p className="font-alice text-heading1 text-center mt-3">Nguyen Fanhouten</p>
+            <p className="font-alice text-heading1 text-center mt-3">{data.pengantin_pria}</p>
           </div>
           <p className="font-akatab text-sm text-center text-nowrap">
-            Putra dari Bpk Sutarto & Ibu Nurhayati
+            Bpk. {data.nama_pengantin_bapak_pria} & {data.nama_pengantin_ibu_pria}
           </p>
         </motion.div>
       </div>

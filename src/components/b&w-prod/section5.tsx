@@ -4,7 +4,7 @@ import chip from "!/green-flag/chip.svg"
 import masterCard from "!/peach-love/master-card.svg"
 import DebitCard from "./components/debit-card"
 import { motion, Variants } from "motion/react"
-export default function Section5() {
+export default function Section5({data}: {data: any}) {
     const giftContainerVariant: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -67,27 +67,36 @@ export default function Section5() {
                 variants={cardContainerVariant}
                 className="flex flex-col gap-4 items-center justify-center w-full"
             >
-                {[
-                    { bank: "BCA", bg: "bg-[#333333]", rekening: "19281938", name: "Purbaya" },
-                    { bank: "BRI", bg: "bg-[#555555]", rekening: "19281938", name: "Purbaya" },
-                ].map((card, i) => (
-                    <motion.div
-                        key={i}
-                        variants={cardItemVariant}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 200 }}
-                        className="w-full"
-                    >
-                        <DebitCard
-                            bank={card.bank}
-                            bg={card.bg}
-                            chip={chip}
-                            masterCard={masterCard}
-                            rekening={card.rekening}
-                            name={card.name}
-                        />
-                    </motion.div>
-                ))}
+                <motion.div
+                    variants={cardItemVariant}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="w-full"
+                >
+                    <DebitCard
+                        bank={data.bank_rekening_1}
+                        bg="bg-[#333333]"
+                        chip={chip}
+                        masterCard={masterCard}
+                        rekening={data.no_rekening_1}
+                        name={data.nama_pemilik_rekening_1}
+                    />
+                </motion.div>
+                <motion.div
+                    variants={cardItemVariant}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="w-full"
+                >
+                    <DebitCard
+                        bank={data.bank_rekening_2}
+                        bg="bg-[#555555]"
+                        chip={chip}
+                        masterCard={masterCard}
+                        rekening={data.no_rekening_w}
+                        name={data.nama_pemilik_rekening_2}
+                    />
+                </motion.div>
             </motion.div>
         </motion.div>
     )

@@ -1,11 +1,13 @@
 "use client"
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants, AnimatePresence } from "motion/react";
+import { addDoc, collection, onSnapshot, query, serverTimestamp, where } from "firebase/firestore";
+import { db } from "@/service/firebase";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section6() {
+export default function Section6({ data, greeting }: { data: any, greeting: any }) {
     const ref = useRef(null);
     const [formData, setFormData] = useState({
         nama: "",
@@ -13,6 +15,9 @@ export default function Section6() {
         pesan: "",
     });
     const [showAll, setShowAll] = useState(false);
+    const [listGreeting, setListGreeting] = useState(greeting)
+    const [messageSuccess, setMessageSuccess] = useState("")
+
     const shortItem = [1, 2, 3];
     const longItem = [1, 2, 3, 4, 5, 6]
 
@@ -43,6 +48,31 @@ export default function Section6() {
         },
     };
 
+    useEffect(() => {
+        if (!data.user_id) return;
+
+        const q = query(collection(db, "greeting"), where("user_id", "==", data.user_id));
+
+        const unsub = onSnapshot(q, (snapshot) => {
+            const newData = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setListGreeting(newData);
+        });
+
+        return () => unsub();
+    }, [data.user_id]);
+
+    useEffect(() => {
+        if (messageSuccess !== "") {
+            const timer = setTimeout(() => {
+                setMessageSuccess("");
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [messageSuccess]);
+
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
@@ -54,15 +84,29 @@ export default function Section6() {
         setFormData({ ...formData, kehadiran: value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.kehadiran) {
             alert("Silakan pilih kehadiran terlebih dahulu!");
             return;
         }
-        console.log("Data terkirim:", formData);
-        alert("Terima kasih atas ucapan dan konfirmasinya!");
-        setFormData({ nama: "", kehadiran: "", pesan: "" });
+
+        try {
+            await addDoc(collection(db, "greeting"), {
+                nama: formData.nama,
+                kehadiran: formData.kehadiran,
+                pesan: formData.pesan,
+                user_id: data.user_id,
+                createdAt: serverTimestamp(),
+                updatedAt: serverTimestamp(),
+            });
+
+            // reset form setelah submit
+            setFormData({ nama: "", kehadiran: "", pesan: "" });
+            setMessageSuccess("Berhasil kirim pesan")
+        } catch (err) {
+            console.error("Gagal menambah acara:", err);
+        }
     };
     return (
         <motion.div
@@ -157,17 +201,17 @@ export default function Section6() {
                             layout
                             className="flex flex-col gap-4"
                         >
-                            {longItem.map((_: any, i: number) => (
+                            {listGreeting.map((item: any, i: number) => (
                                 <motion.div
                                     key={i}
                                     variants={fadeUp}
                                     layout
                                     className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
                                     <div className="flex justify-between">
-                                        <p className="font-semibold text-sm">Nizuma {i}</p>
-                                        <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
+                                        <p className="font-semibold text-sm">{item.nama}</p>
+                                        <div className={`${item.kehadiran === "Ya" ? "border-green200 bg-success-surface text-success-pressed" : "border-danger200 bg-danger-surface text-danger-presssed"} border  px-4 py-1 rounded-full text-xs`}>{item.kehadiran === "Ya" ? "Hadir" : "Tidak Hadir"}</div>
                                     </div>
-                                    <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
+                                    <p className="text-sm">{item.pesan}</p>
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -182,17 +226,17 @@ export default function Section6() {
                             layout
                             className="flex flex-col gap-4"
                         >
-                            {shortItem.map((_: any, i: number) => (
+                            {listGreeting.slice(0, 3).map((item: any, i: number) => (
                                 <motion.div
                                     key={i}
                                     variants={fadeUp}
                                     layout
                                     className="border border-border-default rounded-lg p-4 flex flex-col gap-2 bg-[#FFFFFF1A] backdrop-blur-sm shadow-[0_2px_3px_#9C465720]" >
                                     <div className="flex justify-between">
-                                        <p className="font-semibold text-sm">Nizuma {i}</p>
-                                        <div className="border border-green200 bg-success-surface text-success-pressed px-4 py-1 rounded-full text-xs"> Will Attend </div>
+                                        <p className="font-semibold text-sm">{item.nama}</p>
+                                        <div className={`${item.kehadiran === "Ya" ? "border-green200 bg-success-surface text-success-pressed" : "border-danger200 bg-danger-surface text-danger-presssed"} border  px-4 py-1 rounded-full text-xs`}>{item.kehadiran === "Ya" ? "Hadir" : "Tidak Hadir"}</div>
                                     </div>
-                                    <p className="text-sm"> We would be delighted to celebrate this beautiful moment together with you. Kindly confirm your attendance below. </p>
+                                    <p className="text-sm">{item.pesna}</p>
                                 </motion.div>
                             ))}
                         </motion.div>

@@ -32,7 +32,7 @@ export default function GreenFlagProd(data: any) {
     }, [isOpen]);
 
     useEffect(() => {
-        const audio = new Audio("/music/backsound.mp3");
+        const audio = new Audio(data?.data?.cover[0]?.music);
         audio.loop = true;
         audioRef.current = audio;
 

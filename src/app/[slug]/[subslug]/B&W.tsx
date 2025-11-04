@@ -1,12 +1,12 @@
 "use client"
-import Section1 from "@/components/b&w/section1";
+import Section1 from "@/components/b&w-prod/section1";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import onMusic from "!/b&w/audioOnGreen.svg"
 import offMusic from "!/b&w/audioOffGreen.svg"
 import { motion, AnimatePresence } from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function BandW() {
+export default function BandWProd(data: any) {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -25,7 +25,7 @@ export default function BandW() {
   }, [isOpen]);
 
   useEffect(() => {
-    const audio = new Audio("/music/backsound.mp3");
+    const audio = new Audio(data.data.cover[0].music);
     audio.loop = true;
     audioRef.current = audio;
 
@@ -131,7 +131,7 @@ export default function BandW() {
         )}
       </AnimatePresence>
 
-      <Section1 onOpen={() => setIsOpen(true)} />
+      <Section1 data={data.data} onOpen={() => setIsOpen(true)} />
     </div>
   );
 }

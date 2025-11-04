@@ -3,6 +3,7 @@ import CheckUrl from "@/service/checkUrl";
 import PeachLoveProd from "./PeachLove";
 import GreenFlagProd from "./GreenFlag";
 import { notFound } from "next/navigation";
+import BandWProd from "./B&W";
 
 export default async function PeachServer({ params }: { params: { slug: string } }) {
   try {
@@ -14,6 +15,8 @@ export default async function PeachServer({ params }: { params: { slug: string }
         return <PeachLoveProd data={data} />;
       case "2":
         return <GreenFlagProd data={data} />;
+      case "3":
+        return <BandWProd data={data} />;
       default:
         return notFound();
     }

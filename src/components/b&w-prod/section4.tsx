@@ -11,8 +11,10 @@ import { motion, Variants, AnimatePresence } from "motion/react"
 import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 
-export default function Section4() {
+export default function Section4({ data }: { data: any }) {
     const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
+    console.log("data 4: ",data);
+    
 
     useEffect(() => {
         if (selectedImage) {
@@ -125,7 +127,7 @@ export default function Section4() {
                 className="flex flex-col gap-2"
             >
                 <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full max-h-[300px]">
-                    {[grid4, grid6, grid5].map((src: any, i: number) => (
+                    {data.images.slice(0, 3).map((src: any, i: number) => (
                         <motion.div
                             key={i}
                             variants={gridItemVariant}
@@ -138,7 +140,7 @@ export default function Section4() {
                     ))}
                 </div>
                 <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden rounded-xl w-full max-h-[300px]">
-                    {[grid1, grid2, grid3].map((src: any, i: number) => (
+                    {data.images.slice(3, 6).map((src: any, i: number) => (
                         <motion.div
                             key={i}
                             variants={gridItemVariant}

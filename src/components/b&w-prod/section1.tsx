@@ -15,11 +15,17 @@ import Section4 from "./section4";
 import Section5 from "./section5";
 import Section6 from "./section6";
 import Section7 from "./section7";
+import { useParams } from "next/navigation";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Section1({ onOpen }: { onOpen: () => void }) {
+export default function Section1({ onOpen, data }: { onOpen: () => void, data: any }) {
     const [isOpen, setIsOpen] = useState(false)
     const controls = useAnimationControls();
     const controlCard = useAnimationControls();
+    const cover = data.cover[0]
+    const acara = data.acara[0]
+    const params = useParams()
+    const filterUndangan = data.listUndangan.filter((item: any) => item.nama === decodeURIComponent(params.subslug as string))
+    const targetDate = `${data.acara[0].tanggal_1}T${data.acara[0].waktu_1}:00`;
 
     useEffect(() => {
         const runAnimation = async () => {
@@ -61,7 +67,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
             {/* Background Image */}
             <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-full min-h-screen z-0 max-w-md">
                 <Image
-                    src={background}
+                    src={cover.image_cover}
                     fill
                     alt="B&W"
                     className="object-cover object-center z-0"
@@ -89,7 +95,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                     {isOpen && (
                         <div className="top-0 left-0 w-full h-full min-h-screen z-0 max-w-md absolute">
                             <Image
-                                src={background}
+                                src={cover.image_cover}
                                 fill
                                 alt="B&W"
                                 className="object-cover object-center z-0"
@@ -139,15 +145,15 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                     <motion.p
                         animate={{ x: isOpen ? 70 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-6xl font-alice text-wrap w-fit">Jane &</motion.p>
+                        className="text-6xl font-alice text-wrap w-fit">{cover.pengantin_wanita} &</motion.p>
                     <motion.p
                         animate={{ x: isOpen ? 70 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-6xl font-alice text-wrap w-fit">Nguyen</motion.p>
+                        className="text-6xl font-alice text-wrap w-fit">{cover.pengantin_pria}</motion.p>
                     <motion.p
                         animate={{ x: isOpen ? 110 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="font-alice text-heading2 w-fit">02.02.2025</motion.p>
+                        className="font-alice text-heading2 w-fit">{acara.tanggal_1}</motion.p>
                 </motion.div>
 
                 {/* Transition Between States */}
@@ -164,7 +170,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                             <p>
                                 Dear,<br />
                                 <span className="font-bold text-subheading2 text-nowrap">
-                                    Ferdian Septiawan
+                                    {filterUndangan[0].nama}
                                 </span>
                             </p>
                             <motion.button
@@ -188,7 +194,7 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
                         >
                             <p className="font-alice text-heading2">Getting Closer</p>
                             <div className="w-32 h-[1px] bg-white" />
-                            <CountdownTimer targetDate="2025-12-31T00:00:00" />
+                            <CountdownTimer targetDate={targetDate} />
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{
@@ -212,19 +218,19 @@ export default function Section1({ onOpen }: { onOpen: () => void }) {
             </div>
             {/** section 2 */}
             <div id="section2" className="w-full text-white relative min-h-screen overflow-hidden">
-                <Section2 />
+                <Section2 data={data.couple[0]} />
             </div>
             <div id="section3" className="w-full text-white relative min-h-screen overflow-hidden">
-                <Section3 />
+                <Section3 data={data.acara[0]} />
             </div>
             <div id="section4" className="w-full text-white relative min-h-screen overflow-hidden">
-                <Section4 />
+                <Section4 data={data.gallery[0]} />
             </div>
             <div id="section5" className="w-full text-white relative overflow-hidden">
-                <Section5 />
+                <Section5 data={data.gift[0]} />
             </div>
             <div id="section6" className="w-full text-white relative min-h-screen overflow-hidden">
-                <Section6 />
+                <Section6 data={data.cover[0]} greeting={data.greeting} />
             </div>
             <Section7 />
         </div>

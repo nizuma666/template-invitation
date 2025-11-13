@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import localFont from 'next/font/local'
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Arunara",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/android-chrome-512x512.png",
         width: 1200,
         height: 630,
         alt: "Arunara — Undangan Nikah Digital",

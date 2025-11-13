@@ -3,9 +3,9 @@ import glass from "!/landing/icon-glass-landing-section2.svg"
 import makeup from "!/landing/icon-makeup-landing-section2.svg"
 import Image from "next/image"
 import img from "!/landing/img-section2-landing.png"
-const Section2 = () => {
+const Section2 = ({ id }: { id: string }) => {
     return (
-        <section className="w-full min-h-screen bg-white relative pt-[80px] px-16">
+        <section id={id} className="w-full min-h-screen bg-white relative pt-[80px] px-16">
             <div className="bg-white border w-[1200px] border-rose4 rounded-xl p-8 flex justify-center items-center gap-8 absolute -top-20 z-30 mx-auto left-1/2 -translate-x-1/2">
                 <div className="flex items-center justify-center gap-4">
                     <Image src={love} width={64} height={64} alt="Meaningful" />
@@ -32,10 +32,10 @@ const Section2 = () => {
                 </div>
             </div>
             <div className="w-full h-full flex flex-col gap-10 p-16">
-                <div className="flex flex-col justify-center items-center gap-4 text-center px-[175px]">
-                    <p className="!font-playfair font-semibold text-heading1">Kemudahan di Persiapan Nikahmu</p>
+                <header className="flex flex-col justify-center items-center gap-4 text-center px-[175px]">
+                    <p className="font-playfair font-semibold text-heading1">Kemudahan di Persiapan Nikahmu</p>
                     <p className="text-subheading2 text-neutral-text4">Karena setiap momen berharga pantas dijalani tanpa stres. Biarkan Arunara bantu kamu menikmati setiap langkah menuju hari bahagia.</p>
-                </div>
+                </header>
                 <div className="flex gap-6 justify-center items-stretch">
                     <div className="bg-rose5 rounded-2xl border border-rose3 flex flex-col gap-6 p-10 w-1/4">
                         <p className="text-center font-bold text-heading2">Fitur Arunara</p>

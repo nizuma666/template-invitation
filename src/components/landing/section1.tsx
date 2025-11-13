@@ -3,9 +3,9 @@ import phone from "!/landing/img-phone.png"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 
-const Section1 = () => {
+const Section1 = ({ id }: { id: string }) => {
     return (
-        <section className="relative w-full min-h-screen">
+        <section id={id} className="relative w-full min-h-screen">
             <div className="top-0 left-0 w-full h-full min-h-screen z-0 absolute">
                 <Image
                     src={background}

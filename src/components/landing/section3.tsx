@@ -73,7 +73,7 @@ export const templates = [
     },
 ];
 
-const Section3 = () => {
+const Section3 = ({ id }: { id: string }) => {
     const [tab, setTab] = useState("semua")
     const tabs = [
         { key: "semua", label: "Semua" },
@@ -91,7 +91,7 @@ const Section3 = () => {
             : templates.filter((item) => item.category === tab);
 
     return (
-        <section className="p-16 flex flex-col gap-10 items-center">
+        <section id={id} className="p-16 flex flex-col gap-10 items-center">
             <header className="text-center flex flex-col gap-4">
                 <h2 className="font-playfair text-heading1 font-semibold">Pilih Template Undanganmu</h2>
                 <p className="text-subheading2 text-neutral-text4">Setiap cinta punya gayanya sendiri. Temukan desain yang paling mencerminkan kisahmu.</p>

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akatab:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -9,6 +10,7 @@
   --font-quicksand: "Quicksand", sans-serif;
   --font-alice: "Alice", sans-serif;
   --font-akatab: "akatab", sans-serif;
+  --font-playfair: "Playfair Display", sans-serif;
   --text-heading1: 32px;
   --text-heading2: 24px;
   --text-subheading1: 22px;
@@ -25,6 +27,7 @@
   --color-rose5: #FFF4F6;
   --color-neutral-text3: #909090;
   --color-neutral-text4: #757575;
+  --color-neutral-text5: #212121;
   --color-border-default: #E2E8F0;
   --color-green200: #B9F8CF;
   --color-success-pressed: #008236;
@@ -33,6 +36,8 @@
   --color-danger-surface: #FEF2F2;
   --color-danger-presssed: #C10007;
   --color-green-primary: #506D4F;
+  --color-text-body: #62748E;
+  --color-text-title: #16191C;
 }
 
 body {
@@ -44,6 +49,15 @@ body {
     transform: rotate(360deg);
   }
 }
+
 .animate-spin-slow {
   animation: spin-slow 5s linear infinite;
+}
+
+.shadow {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.07);
+}
+
+.shadow-tab {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
 }

@@ -1,3 +1,4 @@
+"use client"
 import arunara from "!/landing/Arunara-footer.svg"
 import { Mail } from "lucide-react"
 import Image from "next/image"
@@ -9,6 +10,15 @@ import twitter from "!/landing/twitter.svg"
 import tiktok from "!/landing/tiktok.svg"
 import youtube from "!/landing/youtube.svg"
 const Footer = () => {
+    const handleScroll = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            const yOffset = -80; // sesuaikan tinggi navbar
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+    };
     return (
         <footer className="bg-rose1 px-16 pt-16 pb-10 flex flex-col justify-center items-center gap-6 text-white">
             <div className="px-10 flex justify-between w-full">
@@ -30,10 +40,30 @@ const Footer = () => {
                 <div className="flex flex-col gap-4">
                     <h4 className="font-bold">Navigasi</h4>
                     <div className="flex flex-col gap-2">
-                        <Link href="">Home</Link>
-                        <Link href="">Fitur</Link>
-                        <Link href="">Product</Link>
-                        <Link href="">Testimoni</Link>
+                        <button
+                            onClick={() => handleScroll("home")}
+                            className="text-left cursor-pointer"
+                        >
+                            Home
+                        </button>
+                        <button
+                            onClick={() => handleScroll("fitur")}
+                            className="text-left cursor-pointer"
+                        >
+                            Fitur
+                        </button>
+                        <button
+                            onClick={() => handleScroll("product")}
+                            className="text-left cursor-pointer"
+                        >
+                            Product
+                        </button>
+                        <button
+                            onClick={() => handleScroll("testimoni")}
+                            className="text-left cursor-pointer"
+                        >
+                            Testimoni
+                        </button>
                     </div>
                 </div>
                 <div className="flex flex-col gap-4">

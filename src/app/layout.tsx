@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Arunara",
     images: [
       {
-        url: "/android-chrome-512x512.png",
+        url: "https://arunara.id/android-chrome-512x512.png",
         width: 1200,
         height: 630,
         alt: "Arunara — Undangan Nikah Digital",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Arunara — Undangan Nikah Digital Elegan & Modern",
     description:
       "Platform undangan digital elegan untuk merayakan momen spesialmu. Mudah, cepat, dan berkesan.",
-    images: ["/og-image.jpg"],
+    images: ["https://arunara.id/android-chrome-512x512.png"],
     creator: "@arunara_id",
   },
   icons: {

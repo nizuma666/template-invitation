@@ -91,18 +91,18 @@ const Section3 = ({ id }: { id: string }) => {
             : templates.filter((item) => item.category === tab);
 
     return (
-        <section id={id} className="p-16 flex flex-col gap-10 items-center">
+        <section id={id} className="px-4 py-12 lg:p-16 flex flex-col gap-10 items-center">
             <header className="text-center flex flex-col gap-4">
-                <h2 className="font-playfair text-heading1 font-semibold">Pilih Template Undanganmu</h2>
-                <p className="text-subheading2 text-neutral-text4">Setiap cinta punya gayanya sendiri. Temukan desain yang paling mencerminkan kisahmu.</p>
+                <h2 className="font-playfair text-2xl lg:text-heading1 font-semibold">Pilih Template Undanganmu</h2>
+                <p className="lg:text-subheading2 text-neutral-text4">Setiap cinta punya gayanya sendiri. Temukan desain yang paling mencerminkan kisahmu.</p>
             </header>
-            <div className="p-2.5 border border-border-default rounded-lg flex justify-center items-center gap-2.5 shadow-tab w-fit">
+            <div className="p-2.5 border border-border-default rounded-lg flex lg:justify-center items-center gap-2.5 shadow-tab w-full lg:w-fit">
                 {tabs.map(({ key, label }) => (
                     <button
                         key={key}
                         onClick={() => handleClick(key)}
                         type="button"
-                        className={`relative rounded-lg py-4 px-14 cursor-pointer font-medium transition-colors duration-200 ${tab === key ? "text-white" : "text-black"
+                        className={`relative w-full rounded-lg p-2.5 lg:py-4 lg:px-14 cursor-pointer font-medium transition-colors duration-200 ${tab === key ? "text-white" : "text-black"
                             }`}
                     >
                         {/* Latar belakang animasi */}
@@ -120,11 +120,11 @@ const Section3 = ({ id }: { id: string }) => {
                         </AnimatePresence>
 
                         {/* Teks tombol */}
-                        <span className="relative z-10">{label}</span>
+                        <span className="relative z-10 text-sm lg:text-base text-nowrap">{label}</span>
                     </button>
                 ))}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                 {filteredTemplates.map((item) => (
                     <Card
                         key={item.id}

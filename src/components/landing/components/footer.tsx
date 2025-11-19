@@ -20,8 +20,8 @@ const Footer = () => {
         }
     };
     return (
-        <footer className="bg-rose1 px-16 pt-16 pb-10 flex flex-col justify-center items-center gap-6 text-white">
-            <div className="px-10 flex justify-between w-full">
+        <footer className="bg-rose1 px-6 lg:px-16 py-10 lg:pt-16 lg:pb-10 flex flex-col justify-center items-center gap-6 text-white">
+            <div className="lg:px-10 flex flex-col lg:flex-row justify-between w-full">
                 <div className="flex flex-col gap-4 max-w-[421px]">
                     <Image src={arunara} alt="Arunara" />
                     <h4 className="font-semibold text-white">The Dawn of Every Beautiful Moment</h4>

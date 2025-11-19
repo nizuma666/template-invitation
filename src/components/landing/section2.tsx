@@ -67,34 +67,36 @@ const featureData = [
 const Section2 = ({ id }: { id: string }) => {
     const [active, setActive] = useState(featureData[2]);
     return (
-        <section id={id} className="w-full min-h-screen bg-white relative pt-[80px] px-16">
-            <div className="bg-white border w-[1200px] border-rose4 rounded-xl p-8 flex justify-center items-center gap-8 absolute -top-20 z-30 mx-auto left-1/2 -translate-x-1/2">
-                <div className="flex items-center justify-center gap-4">
-                    <Image src={love} width={64} height={64} alt="Meaningful" />
-                    <div className="flex flex-col gap-1">
-                        <p className="text-neutral-text5 text-subheading1 font-semibold">Meaningful</p>
-                        <p className="text-neutral-text4">Dirancang untuk menyampaikan kisah cintamu.</p>
+        <section id={id} className="w-full min-h-screen bg-white relative pt-72 lg:pt-[80px] px-4 lg:px-16">
+            <div className="absolute -top-43 lg:-top-30 z-30 lg:mx-auto left-1/2 -translate-x-1/2 p-6 w-full lg:w-[1200px]">
+                <div className="bg-white border border-rose4 rounded-xl py-4 px-6 lg:p-8 flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-8">
+                    <div className="flex items-center justify-center gap-4">
+                        <Image src={love} width={64} height={64} alt="Meaningful" />
+                        <div className="flex flex-col gap-1">
+                            <p className="text-neutral-text5 text-subheading2 lg:text-subheading1 font-semibold">Meaningful</p>
+                            <p className="text-neutral-text4 text-sm lg:text-base">Dirancang untuk menyampaikan kisah cintamu.</p>
+                        </div>
                     </div>
-                </div>
-                <div className="h-16 border-rose3 border" />
-                <div className="flex items-center justify-center gap-4">
-                    <Image src={glass} width={64} height={64} alt="Meaningful" />
-                    <div className="flex flex-col gap-1">
-                        <p className="text-neutral-text5 text-subheading1 font-semibold">Effortless</p>
-                        <p className="text-neutral-text4">Siap dalam hitungan menit, persiapan tanpa ribet.</p>
+                    <div className="h-[1px] w-full lg:w-[1px] lg:h-16 border-rose3 border" />
+                    <div className="flex items-center justify-center gap-4">
+                        <Image src={glass} width={64} height={64} alt="Meaningful" />
+                        <div className="flex flex-col gap-1">
+                            <p className="text-neutral-text5 text-subheading2 lg:text-subheading1 font-semibold">Effortless</p>
+                            <p className="text-neutral-text4 text-sm lg:text-base">Siap dalam hitungan menit, persiapan tanpa ribet.</p>
+                        </div>
                     </div>
-                </div>
-                <div className="h-16 border-rose3 border" />
-                <div className="flex items-center justify-center gap-4">
-                    <Image src={makeup} width={64} height={64} alt="Meaningful" />
-                    <div className="flex flex-col gap-1">
-                        <p className="text-neutral-text5 text-subheading1 font-semibold">Personalized</p>
-                        <p className="text-neutral-text4">Undangan bisa disesuaikan dengan keinginan kamu.</p>
+                    <div className="h-[1px] w-full lg:w-[1px] lg:h-16 border-rose3 border" />
+                    <div className="flex items-center justify-center gap-4">
+                        <Image src={makeup} width={64} height={64} alt="Meaningful" />
+                        <div className="flex flex-col gap-1">
+                            <p className="text-neutral-text5 text-subheading2 lg:text-subheading1 font-semibold">Personalized</p>
+                            <p className="text-neutral-text4 text-sm lg:text-base">Undangan bisa disesuaikan dengan keinginan kamu.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="w-full h-full flex flex-col gap-10 p-16">
-                <header className="flex flex-col justify-center items-center gap-4 text-center px-[175px]">
+            <div className="w-full h-full flex flex-col gap-10 lg:p-16">
+                <header className="hidden lg:flex flex-col justify-center items-center gap-4 text-center px-[175px]">
                     <p className="font-playfair font-semibold text-heading1">Kemudahan di Persiapan Nikahmu</p>
                     <p className="text-subheading2 text-neutral-text4">Karena setiap momen berharga pantas dijalani tanpa stres. Biarkan Arunara bantu kamu menikmati setiap langkah menuju hari bahagia.</p>
                 </header>
@@ -120,7 +122,7 @@ const Section2 = ({ id }: { id: string }) => {
                 </div> */}
                 <div className="flex gap-6 justify-center items-stretch">
                     {/* LIST */}
-                    <div className="bg-rose5 rounded-2xl border border-rose3 flex flex-col gap-6 p-10 w-1/4">
+                    <div className="bg-rose5 rounded-2xl border border-rose3 flex flex-col gap-2 lg:gap-6 p-10 w-full lg:w-1/4">
 
                         <p className="text-center font-bold text-heading2">Fitur Arunara</p>
 
@@ -141,7 +143,7 @@ const Section2 = ({ id }: { id: string }) => {
                     </div>
 
                     {/* CONTENT */}
-                    <div className="w-3/4 p-10 rounded-2xl border border-[#D9D9D9] flex flex-col gap-8 ">
+                    <div className="w-3/4 hidden p-10 rounded-2xl border border-[#D9D9D9] lg:flex flex-col gap-8 ">
                         <Image
                             src={active.image}
                             width={808}

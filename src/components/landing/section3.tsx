@@ -13,8 +13,8 @@ export const templates = [
         id: 1,
         img: card1,
         title: "Black & White",
-        price: "Rp 150.000",
-        disc: "Rp 120.000",
+        price: "Rp 69.000",
+        disc: "Rp 125.000",
         category: "premium",
         url: 'https://arunara.id/b&w'
     },
@@ -22,8 +22,8 @@ export const templates = [
         id: 2,
         img: card2,
         title: "Greenflag",
-        price: "Rp 0",
-        disc: "Gratis",
+        price: "Rp 59.000",
+        disc: "Rp. 99.000",
         category: "tanpa_photo",
         url: 'https://arunara.id/green-flag'
     },
@@ -31,8 +31,8 @@ export const templates = [
         id: 3,
         img: card3,
         title: "Peach Love",
-        price: "Rp 200.000",
-        disc: "Rp 160.000",
+        price: "Rp 69.000",
+        disc: "Rp 125.0000",
         category: "premium",
         url: 'https://arunara.id/peach-love'
     },

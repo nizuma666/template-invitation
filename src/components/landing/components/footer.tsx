@@ -5,7 +5,7 @@ import Image from "next/image"
 import wa from "!/landing/WA.svg"
 import Link from "next/link"
 import facebook from "!/landing/facebook.svg"
-import instagram from "!/landing/instagram.svg"
+import instagram from "!/landing/instagram-svgrepo-com 1.svg"
 import twitter from "!/landing/twitter.svg"
 import tiktok from "!/landing/tiktok.svg"
 import youtube from "!/landing/youtube.svg"
@@ -21,20 +21,20 @@ const Footer = () => {
     };
     return (
         <footer className="bg-rose1 px-6 lg:px-16 py-10 lg:pt-16 lg:pb-10 flex flex-col justify-center items-center gap-6 text-white">
-            <div className="lg:px-10 flex flex-col lg:flex-row justify-between w-full">
+            <div className="lg:px-10 flex flex-col gap-6 lg:flex-row justify-between w-full">
                 <div className="flex flex-col gap-4 max-w-[421px]">
                     <Image src={arunara} alt="Arunara" />
                     <h4 className="font-semibold text-white">The Dawn of Every Beautiful Moment</h4>
                     <p>Platform undangan digital yang praktis dan elegan untuk awal kisah indahmu</p>
                     <div className="flex flex-col gap-2">
-                        <div className="flex gap-2">
+                        <a className="flex gap-2" href="mailto:arunara.asli@gmail.com" >
                             <Mail className="text-white" />
                             <p>arunara.asli@gmail.com</p>
-                        </div>
-                        <div className="flex gap-2">
+                        </a>
+                        <a className="flex gap-2" href="https://wa.me/6288802877549" target="_blank">
                             <Image src={wa} alt="whatsapp arunara" className="text-white" />
                             <p>+62 888 0287 7549</p>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div className="flex flex-col gap-4">
@@ -68,12 +68,9 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col gap-4">
                     <h4 className="font-bold">Social Media</h4>
-                    <div className="flex gap-3">
-                        <Image src={facebook} alt="Facebokk Arunara" />
+                    <div className="flex items-center gap-2.5 px-4 py-2 w-full bg-white rounded-4xl">
                         <Image src={instagram} alt="Instagram Arunara" />
-                        <Image src={twitter} alt="Twitter Arunara" />
-                        <Image src={tiktok} alt="Tiktok Arunara" />
-                        <Image src={youtube} alt="Youtube Arunara" />
+                        <span className="text-rose1">arunara.undangan</span>
                     </div>
                 </div>
             </div>

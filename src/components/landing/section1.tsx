@@ -24,9 +24,9 @@ const Section1 = ({ id }: { id: string }) => {
                         </div>
                         <p className="text-xl lg:text-subheading1 text-neutral-text4">Setiap kisah cinta pantas punya awal yang indah. Buat undangan digital yang menyentuh hati dan mencerminkan kisahmu.</p>
                     </div>
-                    <div className="flex gap-4 lg:gap-6">
-                        <button type="button" className="cursor-pointer text-subheading2 font-semibold lg:font-bold rounded-lg py-3 lg:py-4 px-6 lg:px-12 flex gap-2 items-center bg-rose1 text-white text-nowrap">Lihat Template <ChevronRight className="hidden lg:block" /></button>
-                        <button type="button" className="cursor-pointer text-subheading2 font-semibold rounded-lg py-3 lg:py-4 px-6 lg:px-12 flex gap-2 items-center border border-rose1 text-rose1 text-nowrap">Pesan Sekarang <ChevronRight className="hidden lg:block" /></button>
+                    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+                        <button type="button" className="cursor-pointer lg:text-subheading2 font-semibold lg:font-bold rounded-lg py-3 lg:py-4 px-6 lg:px-12 flex gap-2 justify-center lg:justify-start items-center bg-rose1 text-white text-nowrap">Lihat Template <ChevronRight className="hidden lg:block" /></button>
+                        <button type="button" className="cursor-pointer lg:text-subheading2 font-semibold rounded-lg py-3 lg:py-4 px-6 lg:px-12 flex gap-2 justify-center lg:justify-start items-center border border-rose1 text-rose1 text-nowrap">Pesan Sekarang <ChevronRight className="hidden lg:block" /></button>
                     </div>
                 </div>
                 <Image src={phone} width={800} height={821} alt="arunara" className="absolute bottom-0 right-20 hidden lg:block" />

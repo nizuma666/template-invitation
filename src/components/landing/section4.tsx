@@ -1,4 +1,5 @@
 import bg from "!/landing/bs-section4-landing.png"
+import why from "!/landing/Why.png"
 import Image from "next/image"
 import list from "!/landing/list_icon_landing.svg"
 import { ChevronRight } from "lucide-react"
@@ -8,8 +9,10 @@ const Section4 = () => {
             <div className="p-6 lg:p-10 relative flex">
                 <div className="absolute top-0 left-0 z-10 w-full h-full bg-rose1/70 rounded-2xl" />
                 <Image src={bg} fill alt="Hubungi Kami" className="object-cover rounded-2xl w-full h-full absolute" />
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 justify-center items-center relative z-20 w-full">
-                    <div className="lg:h-full h-[294px] w-full lg:w-2/5 bg-white/30 rounded-[30px]" />
+                <div className="flex flex-col gap-6 lg:flex-row lg:gap-16 justify-center items-center relative z-20 w-full">
+                    <div className=" w-full lg:w-2/5">
+                        <Image src={why} alt="Why?" />
+                    </div>
                     <div className="flex flex-col gap-6 w-full lg:w-3/5">
                         <div className="flex flex-col gap-4">
                             <h2 className="text-white font-bold font-playfair text-2xl lg:text-heading1">Ingin Undangan yang Unik dan Kamu Banget?</h2>

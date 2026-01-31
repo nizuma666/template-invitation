@@ -10,7 +10,7 @@ const Section5 = () => {
                 <div className="flex flex-col gap-6 w-full">
                     <div className="flex items-center gap-6">
                         <div className="bg-rose2 w-[12%] lg:w-10 h-10 relative overflow-hidden rounded-lg">
-                            <p className="text-white text-heading1 absolute -bottom-4 right-2 font-bold">1</p>
+                            <p className="text-white text-heading1 absolute -bottom-3 right-2 font-bold">1</p>
                         </div>
                         <div className="flex flex-col gap-2 w-5/6 max-w-[700px]">
                             <h4 className="text-neutral-text5 text-subheading2 font-medium">Pilih Template Favoritmu</h4>
@@ -19,7 +19,7 @@ const Section5 = () => {
                     </div>
                     <div className="flex items-center gap-6">
                         <div className="bg-rose2 w-[12%] lg:w-10 h-10 relative overflow-hidden rounded-lg">
-                            <p className="text-white text-heading1 absolute -bottom-4 right-2 font-bold">1</p>
+                            <p className="text-white text-heading1 absolute -bottom-3 right-2 font-bold">2</p>
                         </div>
                         <div className="flex flex-col gap-2 w-5/6 max-w-[700px]">
                             <h4 className="text-neutral-text5 text-subheading2 font-medium">Pesan & Dapatkan Dashboard Pribadi</h4>
@@ -28,7 +28,7 @@ const Section5 = () => {
                     </div>
                     <div className="flex items-center gap-6">
                         <div className="bg-rose2 w-[12%] lg:w-10 h-10 relative overflow-hidden rounded-lg">
-                            <p className="text-white text-heading1 absolute -bottom-4 right-2 font-bold">1</p>
+                            <p className="text-white text-heading1 absolute -bottom-3 right-2 font-bold">3</p>
                         </div>
                         <div className="flex flex-col gap-2 w-5/6 max-w-[700px]">
                             <h4 className="text-neutral-text5 text-subheading2 font-medium">Pilih Template Favoritmu</h4>
@@ -37,7 +37,7 @@ const Section5 = () => {
                     </div>
                     <div className="flex items-center gap-6">
                         <div className="bg-rose2 w-[12%] lg:w-10 h-10 relative overflow-hidden rounded-lg">
-                            <p className="text-white text-heading1 absolute -bottom-4 right-2 font-bold">1</p>
+                            <p className="text-white text-heading1 absolute -bottom-3 right-2 font-bold">4</p>
                         </div>
                         <div className="flex flex-col gap-2 w-5/6 max-w-[700px]">
                             <h4 className="text-neutral-text5 text-subheading2 font-medium">Pilih Template Favoritmu</h4>

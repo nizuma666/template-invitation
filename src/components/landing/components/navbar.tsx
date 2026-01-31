@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <>
             <nav className="w-full bg-white flex px-6 md:px-16 justify-between items-center fixed top-0 left-0 z-50 shadow h-16">
-                <Image src={logo} alt="Arunara" className="h-10 w-auto" />
+                <Image src={logo} alt="Arunara" className="h-10 w-auto cursor-pointer" onClick={() => handleScroll("home")} />
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex justify-center items-center gap-10">

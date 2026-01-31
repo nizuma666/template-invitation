@@ -4,6 +4,8 @@ import { useState } from "react"
 import Card from "./components/card";
 import card1 from "!/landing/card1.png"
 import card2 from "!/landing/card2.png"
+import card3 from "!/landing/card3.png"
+import card4 from "!/landing/card4.png"
 
 // dataTemplates.js
 export const templates = [
@@ -25,7 +27,7 @@ export const templates = [
     },
     {
         id: 3,
-        img: card1,
+        img: card3,
         title: "Golden Charm",
         price: "Rp 200.000",
         disc: "Rp 160.000",
@@ -33,44 +35,12 @@ export const templates = [
     },
     {
         id: 4,
-        img: card2,
+        img: card4,
         title: "Minimal Bliss",
         price: "Rp 0",
         disc: "Gratis",
         category: "tanpa_photo",
-    },
-    {
-        id: 5,
-        img: card1,
-        title: "Floral Serenity",
-        price: "Rp 180.000",
-        disc: "Rp 150.000",
-        category: "premium",
-    },
-    {
-        id: 6,
-        img: card2,
-        title: "Minimal Bliss",
-        price: "Rp 0",
-        disc: "Gratis",
-        category: "tanpa_photo",
-    },
-    {
-        id: 7,
-        img: card1,
-        title: "Minimal Bliss",
-        price: "Rp 0",
-        disc: "Gratis",
-        category: "tanpa_photo",
-    },
-    {
-        id: 8,
-        img: card2,
-        title: "Minimal Bliss",
-        price: "Rp 0",
-        disc: "Gratis",
-        category: "tanpa_photo",
-    },
+    }
 ];
 
 const Section3 = ({ id }: { id: string }) => {
@@ -96,7 +66,7 @@ const Section3 = ({ id }: { id: string }) => {
                 <h2 className="font-playfair text-2xl lg:text-heading1 font-semibold">Pilih Template Undanganmu</h2>
                 <p className="lg:text-subheading2 text-neutral-text4">Setiap cinta punya gayanya sendiri. Temukan desain yang paling mencerminkan kisahmu.</p>
             </header>
-            <div className="p-2.5 border border-border-default rounded-lg flex lg:justify-center items-center gap-2.5 shadow-tab w-full lg:w-fit">
+            {/* <div className="p-2.5 border border-border-default rounded-lg flex lg:justify-center items-center gap-2.5 shadow-tab w-full lg:w-fit">
                 {tabs.map(({ key, label }) => (
                     <button
                         key={key}
@@ -105,7 +75,6 @@ const Section3 = ({ id }: { id: string }) => {
                         className={`relative w-full rounded-lg p-2.5 lg:py-4 lg:px-14 cursor-pointer font-medium transition-colors duration-200 ${tab === key ? "text-white" : "text-black"
                             }`}
                     >
-                        {/* Latar belakang animasi */}
                         <AnimatePresence>
                             {tab === key && (
                                 <motion.span
@@ -118,12 +87,10 @@ const Section3 = ({ id }: { id: string }) => {
                                 />
                             )}
                         </AnimatePresence>
-
-                        {/* Teks tombol */}
                         <span className="relative z-10 text-sm lg:text-base text-nowrap">{label}</span>
                     </button>
                 ))}
-            </div>
+            </div> */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                 {filteredTemplates.map((item) => (
                     <Card

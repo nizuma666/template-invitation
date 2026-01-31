@@ -32,7 +32,7 @@ const Section4 = () => {
                                 <p className="text-white text-sm lg:text-subheading2">Integrasi Fitur Sesuai Kebutuhanmu</p>
                             </div>
                         </div>
-                        <button type="button" className="bg-rose5 rounded-lg flex gap-2 justify-center items-center cursor-pointer text-rose1 w-fit py-2 lg:py-4 px-4 lg:px-6 font-bold text-base lg:text-subheading2">Hubungi Tim Arunara <ChevronRight /></button>
+                        <a href="https://wa.me/6288802877549" target="_blank" className="bg-rose5 rounded-lg flex gap-2 justify-center items-center cursor-pointer text-rose1 w-fit py-2 lg:py-4 px-4 lg:px-6 font-bold text-base lg:text-subheading2">Hubungi Tim Arunara <ChevronRight /></a>
                     </div>
                 </div>
             </div>

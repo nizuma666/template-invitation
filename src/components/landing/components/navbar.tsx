@@ -37,12 +37,12 @@ const Navbar = () => {
                         Product
                     </button>
 
-                    <button
+                    {/* <button
                         onClick={() => handleScroll("about")}
                         className="text-sm text-neutral-text4 hover:text-rose1 transition-colors cursor-pointer"
                     >
                         Tentang Arunara
-                    </button>
+                    </button> */}
                 </div>
 
                 {/* Mobile Hamburger */}

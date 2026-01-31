@@ -12,35 +12,38 @@ export const templates = [
     {
         id: 1,
         img: card1,
-        title: "Elegant Rose",
+        title: "Black & White",
         price: "Rp 150.000",
         disc: "Rp 120.000",
         category: "premium",
+        url: 'https://arunara.id/b&w'
     },
     {
         id: 2,
         img: card2,
-        title: "Classic Ivory",
+        title: "Greenflag",
         price: "Rp 0",
         disc: "Gratis",
         category: "tanpa_photo",
+        url: 'https://arunara.id/green-flag'
     },
     {
         id: 3,
         img: card3,
-        title: "Golden Charm",
+        title: "Peach Love",
         price: "Rp 200.000",
         disc: "Rp 160.000",
         category: "premium",
+        url: 'https://arunara.id/peach-love'
     },
-    {
-        id: 4,
-        img: card4,
-        title: "Minimal Bliss",
-        price: "Rp 0",
-        disc: "Gratis",
-        category: "tanpa_photo",
-    }
+    //     id: 4,
+    //     img: card4,
+    //     title: "Blue Sky",
+    //     price: "Rp 0",
+    //     disc: "Gratis",
+    //     category: "tanpa_photo",
+    // }
+    // {
 ];
 
 const Section3 = ({ id }: { id: string }) => {
@@ -99,6 +102,7 @@ const Section3 = ({ id }: { id: string }) => {
                         title={item.title}
                         price={item.price}
                         disc={item.disc}
+                        url={item.url}
                     />
                 ))}
             </div>

@@ -28,10 +28,8 @@ const Section1 = ({ id }: { id: string }) => {
             <div className="relative z-20 w-full h-screen flex justify-between pt-32 lg:pt-0 lg:items-center px-6 lg:px-[160px]">
                 <div className="flex flex-col gap-6 lg:gap-12 max-w-[340px] lg:max-w-[518px]">
                     <div className="flex flex-col gap-4">
-                        <div>
-                            <p className="font-playfair text-5xl lg:text-[64px] lg:text-nowrap">The Dawn Of Every <span className="font-playfair text-rose1 text-5xl lg:text-[64px]">Beautiful Moment</span></p>
-
-                        </div>
+                        <p className="font-playfair text-5xl lg:text-[64px] lg:text-nowrap">The Dawn Of Every</p>
+                            <span className="font-playfair text-rose1 text-5xl lg:text-[64px]">Beautiful Moment</span>
                         <p className="text-xl lg:text-subheading1 text-neutral-text4">Setiap kisah cinta pantas punya awal yang indah. Buat undangan digital yang menyentuh hati dan mencerminkan kisahmu.</p>
                     </div>
                     <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
@@ -48,7 +46,7 @@ const Section1 = ({ id }: { id: string }) => {
 
                     </div>
                 </div>
-                <Image src={phone} width={800} height={821} alt="arunara" className="absolute bottom-0 right-0 hidden lg:block" />
+                <Image src={phone} width={800} height={821} alt="arunara" className="absolute bottom-0 right-20 hidden lg:block" />
             </div>
         </section>
     )

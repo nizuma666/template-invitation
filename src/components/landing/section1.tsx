@@ -40,7 +40,7 @@ const Section1 = ({ id }: { id: string }) => {
                             href="https://wa.me/6288802877549?text=Halo%20Arunara,%20saya%20ingin%20memesan%20undangan"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="cursor-pointer lg:text-subheading2 font-semibold rounded-lg py-3 lg:py-4 px-6 lg:px-12 flex gap-2 justify-center lg:justify-start items-center border border-rose1 text-rose1 text-nowrap"
+                            className="z-20 cursor-pointer lg:text-subheading2 font-semibold rounded-lg py-3 lg:py-4 px-6 lg:px-12 flex gap-2 justify-center lg:justify-start items-center border border-rose1 text-rose1 text-nowrap"
                         >
                             Pesan Sekarang
                             <ChevronRight className="hidden lg:block" />
@@ -48,7 +48,7 @@ const Section1 = ({ id }: { id: string }) => {
 
                     </div>
                 </div>
-                <Image src={phone} width={800} height={821} alt="arunara" className="absolute bottom-0 right-20 hidden lg:block" />
+                <Image src={phone} width={800} height={821} alt="arunara" className="absolute bottom-0 right-0 hidden lg:block" />
             </div>
         </section>
     )

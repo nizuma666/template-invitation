@@ -98,7 +98,7 @@ const Navbar = () => {
                     Product
                 </button>
 
-                <button
+                {/* <button
                     onClick={() => {
                         setOpenMenu(false);
                         handleScroll("about");
@@ -106,7 +106,7 @@ const Navbar = () => {
                     className="text-lg text-neutral-text4 hover:text-rose1 transition-colors text-left"
                 >
                     Tentang Arunara
-                </button>
+                </button> */}
             </div>
         </>
     )

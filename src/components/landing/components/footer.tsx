@@ -58,12 +58,12 @@ const Footer = () => {
                         >
                             Product
                         </button>
-                        <button
+                        {/* <button
                             onClick={() => handleScroll("testimoni")}
                             className="text-left cursor-pointer"
                         >
                             Testimoni
-                        </button>
+                        </button> */}
                     </div>
                 </div>
                 <div className="flex flex-col gap-4">

@@ -78,7 +78,7 @@ const Section2 = ({ id }: { id: string }) => {
     const [active, setActive] = useState<Feature | null>(featureData[0])
     return (
         <section id={id} className="w-full min-h-screen bg-white relative pt-72 lg:pt-[80px] px-4 lg:px-16">
-            <div className="absolute -top-43 lg:-top-30 z-30 lg:mx-auto left-1/2 -translate-x-1/2 p-6 w-full lg:w-[1200px]">
+            <div className="absolute -top-28 lg:-top-30 z-30 lg:mx-auto left-1/2 -translate-x-1/2 p-6 w-full lg:w-[1200px]">
                 <div className="bg-white border border-rose4 rounded-xl py-4 px-6 lg:p-8 flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-8">
                     <div className="flex items-center justify-center gap-4">
                         <Image src={love} width={64} height={64} alt="Meaningful" />

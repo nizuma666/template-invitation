@@ -41,7 +41,7 @@ export default function Section3({data}: {data: any}) {
             <motion.div className="flex flex-col gap-4" variants={fadeInUp}>
                 <div className="flex gap-4 justify-center items-center">
                     <motion.div whileHover={{ rotate: 10 }} transition={{ type: "spring", stiffness: 200 }}>
-                        <Image src={ring} height={40} width={40} alt="Akad Nikah" />
+                        <Image src={ring} height={120} width={120} alt="Akad Nikah" />
                     </motion.div>
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-center items-center gap-3">
@@ -80,7 +80,7 @@ export default function Section3({data}: {data: any}) {
                         </div>
                     </div>
                     <motion.div whileHover={{ rotate: -10 }} transition={{ type: "spring", stiffness: 200 }}>
-                        <Image src={cheers} height={40} width={40} alt="Resepsi" />
+                        <Image src={cheers} height={120} width={120} alt="Resepsi" />
                     </motion.div>
                 </div>
                 <motion.button

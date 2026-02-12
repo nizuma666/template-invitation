@@ -140,27 +140,27 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
                     className="flex flex-col gap-y-2"
                 >
                     <motion.p
-                        animate={{ x: isOpen ? 105 : 100 }}
+                        animate={{ x: isOpen ? 100 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-subheading2 font-akatab w-fit">the wedding of</motion.p>
+                        className={`text-subheading2 font-akatab w-fit  ${isOpen && "text-center "}`}>the wedding of</motion.p>
                     <motion.p
-                        animate={{ x: isOpen ? 10 : 10 }}
+                        animate={{ x: isOpen ? 10 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-5xl lg:text-6xl font-alice text-center  text-wrap w-fit">{cover.pengantin_wanita} </motion.p>
+                         className={`text-5xl lg:text-6xl font-alice   text-wrap w-fit  ${isOpen && "text-center"} `}>{cover.pengantin_wanita} </motion.p>
                           <motion.p
-                        animate={{ x: isOpen ? 140 : 140 }}
+                        animate={{ x: isOpen ? 140 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-5xl lg:text-6xl font-alice text-center  text-wrap w-fit">& </motion.p>
+                        className={`text-5xl lg:text-6xl font-alice   text-wrap w-fit  ${isOpen && "text-center"} `}>& </motion.p>
                     <motion.p
-                        animate={{ x: isOpen ? 10 : 10 }}
+                        animate={{ x: isOpen ? 10 : 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-5xl lg:text-6xl font-alice text-center text-wrap w-fit">{cover.pengantin_pria}</motion.p>
+                        className={`text-5xl lg:text-6xl font-alice text-wrap w-fit ${isOpen && "text-center"}`}>{cover.pengantin_pria}</motion.p>
                     <motion.p
-                        animate={{ x: isOpen ? 100 : 100,
+                        animate={{ x: isOpen ? 100 : 0,
                             y: isOpen ? 10 : 0
                         }}
                         transition={{ duration: 0.5 }}
-                        className="font-alice text-heading2 w-fit">{acara.tanggal_1}</motion.p>
+                        className={`font-alice text-heading2 w-fit  ${isOpen && "text-center "}`}>{acara.tanggal_1}</motion.p>
                 </motion.div>
 
                 {/* Transition Between States */}

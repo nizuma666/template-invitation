@@ -93,7 +93,7 @@ export default function Section5({data}: {data: any}) {
                         bg="bg-[#555555]"
                         chip={chip}
                         masterCard={masterCard}
-                        rekening={data.no_rekening_w}
+                        rekening={data.no_rekening_2}
                         name={data.nama_pemilik_rekening_2}
                     />
                 </motion.div>

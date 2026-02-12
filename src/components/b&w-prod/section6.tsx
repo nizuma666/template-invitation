@@ -8,7 +8,6 @@ import { db } from "@/service/firebase";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section6({ data, greeting }: { data: any, greeting: any }) {
-    const ref = useRef(null);
     const [formData, setFormData] = useState({
         nama: "",
         kehadiran: "",
@@ -18,8 +17,6 @@ export default function Section6({ data, greeting }: { data: any, greeting: any 
     const [listGreeting, setListGreeting] = useState(greeting)
     const [messageSuccess, setMessageSuccess] = useState("")
 
-    const shortItem = [1, 2, 3];
-    const longItem = [1, 2, 3, 4, 5, 6]
 
     const container: Variants = {
         hidden: {},
@@ -142,7 +139,7 @@ export default function Section6({ data, greeting }: { data: any, greeting: any 
                         value={formData.nama}
                         onChange={handleChange}
                         placeholder="Contoh: Jhon Doe"
-                        className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
+                        className="w-full border text-gray-700 border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
                         required
                     />
                 </div>
@@ -173,7 +170,7 @@ export default function Section6({ data, greeting }: { data: any, greeting: any 
                         value={formData.pesan}
                         onChange={handleChange}
                         placeholder="Tulis pesan disini"
-                        className="w-full border border-border-default placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
+                        className="w-full border border-border-default text-gray-700 placeholder:text-neutral-text3 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2C2C2C]/25 outline-none"
                     />
                 </div>
 
@@ -236,7 +233,7 @@ export default function Section6({ data, greeting }: { data: any, greeting: any 
                                         <p className="font-semibold text-sm">{item.nama}</p>
                                         <div className={`${item.kehadiran === "Ya" ? "border-green200 bg-success-surface text-success-pressed" : "border-danger200 bg-danger-surface text-danger-presssed"} border  px-4 py-1 rounded-full text-xs`}>{item.kehadiran === "Ya" ? "Hadir" : "Tidak Hadir"}</div>
                                     </div>
-                                    <p className="text-sm">{item.pesna}</p>
+                                    <p className="text-sm">{item.pesan}</p>
                                 </motion.div>
                             ))}
                         </motion.div>

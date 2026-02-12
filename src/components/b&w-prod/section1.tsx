@@ -25,7 +25,8 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
     const acara = data.acara[0]
     const params = useParams()
     const filterUndangan = data.listUndangan.filter((item: any) => item.nama === decodeURIComponent(params.subslug as string))
-    const targetDate = `${data.acara[0].tanggal_1}T${data.acara[0].waktu_1}:00`;
+    const targetDate = `${data.acara[0].tanggal_1}T${data.acara[0].waktu_1_mulai}:00`;
+
 
     useEffect(() => {
         const runAnimation = async () => {
@@ -133,25 +134,31 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
 
                 {/* Wedding Info */}
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 80 }}
+                    animate={{ opacity: 1, y: isOpen ? -60 : 0 }}
                     transition={{ delay: 0.8, duration: 0.9 }}
                     className="flex flex-col gap-y-2"
                 >
                     <motion.p
-                        animate={{ x: isOpen ? 105 : 0 }}
+                        animate={{ x: isOpen ? 105 : 90 }}
                         transition={{ duration: 0.5 }}
                         className="text-subheading2 font-akatab w-fit">the wedding of</motion.p>
                     <motion.p
-                        animate={{ x: isOpen ? 70 : 0 }}
+                        animate={{ x: isOpen ? 10 : 10 }}
                         transition={{ duration: 0.5 }}
-                        className="text-6xl font-alice text-wrap w-fit">{cover.pengantin_wanita} &</motion.p>
-                    <motion.p
-                        animate={{ x: isOpen ? 70 : 0 }}
+                        className="text-5xl lg:text-6xl font-alice text-center  text-wrap w-fit">{cover.pengantin_wanita} </motion.p>
+                          <motion.p
+                        animate={{ x: isOpen ? 140 : 140 }}
                         transition={{ duration: 0.5 }}
-                        className="text-6xl font-alice text-wrap w-fit">{cover.pengantin_pria}</motion.p>
+                        className="text-5xl lg:text-6xl font-alice text-center  text-wrap w-fit">& </motion.p>
                     <motion.p
-                        animate={{ x: isOpen ? 110 : 0 }}
+                        animate={{ x: isOpen ? 10 : 20 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-5xl lg:text-6xl font-alice text-center text-wrap w-fit">{cover.pengantin_pria}</motion.p>
+                    <motion.p
+                        animate={{ x: isOpen ? 100 : 90,
+                            y: isOpen ? 10 : 0
+                        }}
                         transition={{ duration: 0.5 }}
                         className="font-alice text-heading2 w-fit">{acara.tanggal_1}</motion.p>
                 </motion.div>
@@ -187,7 +194,7 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
                         <motion.div
                             key="countdown"
                             initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            animate={{ opacity: 1, y: -70 }}
                             exit={{ opacity: 0, y: -40 }}
                             transition={{ duration: 0.8 }}
                             className="flex flex-col gap-y-6 justify-center items-center mt-10 z-20"
@@ -221,7 +228,7 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
                 <Section2 data={data.couple[0]} />
             </div>
             <div id="section3" className="w-full text-white relative min-h-screen overflow-hidden">
-                <Section3 data={data.acara[0]} />
+                <Section3 data={{...data.acara[0], ...data.gallery[0]}} />
             </div>
             <div id="section4" className="w-full text-white relative min-h-screen overflow-hidden">
                 <Section4 data={data.gallery[0]} />

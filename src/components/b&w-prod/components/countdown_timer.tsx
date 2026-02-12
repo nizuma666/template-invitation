@@ -10,6 +10,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
+
     if (difference > 0) {
       timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),

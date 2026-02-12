@@ -12,6 +12,7 @@ export default function Section3({data}: {data: any}) {
         hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
     }
+
     
     return (
         <motion.div
@@ -33,7 +34,7 @@ export default function Section3({data}: {data: any}) {
 
             {/* Image */}
             <motion.div className="border-16 border-[#FFFFFF33]" variants={fadeInUp}>
-                <Image src={img} alt="The Wedding Day" width={300} height={200} />
+                <Image src={data?.images[0]} alt="The Wedding Day" width={300} height={200} />
             </motion.div>
 
             {/* Akad Nikah */}

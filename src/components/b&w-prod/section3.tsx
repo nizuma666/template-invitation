@@ -34,7 +34,7 @@ export default function Section3({data}: {data: any}) {
 
             {/* Image */}
             <motion.div className="border-16 border-[#FFFFFF33]" variants={fadeInUp}>
-                <Image src={data?.images[0]} alt="The Wedding Day" width={300} height={200} />
+                <Image src={data?.images[0]} alt="The Wedding Day" width={300} height={200} className="w-full" />
             </motion.div>
 
             {/* Akad Nikah */}

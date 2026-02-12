@@ -140,7 +140,7 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
                     className="flex flex-col gap-y-2"
                 >
                     <motion.p
-                        animate={{ x: isOpen ? 105 : 90 }}
+                        animate={{ x: isOpen ? 105 : 100 }}
                         transition={{ duration: 0.5 }}
                         className="text-subheading2 font-akatab w-fit">the wedding of</motion.p>
                     <motion.p
@@ -152,11 +152,11 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
                         transition={{ duration: 0.5 }}
                         className="text-5xl lg:text-6xl font-alice text-center  text-wrap w-fit">& </motion.p>
                     <motion.p
-                        animate={{ x: isOpen ? 10 : 20 }}
+                        animate={{ x: isOpen ? 10 : 10 }}
                         transition={{ duration: 0.5 }}
                         className="text-5xl lg:text-6xl font-alice text-center text-wrap w-fit">{cover.pengantin_pria}</motion.p>
                     <motion.p
-                        animate={{ x: isOpen ? 100 : 90,
+                        animate={{ x: isOpen ? 100 : 100,
                             y: isOpen ? 10 : 0
                         }}
                         transition={{ duration: 0.5 }}

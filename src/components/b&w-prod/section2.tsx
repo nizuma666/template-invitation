@@ -49,7 +49,7 @@ export default function Section2({data}: {data: any}) {
                 viewport={{ once: true }}
                 className="border-8 border-white/50"
               >
-                <Image src={data.image_pengantin_wanita} alt="Jane Angelina" width={200} height={200} />
+                <Image src={data.image_pengantin_wanita} alt="Jane Angelina" width={200} height={200} className="w-full"/>
               </motion.div>
             </motion.div>
             <p className="font-alice text-heading1 text-center mt-3">{data.pengantin_wanita}</p>
@@ -83,7 +83,7 @@ export default function Section2({data}: {data: any}) {
                 viewport={{ once: true }}
                 className="border-8 border-white/50"
               >
-                <Image src={data?.image_pengantin_pria} alt="Nguyen Fanhouten" width={200} height={200} />
+                <Image src={data?.image_pengantin_pria} alt="Nguyen Fanhouten" width={200} height={200} className="w-full"/>
               </motion.div>
             </motion.div>
             <p className="font-alice text-heading1 text-center mt-3">{data.pengantin_pria}</p>

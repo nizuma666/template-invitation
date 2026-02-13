@@ -12,9 +12,7 @@ import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 
 export default function Section4({ data }: { data: any }) {
-    const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
-    console.log("data 4: ",data);
-    
+    const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);    
 
     useEffect(() => {
         if (selectedImage) {

@@ -137,7 +137,7 @@ export default function Section1({ onOpen, data }: { onOpen: () => void, data: a
                     initial={{ opacity: 0, y: 80 }}
                     animate={{ opacity: 1, y: isOpen ? -60 : 0 }}
                     transition={{ delay: 0.8, duration: 0.9 }}
-                    className="flex flex-col gap-y-2"
+                    className="flex flex-col gap-y-2 w-full"
                 >
                     <motion.p
                         animate={{ x: isOpen ? 100 : 0 }}

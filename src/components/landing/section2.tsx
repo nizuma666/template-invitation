@@ -218,7 +218,7 @@ const Section2 = ({ id }: { id: string }) => {
                             <Image
                                 src={active.image}
                                 alt={active.title}
-                                className="w-full object-cover rounded-xl"
+                                className="object-cover rounded-xl"
                             />
                         )}
 

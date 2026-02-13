@@ -68,10 +68,13 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col gap-4">
                     <h4 className="font-bold">Social Media</h4>
-                    <div className="flex items-center gap-2.5 px-4 py-2 w-full bg-white rounded-4xl">
+                    <a
+                        href="https://www.instagram.com/arunara.undangan?igsh=am9mNDl6aDI4djB4"
+                        target="_blank"
+                        rel="noopener noreferrer" className="flex items-center gap-2.5 px-4 py-2 w-fit lg:w-full bg-white rounded-4xl">
                         <Image src={instagram} alt="Instagram Arunara" />
                         <span className="text-rose1">arunara.undangan</span>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div className="h-[1px] border border-white w-full" />

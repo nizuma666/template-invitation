@@ -3,8 +3,8 @@ import love from "!/landing/icon-love-landing-section2.svg"
 import glass from "!/landing/icon-glass-landing-section2.svg"
 import makeup from "!/landing/icon-makeup-landing-section2.svg"
 import Image, { StaticImageData } from "next/image"
-import img from "!/landing/unlimited_guest.png"
-import img2 from "!/landing/easy-change.png"
+import img from "!/landing/img1rev.png"
+import img2 from "!/landing/img2rev.png"
 import img3 from "!/landing/realtime.png"
 import img4 from "!/landing/gift-account.png"
 import img5 from "!/landing/send-fast.png"
@@ -218,7 +218,7 @@ const Section2 = ({ id }: { id: string }) => {
                             <Image
                                 src={active.image}
                                 alt={active.title}
-                                className="object-cover rounded-xl"
+                                className="w-full object-cover rounded-xl"
                             />
                         )}
 

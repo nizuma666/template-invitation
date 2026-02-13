@@ -37,7 +37,7 @@ const Section5 = () => {
                             <h4 className="text-neutral-text5 text-subheading2 font-medium">
                                 Pesan & Dapatkan Dashboard Pribadi
                             </h4>
-                            <p className="text-neutral-text4">
+                            <p className="text-neutral-text4 text-sm lg:text-base">
                                 Setelah memesan, kamu langsung mendapatkan akses ke dashboard
                                 khusus untuk mengatur semua detail undanganmu dengan mudah.
                             </p>
@@ -53,7 +53,7 @@ const Section5 = () => {
                             <h4 className="text-neutral-text5 text-subheading2 font-medium">
                                 Atur & Desain Undanganmu
                             </h4>
-                            <p className="text-neutral-text4">
+                            <p className="text-neutral-text4 text-sm lg:text-base">
                                 Edit acara, tambahkan foto dan backsound. Semua perubahan
                                 tampil secara real-time agar kamu tahu hasil akhirnya sebelum
                                 dibagikan.
@@ -70,7 +70,7 @@ const Section5 = () => {
                             <h4 className="text-neutral-text5 text-subheading2 font-medium">
                                 Kirim Undanganmu dengan Mudah
                             </h4>
-                            <p className="text-neutral-text4">
+                            <p className="text-neutral-text4 text-sm lg:text-base">
                                 Bagikan link undangan melalui WhatsApp, media sosial, atau pesan pribadi. Tamu bisa langsung membuka, RSVP, dan meninggalkan ucapan hangat untukmu.
                             </p>
                         </div>

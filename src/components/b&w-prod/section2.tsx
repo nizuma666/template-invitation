@@ -4,6 +4,8 @@ import pengantinWanita from "!/b&w/pengantinWanita.png"
 import pengantinPria from "!/b&w/pengantinPria.png"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Section2({data}: {data: any}) {
+  console.log("data", data);
+  
   return (
     <motion.div
       initial="hidden"
@@ -52,7 +54,7 @@ export default function Section2({data}: {data: any}) {
                 <Image src={data.image_pengantin_wanita} alt="Jane Angelina" width={200} height={200} className="w-full"/>
               </motion.div>
             </motion.div>
-            <p className="font-alice text-heading1 text-center mt-3">{data.pengantin_wanita}</p>
+            <p className="font-alice text-heading1 text-center mt-3">{data.nama_pengantin_wanita}</p>
           </div>
           <p className="font-akatab text-sm text-center text-nowrap">
             Bpk. {data.nama_pengantin_bapak_wanita} & Ibu {data.nama_pengantin_ibu_wanita}
@@ -86,7 +88,7 @@ export default function Section2({data}: {data: any}) {
                 <Image src={data?.image_pengantin_pria} alt="Nguyen Fanhouten" width={200} height={200} className="w-full"/>
               </motion.div>
             </motion.div>
-            <p className="font-alice text-heading1 text-center mt-3">{data.pengantin_pria}</p>
+            <p className="font-alice text-heading1 text-center mt-3">{data.nama_pengantin_pria}</p>
           </div>
           <p className="font-akatab text-sm text-center text-nowrap">
             Bpk. {data.nama_pengantin_bapak_pria} & {data.nama_pengantin_ibu_pria}

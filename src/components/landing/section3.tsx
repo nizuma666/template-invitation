@@ -35,15 +35,16 @@ export const templates = [
         disc: "Rp 125.0000",
         category: "premium",
         url: 'https://arunara.id/peach-love'
-    },
+    }
+    // {
     //     id: 4,
     //     img: card4,
     //     title: "Blue Sky",
-    //     price: "Rp 0",
-    //     disc: "Gratis",
-    //     category: "tanpa_photo",
+    //     price: "Rp 69.000",
+    //     disc: "Rp 125.0000",
+    //     category: "premium",
+    //     url: ''
     // }
-    // {
 ];
 
 const Section3 = ({ id }: { id: string }) => {

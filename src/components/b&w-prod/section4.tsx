@@ -13,6 +13,8 @@ import { useEffect, useState } from "react"
 
 export default function Section4({ data }: { data: any }) {
     const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);    
+    console.log("image", data);
+    
 
     useEffect(() => {
         if (selectedImage) {

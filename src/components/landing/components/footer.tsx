@@ -3,12 +3,7 @@ import arunara from "!/landing/Arunara-footer.svg"
 import { Mail } from "lucide-react"
 import Image from "next/image"
 import wa from "!/landing/WA.svg"
-import Link from "next/link"
-import facebook from "!/landing/facebook.svg"
 import instagram from "!/landing/instagram-svgrepo-com 1.svg"
-import twitter from "!/landing/twitter.svg"
-import tiktok from "!/landing/tiktok.svg"
-import youtube from "!/landing/youtube.svg"
 const Footer = () => {
     const handleScroll = (id: string) => {
         const element = document.getElementById(id);

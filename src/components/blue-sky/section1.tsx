@@ -2,20 +2,11 @@
 import Image from "next/image";
 import Logo from "!/blue-sky/Arunara.png"
 import Button from "./components/button";
-import ArrowRight from "!/green-flag/arrowright.svg"
-import ArrowLeft from "!/green-flag/arrowleft.svg"
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/service/firebase"
 import { AnimatePresence, motion, useAnimationControls } from "motion/react"
-// import CountdownTimer from "./components/countdown_timer";
-// import iconTop from "!/green-flag/floraTop.png"
-// import iconBottomLeft from "!/green-flag/floraBottomLeft.png"
-// import iconBottomRight from "!/green-flag/floraBottomRight.png"
-// import iconBottomLeftAfter from "!/green-flag/floraBottomRightAfter.png"
 import backgroundTop from "!/blue-sky/bgTop.svg"
 import PhotoCover1 from "!/blue-sky/photoCover1.svg"
-import WeddingText from "!/blue-sky/weddingText.svg"        
+import WeddingText from "!/blue-sky/weddingText.svg"
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -26,16 +17,17 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
     const controlCard = useAnimationControls();
 
     useEffect(() => {
-        const fetchData = async () => {
-            const querySnapshot = await getDocs(collection(db, "acara"));
-            const items = querySnapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setData(items);
-        };
+        // const fetchData = async () => {
+        //     const querySnapshot = await getDocs(collection(db, "acara"));
+        //     const items = querySnapshot.docs.map((doc) => ({
+        //         id: doc.id,
+        //         ...doc.data(),
+        //     }));
+        //     setData(items);
+        // };
 
-        fetchData();
+        // fetchData();
+        console.log(content)
     }, []);
 
     useEffect(() => {
@@ -90,46 +82,74 @@ export default function Section1({ content, onOpen }: { content: any, onOpen: ()
                 <Image src={Logo} alt="Arunara" width={145} height={32} />
             </motion.div>
 
-            <div className="relative mx-auto mt-20">
+            <div className="relative mx-auto mt-16 lg:mt-7">
 
-                 <div className="bg-white p-4 rounded-lg flex flex-col absolute z-10 -top-10 -rotate-12">
-                    <Image src={PhotoCover1} alt="Photo Cover" width={223} height={223} className="w-[223px] h-[223px] md:w-[223px] md:h-[223px]" />
-                   <div className="flex justify-between mt-2 items-center">
-                     <div className="flex gap-x-1">
-                        <div className="bg-[#E3EEFA] h-[15px] w-[15px] rounded-full"></div>
-                        <div className="bg-[#9BD1F4] h-[15px] w-[15px] rounded-full"></div>
-                        <div className="bg-[#F1EBE5] h-[15px] w-[15px] rounded-full"></div>
-                        <div className="bg-[#D8C0AF] h-[15px] w-[15px] rounded-full"></div>
-                    </div>
-                    <div className="flex flex-col items-end">
-                        <p className="text-[#212121] font-semibold">20.01.2026</p>
-                        <Image src={WeddingText} alt="Wedding Text" width={56} height={30} className="mt-1" />
-                    </div>
-                   </div>
-                </div>
 
-                <div className="bg-white p-4 rounded-lg flex  flex-col relative z-20">
-                    <Image src={PhotoCover1} alt="Photo Cover" width={223} height={223} className="w-[223px] h-[223px] md:w-[223px] md:h-[223px]" />
-                   <div className="flex justify-between mt-2 items-center">
-                     <div className="flex gap-x-1">
-                        <div className="bg-[#E3EEFA] h-[15px] w-[15px] rounded-full"></div>
-                        <div className="bg-[#9BD1F4] h-[15px] w-[15px] rounded-full"></div>
-                        <div className="bg-[#F1EBE5] h-[15px] w-[15px] rounded-full"></div>
-                        <div className="bg-[#D8C0AF] h-[15px] w-[15px] rounded-full"></div>
+                <motion.div
+                    variants={{
+                        hidden: { y: -40, opacity: 0, rotate: 0 },
+                        visible: { y: 0, opacity: 1, rotate: -8, transition: { delay: 0.6, duration: 1.5, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                    initial="hidden"
+                    animate="visible"
+                    className="bg-white p-4 rounded-lg flex flex-col absolute z-10 -top-5 -rotate-8">
+                    <Image src={PhotoCover1} alt="Photo Cover" width={180} height={180} className="w-[230px] h-[230px] md:w-[180px] md:h-[180px]" />
+                    <div className="flex justify-between mt-2 items-center">
+                        <div className="flex gap-x-1">
+                            <div className="bg-[#E3EEFA] h-[15px] w-[15px] rounded-full"></div>
+                            <div className="bg-[#9BD1F4] h-[15px] w-[15px] rounded-full"></div>
+                            <div className="bg-[#F1EBE5] h-[15px] w-[15px] rounded-full"></div>
+                            <div className="bg-[#D8C0AF] h-[15px] w-[15px] rounded-full"></div>
+                        </div>
+                        <div className="flex flex-col items-end">
+                            <p className="text-[#212121] font-semibold">20.01.2026</p>
+                            <Image src={WeddingText} alt="Wedding Text" width={56} height={30} className="mt-1" />
+                        </div>
                     </div>
-                    <div className="flex flex-col items-end">
-                        <p className="text-[#212121] font-semibold">20.01.2026</p>
-                        <Image src={WeddingText} alt="Wedding Text" width={56} height={30} className="mt-1" />
+                </motion.div>
+
+                <motion.div
+                    variants={{
+                        hidden: { y: -40, opacity: 0, rotate: 0 },
+                        visible: { y: 0, opacity: 1, rotate: 0, transition: { delay: 0.8, duration: 3, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                    initial="hidden"
+                    animate="visible"
+                    className="bg-white p-4 rounded-lg flex  flex-col relative z-20">
+                    <Image src={PhotoCover1} alt="Photo Cover" width={180} height={180} className="w-[230px] h-[230px] md:w-[180px] md:h-[180px]" />
+                    <div className="flex justify-between mt-2 items-center">
+                        <div className="flex gap-x-1">
+                            <div className="bg-[#E3EEFA] h-[15px] w-[15px] rounded-full"></div>
+                            <div className="bg-[#9BD1F4] h-[15px] w-[15px] rounded-full"></div>
+                            <div className="bg-[#F1EBE5] h-[15px] w-[15px] rounded-full"></div>
+                            <div className="bg-[#D8C0AF] h-[15px] w-[15px] rounded-full"></div>
+                        </div>
+                        <div className="flex flex-col items-end">
+                            <p className="text-[#212121] font-semibold">20.01.2026</p>
+                            <Image src={WeddingText} alt="Wedding Text" width={56} height={30} className="mt-1" />
+                        </div>
                     </div>
-                   </div>
-                </div>
-                
+                </motion.div>
             </div>
 
-            <div className="flex flex-col">
-                <p className="text-[#212121] font-semibold">Wedding off</p>
-                <p className="text-[#212121] font-semibold">Jane & Jhon</p>
-            </div>
+            <motion.div
+                initial={{ scaleY: 0.2, opacity: 0 }}
+                animate={{ scaleY: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0, transition: { duration: 0.5 } }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+                className="flex flex-col">
+                <p className="text-[#909090] text-center font-sarabun">Wedding off</p>
+                <p className="text-[#212121] text-[64px] font-allison">{content.name}</p>
+            </motion.div>
+
+            <motion.div
+                initial={{ scaleY: 0.2, opacity: 0 }}
+                animate={{ scaleY: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0, transition: { duration: 0.5 } }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+            >
+                <Button onClick={handleOpenInvite}>Open Invitation</Button>
+            </motion.div>
 
         </div>
 

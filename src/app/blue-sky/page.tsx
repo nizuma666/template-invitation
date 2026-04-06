@@ -124,9 +124,9 @@ useEffect(() => {
       </AnimatePresence>
 
       <Section1 audioRef={audioRef} content={content?.section1} onOpen={() => setIsOpen(true)} />
-      <Section2 content={content?.section2} />
+      <Section2/>
       {/* <Section3 content={content?.section3} /> */}
-      <Section4 content={content?.section4} />
+      <Section4 />
       <Section5 content={content?.section5} />
       <Section6 content={content?.section4} /> 
       <Section7 />

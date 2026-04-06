@@ -1,12 +1,12 @@
 "use client"
 import Section1 from "@/components/blue-sky/section1";
 import content from "./content.json"
-import Section2 from "@/components/green-flag/section2";
+import Section2 from "@/components/blue-sky/section2";
 import Section3 from "@/components/green-flag/section3";
-import Section4 from "@/components/green-flag/section4";
-import Section5 from "@/components/green-flag/section5";
-import Section6 from "@/components/green-flag/section6";
-import Section7 from "@/components/green-flag/section7";
+import Section4 from "@/components/blue-sky/section4";
+import Section5 from "@/components/blue-sky/section5";
+import Section6 from "@/components/blue-sky/section6";
+import Section7 from "@/components/blue-sky/section7";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import onMusic from "!/green-flag/audioOnGreen.svg"
@@ -31,49 +31,34 @@ export default function BlueSky() {
     };
   }, [isOpen]);
 
-  useEffect(() => {
+useEffect(() => {
     const audio = new Audio("/music/backsound.mp3");
     audio.loop = true;
     audioRef.current = audio;
 
-    const playAudio = async () => {
-      try {
-        if (isOpen) {
-          await audio.play();
-          setIsPlaying(true);
-        }
-      } catch {
-        console.warn("Autoplay diblokir browser, tunggu interaksi user 🎧");
-        setIsPlaying(false);
-      }
-    };
-    playAudio();
-
-    const handleUnload = () => {
-      audio.pause();
-      audio.currentTime = 0;
-      setIsPlaying(!isPlaying);
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden && audioRef.current) {
-        audioRef.current.pause();
-        setIsPlaying(!isPlaying);
-      }
-    };
-
-    window.addEventListener("beforeunload", handleUnload);
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
     return () => {
       audio.pause();
-      audio.currentTime = 0
       audioRef.current = null;
-
-      window.removeEventListener("beforeunload", handleUnload);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [isOpen]);
+  }, []);
+
+  // 2. Trigger Play hanya saat PERTAMA KALI dibuka (isOpen)
+  useEffect(() => {
+    const playAudio = async () => {
+      // CEK: Hanya play jika isOpen TRUE DAN audio sedang pause (tidak sedang play)
+      if (isOpen && audioRef.current && audioRef.current.paused) {
+        try {
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } catch {
+          console.warn("Autoplay diblokir browser 🎧");
+          setIsPlaying(false);
+        }
+      }
+    };
+    
+    playAudio();
+  }, [isOpen])
 
   const handleToggleMusic = () => {
     if (!audioRef.current) return;
@@ -138,13 +123,13 @@ export default function BlueSky() {
         )}
       </AnimatePresence>
 
-      <Section1 content={content?.section1} onOpen={() => setIsOpen(true)} />
-      {/* <Section2 content={content?.section2} />
-      <Section3 content={content?.section3} />
-      <Section4 content={content?.section5} />
-      <Section5 content={content?.section4} />
-      <Section6 content={content?.section6} /> */}
-      {/* <Section7 /> */}
+      <Section1 audioRef={audioRef} content={content?.section1} onOpen={() => setIsOpen(true)} />
+      <Section2 content={content?.section2} />
+      {/* <Section3 content={content?.section3} /> */}
+      <Section4 content={content?.section4} />
+      <Section5 content={content?.section5} />
+      <Section6 content={content?.section4} /> 
+      <Section7 />
     </div>
   );
 }

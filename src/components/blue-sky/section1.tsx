@@ -30,6 +30,10 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
     const handleOpenInvite = () => {
         setIsOpen(true);
         onOpen();
+        // if (audioRef.current) {
+        //     audioRef.current.play();
+        //     setIsPlaying(true);
+        // }
     };
 
     useEffect(() => {
@@ -142,14 +146,14 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                             variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 1 } } }}
                             className="flex flex-col items-center w-full max-w-[280px] z-20"
                         >
-                            <motion.div variants={itemVariants} className="w-full h-[3px] bg-[#629BC0]/20 rounded-full mb-6 relative overflow-hidden">
+                            {/* <motion.div variants={itemVariants} className="w-full h-[3px] bg-[#629BC0]/20 rounded-full mb-6 relative overflow-hidden">
                                 <motion.div
                                     className="absolute left-0 top-0 h-full bg-[#629BC0]"
                                     animate={{ width: `${progress}%` }}
                                     transition={{ ease: "linear" }}
                                 />
-                            </motion.div>
-
+                            </motion.div> */}
+{/* 
                             <motion.div variants={itemVariants} className="flex items-center gap-x-10 mb-6">
                                 <button className="text-[#629BC0] active:scale-90 transition-transform">
                                     <CaretLeftIcon size={24} weight="fill" />
@@ -165,7 +169,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                 <button className="text-[#629BC0] active:scale-90 transition-transform">
                                     <CaretRightIcon size={24} weight="fill" />
                                 </button>
-                            </motion.div>
+                            </motion.div> */}
 
                             <motion.div variants={itemVariants} className="text-center mb-6">
                                 <p className="text-[#757575] font-sarabun text-sm">

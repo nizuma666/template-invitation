@@ -35,10 +35,10 @@ export default function Section6({ content }: { content: any }) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.kehadiran) { alert("Silakan pilih kehadiran!"); return; }
+        setIsDrawerOpen(false);
         console.log("Data terkirim:", formData);
         alert("Terima kasih!");
         setFormData({ nama: "", kehadiran: "", pesan: "" });
-        setIsFormOpen(false);
     };
 
     return (
@@ -73,12 +73,12 @@ export default function Section6({ content }: { content: any }) {
                     ))}
 
                     <div className="flex flex-col gap-3 mt-2">
-                        <button
+                        {/* <button
                             onClick={() => { setIsDrawerOpen(true); setIsFormOpen(false); }}
                             className="text-sm text-gray-400 hover:text-[#629BC0] transition-colors"
                         >
                             View More
-                        </button>
+                        </button> */}
                         <Button
                             onClick={() => { setIsDrawerOpen(true); setIsFormOpen(true); }}
                             className="w-full"
@@ -186,7 +186,7 @@ export default function Section6({ content }: { content: any }) {
                                             <Button type="submit">Kirim</Button>
                                             <button
                                                 type="button"
-                                                onClick={() => setIsFormOpen(false)}
+                                                onClick={() => setIsDrawerOpen(false)}
                                                 className="text-sm text-gray-400 py-2 hover:text-gray-600"
                                             >
                                                 Batal

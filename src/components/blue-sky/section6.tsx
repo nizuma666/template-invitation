@@ -4,7 +4,10 @@ import { useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants, AnimatePresence } from "motion/react";
 
-export default function Section6({ content }: { content: any }) {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/no-unescaped-entities */
+
+export default function Section6({ content }: any) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -14,7 +17,6 @@ export default function Section6({ content }: { content: any }) {
     const [showAll, setShowAll] = useState(false);
 
     const shortItem = [1, 2, 3];
-    const longItem = [1, 2, 3, 4, 5, 6];
 
     const container: Variants = {
         hidden: {},
@@ -110,10 +112,8 @@ export default function Section6({ content }: { content: any }) {
                             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                             className="relative bg-white rounded-t-[32px] p-6 max-h-[90dvh] overflow-auto z-[10000]"
                         >
-                            {/* Handle bar */}
                             <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6" />
 
-                            {/* Header drawer */}
                             <div className="flex flex-col mb-6">
                                 <p className="text-[#629BC0] font-allison text-[28px] -mb-2">Kehadiran</p>
                                 <h2 className="text-[#212121] font-sarabun text-[28px] font-bold">Confirm Your Presence</h2>
@@ -183,7 +183,7 @@ export default function Section6({ content }: { content: any }) {
                                         </div>
 
                                         <div className="flex flex-col gap-2 pt-2">
-                                            <Button type="submit">Kirim</Button>
+                                            <Button >Kirim</Button>
                                             <button
                                                 type="button"
                                                 onClick={() => setIsDrawerOpen(false)}

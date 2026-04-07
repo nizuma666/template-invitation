@@ -210,7 +210,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
 
             <motion.div className="w-full relative min-h-screen">
                 <Image src={backgroundTop} alt="Arunara BlueSky" width={200} height={100} className="absolute left-0 right-0 w-full z-0 " />
-                <div className="flex flex-col z-10 relative px-8 lg:px-10 pt-[64px]">
+                <div className="flex flex-col z-10 relative px-8 lg:px-10 pt-[28px]">
                     <p className="text-[#629BC0] font-allison text-[32px] -mb-[20px]">Save The Date</p>
                     <p className="font-sarabun text-[32px] font-semibold leading-tight">Counting Down to Our Forever</p>
                     <p className="font-sarabun font-light mt-4 text-[16px] text-[#757575]">May every second leading to this day be filled with love, grace, and endless blessings</p>

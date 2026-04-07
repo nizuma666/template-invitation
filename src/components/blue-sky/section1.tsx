@@ -65,16 +65,16 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                 {!isOpen && (
                     <motion.div
                         initial={{ y: 0 }}
-                        exit={{ y: "-100%", opacity: 0 }}
-                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        exit={{ y: "100%",}}
+                        transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
                         className="fixed inset-0 z-[100] h-full bg-blue-background flex flex-col items-center pt-18 overflow-hidden"
                     >
                         <Image src={backgroundTop} alt="Arunara BlueSky" width={200} height={100} className="absolute inset-0 w-full z-0" />
 
                         <motion.div
-                            initial={{ y: 50, opacity: 0 }}
+                            initial={{ y: -60, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
                             className="absolute top-5 left-1/2 -translate-x-1/2 z-30"
                         >
                             <Image src={Logo} alt="Arunara" width={145} height={32} />
@@ -83,8 +83,14 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                         <div className="relative mx-auto mt-16 lg:mt-7 h-[280px] w-[260px]">
                             <motion.div
                                 variants={{
-                                    hidden: { y: -40, opacity: 0, rotate: 0 },
-                                    visible: { y: 0, opacity: 1, rotate: -8, transition: { delay: 0.4, duration: 1 } }
+                                    hidden: { x: 120, opacity: 0, rotate: 0 },
+                                    visible: {
+                                        x: 0, opacity: 1, rotate: -8,
+                                        transition: {
+                                            delay: 0.4, duration: 2,
+                                            ease: [0.22, 1, 0.36, 1]
+                                        }
+                                    }
                                 }}
                                 initial="hidden"
                                 animate="visible"
@@ -107,8 +113,14 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
 
                             <motion.div
                                 variants={{
-                                    hidden: { y: -40, opacity: 0 },
-                                    visible: { y: 0, opacity: 1, transition: { delay: 0.6, duration: 1 } }
+                                    hidden: { x: -120, opacity: 0 },
+                                    visible: {
+                                        x: 0, opacity: 1,
+                                        transition: {
+                                            delay: 0.6, duration: 2,
+                                            ease: [0.22, 1, 0.36, 1]
+                                        }
+                                    }
                                 }}
                                 initial="hidden"
                                 animate="visible"
@@ -140,7 +152,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                             <p className="text-[#212121] text-[56px] font-allison text-center leading-tight">{content?.name}</p>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             initial="hidden"
                             animate="visible"
                             variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 1 } } }}
@@ -153,7 +165,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                     transition={{ ease: "linear" }}
                                 />
                             </motion.div> */}
-{/* 
+                            {/* 
                             <motion.div variants={itemVariants} className="flex items-center gap-x-10 mb-6">
                                 <button className="text-[#629BC0] active:scale-90 transition-transform">
                                     <CaretLeftIcon size={24} weight="fill" />
@@ -177,8 +189,17 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                 </p>
                             </motion.div>
 
-                            <motion.div variants={itemVariants} className="w-full">
-                                <Button onClick={handleOpenInvite} className="w-full py-3 rounded-full bg-[#629BC0] text-white font-medium shadow-md active:scale-95 transition-transform">
+                            <motion.div variants={{
+                                hidden: { opacity: 0, y: 50 },
+                                visible: {
+                                    opacity: 1, y: 0,
+                                    transition: {
+                                        duration: 0.7,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }
+                                }
+                            }} className="w-full">
+                                <Button onClick={handleOpenInvite} className="mx-auto">
                                     Open Invitation
                                 </Button>
                             </motion.div>
@@ -187,9 +208,9 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                 )}
             </AnimatePresence>
 
-            <div className="w-full relative min-h-screen">
+            <motion.div className="w-full relative min-h-screen">
                 <Image src={backgroundTop} alt="Arunara BlueSky" width={200} height={100} className="absolute left-0 right-0 w-full z-0 " />
-                <div className="flex flex-col z-10 relative px-10 pt-[64px]">
+                <div className="flex flex-col z-10 relative px-8 lg:px-10 pt-[64px]">
                     <p className="text-[#629BC0] font-allison text-[32px] -mb-[20px]">Save The Date</p>
                     <p className="font-sarabun text-[32px] font-semibold leading-tight">Counting Down to Our Forever</p>
                     <p className="font-sarabun font-light mt-4 text-[16px] text-[#757575]">May every second leading to this day be filled with love, grace, and endless blessings</p>
@@ -219,7 +240,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                     </div>
 
                     <div className="flex justify-center mt-12 mb-10 pb-10">
-                        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="cursor-pointer">
+                        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="cursor-pointer"  onMouseDown={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })} onTouchStart={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}>
                             <div className="w-[45px] h-[60px] border-[4px] border-[#629BC0] rounded-full flex flex-col items-center pt-3 gap-1">
                                 <div className="w-1.5 h-1.5 bg-[#629BC0] rounded-full" />
                                 <div className="w-1.5 h-1.5 bg-[#629BC0] rounded-full" />
@@ -230,7 +251,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                         </motion.div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

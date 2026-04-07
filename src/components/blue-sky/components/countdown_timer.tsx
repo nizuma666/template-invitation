@@ -40,16 +40,16 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   ];
 
   return (
-    <div className="flex flex-col gap-3 p-5 w-full bg-[#EDF3F9] backdrop-blur-sm rounded-2xl border border-white shadow-sm w-fit">
+    <div className="flex flex-col gap-1 gap-y-5 p-5 px-3 w-full bg-[#EDF3F9] backdrop-blur-sm rounded-2xl border border-white shadow-sm w-fit">
       <p className="text-[#629BC0] font-semibold text-[18px]  leading-none">Our Forever Begins In</p>
       <div className="border border-[#629BC01A] w-full h-[1px]" />
-      <div className="flex gap-3">
+      <div className="flex gap-3 ">
         {items.map((item, index) => (
           <div
             key={index}
-            className="bg-[#FFFFFF1A] px-5 py-4 flex flex-col items-center justify-center rounded-xl shadow-sm border border-white min-w-[64px]"
+            className="bg-[#FFFFFF1A] px-4 py-4 flex flex-col items-center justify-center rounded-xl shadow-sm border border-white min-w-[60px]"
           >
-            <span className="text-3xl font-semibold text-[#629BC0] font-sarabun leading-none">
+            <span className="text-lg md:text-xl font-semibold text-[#629BC0] font-sarabun leading-none">
               {String(item.value).padStart(2, "0")}
             </span>
             <span className="text-xs text-[#8ab5d1] mt-1 font-medium">{item.label}</span>

@@ -127,8 +127,8 @@ useEffect(() => {
       <Section2/>
       {/* <Section3 content={content?.section3} /> */}
       <Section4 />
-      <Section5 content={content?.section5} />
-      <Section6 content={content?.section4} /> 
+      <Section5 content={content?.section4} /> 
+      <Section6  />
       <Section7 />
     </div>
   );

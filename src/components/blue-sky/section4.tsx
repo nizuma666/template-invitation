@@ -3,11 +3,11 @@ import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { CaretLeft, CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 // Import Swiper styles
+// @ts-ignore
 import "swiper/css";
-import "swiper/css/navigation";
 
 // Data dummy untuk gallery
 const galleryData = [
@@ -30,11 +30,11 @@ export default function Section4() {
           
           {/* Tombol Navigasi */}
           <div className="flex gap-2">
-            <button className="swiper-prev-btn w-10 h-10 rounded-full border border-[#629BC0] flex items-center justify-center text-[#629BC0] transition-all active:scale-90 disabled:opacity-50">
-              <CaretLeft size={20} weight="bold" />
+            <button className="swiper-prev-btn w-10 h-10 rounded-full border border-[#629BC0] flex items-center justify-center text-[#629BC0] transition-all active:scale-90 disabled:bg-[#629BC04D] disabled:border-none disabled:text-[#629BC080]">
+              <CaretLeftIcon size={20} weight="bold" />
             </button>
-            <button className="swiper-next-btn w-10 h-10 rounded-full border border-[#629BC0] flex items-center justify-center text-[#629BC0] transition-all active:scale-90 disabled:opacity-50">
-              <CaretRight size={20} weight="bold" />
+            <button className="swiper-next-btn w-10 h-10 rounded-full border border-[#629BC0] flex items-center justify-center text-[#629BC0] transition-all active:scale-90 disabled:bg-[#629BC04D] disabled:border-none disabled:text-[#629BC080]">
+              <CaretRightIcon size={20} weight="bold" />
             </button>
           </div>
         </div>

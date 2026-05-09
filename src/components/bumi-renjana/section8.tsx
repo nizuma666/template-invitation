@@ -1,8 +1,7 @@
 "use client"
-import bgFooter from "!/peach-love/bgFooter.png"
+import bgFooter from "!/bumi-renjana/footer.svg"
 import Image from "next/image"
 import Logo from "!/peach-love/Arunara.svg"
-import instagram from "!/peach-love/instagram.svg"
 import { Globe } from "lucide-react"
 import { motion, useInView, Variants } from "motion/react"
 import { useRef } from "react"
@@ -65,7 +64,7 @@ export default function Section8() {
             </motion.div>
 
             <motion.div
-                className="absolute inset-0 bg-[#629BC0E5]/90 z-10"
+                className="absolute inset-0 z-10"
                 variants={overlayFade}
             ></motion.div>
 

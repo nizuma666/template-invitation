@@ -1,27 +1,29 @@
 "use client"
-import Section1 from "@/components/blue-sky/section1";
+import Section1 from "@/components/bumi-renjana/section1";
 import content from "./content.json"
-import Section2 from "@/components/blue-sky/section2";
-import Section3 from "@/components/blue-sky/section3";
-import Section4 from "@/components/blue-sky/section4";
-import Section5 from "@/components/blue-sky/section5";
-import Section6 from "@/components/blue-sky/section6";
-import Section7 from "@/components/blue-sky/section7";
+import Section2 from "@/components/bumi-renjana/section2";
+import Section3 from "@/components/bumi-renjana/section3";
+import Section4 from "@/components/bumi-renjana/section4";
+import Section5 from "@/components/bumi-renjana/section5";
+import Section6 from "@/components/bumi-renjana/section6";
+import Section7 from "@/components/bumi-renjana/section7";
+import Section8 from "@/components/bumi-renjana/section8";
+
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import onMusic from "!/green-flag/audioOnGreen.svg"
 import offMusic from "!/green-flag/audioOffGreen.svg"
 import { motion, AnimatePresence } from "motion/react"
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function BlueSky() {
+export default function GreenFlag() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (!isOpen) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
       document.body.style.overflow = "hidden";
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       document.body.style.overflow = "auto";
     }
@@ -31,33 +33,49 @@ export default function BlueSky() {
     };
   }, [isOpen]);
 
-useEffect(() => {
+  useEffect(() => {
     const audio = new Audio("/music/backsound.mp3");
     audio.loop = true;
     audioRef.current = audio;
 
-    return () => {
-      audio.pause();
-      audioRef.current = null;
-    };
-  }, []);
-
-  useEffect(() => {
     const playAudio = async () => {
-      // CEK: Hanya play jika isOpen TRUE DAN audio sedang pause (tidak sedang play)
-      if (isOpen && audioRef.current && audioRef.current.paused) {
-        try {
-          await audioRef.current.play();
+      try {
+        if (isOpen) {
+          await audio.play();
           setIsPlaying(true);
-        } catch {
-          console.warn("Autoplay diblokir browser 🎧");
-          setIsPlaying(false);
         }
+      } catch {
+        console.warn("Autoplay diblokir browser, tunggu interaksi user 🎧");
+        setIsPlaying(false);
       }
     };
-    
     playAudio();
-  }, [isOpen])
+
+    const handleUnload = () => {
+      audio.pause();
+      audio.currentTime = 0;
+      setIsPlaying(!isPlaying);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden && audioRef.current) {
+        audioRef.current.pause();
+        setIsPlaying(!isPlaying);
+      }
+    };
+
+    window.addEventListener("beforeunload", handleUnload);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0
+      audioRef.current = null;
+
+      window.removeEventListener("beforeunload", handleUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isOpen]);
 
   const handleToggleMusic = () => {
     if (!audioRef.current) return;
@@ -81,7 +99,7 @@ useEffect(() => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 2.5 }} 
+            transition={{ duration: 0.6, ease: "easeOut", delay: 2.5 }} // 👈 jeda 0.5 detik
           >
             <AnimatePresence mode="wait">
               {isPlaying ? (
@@ -122,13 +140,14 @@ useEffect(() => {
         )}
       </AnimatePresence>
 
-      <Section1 audioRef={audioRef} content={content?.section1} onOpen={() => setIsOpen(true)} />
-      <Section2/>
-      <Section3  />
-      <Section4 />
-      <Section5 content={content?.section4} /> 
-      <Section6  />
-      <Section7 />
+      <Section1  onOpen={() => setIsOpen(true)} />
+      <Section2 content={content?.section2} />
+      <Section3 content={content?.section3} />
+      <Section4 content={content?.section5} />
+      <Section5 content={content?.section4} />
+      <Section6 content={content?.section6} />
+      <Section7 content={content?.section4} />
+      <Section8 />
     </div>
   );
 }

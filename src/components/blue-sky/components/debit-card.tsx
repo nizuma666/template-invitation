@@ -9,8 +9,6 @@ interface DebitCardProps {
     bank: string;
     name: string;
     rekening: string;
-    bg: string;
-    logo: string; // Menggunakan logo bank (BSI/Mandiri) dari referensi
 }
 
 export default function DebitCard({ bank, name, rekening, }: DebitCardProps) {
@@ -35,7 +33,6 @@ export default function DebitCard({ bank, name, rekening, }: DebitCardProps) {
                 <div className="bg-white/90 p-2 rounded-lg inline-block">
                     <p className="text-xs font-bold text-gray-800">{bank}</p>
                 </div>
-                {/* <Image src="/mastercard-logo.svg" width={40} height={25} alt="Mastercard" className="opacity-80" /> */}
             </div>
 
             <div className="relative z-10">

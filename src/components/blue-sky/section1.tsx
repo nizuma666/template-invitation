@@ -65,8 +65,8 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                 {!isOpen && (
                     <motion.div
                         initial={{ y: 0 }}
-                        exit={{ y: "100%",}}
-                        transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+                        exit={{ y: "100%", }}
+                        transition={{ duration: 2, ease: [0.5, 2, 0.5, 2] }}
                         className="fixed inset-0 z-[100] h-full bg-blue-background flex flex-col items-center pt-18 overflow-hidden"
                     >
                         <Image src={backgroundTop} alt="Arunara BlueSky" width={200} height={100} className="absolute inset-0 w-full z-0" />
@@ -74,7 +74,10 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                         <motion.div
                             initial={{ y: -60, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            transition={{
+                                duration: 1,
+                                ease: [0.25, 0.46, 0.45, 0.94]  // custom cubic-bezier, lebih smooth
+                            }}
                             className="absolute top-5 left-1/2 -translate-x-1/2 z-30"
                         >
                             <Image src={Logo} alt="Arunara" width={145} height={32} />
@@ -87,8 +90,8 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                     visible: {
                                         x: 0, opacity: 1, rotate: -8,
                                         transition: {
-                                            delay: 0.4, duration: 2,
-                                            ease: [0.22, 1, 0.36, 1]
+                                            delay: 0.5, duration: 2,
+                                            ease: [0.22, 0.40, 0.60, 1]
                                         }
                                     }
                                 }}
@@ -117,8 +120,8 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                     visible: {
                                         x: 0, opacity: 1,
                                         transition: {
-                                            delay: 0.6, duration: 2,
-                                            ease: [0.22, 1, 0.36, 1]
+                                            delay: 0.5, duration: 2,
+                                            ease: [0.22, 0.40, 0.60, 1]
                                         }
                                     }
                                 }}
@@ -145,7 +148,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.8 }}
+                            transition={{ delay: 0.8, duration: 1.5}}
                             className="flex flex-col z-20 mt-4"
                         >
                             <p className="text-[#909090] text-center font-sarabun text-sm">Wedding off</p>
@@ -194,8 +197,8 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                 visible: {
                                     opacity: 1, y: 0,
                                     transition: {
-                                        duration: 0.7,
-                                        ease: [0.22, 1, 0.36, 1]
+                                        duration: 1.5,
+                                        ease: [0.22, 0.45, 0.60, 1]
                                     }
                                 }
                             }} className="w-full">
@@ -240,7 +243,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                     </div>
 
                     <div className="flex justify-center mt-12 mb-10 pb-10">
-                        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="cursor-pointer"  onMouseDown={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })} onTouchStart={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}>
+                        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="cursor-pointer" onMouseDown={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })} onTouchStart={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}>
                             <div className="w-[45px] h-[60px] border-[4px] border-[#629BC0] rounded-full flex flex-col items-center pt-3 gap-1">
                                 <div className="w-1.5 h-1.5 bg-[#629BC0] rounded-full" />
                                 <div className="w-1.5 h-1.5 bg-[#629BC0] rounded-full" />

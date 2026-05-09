@@ -155,7 +155,6 @@ export default function Section6({ content }: any) {
                         </div>
                     </div>
 
-                    {/* Message Wishes */}
                     <div className="space-y-2">
                         <label className="text-[15px] font-medium text-gray-500 ml-1">Message / Wishes</label>
                         <textarea
@@ -168,7 +167,6 @@ export default function Section6({ content }: any) {
                         />
                     </div>
 
-                    {/* Action Buttons */}
                     <div className="flex flex-col gap-3 pt-4">
                         <button 
                             type="submit"
@@ -179,7 +177,7 @@ export default function Section6({ content }: any) {
                         <button
                             type="button"
                             onClick={() => setIsDrawerOpen(false)}
-                            className="w-full py-4 bg-white text-[#EB5757] border border-[#EB5757]/30 rounded-xl font-bold text-lg active:scale-[0.98] transition-transform shadow-sm"
+                            className="w-full py-4 bg-white text-brown border border-brown rounded-xl font-bold text-lg active:scale-[0.98] transition-transform shadow-sm"
                         >
                             Tutup
                         </button>

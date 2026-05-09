@@ -44,7 +44,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       {items.map((item, index) => (
         <div
           key={index}
-          className="bg-brown w-14 h-14 md:w-16 md:h-16 flex flex-col items-center justify-center rounded-full shadow-md"
+          className="bg-brown w-14 h-14 md:w-16 md:h-16 flex font-akatab flex-col items-center justify-center rounded-full shadow-md"
         >
           <span className="text-lg md:text-xl font-semibold text-white leading-none mb-0.5 font-sans">
             {String(item.value).padStart(2, "0")}

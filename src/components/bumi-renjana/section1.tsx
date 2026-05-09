@@ -70,16 +70,15 @@ const Section1 = ({ onOpen }: any) => {
 									ease: 'easeInOut',
 								}}
 							>
+
 								<Image src="/bumi-renjana/lebah.svg" width={48} height={53} alt="" className="w-full h-auto object-cover" />
 							</motion.div>
 						</div>
 
 						<div className="relative z-10 w-full max-w-md mx-auto flex flex-col min-h-[85vh] justify-between pt-12 pb-8 overflow-hidden">
-							<motion.p initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }} className="font-allison text-brown text-5xl">
-								Arunara
-							</motion.p>
+																 <Image src='/bumi-renjana/logo.svg' alt="Arunara BlueSky" width={200} height={100} className="-mt-10" />
 
-							<div className="flex flex-col items-start mt-8">
+							<div className="flex flex-col items-start -mt-17">
 								<motion.p initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }} className="text-2xl text-[#232323] mb-2 tracking-wide">
 									The wedding of
 								</motion.p>
@@ -165,7 +164,7 @@ const Section1 = ({ onOpen }: any) => {
 									<div className="w-3.5 h-3.5 rounded-full bg-[#FFF2EC]"></div>
 								</div>
 
-								<p className="text-base text-[#757575] leading-relaxed mb-16 pr-8">Kami berharap kamu bisa hadir dan menjadi bagian dari momen yang berarti bagi kami.</p>
+								<p className="text-base text-[#757575] leading-relaxed mb-16 pr-8 font-sarabun">Kami berharap kamu bisa hadir dan menjadi bagian dari momen yang berarti bagi kami.</p>
 
 								<div className="w-full flex justify-center">
 									<div onClick={handleScrollDown} className="w-9 h-14 rounded-full border-[4px] border-[#D39E82] flex flex-col items-center justify-center text-[#D39E82] gap-[3px] animate-bounce cursor-pointer">

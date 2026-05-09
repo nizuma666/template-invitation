@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Button from './components/button';
 import CountdownTimer from './components/countdown_timer';
 import { motion, AnimatePresence } from 'framer-motion';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const Section1 = ({ onOpen }: any) => {
 	const [isOpened, setIsOpened] = useState(false);

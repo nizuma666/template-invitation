@@ -35,16 +35,7 @@ export default function DebitCard({ bank, name, rekening }: DebitCardProps) {
                 />
             </div>
 
-            {/* Dekorasi Bunga/Elemen di Kanan Atas */}
-            <div className="absolute -top-2 -right-2 w-40 h-40 z-10 pointer-events-none opacity-80">
-                <Image
-                    src="/bumi-renjana/ornamen-bunga-card.png" // Ganti dengan path ornamen bunga Anda
-                    alt="decoration"
-                    width={600}
-                    height={600}
-                    className="object-contain"
-                />
-            </div>
+          
 
             {/* Logo Bank (Tulisan) */}
             <div className="relative z-20">

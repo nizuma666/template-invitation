@@ -4,18 +4,17 @@ import { InstagramLogoIcon } from '@phosphor-icons/react'
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const Section2 = () => {
-  // Pengaturan transisi standar agar konsisten
   const transitionConfig = {
     duration: 1.2, // Lebih lambat dari sebelumnya (0.8s)
     ease: [0.25, 0.1, 0.25, 1], // Cubic-bezier untuk gerakan yang lebih smooth
   }
 
-  // bg-[url('/bumi-renjana/bg-section1.svg')]
 
   return (
-    <div className="w-full min-h-screen   bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
+    <div id='1'  className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
       
       {/* 1. Judul - Muncul Perlahan dari Atas */}
       <motion.div 
@@ -25,8 +24,8 @@ const Section2 = () => {
         transition={transitionConfig}
         className="mb-10 text-left"
       >
-        <p className="text-brown italic text-2xl mb-[-10px] font-allison">Tentang</p>
-        <h2 className="text-3xl font-semibold text-[#1A1A1A] font-sarabun">Kedua Mempelai</h2>
+        <p className="text-brown italic text-5xl mb-[-10px] font-allison">Tentang</p>
+        <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun">Kedua Mempelai</h2>
       </motion.div>
 
       <div className="flex flex-col gap-6 mb-12">
@@ -39,7 +38,7 @@ const Section2 = () => {
           className="border bg-white border-border-default rounded-2xl p-2 flex items-center gap-4"
         >
           <div className="flex-1 ml-2">
-            <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-corsiva">Jane Angeline</h3>
+            <h3 className="text-2xl italic text-[#2C2C2C] mb-1 font-corsiva">Jane Angeline</h3>
             <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
               Putri dari Bpk Sumanto &<br /> Ibu Sriyatun Marfuah
             </p>
@@ -75,7 +74,7 @@ const Section2 = () => {
             />
           </div>
           <div className="flex-1">
-            <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-corsiva">Ratno Mangku Bumi</h3>
+            <h3 className="text-2xl italic text-[#2C2C2C] mb-1 font-corsiva">Ratno Mangku Bumi</h3>
             <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
                Putra dari Bpk Sumanto &<br /> Ibu Sriyatun Marfuah
             </p>
@@ -105,7 +104,7 @@ const Section2 = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ ...transitionConfig, delay: 1 }}
-        className="space-y-6 text-[#212121] font-sarabun leading-relaxed relative z-10"
+        className="space-y-6 text-[#757575] font-sarabun leading-relaxed relative z-10"
       >
         <p className="text-[15px]">
           Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan

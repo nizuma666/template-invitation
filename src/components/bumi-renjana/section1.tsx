@@ -20,7 +20,7 @@ const Section1 = ({ onOpen }: any) => {
 	};
 
 	return (
-		<div className="w-full relative min-h-[100dvh] bg-brown-background flex flex-col gap-y-4 items-center  ">
+		<div className={`w-full relative z-10 min-h-[100dvh] ${!isOpened && " bg-brown-background"} flex flex-col gap-y-4 items-center`}>
 			<AnimatePresence mode="wait">
 				{!isOpened ? (
 					<motion.div key="cover" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ y: '100vh', opacity: 0 }} transition={{ duration: 1, ease: 'easeInOut' }} className="relative w-full min-h-screen bg-[#FCFAF6] overflow-hidden flex flex-col justify-center px-8 md:px-16 font-benne">
@@ -76,7 +76,7 @@ const Section1 = ({ onOpen }: any) => {
 						</div>
 
 						<div className="relative z-10 w-full max-w-md mx-auto flex flex-col min-h-[85vh] justify-between pt-12 pb-8 overflow-hidden">
-																 <Image src='/bumi-renjana/logo.svg' alt="Arunara BlueSky" width={100} height={100} className="-mt-10" />
+							<Image src='/bumi-renjana/logo.svg' alt="Arunara bumi" width={170} height={100} className="-mt-10" />
 
 							<div className="flex flex-col items-start ">
 								<motion.p initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }} className="text-2xl text-[#232323] mb-2 tracking-wide">
@@ -119,15 +119,17 @@ const Section1 = ({ onOpen }: any) => {
 							</motion.div>
 						</div>
 					</motion.div>
+
+					// bg-[url('/bumi-renjana/bg-section1.svg')]
 				) : (
-					<motion.div key="main-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="w-full  bg-[url('/bumi-renjana/bg-section1.svg')] bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
+					<motion.div key="main-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="w-full   bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
 						<div className="relative lg:min-h-screen z-10 w-full max-w-md mx-auto flex flex-col h-full">
 							<div className="flex flex-col items-start mb-8 mt-12 overflow-hidden">
 								<motion.h3 initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }} className="text-[32px] text-brown font-allison">
 									Undangan
 								</motion.h3>
 
-								<motion.h2 initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }} className="text-[32px] text-[#2C2E2A] -mt-5 font-sarabun font-semibold mb-4">
+								<motion.h2 initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }} className="text-[32px] text-[#212121] -mt-5 font-sarabun font-semibold mb-4">
 									Spesial untuk Kamu
 								</motion.h2>
 
@@ -139,7 +141,7 @@ const Section1 = ({ onOpen }: any) => {
 							<motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.8 }} className="w-full bg-[#FFF1E8] rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm mb-12 overflow-hidden">
 								<p className="text-[#757575] font-benne text-[20px] mb-2">Undangan Pernikahan</p>
 
-								<div className="text-5xl md:text-6xl text-[#2C2E2A] mb-4 flex items-center italic font-benne ">
+								<div className="text-5xl md:text-6xl text-[#212121] mb-4 flex items-center italic font-benne ">
 									<motion.span initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 1 }} className='pr-1'>
 										F
 									</motion.span>

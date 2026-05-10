@@ -3,9 +3,10 @@ import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
 
+// bg-[url('/bumi-renjana/bg-section1.svg')]
 const Section3 = () => {
   return (
-    <div className="w-full min-h-screen bg-[url('/bumi-renjana/bg-section1.svg')] bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
+    <div id='2' className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
       
       {/* Header Animasi - Durasi 1.5 detik */}
       <motion.div 
@@ -15,8 +16,8 @@ const Section3 = () => {
         viewport={{ once: true }}
         className="mb-12 relative z-10"
       >
-        <p className="text-[#D89F83] italic text-[32px] mb-[-10px] font-allison">Hari Bahagia</p>
-        <h2 className="text-3xl font-semibold text-[#212121] font-sarabun tracking-wide">Hari Pernikahan Kami</h2>
+        <p className="text-[#D89F83] italic text-5xl mb-[-10px] font-allison">Hari Bahagia</p>
+        <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-wide">Hari Pernikahan Kami</h2>
       </motion.div>
 
       <div className="flex flex-col gap-20 items-center relative z-10">
@@ -67,7 +68,7 @@ const Section3 = () => {
               Guyangan RT01/RW01, Tugu,<br />
               XXXXX, XXXXXX
             </p>
-            <button className="bg-[#D89F83] cursor-pointer font-quicksand text-white text-sm py-2 px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
+            <button className="bg-[#D89F83] cursor-pointer font-quicksand text-white lg:text-base text-sm py-2 px-4 lg:px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
               Buka Google Maps
             </button>
           </motion.div>
@@ -119,7 +120,7 @@ const Section3 = () => {
               Guyangan RT01/RW01, Tugu,<br />
               XXXXX, XXXXXX
             </p>
-            <button className="bg-[#D89F83] text-white font-quicksand text-sm py-2 px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
+            <button className="bg-[#D89F83] text-white font-quicksand lg:text-base text-sm  py-2 px-4 lg:px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
               Buka Google Maps
             </button>
           </motion.div>

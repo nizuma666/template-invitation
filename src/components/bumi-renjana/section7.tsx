@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import DebitCard from "./components/debit-card"; // Pastikan component ini menerima props bank, name, rekening
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 
 export default function Section7({ content }: { content: any }) {
@@ -18,24 +19,24 @@ export default function Section7({ content }: { content: any }) {
           },[isOpen])
 
     return (
-        <div className="px-8 bg-[#F3E9E2] py-12 ">
+        <div id='4' className="px-8 bg-[#D89F8333] w-full z-10 relative py-12 ">
             {/* CARD UTAMA */}
             <div className="w-full h-[203px] relative  ">
                 <Image
                     src="/bumi-renjana/image-hadiah.png" // Ganti dengan path image kado cokelat Anda
                     alt="Wedding Gift"
                     fill
-                    className="object-cover  rounded-[16px]"
+                    className="object-cover  rounded-lg"
                 />
                 {/* Overlay Cokelat */}
-                <div className="absolute inset-0 rounded-[16px] bg-[#653C3099] flex flex-col justify-center p-3 text-white">
-                    <p className="font-allison text-[32px] text-left italic mb-[-8px]">Wedding Gift</p>
+                <div className="absolute inset-0 rounded-lg bg-[#653C3099] flex flex-col justify-center p-3 text-white">
+                    <p className="font-allison text-5xl text-left italic mb-[-8px]">Wedding Gift</p>
                     <h2 className="text-2xl font-bold  font-sarabun leading-tight">
                         Given with love, received with gratitude.
                     </h2>
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="bg-white text-[#D89F83] w-full py-2 rounded-[8px] mt-3 font-bold shadow-md hover:bg-gray-50 transition-all text-lg"
+                        className="bg-white cursor-pointer text-[#D89F83] w-full py-2 rounded-[8px] mt-3 font-bold shadow-md hover:bg-gray-50 transition-all text-lg"
                     >
                         See Gift Option
                     </button>
@@ -83,7 +84,7 @@ export default function Section7({ content }: { content: any }) {
 
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="w-full mt-10 py-4 bg-[#D89F83] text-white rounded-xl font-bold text-lg shadow-lg shadow-[#D89F83]/20 hover:bg-[#c58d72] transition-all"
+                                className="w-full mt-10 py-4  bg-[#D89F83] text-white rounded-lg font-bold text-lg shadow-lg shadow-[#D89F83]/20 hover:bg-[#c58d72] transition-all"
                             >
                                 Tutup
                             </button>

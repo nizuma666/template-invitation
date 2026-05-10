@@ -43,11 +43,11 @@ const Section5 = () => {
   const displayedJourneys = showAll ? journeys : journeys.slice(0, 1)
 
   return (
-    <div ref={containerRef} className="w-full flex flex-col px-6 py-14 relative overflow-hidden bg-white">
+    <div  ref={containerRef} className="w-full flex flex-col px-6 py-14 relative overflow-hidden ">
       
       <div className="mb-10 text-left px-2">
-        <p className="text-[#D89F83] italic text-2xl font-allison mb-[-8px]">Our Journey</p>
-        <h2 className="text-3xl font-bold text-[#1A1A1A] font-sarabun leading-tight">Jalan Menjadi Satu</h2>
+        <p className="text-[#D89F83] italic text-5xl font-allison mb-[-8px]">Our Journey</p>
+        <h2 className="text-3xl font-bold text-[#212121] font-sarabun leading-tight">Jalan Menjadi Satu</h2>
       </div>
 
       <div className="flex flex-col relative z-10">

@@ -112,7 +112,7 @@ const Section3 = () => {
             viewport={{ once: true }}
             className="relative z-20 text-center text-white px-8 flex flex-col items-center"
           >
-            <p className="font-corsiva text-3xl italic text-white mb-2">Resepsi</p>
+            <p className="font-corsiva text-2xl italic  mb-2">Resepsi</p>
             <h3 className="font-sarabun text-3xl font-bold mb-1">23 MEI 2026</h3>
             <p className="font-sarabun text-sm mb-4">10:00 WIB</p>
             <p className="font-manrope text-[16px] leading-relaxed mb-6 opacity-90 px-4">

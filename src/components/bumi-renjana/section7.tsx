@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import DebitCard from "./components/debit-card"; // Pastikan component ini menerima props bank, name, rekening
@@ -8,25 +8,34 @@ import DebitCard from "./components/debit-card"; // Pastikan component ini mener
 export default function Section7({ content }: { content: any }) {
     const [isOpen, setIsOpen] = useState(false);
 
+
+     useEffect(() => {
+            if(isOpen){
+              window.document.body.style.overflowY = "hidden"
+            }else{
+              window.document.body.style.overflowY = ""
+            }
+          },[isOpen])
+
     return (
-        <div className="px-8 bg-[#F3E9E2] py-12">
+        <div className="px-8 bg-[#F3E9E2] py-12 ">
             {/* CARD UTAMA */}
-            <div className="relative mx-auto aspect-[15/17] rounded-[32px] overflow-hidden shadow-xl">
+            <div className="w-full h-[203px] relative  ">
                 <Image
                     src="/bumi-renjana/image-hadiah.png" // Ganti dengan path image kado cokelat Anda
                     alt="Wedding Gift"
                     fill
-                    className="object-cover"
+                    className="object-cover  rounded-[16px]"
                 />
                 {/* Overlay Cokelat */}
-                <div className="absolute inset-0 bg-[#3D2317]/70 flex flex-col justify-center p-8 text-white">
-                    <p className="font-allison text-3xl text-left italic mb-[-8px]">Wedding Gift</p>
-                    <h2 className="text-2xl font-bold mb-8 font-sarabun leading-tight">
-                        Given with love, received <br /> with gratitude.
+                <div className="absolute inset-0 rounded-[16px] bg-[#653C3099] flex flex-col justify-center p-3 text-white">
+                    <p className="font-allison text-[32px] text-left italic mb-[-8px]">Wedding Gift</p>
+                    <h2 className="text-2xl font-bold  font-sarabun leading-tight">
+                        Given with love, received with gratitude.
                     </h2>
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="bg-white text-[#D89F83] w-full py-4 rounded-2xl font-bold shadow-md hover:bg-gray-50 transition-all text-lg"
+                        className="bg-white text-[#D89F83] w-full py-2 rounded-[8px] mt-3 font-bold shadow-md hover:bg-gray-50 transition-all text-lg"
                     >
                         See Gift Option
                     </button>

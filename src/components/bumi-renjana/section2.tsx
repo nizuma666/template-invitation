@@ -37,7 +37,7 @@ const Section2 = () => {
           className="bg-[#FFF1E8] rounded-2xl p-6 flex items-center justify-between gap-4"
         >
           <div className="flex-1">
-            <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-benne">Jane Angeline</h3>
+            <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-corsiva">Jane Angeline</h3>
             <p className="text-sm text-[#909090] mb-4 leading-tight font-sarabun">
               Putri dari Bpk Sumanto &<br /> Ibu Sriyatun Marfuah
             </p>
@@ -73,7 +73,7 @@ const Section2 = () => {
             />
           </div>
           <div className="flex-1">
-            <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-benne">Ratno Mangku Bumi</h3>
+            <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-corsiva">Ratno Mangku Bumi</h3>
             <p className="text-sm text-[#909090] mb-4 leading-tight font-sarabun">
                Putra dari Bpk Sumanto &<br /> Ibu Sriyatun Marfuah
             </p>

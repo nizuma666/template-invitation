@@ -131,7 +131,7 @@ const Section1 = ({ onOpen }: any) => {
 									Spesial untuk Kamu
 								</motion.h2>
 
-								<motion.p initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }} className="text-sm md:text-base text-[#757575] font-sarabun leading-relaxed font-light">
+								<motion.p initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }} className="text-base text-[#757575] font-sarabun  font-light">
 									Hari bahagia ini terasa lebih lengkap jika dirayakan bersama orang-orang terdekat.
 								</motion.p>
 							</div>
@@ -139,8 +139,8 @@ const Section1 = ({ onOpen }: any) => {
 							<motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.8 }} className="w-full bg-[#FFF1E8] rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm mb-12 overflow-hidden">
 								<p className="text-[#757575] font-benne text-[20px] mb-2">Undangan Pernikahan</p>
 
-								<div className="text-5xl md:text-6xl text-[#2C2E2A] mb-4 flex items-center gap-4 italic font-benne ">
-									<motion.span initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 1 }}>
+								<div className="text-5xl md:text-6xl text-[#2C2E2A] mb-4 flex items-center italic font-benne ">
+									<motion.span initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 1 }} className='pr-1'>
 										F
 									</motion.span>
 
@@ -148,7 +148,7 @@ const Section1 = ({ onOpen }: any) => {
 										&
 									</motion.span>
 
-									<motion.span initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 1.4 }}>
+									<motion.span initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 1.4 }} >
 										S
 									</motion.span>
 								</div>

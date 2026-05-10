@@ -20,7 +20,7 @@ const Section1 = ({ onOpen }: any) => {
 	};
 
 	return (
-		<div className="w-full relative min-h-[100dvh] bg-brown-background flex flex-col gap-y-4 items-center ">
+		<div className="w-full relative min-h-[100dvh] bg-brown-background flex flex-col gap-y-4 items-center  ">
 			<AnimatePresence mode="wait">
 				{!isOpened ? (
 					<motion.div key="cover" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ y: '100vh', opacity: 0 }} transition={{ duration: 1, ease: 'easeInOut' }} className="relative w-full min-h-screen bg-[#FCFAF6] overflow-hidden flex flex-col justify-center px-8 md:px-16 font-benne">
@@ -71,14 +71,14 @@ const Section1 = ({ onOpen }: any) => {
 								}}
 							>
 
-								<Image src="/bumi-renjana/lebah.svg" width={48} height={53} alt="" className="w-full h-auto object-cover" />
+								{/* <Image src="/bumi-renjana/lebah.svg" width={48} height={53} alt="" className="w-full h-auto object-cover" /> */}
 							</motion.div>
 						</div>
 
 						<div className="relative z-10 w-full max-w-md mx-auto flex flex-col min-h-[85vh] justify-between pt-12 pb-8 overflow-hidden">
-																 <Image src='/bumi-renjana/logo.svg' alt="Arunara BlueSky" width={200} height={100} className="-mt-10" />
+																 <Image src='/bumi-renjana/logo.svg' alt="Arunara BlueSky" width={100} height={100} className="-mt-10" />
 
-							<div className="flex flex-col items-start -mt-17">
+							<div className="flex flex-col items-start ">
 								<motion.p initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }} className="text-2xl text-[#232323] mb-2 tracking-wide">
 									The wedding of
 								</motion.p>
@@ -121,7 +121,7 @@ const Section1 = ({ onOpen }: any) => {
 					</motion.div>
 				) : (
 					<motion.div key="main-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="w-full  bg-[url('/bumi-renjana/bg-section1.svg')] bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
-						<div className="relative z-10 w-full max-w-md mx-auto flex flex-col h-full">
+						<div className="relative lg:min-h-screen z-10 w-full max-w-md mx-auto flex flex-col h-full">
 							<div className="flex flex-col items-start mb-8 mt-12 overflow-hidden">
 								<motion.h3 initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }} className="text-[32px] text-brown font-allison">
 									Undangan

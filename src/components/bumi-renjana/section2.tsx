@@ -12,8 +12,10 @@ const Section2 = () => {
     ease: [0.25, 0.1, 0.25, 1], // Cubic-bezier untuk gerakan yang lebih smooth
   }
 
+  // bg-[url('/bumi-renjana/bg-section1.svg')]
+
   return (
-    <div className="w-full min-h-screen bg-[url('/bumi-renjana/bg-section1.svg')] bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
+    <div className="w-full min-h-screen   bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
       
       {/* 1. Judul - Muncul Perlahan dari Atas */}
       <motion.div 
@@ -21,7 +23,7 @@ const Section2 = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={transitionConfig}
-        className="mb-10 text-center md:text-left"
+        className="mb-10 text-left"
       >
         <p className="text-brown italic text-2xl mb-[-10px] font-allison">Tentang</p>
         <h2 className="text-3xl font-semibold text-[#1A1A1A] font-sarabun">Kedua Mempelai</h2>
@@ -34,19 +36,19 @@ const Section2 = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ ...transitionConfig, delay: 0.3 }}
-          className="bg-[#FFF1E8] rounded-2xl p-6 flex items-center justify-between gap-4"
+          className="border bg-white border-border-default rounded-2xl p-2 flex items-center gap-4"
         >
-          <div className="flex-1">
+          <div className="flex-1 ml-2">
             <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-corsiva">Jane Angeline</h3>
-            <p className="text-sm text-[#909090] mb-4 leading-tight font-sarabun">
+            <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
               Putri dari Bpk Sumanto &<br /> Ibu Sriyatun Marfuah
             </p>
-            <div className="inline-flex items-center gap-2 bg-[#D89F8333] font-sarabun px-3 py-1 rounded-full text-base text-[#A96139] font-medium">
+            <div className="inline-flex items-center gap-2 bg-[#D89F8333] font-sarabun px-1 py-1 rounded-full text-xs lg:text-sm text-[#A96139] font-medium">
               <InstagramLogoIcon size={16} />
               ferdianseptiawan
             </div>
           </div>
-          <div className="relative w-32 h-40 rounded-xl overflow-hidden">
+          <div className="relative w-38 h-40 rounded-xl overflow-hidden">
             <Image
               src="/bumi-renjana/foto-wanita.png"
               alt="Jane Angeline"
@@ -62,9 +64,9 @@ const Section2 = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ ...transitionConfig, delay: 0.6 }}
-          className="bg-[#FFF1E8] rounded-2xl p-6 flex items-center justify-between gap-4"
+          className="border bg-white border-border-default rounded-2xl p-2 flex items-center justify-between gap-4"
         >
-          <div className="relative w-32 h-40 rounded-xl overflow-hidden">
+          <div className="relative w-38 h-40 rounded-xl overflow-hidden">
             <Image
               src="/bumi-renjana/foto-pria.png"
               alt="Ratno Mangku Bumi"
@@ -74,10 +76,10 @@ const Section2 = () => {
           </div>
           <div className="flex-1">
             <h3 className="text-2xl italic text-[#1A1A1A] mb-1 font-corsiva">Ratno Mangku Bumi</h3>
-            <p className="text-sm text-[#909090] mb-4 leading-tight font-sarabun">
+            <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
                Putra dari Bpk Sumanto &<br /> Ibu Sriyatun Marfuah
             </p>
-            <div className="inline-flex items-center gap-2 bg-[#D89F8333] font-sarabun px-3 py-1 rounded-full text-base text-[#A96139] font-medium">
+            <div className="inline-flex items-center gap-2 bg-[#D89F8333] font-sarabun px-1 py-1 rounded-full text-xs lg:text-sm text-[#A96139] font-medium">
               <InstagramLogoIcon size={16} />
               ferdianseptiawan
             </div>

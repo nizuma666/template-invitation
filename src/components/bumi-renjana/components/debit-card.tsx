@@ -39,7 +39,7 @@ export default function DebitCard({ bank, name, rekening }: DebitCardProps) {
 
             {/* Logo Bank (Tulisan) */}
             <div className="relative z-20">
-                <p className="text-sm font-black text-[#1A1A1A] tracking-tighter italic uppercase flex items-center gap-1">
+                <p className="text-lg font-black text-[#1A1A1A] tracking-tighter  uppercase flex items-center gap-1">
                     {bank}
                 </p>
             </div>
@@ -50,7 +50,7 @@ export default function DebitCard({ bank, name, rekening }: DebitCardProps) {
                     <p className="text-[#4A4A4A] font-medium text-sm leading-none uppercase tracking-wide">
                         {name}
                     </p>
-                    <p className="text-[#1A1A1A] font-bold text-xl tracking-wider font-sarabun">
+                    <p className="text-[#1A1A1A] font-bold text-lg tracking-wider font-sarabun">
                         {rekening}
                     </p>
                 </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants, AnimatePresence } from "motion/react";
 import { Clock } from "@phosphor-icons/react"; // Pastikan sudah install phosphor-icons
@@ -26,6 +26,14 @@ export default function Section6({ content }: any) {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
     };
+
+      useEffect(() => {
+        if(isDrawerOpen){
+          window.document.body.style.overflowY = "hidden"
+        }else{
+          window.document.body.style.overflowY = ""
+        }
+      },[isDrawerOpen])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -79,7 +87,7 @@ export default function Section6({ content }: any) {
                 <motion.div variants={fadeUp} className="mt-2">
                     <Button
                         onClick={() => setIsDrawerOpen(true)}
-                        className="w-full py-4 rounded-xl bg-[#D89F83] hover:bg-[#c58d72] text-white font-bold text-lg shadow-lg shadow-[#D89F83]/20 transition-all"
+                        className="w-full py-4 rounded-lg bg-[#D89F83] hover:bg-[#c58d72] text-white font-bold text-lg shadow-lg shadow-[#D89F83]/20 transition-all"
                     >
                         Confirm Attendance
                     </Button>
@@ -103,15 +111,15 @@ export default function Section6({ content }: any) {
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="relative bg-white rounded-t-[32px] p-8 max-h-[95dvh] overflow-auto z-[10000] font-sarabun"
+                className="relative bg-white rounded-t-[18px] p-4 h-[90vh] z-[10000] font-sarabun"
             >
                 {/* Header Form */}
-                <div className="flex flex-col mb-8 mt-2">
+                <div className="flex flex-col mb-2">
                     <p className="text-[#D89F83] font-allison text-[32px] -mb-3">Kehadiran</p>
-                    <h2 className="text-[#1A1A1A] text-[32px] font-bold leading-tight">Confirm Your Presence</h2>
+                    <h2 className="text-[#1A1A1A] text-[28px] font-bold leading-tight">Confirm Your Presence</h2>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-3">
                     {/* Input Name */}
                     <div className="space-y-2">
                         <label className="text-[15px] font-medium text-gray-500 ml-1">Name</label>
@@ -121,7 +129,7 @@ export default function Section6({ content }: any) {
                             value={formData.nama}
                             onChange={handleChange}
                             placeholder="Contoh: John Doe"
-                            className="w-full border border-gray-200 rounded-xl px-5 py-4 focus:border-[#D89F83] outline-none transition-all text-gray-600 placeholder:text-gray-300"
+                            className="w-full border border-gray-200 rounded-lg px-2 py-2 focus:border-[#D89F83] outline-none transition-all text-gray-600 placeholder:text-gray-300"
                             required
                         />
                     </div>
@@ -133,7 +141,7 @@ export default function Section6({ content }: any) {
                             <button
                                 type="button"
                                 onClick={() => setFormData({ ...formData, kehadiran: "Hadir" })}
-                                className={`flex-1 py-3.5 rounded-xl border text-[15px] transition-all ${
+                                className={`flex-1 py-2 rounded-lg border text-[15px] transition-all ${
                                     formData.kehadiran === "Hadir" 
                                     ? 'bg-[#FDF5F1] border-[#D89F83] text-[#D89F83]' 
                                     : 'border-gray-200 text-gray-400 bg-white'
@@ -144,7 +152,7 @@ export default function Section6({ content }: any) {
                             <button
                                 type="button"
                                 onClick={() => setFormData({ ...formData, kehadiran: "Tidak" })}
-                                className={`flex-1 py-3.5 rounded-xl border text-[15px] transition-all ${
+                                className={`flex-1 py-3.5 rounded-lg border text-[15px] transition-all ${
                                     formData.kehadiran === "Tidak" 
                                     ? 'bg-red-50 border-red-200 text-red-500' 
                                     : 'border-gray-200 text-gray-400 bg-white'
@@ -163,21 +171,21 @@ export default function Section6({ content }: any) {
                             value={formData.pesan}
                             onChange={handleChange}
                             placeholder="Leave your wishes or prayers for the couple"
-                            className="w-full border border-gray-200 rounded-xl px-5 py-4 focus:border-[#D89F83] outline-none transition-all resize-none text-gray-600 placeholder:text-gray-300"
+                            className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:border-[#D89F83] outline-none transition-all resize-none text-gray-600 placeholder:text-gray-300"
                         />
                     </div>
 
                     <div className="flex flex-col gap-3 pt-4">
                         <button 
                             type="submit"
-                            className="w-full py-4 bg-[#D89F83] text-white rounded-xl font-bold text-lg active:scale-[0.98] transition-transform shadow-sm"
+                            className="w-full py-2 bg-[#D89F83] text-white rounded-lg font-bold text-lg active:scale-[0.98] transition-transform shadow-sm"
                         >
                             Kirim
                         </button>
                         <button
                             type="button"
                             onClick={() => setIsDrawerOpen(false)}
-                            className="w-full py-4 bg-white text-brown border border-brown rounded-xl font-bold text-lg active:scale-[0.98] transition-transform shadow-sm"
+                            className="w-full py-2 bg-white text-brown border border-brown rounded-lg font-semibold text-lg active:scale-[0.98] transition-transform shadow-sm"
                         >
                             Tutup
                         </button>

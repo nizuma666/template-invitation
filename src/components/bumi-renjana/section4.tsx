@@ -55,7 +55,7 @@ const Section4 = () => {
   const handleNext = () => swiperRef.current?.slideNext()
 
   return (
-    <div className="w-full bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
+    <div id='3' className="w-full bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
       
       {/* Header Utama dengan Animasi Fade-In */}
       <motion.div 
@@ -66,8 +66,8 @@ const Section4 = () => {
         className="flex items-start justify-between mb-10 relative z-20"
       >
         <div>
-          <p className="text-[#D89F83] italic text-xl mb-[-6px] font-allison">Spesial Moment</p>
-          <h2 className="text-3xl font-bold text-[#0F172A] font-sarabun tracking-tight">Gallery Photo</h2>
+          <p className="text-[#D89F83] italic text-5xl mb-[-6px] font-allison">Spesial Moment</p>
+          <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-tight">Gallery Photo</h2>
         </div>
         <div className="flex gap-2 pt-1">
           <button className="swiper-prev w-10 h-10 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC] active:scale-90 disabled:opacity-30">
@@ -163,7 +163,7 @@ const Section4 = () => {
                 {/* Drawer Navigation */}
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <p className="text-[#D89F83] italic text-lg font-allison leading-none">Spesial Moment</p>
+                    <p className="text-[#D89F83] italic text-5xl font-allison leading-none">Spesial Moment</p>
                     <h2 className="text-2xl font-bold text-[#0F172A] font-sarabun tracking-tight">Detail Photo</h2>
                   </div>
                   <div className="flex gap-2">

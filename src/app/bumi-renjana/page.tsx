@@ -11,10 +11,11 @@ import Section8 from "@/components/bumi-renjana/section8";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import onMusic from "!/bumi-renjana/music-on.png"
-import offMusic from "!/bumi-renjana/music-off.png"
+import onMusic from "!/bumi-renjana/music-on.svg"
+import offMusic from "!/bumi-renjana/music-off.svg"
 import { motion, AnimatePresence } from "motion/react"
 import Outside from "@/components/bumi-renjana/outside";
+import MenuFloat from "@/components/bumi-renjana/components/menuFloat";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function GreenFlag() {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,12 +92,12 @@ export default function GreenFlag() {
   return (
     <div className="w-full lg:flex relative min-h-dvh">
       <Outside />
-      <div className="max-w-md">
+      <div className="max-w-md relative  ">
         <AnimatePresence>
           {isOpen && (
             <motion.button
               onClick={handleToggleMusic}
-              className="fixed bottom-50 right-5 z-[99] rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer"
+              className="fixed bottom-40 left-5 z-[99] rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer"
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
               initial={{ opacity: 0, y: 20 }}
@@ -142,15 +143,30 @@ export default function GreenFlag() {
             </motion.button>
           )}
         </AnimatePresence>
-
+        {isOpen && (
+          <div className="absolute inset-0 -z-0">
+            <div className="sticky top-0 h-dvh w-full">
+              <Image
+                src="/bumi-renjana/bg-section1.svg"
+                alt="Background"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+          </div>
+        )}
         <Section1 onOpen={() => setIsOpen(true)} />
-        <Section2 content={content?.section2} />
-        <Section3 content={content?.section3} />
-        <Section4 content={content?.section5} />
-        <Section5 content={content?.section4} />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+        <Section5 />
         <Section6 content={content?.section6} />
         <Section7 content={content?.section4} />
         <Section8 />
+         {isOpen && (
+           <MenuFloat />
+         )}
       </div>
     </div>
   );

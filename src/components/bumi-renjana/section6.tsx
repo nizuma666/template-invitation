@@ -49,7 +49,7 @@ export default function Section6({ content }: any) {
     };
 
     return (
-        <section ref={ref} className="py-12 px-6 flex flex-col gap-8 bg-white overflow-hidden font-sarabun">
+        <section ref={ref} className="py-12 px-6 flex flex-col gap-8 overflow-hidden font-sarabun">
             <motion.div
                 variants={container}
                 initial="hidden"
@@ -57,8 +57,8 @@ export default function Section6({ content }: any) {
                 className="flex flex-col gap-6"
             >
                 <motion.div variants={fadeUp} className="flex flex-col mb-2">
-                    <p className="text-[#D89F83] font-allison text-[32px] -mb-3">Kehadiran</p>
-                    <h2 className="text-[#1A1A1A] text-[34px] font-bold">Konfirmasi Segera</h2>
+                    <p className="text-[#D89F83] font-allison text-5xl -mb-3">Kehadiran</p>
+                    <h2 className="text-[#212121] text-[32px] font-semibold">Konfirmasi Segera</h2>
                 </motion.div>
 
                 {/* Container dengan Scroll Area */}
@@ -67,7 +67,7 @@ export default function Section6({ content }: any) {
                         {shortItem.map((_, i) => (
                             <div key={i} className="border border-gray-100 rounded-2xl p-5 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
                                 <div className="flex justify-between items-start mb-1">
-                                    <h3 className="font-bold text-[#1A1A1A] text-lg">Nizuma</h3>
+                                    <h3 className="font-semibold text-[#212121] text-lg">Nizuma</h3>
                                     <span className={`text-[11px] px-3 py-1 rounded-full font-medium ${i % 2 === 0 ? 'bg-[#E7F7EF] text-[#2D9E64]' : 'bg-[#FEECEC] text-[#EB5757]'}`}>
                                         {i % 2 === 0 ? 'Will Attend' : 'Will Not Attend'}
                                     </span>
@@ -111,7 +111,7 @@ export default function Section6({ content }: any) {
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="relative bg-white rounded-t-[18px] p-4 h-[90vh] z-[10000] font-sarabun"
+                className="relative bg-white rounded-t-[18px] p-4 h-[90vh] mx-auto lg:w-[600px] z-[10000] font-sarabun"
             >
                 {/* Header Form */}
                 <div className="flex flex-col mb-2">
@@ -152,7 +152,7 @@ export default function Section6({ content }: any) {
                             <button
                                 type="button"
                                 onClick={() => setFormData({ ...formData, kehadiran: "Tidak" })}
-                                className={`flex-1 py-3.5 rounded-lg border text-[15px] transition-all ${
+                                className={`flex-1 py-2 rounded-lg border text-[15px] transition-all ${
                                     formData.kehadiran === "Tidak" 
                                     ? 'bg-red-50 border-red-200 text-red-500' 
                                     : 'border-gray-200 text-gray-400 bg-white'

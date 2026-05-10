@@ -46,7 +46,7 @@ const Section4 = () => {
           <h2 className="text-3xl font-bold text-[#0F172A] font-sarabun tracking-tight">Gallery Photo</h2>
         </div>
         <div className="flex gap-2 pt-1">
-          <button className="swiper-next w-10 h-10 rounded-full disabled:text-[#D89F8380] disabled:border-none border border-[#D89F83] disabled:bg-[#FCECE4] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC]">
+          <button className="swiper-prev w-10 h-10 rounded-full disabled:text-[#D89F8380] disabled:border-none border border-[#D89F83] disabled:bg-[#FCECE4] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC]">
             <CaretLeftIcon size={16} weight="bold" />
           </button>
           <button className="swiper-next w-10 h-10 rounded-full disabled:text-[#D89F8380] disabled:border-none border border-[#D89F83] disabled:bg-[#FCECE4] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC]">

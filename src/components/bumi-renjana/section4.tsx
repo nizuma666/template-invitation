@@ -11,6 +11,8 @@ import 'swiper/css/navigation'
 
 const Section4 = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null)
+  const [isBeginning, setIsBeginning] = useState(true)
+  const [isEnd, setIsEnd] = useState(false)
   const swiperRef = useRef(null)
 
   const photos = [
@@ -21,7 +23,6 @@ const Section4 = () => {
     { id: 5, src: '/bumi-renjana/carousel_example.svg', date: '24.01.2026' },
   ]
 
-  // Varian animasi untuk muncul satu persatu (Staggered)
   const cardVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: (i) => ({
@@ -31,12 +32,14 @@ const Section4 = () => {
       transition: {
         delay: i * 0.15,
         duration: 0.6,
-        ease: [0.215, 0.61, 0.355, 1], // Cubic-bezier untuk gerakan yang lebih smooth
+        ease: [0.215, 0.61, 0.355, 1],
       }
     })
   }
 
   const handleSlideChange = (swiper) => {
+    setIsBeginning(swiper.isBeginning)
+    setIsEnd(swiper.isEnd)
     if (selectedPhoto) {
       setSelectedPhoto(photos[swiper.activeIndex])
     }
@@ -57,7 +60,7 @@ const Section4 = () => {
   return (
     <div id='3' className="w-full bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
       
-      {/* Header Utama dengan Animasi Fade-In */}
+      {/* Header Utama */}
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -69,11 +72,21 @@ const Section4 = () => {
           <p className="text-[#D89F83] italic text-[32px] mb-[-6px] font-allison">Spesial Moment</p>
           <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-tight">Gallery Photo</h2>
         </div>
+        
+        {/* Navigation Buttons */}
         <div className="flex gap-2 pt-1">
-          <button className="swiper-prev w-10 h-10 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC] active:scale-90 disabled:opacity-30">
+          <button 
+            onClick={handlePrev}
+            disabled={isBeginning}
+            className="w-10 h-10 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC] active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed"
+          >
             <CaretLeftIcon size={16} weight="bold" />
           </button>
-          <button className="swiper-next w-10 h-10 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC] active:scale-90 disabled:opacity-30">
+          <button 
+            onClick={handleNext}
+            disabled={isEnd}
+            className="w-10 h-10 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC] active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed"
+          >
             <CaretRightIcon size={16} weight="bold" />
           </button>
         </div>
@@ -82,15 +95,15 @@ const Section4 = () => {
       {/* Swiper Container */}
       <div className="w-full relative z-10 mx-auto">
         <Swiper
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+          }}
           onSlideChange={handleSlideChange}
           effect="cards"
           grabCursor={true}
           centeredSlides={true}
-          navigation={{
-            prevEl: '.swiper-prev',
-            nextEl: '.swiper-next',
-          }}
           modules={[EffectCards, Navigation]}
           cardsEffect={{
             slideShadows: false,
@@ -142,7 +155,6 @@ const Section4 = () => {
       <AnimatePresence>
         {selectedPhoto && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -151,61 +163,72 @@ const Section4 = () => {
               className="fixed inset-0 bg-black/60 z-[99] backdrop-blur-sm"
             />
 
-            {/* Content Drawer */}
             <motion.div
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[32px] z-[100] p-6 shadow-2xl flex flex-col items-center"
+              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[32px] z-[100] p-5 shadow-2xl flex flex-col items-center"
             >
-              <div className="w-full max-w-[400px]">
-                {/* Drawer Navigation */}
-                <div className="flex items-center justify-between mb-6">
+              {/* Container lebih kecil untuk Drawer */}
+              <div className="w-full max-w-[340px]"> 
+                <div className="flex items-center justify-between mb-4">
                   <div>
                     <p className="text-[#D89F83] italic text-[32px] font-allison leading-none">Spesial Moment</p>
-                    <h2 className="text-2xl font-bold text-[#0F172A] font-sarabun tracking-tight">Detail Photo</h2>
+                    <h2 className=" text-[32px] font-bold text-[#212121] font-sarabun tracking-tight">Detail Photo</h2>
                   </div>
                   <div className="flex gap-2">
-                    <button onClick={handlePrev} className="w-9 h-9 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83]">
-                      <CaretLeftIcon size={16} weight="bold" />
+                    <button 
+                      onClick={handlePrev} 
+                      disabled={isBeginning}
+                      className="w-8 h-8 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] disabled:opacity-30"
+                    >
+                      <CaretLeftIcon size={14} weight="bold" />
                     </button>
-                    <button onClick={handleNext} className="w-9 h-9 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83]">
-                      <CaretRightIcon size={16} weight="bold" />
+                    <button 
+                      onClick={handleNext} 
+                      disabled={isEnd}
+                      className="w-8 h-8 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] disabled:opacity-30"
+                    >
+                      <CaretRightIcon size={14} weight="bold" />
                     </button>
                   </div>
                 </div>
 
-                {/* Detail Card Content */}
-                <div className="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-4 mb-6">
-                  <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+                <div className="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm flex flex-col gap-3 mb-5">
+                  <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-50">
                     <motion.div
                       key={selectedPhoto.id}
-                      initial={{ opacity: 0, scale: 1.1 }}
+                      initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4 }}
+                      transition={{ duration: 0.3 }}
                       className="w-full h-full relative"
                     >
-                      <Image src={selectedPhoto.src} alt="Detail View" fill className="object-cover" />
+                      <Image 
+                        src={selectedPhoto.src} 
+                        alt="Detail View" 
+                        fill 
+                        className="object-cover" 
+                      />
                     </motion.div>
                   </div>
                   <div className="flex justify-between items-end px-1 pb-1">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-[#3D2317]" />
-                      <div className="w-3 h-3 rounded-full bg-[#7B4D38]" />
-                      <div className="w-3 h-3 rounded-full bg-[#D89F83]" />
-                      <div className="w-3 h-3 rounded-full bg-[#FCECE4]" />
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 rounded-full bg-[#3D2317]" />
+                      <div className="w-2 h-2 rounded-full bg-[#7B4D38]" />
+                      <div className="w-2 h-2 rounded-full bg-[#D89F83]" />
+                      <div className="w-2 h-2 rounded-full bg-[#FCECE4]" />
                     </div>
                     <div className="text-right leading-none">
-                      <p className="text-xs font-bold text-[#0F172A] font-sarabun">{selectedPhoto.date}</p>
-                      <p className="text-2xl italic text-[#D89F83] font-allison mt-1">Wedding</p>
+                      <p className="text-[10px] font-bold text-[#0F172A] font-sarabun">{selectedPhoto.date}</p>
+                      <p className="text-lg italic text-[#D89F83] font-allison mt-0.5">Wedding</p>
                     </div>
                   </div>
                 </div>
 
                 <button
                   onClick={() => setSelectedPhoto(null)}
-                  className="w-full py-4 bg-[#D89F83] text-white text-sm font-bold rounded-2xl active:scale-95 transition-all shadow-lg shadow-[#D89F8340]"
+                  className="w-full py-3 bg-[#D89F83] text-white text-sm font-bold rounded-lg active:scale-95 transition-all shadow-md shadow-[#D89F8340]"
                 >
                   Kembali ke Galeri
                 </button>
@@ -222,7 +245,6 @@ const Section4 = () => {
           padding-top: 10px;
           padding-bottom: 20px;
         }
-        /* Menghilangkan efek biru saat klik di mobile */
         * {
           -webkit-tap-highlight-color: transparent;
         }

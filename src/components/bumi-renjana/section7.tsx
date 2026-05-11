@@ -44,8 +44,8 @@ export default function Section7({ content }: { content: any }) {
                         <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-8" />
 
                         <div className="text-left mb-8">
-                            <p className="font-allison text-[#D89F83] text-3xl italic mb-[-5px]">Wedding Gift</p>
-                            <h3 className="text-2xl font-bold text-[#1A1A1A] leading-tight font-sarabun">
+                            <p className="font-allison text-[#D89F83] text-5xl mb-[-5px]">Wedding Gift</p>
+                            <h3 className="text-2xl font-semibold text-[#212121]  font-sarabun">
                                 Given with love, received <br /> with gratitude.
                             </h3>
                         </div>
@@ -85,7 +85,7 @@ export default function Section7({ content }: { content: any }) {
                 />
                 <div className="absolute inset-0 rounded-lg bg-[#653C3099] flex flex-col justify-center p-3 text-white">
                     <p className="font-allison text-5xl text-left italic mb-[-8px]">Wedding Gift</p>
-                    <h2 className="text-[32px] text-[#212121] font-semibold font-sarabun leading-tight">
+                    <h2 className="text-2xl font-bold font-sarabun leading-tight">
                         Given with love, received with gratitude.
                     </h2>
                     <button

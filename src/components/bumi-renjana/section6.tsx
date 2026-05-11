@@ -49,7 +49,7 @@ export default function Section6({ content }: any) {
     };
 
     return (
-        <section ref={ref} className="py-12 px-6 flex flex-col gap-8 overflow-hidden font-sarabun">
+        <section ref={ref} className="py-12 px-6 relative  flex flex-col gap-8 overflow-hidden font-sarabun">
             <motion.div
                 variants={container}
                 initial="hidden"
@@ -63,7 +63,7 @@ export default function Section6({ content }: any) {
 
                 {/* Container dengan Scroll Area */}
                 <motion.div variants={fadeUp} className="relative">
-                    <div className="flex flex-col gap-4 max-h-[450px] overflow-y-auto pr-2 custom-scrollbar">
+                    <div className="flex flex-col gap-4 max-h-[450px]  overflow-y-auto pr-2 custom-scrollbar">
                         {shortItem.map((_, i) => (
                             <div key={i} className="border border-gray-100 rounded-2xl p-5 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
                                 <div className="flex justify-between items-start mb-1">

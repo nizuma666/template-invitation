@@ -28,7 +28,7 @@ const MenuFloat = () => {
 
   return (
     // Wrapper utama, di-set fixed di pojok kanan bawah
-    <div className="fixed bottom-10 right-6 flex flex-col items-center gap-3 z-30">
+    <div className="fixed bottom-10 cursor-pointer right-6 flex flex-col items-center gap-3 z-30">
       
       {/* Container untuk menu shortcut */}
       <div 

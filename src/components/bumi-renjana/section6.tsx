@@ -111,7 +111,7 @@ export default function Section6({ content }: any) {
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="relative bg-white rounded-t-[18px] p-4 h-[90vh] mx-auto lg:w-[600px] z-[10000] font-sarabun"
+                className="relative bg-white rounded-t-[18px] p-4 h-fit w-full lg:min-h-[96vh] mx-auto lg:w-[600px] z-[10000] font-sarabun"
             >
                 {/* Header Form */}
                 <div className="flex flex-col mb-2">

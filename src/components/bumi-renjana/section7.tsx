@@ -44,7 +44,7 @@ export default function Section7({ content }: { content: any }) {
                         <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-8" />
 
                         <div className="text-left mb-8">
-                            <p className="font-allison text-[#D89F83] text-5xl mb-[-5px]">Wedding Gift</p>
+                            <p className="font-allison text-[#D89F83] text-[32px] mb-[-5px]">Wedding Gift</p>
                             <h3 className="text-2xl font-semibold text-[#212121]  font-sarabun">
                                 Given with love, received <br /> with gratitude.
                             </h3>

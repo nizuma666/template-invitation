@@ -66,7 +66,7 @@ const Section4 = () => {
         className="flex items-start justify-between mb-10 relative z-20"
       >
         <div>
-          <p className="text-[#D89F83] italic text-5xl mb-[-6px] font-allison">Spesial Moment</p>
+          <p className="text-[#D89F83] italic text-[32px] mb-[-6px] font-allison">Spesial Moment</p>
           <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-tight">Gallery Photo</h2>
         </div>
         <div className="flex gap-2 pt-1">
@@ -163,7 +163,7 @@ const Section4 = () => {
                 {/* Drawer Navigation */}
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <p className="text-[#D89F83] italic text-5xl font-allison leading-none">Spesial Moment</p>
+                    <p className="text-[#D89F83] italic text-[32px] font-allison leading-none">Spesial Moment</p>
                     <h2 className="text-2xl font-bold text-[#0F172A] font-sarabun tracking-tight">Detail Photo</h2>
                   </div>
                   <div className="flex gap-2">

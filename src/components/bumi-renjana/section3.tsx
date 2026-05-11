@@ -16,7 +16,7 @@ const Section3 = () => {
         viewport={{ once: true }}
         className="mb-12 relative z-10"
       >
-        <p className="text-[#D89F83] italic text-5xl mb-[-10px] font-allison">Hari Bahagia</p>
+        <p className="text-[#D89F83] italic text-[32px] mb-[-10px] font-allison">Hari Bahagia</p>
         <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-wide">Hari Pernikahan Kami</h2>
       </motion.div>
 

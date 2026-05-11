@@ -24,7 +24,7 @@ const Section2 = () => {
         transition={transitionConfig}
         className="mb-10 text-left"
       >
-        <p className="text-brown italic text-5xl mb-[-10px] font-allison">Tentang</p>
+        <p className="text-brown italic text-[32px] mb-[-10px] font-allison">Tentang</p>
         <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun">Kedua Mempelai</h2>
       </motion.div>
 

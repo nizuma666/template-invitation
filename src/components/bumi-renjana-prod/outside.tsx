@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from "framer-motion";
-import dayjs from 'dayjs';
 const MotionImage = motion(Image);
 
 
-const Outside = ({content}: any) => {
+const Outside = () => {
     return (
         <div className='w-full   flex-col lg:flex justify-between  hidden bg-no-repeat h-screen bg-[#D89F834D] sticky top-0'>
             <div className="relative flex flex-col h-[40vh]">
@@ -15,8 +14,8 @@ const Outside = ({content}: any) => {
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <p className='text-[#212121] font-allura text-[50px]'>{content?.pengantin_pria} & {content?.pengantin_wanita}</p>
-                <p className='text-[#212121] font-medium flex  items-center'><span className='size-[8px] mr-2 rounded-full bg-[#212121] block'></span> {dayjs(content?.tanggal_1).format("DD MM YYYY")} <span className='size-[8px] ml-2 rounded-full bg-[#212121] block'></span></p>
+                <p className='text-[#212121] font-allura text-[50px]'>Ferdian & Septiawan</p>
+                <p className='text-[#212121] font-medium flex  items-center'><span className='size-[8px] mr-2 rounded-full bg-[#212121] block'></span> 02 02 2022 <span className='size-[8px] ml-2 rounded-full bg-[#212121] block'></span></p>
 
             </div>
 

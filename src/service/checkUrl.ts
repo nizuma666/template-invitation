@@ -51,13 +51,14 @@ export default async function CheckUrl({ params }: { params: any }) {
 
     const userId = cover[0].user_id;
 
-    const [acara, gallery, gift, listUndangan, couple, greeting] = await Promise.all([
+    const [acara, gallery, gift, listUndangan, couple, greeting, story] = await Promise.all([
         getDataByField("acara", "user_id", userId),
         getDataByField("gallery", "user_id", userId),
         getDataByField("gift", "user_id", userId),
         getDataByField("listUndangan", "uid", userId),
         getDataByField("couple", "user_id", userId),
         getDataByField("greeting", "user_id", userId),
+         getDataByField("story", "user_id", userId),
     ]);
 
     if (!acara || !gallery || !gift || !listUndangan || !couple || !greeting) {
@@ -70,5 +71,5 @@ export default async function CheckUrl({ params }: { params: any }) {
         return notFound();
     }
 
-    return { acara, gallery, gift, listUndangan, cover, couple, greeting }
+    return { acara, gallery, gift, listUndangan, cover, couple, greeting, story}
 }

@@ -84,7 +84,7 @@ export default function Section7({ content }: { content: any }) {
                     className="object-cover rounded-lg"
                 />
                 <div className="absolute inset-0 rounded-lg bg-[#653C3099] flex flex-col justify-center p-3 text-white">
-                    <p className="font-allison text-5xl text-left italic mb-[-8px]">Wedding Gift</p>
+                    <p className="font-allison text-[32px] text-left italic mb-[-8px]">Wedding Gift</p>
                     <h2 className="text-2xl font-bold font-sarabun leading-tight">
                         Given with love, received with gratitude.
                     </h2>

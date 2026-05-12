@@ -14,8 +14,8 @@ import Image from "next/image";
 import onMusic from "!/bumi-renjana/music-on.svg"
 import offMusic from "!/bumi-renjana/music-off.svg"
 import { motion, AnimatePresence } from "motion/react"
-import Outside from "@/components/bumi-renjana/outside";
-import MenuFloat from "@/components/bumi-renjana/components/menuFloat";
+import Outside from "@/components/bumi-renjana-prod/outside";
+import MenuFloat from "@/components/bumi-renjana-prod/components/menuFloat";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function GreenFlag({data}: any) {
   const [isOpen, setIsOpen] = useState(false);

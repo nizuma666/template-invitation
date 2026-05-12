@@ -65,6 +65,8 @@ export default async function CheckUrl({ params }: { params: any }) {
         return notFound();
     }
 
+    console.log('list undangan', listUndangan)
+
     const findSubSlug = listUndangan.find((item: any) => item.nama === decodeURIComponent( params.subslug));  
 
     if (!findSubSlug) {

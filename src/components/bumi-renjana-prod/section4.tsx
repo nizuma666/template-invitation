@@ -9,23 +9,17 @@ import 'swiper/css'
 import 'swiper/css/effect-cards'
 import 'swiper/css/navigation'
 
-const Section4 = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState(null)
+const Section4 = ({ content }: any) => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [isBeginning, setIsBeginning] = useState(true)
   const [isEnd, setIsEnd] = useState(false)
   const swiperRef = useRef(null)
 
-  const photos = [
-    { id: 1, src: '/bumi-renjana/carousel_example.svg', date: '20.01.2026' },
-    { id: 2, src: '/bumi-renjana/carousel_example.svg', date: '21.01.2026' },
-    { id: 3, src: '/bumi-renjana/carousel_example.svg', date: '22.01.2026' },
-    { id: 4, src: '/bumi-renjana/carousel_example.svg', date: '23.01.2026' },
-    { id: 5, src: '/bumi-renjana/carousel_example.svg', date: '24.01.2026' },
-  ]
+  const images: string[] = content?.images ?? []
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       scale: 1,
@@ -33,35 +27,41 @@ const Section4 = () => {
         delay: i * 0.15,
         duration: 0.6,
         ease: [0.215, 0.61, 0.355, 1],
-      }
-    })
+      },
+    }),
   }
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setIsBeginning(swiper.isBeginning)
     setIsEnd(swiper.isEnd)
-    if (selectedPhoto) {
-      setSelectedPhoto(photos[swiper.activeIndex])
+    if (selectedIndex !== null) {
+      setSelectedIndex(swiper.activeIndex)
     }
   }
 
   useEffect(() => {
-    if (selectedPhoto) {
-      document.body.style.overflow = "hidden"
+    if (selectedIndex !== null) {
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = ""
+      document.body.style.overflow = ''
     }
-    return () => { document.body.style.overflow = "" }
-  }, [selectedPhoto])
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selectedIndex])
 
   const handlePrev = () => swiperRef.current?.slidePrev()
   const handleNext = () => swiperRef.current?.slideNext()
 
+  const selectedSrc = selectedIndex !== null ? images[selectedIndex] : null
+
   return (
-    <div id='3' className="w-full bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
-      
+    <div
+      id="3"
+      className="w-full bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden"
+    >
       {/* Header Utama */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -69,20 +69,24 @@ const Section4 = () => {
         className="flex items-start justify-between mb-10 relative z-20"
       >
         <div>
-          <p className="text-[#D89F83] italic text-[32px] mb-[-6px] font-allison">Spesial Moment</p>
-          <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-tight">Gallery Photo</h2>
+          <p className="text-[#D89F83] italic text-[32px] mb-[-6px] font-allison">
+            Spesial Moment
+          </p>
+          <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-tight">
+            Gallery Photo
+          </h2>
         </div>
-        
+
         {/* Navigation Buttons */}
         <div className="flex gap-2 pt-1">
-          <button 
+          <button
             onClick={handlePrev}
             disabled={isBeginning}
             className="w-10 h-10 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC] active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <CaretLeftIcon size={16} weight="bold" />
           </button>
-          <button 
+          <button
             onClick={handleNext}
             disabled={isEnd}
             className="w-10 h-10 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] transition-all hover:bg-[#FFF2EC] active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed"
@@ -96,9 +100,9 @@ const Section4 = () => {
       <div className="w-full relative z-10 mx-auto">
         <Swiper
           onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-            setIsBeginning(swiper.isBeginning);
-            setIsEnd(swiper.isEnd);
+            swiperRef.current = swiper
+            setIsBeginning(swiper.isBeginning)
+            setIsEnd(swiper.isEnd)
           }}
           onSlideChange={handleSlideChange}
           effect="cards"
@@ -113,8 +117,8 @@ const Section4 = () => {
           }}
           className="gallery-cards-swiper"
         >
-          {photos.map((photo, index) => (
-            <SwiperSlide key={photo.id} onClick={() => setSelectedPhoto(photo)}>
+          {images.map((src, index) => (
+            <SwiperSlide key={index} onClick={() => setSelectedIndex(index)}>
               <motion.div
                 custom={index}
                 variants={cardVariants}
@@ -125,12 +129,12 @@ const Section4 = () => {
                 className="bg-white p-3 rounded-xl shadow-lg flex flex-col gap-2.5 border border-gray-100 cursor-pointer"
               >
                 <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-[#F8FAFC]">
-                  <Image 
-                    src={photo.src} 
-                    alt={`Wedding Photo ${photo.id}`} 
-                    fill 
+                  <Image
+                    src={src}
+                    alt={`Wedding Photo ${index + 1}`}
+                    fill
                     className="object-cover"
-                    priority={index < 2} 
+                    priority={index < 2}
                   />
                 </div>
                 <div className="flex justify-between items-end px-1 pb-0.5 text-right">
@@ -141,8 +145,8 @@ const Section4 = () => {
                     <div className="w-2.5 h-2.5 rounded-full bg-[#FCECE4]" />
                   </div>
                   <div className="leading-none">
-                    <p className="text-[10px] font-bold text-[#0F172A] font-sarabun">{photo.date}</p>
-                    <p className="text-xl italic text-[#D89F83] font-allison mt-0.5">Wedding</p>
+                                                              <p className="text-[10px] font-bold text-[#212121] font-sarabun">{content?.tanggal_1}</p>
+                    <p className="text-xl italic text-[#757575] font-allison mt-0.5">Wedding</p>
                   </div>
                 </div>
               </motion.div>
@@ -153,13 +157,13 @@ const Section4 = () => {
 
       {/* Detail Drawer (Lightbox-style) */}
       <AnimatePresence>
-        {selectedPhoto && (
+        {selectedIndex !== null && selectedSrc && (
           <>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedPhoto(null)}
+              onClick={() => setSelectedIndex(null)}
               className="fixed inset-0 bg-black/60 z-[99] backdrop-blur-sm"
             />
 
@@ -171,22 +175,26 @@ const Section4 = () => {
               className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[32px] z-[100] p-5 shadow-2xl flex flex-col items-center"
             >
               {/* Container lebih kecil untuk Drawer */}
-              <div className="w-full max-w-[340px]"> 
+              <div className="w-full max-w-[340px]">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <p className="text-[#D89F83] italic text-[32px] font-allison leading-none">Spesial Moment</p>
-                    <h2 className=" text-[32px] font-bold text-[#212121] font-sarabun tracking-tight">Detail Photo</h2>
+                    <p className="text-[#D89F83] italic text-[32px] font-allison leading-none">
+                      Spesial Moment
+                    </p>
+                    <h2 className="text-[32px] font-bold text-[#212121] font-sarabun tracking-tight">
+                      Detail Photo
+                    </h2>
                   </div>
                   <div className="flex gap-2">
-                    <button 
-                      onClick={handlePrev} 
+                    <button
+                      onClick={handlePrev}
                       disabled={isBeginning}
                       className="w-8 h-8 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] disabled:opacity-30"
                     >
                       <CaretLeftIcon size={14} weight="bold" />
                     </button>
-                    <button 
-                      onClick={handleNext} 
+                    <button
+                      onClick={handleNext}
                       disabled={isEnd}
                       className="w-8 h-8 rounded-full border border-[#D89F83] flex items-center justify-center text-[#D89F83] disabled:opacity-30"
                     >
@@ -198,17 +206,17 @@ const Section4 = () => {
                 <div className="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm flex flex-col gap-3 mb-5">
                   <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-50">
                     <motion.div
-                      key={selectedPhoto.id}
+                      key={selectedIndex}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3 }}
                       className="w-full h-full relative"
                     >
-                      <Image 
-                        src={selectedPhoto.src} 
-                        alt="Detail View" 
-                        fill 
-                        className="object-cover" 
+                      <Image
+                        src={selectedSrc}
+                        alt="Detail View"
+                        fill
+                        className="object-cover"
                       />
                     </motion.div>
                   </div>
@@ -220,14 +228,15 @@ const Section4 = () => {
                       <div className="w-2 h-2 rounded-full bg-[#FCECE4]" />
                     </div>
                     <div className="text-right leading-none">
-                      <p className="text-[10px] font-bold text-[#0F172A] font-sarabun">{selectedPhoto.date}</p>
-                      <p className="text-lg italic text-[#D89F83] font-allison mt-0.5">Wedding</p>
+                                          <p className="text-[10px] font-bold text-[#212121] font-sarabun">{content?.tanggal_1}</p>
+                      <p className="text-lg italic text-[#757575] font-allison mt-0.5">Wedding</p>
+
                     </div>
                   </div>
                 </div>
 
                 <button
-                  onClick={() => setSelectedPhoto(null)}
+                  onClick={() => setSelectedIndex(null)}
                   className="w-full py-3 bg-[#D89F83] text-white text-sm font-bold rounded-lg active:scale-95 transition-all shadow-md shadow-[#D89F8340]"
                 >
                   Kembali ke Galeri

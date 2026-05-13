@@ -1,10 +1,9 @@
 // lib/firebase.js
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore, initializeFirestore } from "firebase/firestore";
+import { initializeFirestore, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
-// Konfigurasi Firebase kamu (ambil dari Firebase Console)
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -14,12 +13,20 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Inisialisasi Firebase hanya sekali
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// Export service yang dibutuhkan
-export const db = initializeFirestore(app, {
-  experimentalForceLongPolling: true,
-});
+// Pastikan Firestore hanya diinisialisasi SEKALI dengan long polling
+function getDb() {
+  try {
+    // Coba ambil instance yang sudah ada
+    return getFirestore(app);
+  } catch {
+    return initializeFirestore(app, {
+      experimentalForceLongPolling: true,
+    });
+  }
+}
+
+export const db = getDb();
 export const auth = getAuth(app);
 export const storage = getStorage(app);

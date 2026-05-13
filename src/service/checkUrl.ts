@@ -2,6 +2,7 @@
 import { db } from "@/service/firebase";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { notFound } from "next/navigation";
+import { adminDb } from "./firebase-admin";
 
 interface CoverData {
     id: string;
@@ -10,23 +11,31 @@ interface CoverData {
     [key: string]: any;
 }
 
-export async function getDataByField<T>(collectionName: string, field: string, value: string): Promise<T[]> {
-    const q = query(collection(db, collectionName), where(field, "==", value));
-    const snapshot = await getDocs(q);
+export async function getDataByField<T>(
+  collectionName: string,
+  field: string,
+  value: string
+): Promise<T[]> {
 
-    if (snapshot.empty) {
-        return [];
-    }
+  const snapshot = await adminDb
+    .collection(collectionName)
+    .where(field, "==", value)
+    .get();
 
-    return snapshot.docs.map(doc => {
-        const d = doc.data();
-        return {
-            id: doc.id,
-            ...d,
-            createdAt: d.createdAt?.toDate().toISOString() || null,
-            updatedAt: d.updatedAt?.toDate().toISOString() || null,
-        };
-    }) as T[];
+  if (snapshot.empty) {
+    return [];
+  }
+
+  return snapshot.docs.map((doc) => {
+    const d = doc.data();
+
+    return {
+      id: doc.id,
+      ...d,
+      createdAt: d.createdAt?.toDate?.()?.toISOString?.() || null,
+      updatedAt: d.updatedAt?.toDate?.()?.toISOString?.() || null,
+    };
+  }) as T[];
 }
 
 export async function addAcara(data: { nama: string; kehadiran: string; pesan: string; user_id: string }) {

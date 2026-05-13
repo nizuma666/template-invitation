@@ -17,7 +17,7 @@ import { motion, AnimatePresence } from "motion/react"
 import Outside from "@/components/bumi-renjana-prod/outside";
 import MenuFloat from "@/components/bumi-renjana-prod/components/menuFloat";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function GreenFlag({data}: any) {
+export default function BumiRenjanaProd({data}: any) {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);

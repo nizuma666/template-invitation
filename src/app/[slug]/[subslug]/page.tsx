@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import BandWProd from "./B&W";
 import BumiRenjanaProd from "./BumiRenjana";
 
-export default async function PeachServer({ params }: { params: { slug: string; subslug: string } }) {
+export default async function PeachServer({ params }: { params: Promise<{ slug: string; subslug: string }> }) {
   try {
     const data = await CheckUrl({ params });
     const templateId = data?.cover?.[0]?.template_id;

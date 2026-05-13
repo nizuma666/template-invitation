@@ -10,6 +10,7 @@ export default async function PeachServer({ params }: { params: { slug: string }
   try {
     const data = await CheckUrl({ params });
     const templateId = data?.cover?.[0]?.template_id;
+    console.log("testt id",templateId)
 
     switch (templateId) {
       case "1":

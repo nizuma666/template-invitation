@@ -43,15 +43,21 @@ export async function addAcara(data: { nama: string; kehadiran: string; pesan: s
         return null;
     }
 }
-export default async function CheckUrl({ params }: { params: any }) {
+export default async function CheckUrl({ params }: { params: Promise<{ slug: string; subslug: string }> }) {
     const { slug, subslug } = await params;
     const decodedSlug = decodeURIComponent(slug);
     const cover = await getDataByField<CoverData>("cover", "url", decodedSlug);
 
-    if (cover.length < 1) return notFound();
+    console.log('[CheckUrl] decodedSlug:', decodedSlug);
+    console.log('[CheckUrl] cover result:', cover);
+
+    if (cover.length < 1) {
+        console.log('[CheckUrl] NOT FOUND: cover kosong');
+        return notFound();
+    }
 
     const userId = cover[0].user_id;
-
+console.log('[CheckUrl] userId:', userId);
     const [acara, gallery, gift, listUndangan, couple, greeting, story] = await Promise.all([
         getDataByField("acara", "user_id", userId),
         getDataByField("gallery", "user_id", userId),
@@ -65,12 +71,14 @@ export default async function CheckUrl({ params }: { params: any }) {
     if (!acara || !gallery || !gift || !listUndangan || !couple || !greeting || !story) {
         return notFound();
     }
-
+console.log('[CheckUrl] listUndangan:', listUndangan);
     const decodeSubslug = decodeURIComponent(subslug)
 
     const findSubSlug = listUndangan.find((item: any) => item.nama === decodeSubslug);  
-
+console.log('[CheckUrl] decodeSubslug:', decodeSubslug);
+    console.log('[CheckUrl] findSubSlug:', findSubSlug);
     if (!findSubSlug) {
+        console.log('[CheckUrl] NOT FOUND: subslug tidak ditemukan');
         return notFound();
     }
 

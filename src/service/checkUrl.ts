@@ -44,7 +44,8 @@ export async function addAcara(data: { nama: string; kehadiran: string; pesan: s
     }
 }
 export default async function CheckUrl({ params }: { params: any }) {
-    const decodedSlug = decodeURIComponent(params.slug);
+    const { slug, subslug } = await params;
+    const decodedSlug = decodeURIComponent(slug);
     const cover = await getDataByField<CoverData>("cover", "url", decodedSlug);
 
     if (cover.length < 1) return notFound();
@@ -65,8 +66,9 @@ export default async function CheckUrl({ params }: { params: any }) {
         return notFound();
     }
 
-    const findSubSlug = listUndangan.find((item: any) => item.nama === decodeURIComponent( params.subslug));  
-    console.log("find slug",findSubSlug)
+    const decodeSubslug = decodeURIComponent(subslug)
+
+    const findSubSlug = listUndangan.find((item: any) => item.nama === decodeSubslug);  
 
     if (!findSubSlug) {
         return notFound();

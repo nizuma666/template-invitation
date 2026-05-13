@@ -35,7 +35,7 @@ export default function BumiRenjanaProd({data}: any) {
     };
   }, [isOpen]);
 
-  console.log(data)
+  console.log("data bumi", data)
 
   useEffect(() => {
     const audio = new Audio(data?.cover[0].music);

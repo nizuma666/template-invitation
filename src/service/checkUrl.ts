@@ -61,11 +61,12 @@ export default async function CheckUrl({ params }: { params: any }) {
          getDataByField("story", "user_id", userId),
     ]);
 
-    if (!acara || !gallery || !gift || !listUndangan || !couple || !greeting) {
+    if (!acara || !gallery || !gift || !listUndangan || !couple || !greeting || !story) {
         return notFound();
     }
 
     const findSubSlug = listUndangan.find((item: any) => item.nama === decodeURIComponent( params.subslug));  
+    console.log("find slug",findSubSlug)
 
     if (!findSubSlug) {
         return notFound();

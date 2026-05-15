@@ -78,7 +78,7 @@ const Section1 = ({ onOpen, content }: any) => {
 								}}
 							>
 
-								{/* <Image src="/bumi-renjana/lebah.svg" width={48} height={53} alt="" className="w-full h-auto object-cover" /> */}
+								<Image src="/bumi-renjana/lebah.svg" width={48} height={53} alt="" className="w-full h-auto object-cover" />
 							</motion.div>
 						</div>
 

@@ -38,7 +38,7 @@ const Section2 = ({content}: any) => {
           className="border bg-white border-border-default rounded-2xl p-2 flex items-center gap-4"
         >
           <div className="flex-1 ml-2">
-            <h3 className="text-2xl italic leading-4.5 text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_wanita}</h3>
+            <h3 className="text-2xl italic leading-8 text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_wanita}</h3>
             <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
               Putri dari Bpk. {content?.nama_pengantin_bapak_wanita} & Ibu {content?.nama_pengantin_ibu_wanita}
             </p>
@@ -74,7 +74,7 @@ const Section2 = ({content}: any) => {
             />
           </div>
           <div className="flex-1">
-            <h3 className="text-2xl italic leading-4.5 text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_pria}</h3>
+            <h3 className="text-2xl italic leading-8 text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_pria}</h3>
             <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
               Putra dari Bpk. {content?.nama_pengantin_bapak_pria} & Ibu {content?.nama_pengantin_ibu_pria}
             </p>

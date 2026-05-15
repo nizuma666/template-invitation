@@ -70,35 +70,15 @@ const Section1 = ({ onOpen, content }: any) => {
 						</motion.div>
 						<div className="absolute right-8 md:right-16 top-1/2 -translate-y-1/2 w-12 pointer-events-none z-0">
 							<motion.div
-								style={{ position: 'absolute', top: '30%' }}
-								animate={{
-									x: ['-15%', '10%', '60%', '110%'],
-									y: [0, -18, -8, 0],
-									scaleX: [1, 1, 1, 1],
-								}}
+								animate={{ y: [0, -12, 0] }}
 								transition={{
-									duration: 6,
+									duration: 2.5,
 									repeat: Infinity,
 									ease: 'easeInOut',
-									times: [0, 0.3, 0.7, 1],
 								}}
 							>
-								<motion.div
-									animate={{ y: [0, -10, 0] }}
-									transition={{
-										duration: 1.2,
-										repeat: Infinity,
-										ease: 'easeInOut',
-									}}
-								>
-									<Image
-										src="/bumi-renjana/lebah.svg"
-										width={48}
-										height={53}
-										alt=""
-										className="w-full h-auto object-cover"
-									/>
-								</motion.div>
+
+								{/* <Image src="/bumi-renjana/lebah.svg" width={48} height={53} alt="" className="w-full h-auto object-cover" /> */}
 							</motion.div>
 						</div>
 

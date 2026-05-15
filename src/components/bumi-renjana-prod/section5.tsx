@@ -45,13 +45,13 @@ const Section5 = ({ content }: any) => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#3D2317]/80 via-[#3D2317]/10 to-transparent" />
 
               <div className="relative z-10 p-6 flex flex-col gap-4 min-h-[200px]">
-                <div className={`${index % 2 != 0 ? 'text-left' : 'text-right'} w-full`}>
+                <div className={`${index % 2 != 0 ? 'text-right' : 'text-left' } w-full`}>
                   <div className={`w-12 h-12 rounded-full border-2 border-[#D89F83] bg-[#E6D8C1]/90 flex items-center justify-center text-[#A96139] font-bold text-xl font-sarabun inline-flex`}>
                     {index + 1}
                   </div>
                 </div>
 
-                <div className={`w-full -mt-2 flex flex-col ${index % 2 != 0 ? 'items-end text-right' : 'items-start text-left'}`}>
+                <div className={`w-full -mt-2 flex flex-col ${index % 2 != 0 ?  'items-start text-left' : 'items-end text-right'}`}>
                   <h3 className="text-white text-xl font-semibold font-sarabun mb-1 tracking-tight">{item.tahun}</h3>
                   <h3 className="text-white text-2xl font-bold font-sarabun mb-1 tracking-tight">{item.judul}</h3>
                   <p className="text-white/90 text-[13px] font-sarabun leading-relaxed max-w-[85%] h-fit">

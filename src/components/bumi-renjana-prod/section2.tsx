@@ -6,7 +6,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const Section2 = ({ content }: any) => {
+const Section2 = ({content}: any) => {
   const transitionConfig = {
     duration: 1.2, // Lebih lambat dari sebelumnya (0.8s)
     ease: [0.25, 0.1, 0.25, 1], // Cubic-bezier untuk gerakan yang lebih smooth
@@ -14,10 +14,10 @@ const Section2 = ({ content }: any) => {
 
 
   return (
-    <div id='1' className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
-
+    <div id='1'  className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
+      
       {/* 1. Judul - Muncul Perlahan dari Atas */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -30,21 +30,21 @@ const Section2 = ({ content }: any) => {
 
       <div className="flex flex-col gap-6 mb-12">
         {/* 2. Kartu Wanita - Muncul Perlahan dari Kiri */}
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ ...transitionConfig, delay: 0.3 }}
           className="border bg-white border-border-default rounded-2xl p-2 flex items-center gap-4"
         >
-          <div className="w-fit">
-            <h3 className="text-2xl leading-none text-nowrap lg:text-wrap italic text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_wanita}</h3>
+          <div className="flex-1 ml-2">
+            <h3 className="text-2xl italic leading-0 text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_wanita}</h3>
             <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
-              Putri dari Bpk. {content?.nama_pengantin_bapak_wanita} &<br /> Ibu {content?.nama_pengantin_ibu_wanita}
+              Putri dari Bpk. {content?.nama_pengantin_bapak_wanita} & Ibu {content?.nama_pengantin_ibu_wanita}
             </p>
             <div className={` ${content?.sosial_media_wanita ? "flex" : "hidden"} inline-flex items-center gap-1 px-3 bg-[#D89F8333] font-sarabun py-1 rounded-full text-xs lg:text-sm text-[#A96139] font-medium`}>
               <InstagramLogoIcon size={16} />
-              {content?.sosial_media_wanita}
+                           {content?.sosial_media_wanita}
             </div>
           </div>
           <div className="relative w-38 h-40 rounded-xl overflow-hidden">
@@ -58,7 +58,7 @@ const Section2 = ({ content }: any) => {
         </motion.div>
 
         {/* 3. Kartu Pria - Muncul Perlahan dari Kanan */}
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -73,21 +73,21 @@ const Section2 = ({ content }: any) => {
               className="object-cover"
             />
           </div>
-          <div className="w-fit">
-            <h3 className="text-2xl leading-none text-nowrap lg:text-wrap italic text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_pria}</h3>
+          <div className="flex-1">
+            <h3 className="text-2xl italic leading-0 text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_pria}</h3>
             <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
-              Putra dari Bpk. {content?.nama_pengantin_bapak_pria} &<br /> Ibu. {content?.nama_pengantin_ibu_pria}
+              Putra dari Bpk. {content?.nama_pengantin_bapak_pria} & Ibu {content?.nama_pengantin_ibu_pria}
             </p>
             <div className={` ${content?.sosial_media_pria ? "flex" : "hidden"} inline-flex items-center gap-1 px-3 bg-[#D89F8333] font-sarabun px-1 py-1 rounded-full text-xs lg:text-sm text-[#A96139] font-medium`}>
               <InstagramLogoIcon size={16} />
-              {content?.sosial_media_pria}
+             {content?.sosial_media_pria}
             </div>
           </div>
         </motion.div>
       </div>
 
       {/* Indikator Dot */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}
@@ -99,7 +99,7 @@ const Section2 = ({ content }: any) => {
       </motion.div>
 
       {/* 4. Ayat - Muncul Perlahan dari Bawah */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

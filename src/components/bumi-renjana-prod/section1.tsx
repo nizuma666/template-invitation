@@ -90,7 +90,7 @@ const Section1 = ({ onOpen, content }: any) => {
 									The wedding of
 								</motion.p>
 
-								<motion.h2 initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }} className="text-5xl md:text-6xl font-corsiva text-[#212121] leading-tight mb-8">
+								<motion.h2 initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }} className="text-5xl md:text-6xl text-[#212121] leading-tight mb-8">
 									{content?.pengantin_pria} <span className="text-brown">&</span>
 									<br />
 									{content?.pengantin_wanita}
@@ -150,7 +150,7 @@ const Section1 = ({ onOpen, content }: any) => {
 							<motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.8 }} className="w-full bg-[#FFF1E8] rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm mb-12 overflow-hidden">
 								<p className="text-[#757575] font-benne text-[20px] mb-2">Undangan Pernikahan</p>
 
-								<div className="text-5xl md:text-6xl text-[#212121] mb-4 flex items-center italic font-benne ">
+								<div className="text-5xl md:text-6xl text-[#212121] mb-4 flex items-center italic font-corsiva ">
 									<motion.span initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 1 }} className='pr-1'>
 										{content?.pengantin_pria?.slice(0, 1)}
 									</motion.span>

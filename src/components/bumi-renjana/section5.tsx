@@ -72,13 +72,13 @@ const Section5 = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#3D2317]/80 via-[#3D2317]/10 to-transparent" />
 
               <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                <div className={`${item.align === 'right' ? 'text-left' : 'text-right'} w-full`}>
+                <div className={`${index % 2 != 0 ? 'text-left' : 'text-right'} w-full`}>
                    <div className={`w-12 h-12 rounded-full border-2 border-[#D89F83] bg-[#E6D8C1]/90 flex items-center justify-center text-[#A96139] font-bold text-xl font-sarabun inline-flex`}>
                     {item.id}
                   </div>
                 </div>
 
-                <div className={`w-full flex flex-col ${item.align === 'right' ? 'items-end text-right' : 'items-start text-left'}`}>
+                <div className={`w-full flex flex-col ${index % 2 != 0 ? 'items-end text-right' : 'items-start text-left'}`}>
                   <h3 className="text-white text-2xl font-bold font-sarabun mb-1 tracking-tight">{item.title}</h3>
                   <p className="text-white/90 text-[13px] font-sarabun leading-relaxed max-w-[85%]">
                     {item.desc}

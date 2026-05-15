@@ -3,6 +3,8 @@ import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
 import dayjs from 'dayjs'
+import 'dayjs/locale/id'
+dayjs.locale('id') 
 
 // bg-[url('/bumi-renjana/bg-section1.svg')]
 const Section3 = ({content}: any) => {

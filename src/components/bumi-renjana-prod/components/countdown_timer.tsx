@@ -10,10 +10,10 @@ interface CountdownTimerProps {
 export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
  const calculateTimeLeft = () => {
   const target = new Date(
-    new Date(targetDate).toLocaleString("en-US", { timeZone: "Asia/Jakarta" })
+    new Date(targetDate).toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })
   );
   const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" })
+    new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })
   );
   const difference = +target - +now;
   

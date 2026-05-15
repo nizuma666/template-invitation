@@ -178,7 +178,7 @@ export default function Section6({ content, data, greeting }: { content?: any; d
                 <motion.div variants={fadeUp} className="mt-2">
                     <Button
                         onClick={() => setIsDrawerOpen(true)}
-                        className="w-full py-4 rounded-lg bg-[#D89F83] hover:bg-[#c58d72] text-white font-bold text-lg shadow-lg shadow-[#D89F83]/20 transition-all"
+                        className="w-full py-1 rounded-lg bg-[#D89F83] hover:bg-[#c58d72] text-white font-bold text-lg outline-none transition-all"
                     >
                         Confirm Attendance
                     </Button>

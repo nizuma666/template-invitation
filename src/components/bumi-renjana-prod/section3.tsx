@@ -68,7 +68,7 @@ const Section3 = ({content}: any) => {
             <p className="font-manrope text-[16px] leading-relaxed mb-6 opacity-90 px-4">
                {content?.alamat_1}
             </p>
-            <button  onClick={() => window.open(content?.google_map_1 || "", "_blank")}  className="bg-[#D89F83] cursor-pointer font-quicksand text-white lg:text-base text-sm py-2 px-4 lg:px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
+            <button  onClick={() => window.open(content?.google_map_1 || "", "_blank")}  className="bg-[#D89F83] outline-none cursor-pointer font-quicksand text-white lg:text-base text-sm py-2 px-4 lg:px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
               Buka Google Maps
             </button>
           </motion.div>
@@ -119,7 +119,7 @@ const Section3 = ({content}: any) => {
             <p className="font-manrope text-[16px] leading-relaxed mb-6 opacity-90 px-4">
              {content?.alamat_2}
             </p>
-            <button   onClick={() => window.open(content?.google_map_2 || "", "_blank")} className="bg-brown text-white font-quicksand lg:text-base text-sm  py-2 px-4 lg:px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
+            <button   onClick={() => window.open(content?.google_map_2 || "", "_blank")} className="bg-brown outline-none text-white font-quicksand lg:text-base text-sm  py-2 px-4 lg:px-6 rounded-lg border border-[#FBE0D3] active:scale-95 transition-transform">
               Buka Google Maps
             </button>
           </motion.div>

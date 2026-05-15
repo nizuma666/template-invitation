@@ -90,7 +90,7 @@ const Section1 = ({ onOpen, content }: any) => {
 									The wedding of
 								</motion.p>
 
-								<motion.h2 initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }} className="text-5xl md:text-6xl text-[#212121] leading-tight mb-8">
+								<motion.h2 initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }} className="text-5xl md:text-6xl font-corsiva text-[#212121] leading-tight mb-8">
 									{content?.pengantin_pria} <span className="text-brown">&</span>
 									<br />
 									{content?.pengantin_wanita}

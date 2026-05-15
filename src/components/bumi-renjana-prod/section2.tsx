@@ -14,7 +14,7 @@ const Section2 = ({ content }: any) => {
 
 
   return (
-    <div id='1' className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-3 py-12 relative overflow-hidden font-serif">
+    <div id='1' className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
 
       {/* 1. Judul - Muncul Perlahan dari Atas */}
       <motion.div
@@ -37,10 +37,10 @@ const Section2 = ({ content }: any) => {
           transition={{ ...transitionConfig, delay: 0.3 }}
           className="border bg-white border-border-default rounded-2xl p-2 flex items-center gap-4"
         >
-          <div className="flex-1 ml-2">
-            <h3 className="text-2xl italic text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_wanita}</h3>
-            <p className="text-xs text-nowrap lg:text-wrap lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
-              Putri dari bapak {content?.nama_pengantin_bapak_wanita} &<br /> Ibu {content?.nama_pengantin_ibu_wanita}
+          <div className="w-fit">
+            <h3 className="text-2xl leading-none text-nowrap lg:text-wrap italic text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_wanita}</h3>
+            <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
+              Putri dari Bpk. {content?.nama_pengantin_bapak_wanita} &<br /> Ibu {content?.nama_pengantin_ibu_wanita}
             </p>
             <div className={` ${content?.sosial_media_wanita ? "flex" : "hidden"} inline-flex items-center gap-1 px-3 bg-[#D89F8333] font-sarabun py-1 rounded-full text-xs lg:text-sm text-[#A96139] font-medium`}>
               <InstagramLogoIcon size={16} />
@@ -73,10 +73,10 @@ const Section2 = ({ content }: any) => {
               className="object-cover"
             />
           </div>
-          <div className="flex-1">
-            <h3 className="text-2xl italic text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_pria}</h3>
-            <p className="text-xs text-nowrap lg:text-wrap lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
-              Putra dari bapak {content?.nama_pengantin_bapak_pria} &<br /> Ibu {content?.nama_pengantin_ibu_pria}
+          <div className="w-fit">
+            <h3 className="text-2xl leading-none text-nowrap lg:text-wrap italic text-[#2C2C2C] mb-1 font-corsiva">{content?.nama_pengantin_pria}</h3>
+            <p className="text-xs lg:text-sm text-[#909090] mb-4 leading-tight font-sarabun">
+              Putra dari Bpk. {content?.nama_pengantin_bapak_pria} &<br /> Ibu. {content?.nama_pengantin_ibu_pria}
             </p>
             <div className={` ${content?.sosial_media_pria ? "flex" : "hidden"} inline-flex items-center gap-1 px-3 bg-[#D89F8333] font-sarabun px-1 py-1 rounded-full text-xs lg:text-sm text-[#A96139] font-medium`}>
               <InstagramLogoIcon size={16} />

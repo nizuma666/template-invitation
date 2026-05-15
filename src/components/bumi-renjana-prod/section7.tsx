@@ -58,13 +58,13 @@ export default function Section7({ content }: { content: any }) {
                                 name={content.nama_pemilik_rekening_1}
                                 rekening={content.no_rekening_1}
                             />
-                              {content.no_rekening_2 && (
-                        <DebitCard
-                            bank={content.bank_rekening_2}
-                            name={content.nama_pemilik_rekening_2}
-                            rekening={content.no_rekening_2}
-                        />
-                )}
+                            {content.no_rekening_2 && (
+                                <DebitCard
+                                    bank={content.bank_rekening_2}
+                                    name={content.nama_pemilik_rekening_2}
+                                    rekening={content.no_rekening_2}
+                                />
+                            )}
                         </div>
 
                         <button
@@ -92,7 +92,7 @@ export default function Section7({ content }: { content: any }) {
                 <div className="absolute inset-0 rounded-lg bg-[#653C3099] flex flex-col justify-center p-3 text-white">
                     <p className="font-allison text-[32px] text-left italic mb-[-8px]">Wedding Gift</p>
                     <h2 className="text-2xl font-bold font-sarabun leading-tight">
-                        Given with love, received with gratitude.
+                        Kirim Tanda Kasih untuk Mempelai
                     </h2>
                     <button
                         onClick={() => setIsOpen(true)}

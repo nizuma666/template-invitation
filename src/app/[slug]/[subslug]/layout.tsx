@@ -13,14 +13,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const title = `${cover?.pengantin_pria} & ${cover?.pengantin_wanita}`;
     const description = `Undangan pernikahan ${cover?.pengantin_pria} & ${cover?.pengantin_wanita}. Dibuat dengan ❤️ menggunakan Arunara.`;
-    const ogImage = cover?.cover ?? "https://arunara.id/android-chrome-512x512.png";
+    const ogImage = cover?.image_cover ?? "https://arunara.id/android-chrome-512x512.png";
 
     return {
       // ✅ Override OG saja yang relevan
       openGraph: {
-        title,
-        description,
-        url: `https://arunara.id/${(await params).slug}/${(await params).subslug}`,
+        // title,
+        // description,
+        // url: `https://arunara.id/${(await params).slug}/${(await params).subslug}`,
         siteName: "Arunara",       // warisan bisa di-override eksplisit
         images: [{ url: ogImage, width: 1200, height: 630 }],
         type: "website",

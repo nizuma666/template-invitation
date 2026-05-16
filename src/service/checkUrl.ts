@@ -57,11 +57,7 @@ export default async function CheckUrl({ params }: { params: Promise<{ slug: str
     const decodedSlug = decodeURIComponent(slug);
     const cover = await getDataByField<CoverData>("cover", "url", decodedSlug);
 
-    console.log('[CheckUrl] decodedSlug:', decodedSlug);
-    console.log('[CheckUrl] cover result:', cover);
-
     if (cover.length < 1) {
-        console.log('[CheckUrl] NOT FOUND: cover kosong');
         return notFound();
     }
 
@@ -80,14 +76,11 @@ console.log('[CheckUrl] userId:', userId);
     if (!acara || !gallery || !gift || !listUndangan || !couple || !greeting || !story) {
         return notFound();
     }
-console.log('[CheckUrl] listUndangan:', listUndangan);
     const decodeSubslug = decodeURIComponent(subslug)
 
     const findSubSlug = listUndangan.find((item: any) => item.nama === decodeSubslug);  
-console.log('[CheckUrl] decodeSubslug:', decodeSubslug);
-    console.log('[CheckUrl] findSubSlug:', findSubSlug);
+
     if (!findSubSlug) {
-        console.log('[CheckUrl] NOT FOUND: subslug tidak ditemukan');
         return notFound();
     }
 

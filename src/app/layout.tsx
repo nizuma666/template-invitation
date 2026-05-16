@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Arunara — Undangan Nikah Digital Elegan & Modern",
     description:
-      "Bagikan kisah cintamu secara indah dengan undangan digital interaktif dari Arunara. Desain modern, fitur RSVP, lokasi, dan galeri foto.",
+      "Bagikan kisah cintamu secara indah dengan undangan digital interaktif dari Arunara.",
     url: "https://arunara.id",
     siteName: "Arunara",
     images: [

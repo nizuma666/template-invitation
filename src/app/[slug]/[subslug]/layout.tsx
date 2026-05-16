@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const data = await CheckUrl({ params });
     const cover = data?.cover?.[0];
 
-    const title = `${cover?.pengantin_pria} & ${cover?.pengantin_wanita}`;
+    const title = `The wedding of ${cover?.pengantin_pria} & ${cover?.pengantin_wanita}`;
     const description = `Undangan pernikahan ${cover?.pengantin_pria} & ${cover?.pengantin_wanita}. Dibuat dengan ❤️ menggunakan Arunara.`;
     const ogImage = cover?.image_cover ?? "https://arunara.id/android-chrome-512x512.png";
 

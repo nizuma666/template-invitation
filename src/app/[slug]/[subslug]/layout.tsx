@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title,
         // description,
-        description: "Bagikan kisah cintamu secara indah dengan undangan digital interaktif dari Arunara.",
+        description: "Arunara - bagikan kisah cintamu secara indah dengan undangan digital interaktif dari Arunara.",
         // url: `https://arunara.id/${(await params).slug}/${(await params).subslug}`,
         siteName: "Arunara",       // warisan bisa di-override eksplisit
         images: [{ url: ogImage, width: 1200, height: 630 }],

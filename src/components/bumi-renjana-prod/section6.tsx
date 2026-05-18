@@ -4,8 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants, AnimatePresence } from "motion/react";
 import { Clock } from "@phosphor-icons/react";
-import { addDoc, collection, onSnapshot, query, serverTimestamp, where } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
 import { db } from "@/service/firebase";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/id";
+
+dayjs.extend(relativeTime);
+dayjs.locale("id");
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
@@ -39,21 +45,25 @@ export default function Section6({ content, data, greeting }: { content?: any; d
     }, [isDrawerOpen]);
 
     // Realtime listener dari Firestore
-    useEffect(() => {
-        if (!data?.user_id) return;
+   useEffect(() => {
+    if (!data?.user_id) return;
 
-        const q = query(collection(db, "greeting"), where("user_id", "==", data.user_id));
+    const q = query(
+        collection(db, "greeting"),
+        where("user_id", "==", data.user_id),
+        orderBy("createdAt", "desc") // ✅ tambah ini
+    );
 
-        const unsub = onSnapshot(q, (snapshot) => {
-            const newData = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setListGreeting(newData);
-        });
+    const unsub = onSnapshot(q, (snapshot) => {
+        const newData = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        setListGreeting(newData);
+    });
 
-        return () => unsub();
-    }, [data?.user_id]);
+    return () => unsub();
+}, [data?.user_id]);
 
     // Auto-hide success message setelah 3 detik
     useEffect(() => {
@@ -95,20 +105,10 @@ export default function Section6({ content, data, greeting }: { content?: any; d
         }
     };
 
-    // Helper format waktu relatif dari Firestore timestamp
-    const formatRelativeTime = (timestamp: any) => {
-        if (!timestamp?.seconds) return "";
-        const now = Date.now();
-        const diff = now - timestamp.seconds * 1000;
-        const minutes = Math.floor(diff / 60000);
-        const hours = Math.floor(diff / 3600000);
-        const days = Math.floor(diff / 86400000);
-
-        if (minutes < 1) return "Baru saja";
-        if (minutes < 60) return `${minutes} menit lalu`;
-        if (hours < 24) return `${hours} jam lalu`;
-        return `${days} hari lalu`;
-    };
+const formatRelativeTime = (timestamp: any) => {
+    // if (!timestamp?.seconds) return "Baru saja";
+    return dayjs(timestamp).fromNow();
+};
 
     return (
         <section ref={ref} className="py-12 px-6 relative flex flex-col gap-8 overflow-hidden font-sarabun">

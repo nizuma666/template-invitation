@@ -103,7 +103,8 @@ export default function Section6({ content, data, greeting }: { content?: any; d
     };
 
 const formatRelativeTime = (timestamp: any) => {
-    return dayjs(timestamp).fromNow();
+    // if (!timestamp?.seconds) return "Baru saja";
+    return dayjs(dayjs.unix(timestamp?.seconds)).fromNow();
 };
 
     return (

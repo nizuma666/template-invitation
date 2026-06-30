@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCards, Navigation } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
 import { CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
 
 import 'swiper/css'
 import 'swiper/css/effect-cards'
@@ -13,11 +14,11 @@ const Section4 = ({ content }: any) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [isBeginning, setIsBeginning] = useState(true)
   const [isEnd, setIsEnd] = useState(false)
-  const swiperRef = useRef(null)
+  const swiperRef = useRef<SwiperType | null>(null)
 
   const images: string[] = content?.images ?? []
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: (i: number) => ({
       opacity: 1,
@@ -31,7 +32,7 @@ const Section4 = ({ content }: any) => {
     }),
   }
 
-  const handleSlideChange = (swiper: any) => {
+  const handleSlideChange = (swiper: SwiperType) => {
     setIsBeginning(swiper.isBeginning)
     setIsEnd(swiper.isEnd)
     if (selectedIndex !== null) {
@@ -60,7 +61,6 @@ const Section4 = ({ content }: any) => {
       id="3"
       className="w-full bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden"
     >
-      {/* Header Utama */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -77,7 +77,6 @@ const Section4 = ({ content }: any) => {
           </h2>
         </div>
 
-        {/* Navigation Buttons */}
         <div className="flex gap-2 pt-1">
           <button
             onClick={handlePrev}
@@ -96,7 +95,6 @@ const Section4 = ({ content }: any) => {
         </div>
       </motion.div>
 
-      {/* Swiper Container */}
       <div className="w-full relative z-10 mx-auto">
         <Swiper
           onSwiper={(swiper) => {
@@ -155,7 +153,6 @@ const Section4 = ({ content }: any) => {
         </Swiper>
       </div>
 
-      {/* Detail Drawer (Lightbox-style) */}
       <AnimatePresence>
         {selectedIndex !== null && selectedSrc && (
           <>
@@ -174,7 +171,6 @@ const Section4 = ({ content }: any) => {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[32px] z-[100] p-5 shadow-2xl flex flex-col items-center"
             >
-              {/* Container lebih kecil untuk Drawer */}
               <div className="w-full max-w-[340px]">
                 <div className="flex items-center justify-between mb-4">
                   <div>

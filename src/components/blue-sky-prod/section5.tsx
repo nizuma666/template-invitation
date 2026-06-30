@@ -1,9 +1,9 @@
 "use client"
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Copy } from "lucide-react";
 import Image from "next/image";
 import DebitCard from "./components/debit-card";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export default function Section5({ content }: { content: any }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -60,9 +60,18 @@ export default function Section5({ content }: { content: any }) {
                             </div>
 
                             <div className="space-y-6">
-                                {content.card.map((item: any, index: number) => (
-                                    <DebitCard key={index} bank={item.bank} name={item.name} rekening={item.rekening} />
-                                ))}
+                                <DebitCard
+                                    bank={content?.bank_rekening_1}
+                                    name={content?.nama_pemilik_rekening_1}
+                                    rekening={content?.no_rekening_1}
+                                />
+                                {content?.no_rekening_2 && (
+                                    <DebitCard
+                                        bank={content?.bank_rekening_2}
+                                        name={content?.nama_pemilik_rekening_2}
+                                        rekening={content?.no_rekening_2}
+                                    />
+                                )}
                             </div>
 
                             <button

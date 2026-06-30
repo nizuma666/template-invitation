@@ -4,15 +4,12 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import dayjs from 'dayjs'
 import 'dayjs/locale/id'
-dayjs.locale('id') 
+dayjs.locale('id')
 
-// bg-[url('/bumi-renjana/bg-section1.svg')]
 const Section3 = ({content}: any) => {
   return (
     <div id='2' className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
-      
-      {/* Header Animasi - Durasi 1.5 detik */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -24,17 +21,13 @@ const Section3 = ({content}: any) => {
       </motion.div>
 
       <div className="flex flex-col gap-20 items-center relative z-10">
-        
-        {/* --- AKAD NIKAH SECTION --- */}
         <div className="relative w-full max-w-[340px] aspect-square flex items-center justify-center">
-          
-          {/* Animasi Bunga: Durasi 2.5 detik agar gerakan melengkung lebih terasa */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -150, rotate: -15, scale: 0.9 }}
             whileInView={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
-            transition={{ 
-                duration: 2.5, 
-                ease: [0.22, 1, 0.36, 1], // Custom cubic-bezier untuk gerakan yang sangat smooth
+            transition={{
+                duration: 2.5,
+                ease: [0.22, 1, 0.36, 1],
             }}
             viewport={{ once: true }}
             className="absolute top-[-31%] left-[-5%] w-[110%] h-[110%] z-0"
@@ -55,9 +48,7 @@ const Section3 = ({content}: any) => {
               className="object-contain"
             />
           </div>
-          
-          {/* Animasi Teks: Muncul perlahan setelah bunga hampir selesai (delay 1.2s) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.8, delay: 1.2, ease: "easeOut" }}
@@ -76,11 +67,8 @@ const Section3 = ({content}: any) => {
           </motion.div>
         </div>
 
-        {/* --- RESEPSI SECTION --- */}
         <div className="relative w-full max-w-[340px] aspect-square flex items-center justify-center">
-          
-          {/* Animasi Bunga: Dari Kanan dengan durasi 2.5 detik */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 150, rotate: 15, scale: 0.9 }}
             whileInView={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
             transition={{ 
@@ -106,9 +94,7 @@ const Section3 = ({content}: any) => {
               className="object-contain"
             />
           </div>
-          
-          {/* Animasi Teks: Muncul perlahan dengan durasi 1.8 detik */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.8, delay: 1.2, ease: "easeOut" }}
@@ -126,7 +112,6 @@ const Section3 = ({content}: any) => {
             </button>
           </motion.div>
         </div>
-
       </div>
     </div>
   )

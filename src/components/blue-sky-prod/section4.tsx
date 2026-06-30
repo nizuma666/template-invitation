@@ -3,17 +3,14 @@ import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { CaretLeft, CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 import "swiper/css";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const galleryData = [
-  { id: 1, src: "/blue-sky/gallery1.png" },
-  { id: 2, src: "/blue-sky/gallery1.png" },
-  { id: 3, src: "/blue-sky/gallery1.png" },
-];
+export default function Section4({ content }: { content: any }) {
+  const images: string[] = content?.images ?? [];
 
-export default function Section4() {
   return (
     <section className="w-full py-12 px-6 bg-white overflow-hidden">
       <div className="max-w-md mx-auto">
@@ -44,13 +41,13 @@ export default function Section4() {
           }}
           className="gallery-swiper !overflow-visible"
         >
-          {galleryData.map((item) => (
-            <SwiperSlide key={item.id}>
+          {images.map((src, index) => (
+            <SwiperSlide key={index}>
               <div className="bg-white p-4 rounded-xl shadow-lg shadow-blue-100/50 border border-gray-50">
                 <div className="relative aspect-square w-full overflow-hidden rounded-lg">
                   <Image
-                    src={item.src}
-                    alt={`Gallery ${item.id}`}
+                    src={src}
+                    alt={`Gallery ${index + 1}`}
                     fill
                     className="object-cover"
                   />

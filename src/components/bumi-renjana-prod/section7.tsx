@@ -81,7 +81,6 @@ export default function Section7({ content }: { content: any }) {
 
     return (
         <div id='4' className="px-8 bg-[#D89F8333] w-full z-10 relative py-12">
-            {/* CARD UTAMA */}
             <div className="w-full h-[203px] relative">
                 <Image
                     src="/bumi-renjana/image-hadiah.png"
@@ -103,7 +102,6 @@ export default function Section7({ content }: { content: any }) {
                 </div>
             </div>
 
-            {/* Portal: render drawer langsung ke document.body */}
             {mounted && createPortal(drawer, document.body)}
         </div>
     );

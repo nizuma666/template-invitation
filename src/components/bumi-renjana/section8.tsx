@@ -92,7 +92,6 @@ export default function Section8() {
                             variants={fadeUp}
                             className="bg-white flex gap-1 items-center text-[#A96139] font-semibold px-2 py-1 rounded-2xl"
                         >
-                            {/* <Image src={instagram} alt="arunara" width={18} height={18} /> */}
                             <InstagramLogoIcon size={18} className="text-[#A96139]" />
                             arunara
                         </motion.div>

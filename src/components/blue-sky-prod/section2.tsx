@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
+import { InstagramLogoIcon } from "@phosphor-icons/react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-import PhotoBride from "!/blue-sky/brideProfile.png";
-import PhotoGroom from "!/blue-sky/groomProfile.png";
-
-export default function Section2() {
+export default function Section2({ content }: { content: any }) {
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -36,8 +35,8 @@ export default function Section2() {
         <div className="bg-white p-4 rounded-xl shadow-xl shadow-blue-100/50 mb-6">
           <div className="relative w-[240px] h-[240px] overflow-hidden rounded-lg">
             <Image
-              src={PhotoBride}
-              alt="Jenny Soraya"
+              src={content?.image_pengantin_wanita}
+              alt={content?.nama_pengantin_wanita}
               fill
               className="object-cover"
             />
@@ -50,11 +49,17 @@ export default function Section2() {
           </div>
         </div>
 
-        <h3 className="text-[#629BC0] font-sarabun text-[24px] font-bold">Jenny Soraya</h3>
+        <h3 className="text-[#629BC0] font-sarabun text-[24px] font-bold">{content?.nama_pengantin_wanita}</h3>
         <p className="text-[#629BC0] font-allura text-[18px]">Putri dari</p>
         <p className="text-[#212121] font-sarabun text-[14px] font-medium text-center">
-          Bpk. Hendra Saputra & Ibu Lina Kartika
+          Bpk. {content?.nama_pengantin_bapak_wanita} & Ibu {content?.nama_pengantin_ibu_wanita}
         </p>
+        {content?.sosial_media_wanita && (
+          <div className="inline-flex items-center gap-1 px-3 mt-3 bg-[#629BC01A] font-sarabun py-1 rounded-full text-xs lg:text-sm text-[#629BC0] font-medium">
+            <InstagramLogoIcon size={16} />
+            {content?.sosial_media_wanita}
+          </div>
+        )}
       </motion.div>
 
       <motion.div
@@ -67,8 +72,8 @@ export default function Section2() {
         <div className="bg-white p-4 rounded-xl shadow-xl shadow-blue-100/50 mb-6">
           <div className="relative w-[240px] h-[240px] overflow-hidden rounded-lg">
             <Image
-              src={PhotoGroom}
-              alt="Groom Name"
+              src={content?.image_pengantin_pria}
+              alt={content?.nama_pengantin_pria}
               fill
               className="object-cover"
             />
@@ -81,11 +86,17 @@ export default function Section2() {
           </div>
         </div>
 
-        <h3 className="text-[#629BC0] font-sarabun text-[24px] font-bold">Jhon Doe</h3>
+        <h3 className="text-[#629BC0] font-sarabun text-[24px] font-bold">{content?.nama_pengantin_pria}</h3>
         <p className="text-[#629BC0] font-allura text-[18px]">Putra dari</p>
         <p className="text-[#212121] font-sarabun text-[14px] font-medium text-center">
-          Bpk. Nama Ayah & Ibu Nama Ibu
+          Bpk. {content?.nama_pengantin_bapak_pria} & Ibu {content?.nama_pengantin_ibu_pria}
         </p>
+        {content?.sosial_media_pria && (
+          <div className="inline-flex items-center gap-1 px-3 mt-3 bg-[#629BC01A] font-sarabun py-1 rounded-full text-xs lg:text-sm text-[#629BC0] font-medium">
+            <InstagramLogoIcon size={16} />
+            {content?.sosial_media_pria}
+          </div>
+        )}
       </motion.div>
     </section>
   );

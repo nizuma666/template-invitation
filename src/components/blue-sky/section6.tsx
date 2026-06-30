@@ -57,7 +57,6 @@ export default function Section6({ content }: any) {
                     <h2 className="text-[#212121] font-sarabun text-[30px] text-nowrap font-bold">Confirm Your Presence</h2>
                 </motion.div>
 
-                {/* Preview ucapan singkat */}
                 <motion.div variants={fadeUp} className="flex flex-col gap-3">
                     {shortItem.map((_, i) => (
                         <div key={i} className="border border-gray-100 rounded-xl p-4 bg-white shadow-sm">
@@ -75,12 +74,6 @@ export default function Section6({ content }: any) {
                     ))}
 
                     <div className="flex flex-col gap-3 mt-2">
-                        {/* <button
-                            onClick={() => { setIsDrawerOpen(true); setIsFormOpen(false); }}
-                            className="text-sm text-gray-400 hover:text-[#629BC0] transition-colors"
-                        >
-                            View More
-                        </button> */}
                         <Button
                             onClick={() => { setIsDrawerOpen(true); setIsFormOpen(true); }}
                             className="w-full"
@@ -91,11 +84,9 @@ export default function Section6({ content }: any) {
                 </motion.div>
             </motion.div>
 
-            {/* DRAWER */}
             <AnimatePresence>
                 {isDrawerOpen && (
                     <div className="fixed inset-0 z-[9999] flex flex-col justify-end">
-                        {/* Backdrop */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -104,7 +95,6 @@ export default function Section6({ content }: any) {
                             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
                         />
 
-                        {/* Drawer */}
                         <motion.div
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}

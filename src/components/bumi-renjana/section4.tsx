@@ -2,20 +2,23 @@ import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCards, Navigation } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
 import { CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
 
 import 'swiper/css'
 import 'swiper/css/effect-cards'
 import 'swiper/css/navigation'
 
+type Photo = { id: number; src: string; date: string }
+
 const Section4 = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState(null)
+  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
   const [isBeginning, setIsBeginning] = useState(true)
   const [isEnd, setIsEnd] = useState(false)
-  const swiperRef = useRef(null)
+  const swiperRef = useRef<SwiperType | null>(null)
 
-  const photos = [
+  const photos: Photo[] = [
     { id: 1, src: '/bumi-renjana/carousel_example.svg', date: '20.01.2026' },
     { id: 2, src: '/bumi-renjana/carousel_example.svg', date: '21.01.2026' },
     { id: 3, src: '/bumi-renjana/carousel_example.svg', date: '22.01.2026' },
@@ -23,9 +26,9 @@ const Section4 = () => {
     { id: 5, src: '/bumi-renjana/carousel_example.svg', date: '24.01.2026' },
   ]
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       scale: 1,
@@ -37,7 +40,7 @@ const Section4 = () => {
     })
   }
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: SwiperType) => {
     setIsBeginning(swiper.isBeginning)
     setIsEnd(swiper.isEnd)
     if (selectedPhoto) {
@@ -59,9 +62,7 @@ const Section4 = () => {
 
   return (
     <div id='3' className="w-full bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
-      
-      {/* Header Utama */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -72,8 +73,6 @@ const Section4 = () => {
           <p className="text-[#D89F83] italic text-[32px] mb-[-6px] font-allison">Spesial Moment</p>
           <h2 className="text-[32px] font-semibold text-[#212121] font-sarabun tracking-tight">Gallery Photo</h2>
         </div>
-        
-        {/* Navigation Buttons */}
         <div className="flex gap-2 pt-1">
           <button 
             onClick={handlePrev}
@@ -92,7 +91,6 @@ const Section4 = () => {
         </div>
       </motion.div>
 
-      {/* Swiper Container */}
       <div className="w-full relative z-10 mx-auto">
         <Swiper
           onSwiper={(swiper) => {
@@ -151,7 +149,6 @@ const Section4 = () => {
         </Swiper>
       </div>
 
-      {/* Detail Drawer (Lightbox-style) */}
       <AnimatePresence>
         {selectedPhoto && (
           <>
@@ -170,8 +167,7 @@ const Section4 = () => {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[32px] z-[100] p-5 shadow-2xl flex flex-col items-center"
             >
-              {/* Container lebih kecil untuk Drawer */}
-              <div className="w-full max-w-[340px]"> 
+              <div className="w-full max-w-[340px]">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <p className="text-[#D89F83] italic text-[32px] font-allison leading-none">Spesial Moment</p>

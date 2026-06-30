@@ -1,35 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Section3() {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+export default function Section3({ content }: { content?: any }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-const stories = [
-    {
-      id: 1,
-      title: "The First Meeting",
-      description: "What started as a brief meeting slowly unfolded into meaningful conversations.",
-      alignment: "left",
-      gradientDirection: "to-r",
-      imageUrl: "https://via.placeholder.com/600x300/87CEFA/FFFFFF?text=Image+1"
-    },
-    {
-      id: 2,
-      title: "Growing Together",
-      description: "Love grew not from perfection, but from understanding, patience, and shared dreams.",
-      alignment: "right",
-      gradientDirection: "to-t",
-      imageUrl: "https://via.placeholder.com/600x300/87CEFA/FFFFFF?text=Image+2"
-    },
-    {
-      id: 3,
-      title: "Growing Together",
-      description: "Love grew not from perfection, but from understanding, patience, and shared dreams.",
-      alignment: "left",
-      gradientDirection: "to-t",
-      imageUrl: "https://via.placeholder.com/600x300/87CEFA/FFFFFF?text=Image+3"
-    }
-  ];
+  const stories = content?.stories ?? [];
 
   return (
     <section className="max-w-md mx-auto p-4 flex flex-col items-center font-sans">
@@ -45,12 +22,12 @@ const stories = [
 
       <motion.div layout className="w-full flex flex-col gap-4 relative">
         <AnimatePresence>
-          {stories.map((story, index) => {
+          {stories.map((story: any, index: number) => {
             if (!isExpanded && index > 1) return null;
 
             return (
               <motion.div
-                key={story.id}
+                key={story.id ?? index}
                 layout
                 initial={index > 1 ? { opacity: 0, height: 0, scale: 0.95 } : false}
                 animate={{ opacity: 1, height: "auto", scale: 1 }}
@@ -61,27 +38,27 @@ const stories = [
                 <div className="relative w-full h-52 rounded-xl overflow-hidden shadow-sm">
 
                   <img
-                    src={story.imageUrl}
-                    alt={story.title}
+                    src={story.imageUrl || story.image}
+                    alt={story.title || story.judul}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
 
                  <div className={`absolute inset-0 ${
-                    story.gradientDirection === 'to-r'
+                    index % 2 === 0
                       ? 'bg-gradient-to-r from-[#6B98B5]/90 via-[#6B98B5]/40 to-transparent'
                       : 'bg-gradient-to-t from-[#6B98B5]/95 via-[#6B98B5]/60 to-transparent'
                   }`} />
 
                   <div className={`relative h-full flex flex-col p-6 ${
-                    story.gradientDirection === 'to-t' ? 'justify-end pb-6' : 'justify-center'
+                    index % 2 !== 0 ? 'justify-end pb-6' : 'justify-center'
                   } ${
-                    story.alignment === 'left' ? 'items-start text-left' : 'items-end text-right'
+                    index % 2 === 0 ? 'items-start text-left' : 'items-end text-right'
                   }`}>
                     <h4 className="text-white font-sarabun text-2xl font-medium w-3/5 mb-2 leading-tight">
-                      {story.title}
+                      {story.title || story.judul}
                     </h4>
                     <p className="text-white/90 text-sm w-3/5 leading-snug font-sarabun">
-                      {story.description}
+                      {story.description || story.cerita}
                     </p>
                   </div>
 

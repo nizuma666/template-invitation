@@ -12,6 +12,7 @@ import Image from "next/image";
 import onMusic from "!/green-flag/audioOnGreen.svg"
 import offMusic from "!/green-flag/audioOffGreen.svg"
 import { motion, AnimatePresence } from "motion/react"
+import Outside from "@/components/blue-sky/outside";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function BlueSky() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,6 @@ useEffect(() => {
 
   useEffect(() => {
     const playAudio = async () => {
-      // CEK: Hanya play jika isOpen TRUE DAN audio sedang pause (tidak sedang play)
       if (isOpen && audioRef.current && audioRef.current.paused) {
         try {
           await audioRef.current.play();
@@ -70,7 +70,9 @@ useEffect(() => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto relative h-dvh">
+    <div className="w-full lg:flex relative min-h-dvh">
+      <Outside name={content?.section1?.name} date={content?.section1?.date} />
+      <div className="max-w-md relative">
       <AnimatePresence>
         {isOpen && (
           <motion.button
@@ -126,9 +128,10 @@ useEffect(() => {
       <Section2/>
       <Section3  />
       <Section4 />
-      <Section5 content={content?.section4} /> 
+      <Section5 content={content?.section4} />
       <Section6  />
       <Section7 />
+      </div>
     </div>
   );
 }

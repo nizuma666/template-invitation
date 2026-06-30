@@ -30,12 +30,12 @@ const Outside = () => {
                     height='400'
                     className='absolute bottom-0 left-[50%] -translate-x-1/2'
 
-                    style={{ transformOrigin: "bottom center" }} // Membuat tumpuan rotasi di paling bawah
-                    animate={{ rotate: [-3, 3, -3] }} // Bergoyang ke kiri 3 derajat dan kanan 3 derajat
+                    style={{ transformOrigin: "bottom center" }}
+                    animate={{ rotate: [-3, 3, -3] }}
                     transition={{
-                        duration: 4, // Kecepatan satu siklus goyangan (4 detik = pelan dan natural)
-                        repeat: Infinity, // Mengulang terus menerus
-                        ease: "easeInOut" // Pergerakan halus saat berpindah arah
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut"
                     }}
                 />
             </div>

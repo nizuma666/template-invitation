@@ -30,13 +30,13 @@ const Section1 = ({ onOpen }: any) => {
 								opacity: 1,
 								x: 0,
 								y: 0,
-								rotate: [0, 3, 0, -3, 0], // Efek bergoyang
+								rotate: [0, 3, 0, -3, 0],
 							}}
 							transition={{
 								opacity: { duration: 1.2 },
 								x: { duration: 1.2 },
 								y: { duration: 1.2 },
-								rotate: { duration: 5, repeat: Infinity, ease: 'easeInOut' }, // Animasi goyang jalan terus
+								rotate: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
 							}}
 							className="absolute top-0 right-0 w-2/3 max-w-md pointer-events-none z-0"
 						>
@@ -49,7 +49,7 @@ const Section1 = ({ onOpen }: any) => {
 								opacity: 1,
 								x: 0,
 								y: 0,
-								rotate: [0, -2, 0, 2, 0], // Goyangan berlawanan arah agar lebih natural
+								rotate: [0, -2, 0, 2, 0],
 							}}
 							transition={{
 								opacity: { duration: 1.2 },
@@ -70,8 +70,6 @@ const Section1 = ({ onOpen }: any) => {
 									ease: 'easeInOut',
 								}}
 							>
-
-								{/* <Image src="/bumi-renjana/lebah.svg" width={48} height={53} alt="" className="w-full h-auto object-cover" /> */}
 							</motion.div>
 						</div>
 
@@ -105,7 +103,7 @@ const Section1 = ({ onOpen }: any) => {
 									Dear, <span className="text-[#2C2E2A] text-base md:text-lg">Ferdian Septiawan</span>
 								</p>
 								<motion.div
-									animate={{ y: [0, -8, 0] }} // Bergerak dari 0 ke -8px lalu kembali ke 0
+									animate={{ y: [0, -8, 0] }}
 									transition={{
 										duration: 2,
 										repeat: Infinity,
@@ -120,7 +118,6 @@ const Section1 = ({ onOpen }: any) => {
 						</div>
 					</motion.div>
 
-					// bg-[url('/bumi-renjana/bg-section1.svg')]
 				) : (
 					<motion.div key="main-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="w-full   bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden">
 						<div className="relative lg:min-h-screen z-10 w-full max-w-md mx-auto flex flex-col h-full">

@@ -9,15 +9,24 @@ import PhotoCover1 from "!/blue-sky/photoCover1.svg"
 import WeddingText from "!/blue-sky/weddingText.svg"
 import brideGroom from "!/blue-sky/brideGroom.png"
 import CountdownTimer from "./components/countdown_timer";
-import { CaretLeftIcon, CaretRightIcon, PlayIcon, PauseIcon } from "@phosphor-icons/react";
+import dayjs from "dayjs";
+import { useParams } from "next/navigation";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export default function Section1({ content, onOpen, audioRef }: { content: any, onOpen: () => void, audioRef: any }) {
     const [isOpen, setIsOpen] = useState(false)
     const [progress, setProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    const params = useParams()
+
+    const filterUndangan = content?.listUndangan?.filter((item: any) => item.nama === decodeURIComponent(params.subslug as string))
+
+    const galleryImages: string[] = content?.images ?? []
+    const coverPhoto1 = galleryImages[0] || PhotoCover1
+    const coverPhoto2 = galleryImages[1] || galleryImages[0] || PhotoCover1
 
     const togglePlay = () => {
-        if (audioRef.current) {
+        if (audioRef?.current) {
             if (isPlaying) {
                 audioRef.current.pause();
             } else {
@@ -29,11 +38,11 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
 
     const handleOpenInvite = () => {
         setIsOpen(true);
-        onOpen();
+        if (onOpen) onOpen();
     };
 
     useEffect(() => {
-        const audio = audioRef.current;
+        const audio = audioRef?.current;
         if (!audio) return;
 
         const handleTimeUpdate = () => {
@@ -95,7 +104,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                 animate="visible"
                                 className="bg-white p-4 rounded-lg flex flex-col absolute z-10 -top-5"
                             >
-                                <Image src={PhotoCover1} alt="Photo Cover" width={180} height={180} className="w-[200px] h-[200px] object-cover" />
+                                <Image src={coverPhoto1} alt="Photo Cover" width={180} height={180} className="w-[200px] h-[200px] object-cover" />
                                 <div className="flex justify-between mt-2 items-center">
                                     <div className="flex gap-x-1">
                                         <div className="bg-[#E3EEFA] h-3 w-3 rounded-full" />
@@ -104,7 +113,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                         <div className="bg-[#D8C0AF] h-3 w-3 rounded-full" />
                                     </div>
                                     <div className="flex flex-col items-end">
-                                        <p className="text-[#212121] font-semibold text-xs">20.01.2026</p>
+                                        <p className="text-[#212121] font-semibold text-xs">{content?.tanggal_1 ? dayjs(content?.tanggal_1).format("DD.MM.YYYY") : ""}</p>
                                         <Image src={WeddingText} alt="Wedding Text" width={40} height={20} />
                                     </div>
                                 </div>
@@ -125,7 +134,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                 animate="visible"
                                 className="bg-white p-4 rounded-lg flex flex-col relative z-20"
                             >
-                                <Image src={PhotoCover1} alt="Photo Cover" width={180} height={180} className="w-[250px] h-[200px] object-cover" />
+                                <Image src={coverPhoto2} alt="Photo Cover" width={180} height={180} className="w-[250px] h-[200px] object-cover" />
                                 <div className="flex justify-between mt-2 items-center">
                                     <div className="flex gap-x-1">
                                         <div className="bg-[#E3EEFA] h-3 w-3 rounded-full" />
@@ -134,7 +143,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                                         <div className="bg-[#D8C0AF] h-3 w-3 rounded-full" />
                                     </div>
                                     <div className="flex flex-col items-end">
-                                        <p className="text-[#212121] font-semibold text-xs">20.01.2026</p>
+                                        <p className="text-[#212121] font-semibold text-xs">{content?.tanggal_1 ? dayjs(content?.tanggal_1).format("DD.MM.YYYY") : ""}</p>
                                         <Image src={WeddingText} alt="Wedding Text" width={40} height={20} />
                                     </div>
                                 </div>
@@ -148,7 +157,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                             className="flex flex-col z-20 mt-4"
                         >
                             <p className="text-[#909090] text-center font-sarabun text-sm">Wedding off</p>
-                            <p className="text-[#212121] text-[56px] font-allison text-center leading-tight">{content?.name}</p>
+                            <p className="text-[#212121] text-[56px] font-allison text-center leading-tight">{content?.pengantin_pria} & {content?.pengantin_wanita}</p>
                         </motion.div>
 
                         <motion.div
@@ -159,7 +168,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                         >
                             <motion.div variants={itemVariants} className="text-center mb-6">
                                 <p className="text-[#757575] font-sarabun text-sm">
-                                    Dear, <span className="font-bold text-[#212121]">{content?.guest || "Ferdian Septiawan"}</span>
+                                    Dear, <span className="font-bold text-[#212121]">{filterUndangan?.[0]?.nama}</span>
                                 </p>
                             </motion.div>
 
@@ -205,7 +214,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                     >
                         <Image src={brideGroom} alt="Photo Cover" width={180} height={180} className="absolute left-0 right-0 w-full z-0" />
                         <p className="text-white font-sarabun z-10">Wedding off</p>
-                        <p className="text-white font-allison text-[64px] z-10">Jane & Jhon</p>
+                        <p className="text-white font-allison text-[64px] z-10">{content?.pengantin_pria} & {content?.pengantin_wanita}</p>
                     </motion.div>
 
                     <motion.div
@@ -215,7 +224,7 @@ export default function Section1({ content, onOpen, audioRef }: { content: any, 
                         transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
                         className="mt-9"
                     >
-                        <CountdownTimer targetDate={new Date("2026-12-20T00:00:00")} />
+                        <CountdownTimer targetDate={new Date(content?.tanggal_1)} />
                     </motion.div>
 
                     <motion.div

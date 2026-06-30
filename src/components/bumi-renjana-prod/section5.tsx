@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const Section5 = ({ content }: any) => {
   const [showAll, setShowAll] = useState(false)
-  const containerRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
   const handleToggle = () => {
     if (showAll) {
@@ -25,7 +25,7 @@ const Section5 = ({ content }: any) => {
 
       <div className="flex flex-col relative z-10">
         <AnimatePresence mode="popLayout" initial={false}>
-          {displayedJourneys?.map((item, index) => (
+          {displayedJourneys?.map((item: any, index: number) => (
             <motion.div
               key={item.id}
               layout
@@ -65,7 +65,6 @@ const Section5 = ({ content }: any) => {
 
         {!showAll && (
           <div className="relative w-full flex flex-col items-center">
-            {/* Card Preview Stack (Shadow/Fade Effect) */}
             <div className="absolute  w-full h-24 bg-white rounded-[20px] shadow-md z-0 overflow-hidden opacity-50">
               <Image src="/bumi-renjana/story-bg.png" alt="peek" fill className="object-cover blur-[2px]" />
               <div className="absolute inset-0 bg-white/40" />
@@ -76,7 +75,7 @@ const Section5 = ({ content }: any) => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={handleToggle}
-              className="relative z-20 mt-[-50px] px-10 py-2.5 rounded-full border border-[#D89F83] text-[#A96139] font-sarabun text-sm bg-white shadow-sm"
+              className="relative z-20 mt-[-50px] px-10 py-2.5 rounded-lg border border-[#D89F83] text-[#A96139] font-sarabun text-sm bg-white shadow-sm"
             >
               See more story
             </motion.button>
@@ -88,7 +87,7 @@ const Section5 = ({ content }: any) => {
         <div className="flex justify-center mt-10">
           <button
             onClick={handleToggle}
-            className="px-10 py-2.5 rounded-full border border-[#D89F83] text-[#D89F83] font-sarabun text-sm bg-white active:scale-95 transition-all shadow-sm"
+            className="px-10 py-2.5 rounded-lg border border-[#D89F83] text-[#D89F83] font-sarabun text-sm bg-white active:scale-95 transition-all shadow-sm"
           >
             Show Less
           </button>

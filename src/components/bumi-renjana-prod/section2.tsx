@@ -3,21 +3,19 @@
 import { InstagramLogoIcon } from '@phosphor-icons/react'
 import Image from 'next/image'
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, Transition } from 'framer-motion'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 const Section2 = ({content}: any) => {
-  const transitionConfig = {
-    duration: 1.2, // Lebih lambat dari sebelumnya (0.8s)
-    ease: [0.25, 0.1, 0.25, 1], // Cubic-bezier untuk gerakan yang lebih smooth
+  const transitionConfig: Transition = {
+    duration: 1.2,
+    ease: [0.25, 0.1, 0.25, 1],
   }
 
 
   return (
     <div id='1'  className="w-full min-h-screen  bg-no-repeat bg-cover bg-center flex flex-col px-6 py-12 relative overflow-hidden font-serif">
-      
-      {/* 1. Judul - Muncul Perlahan dari Atas */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -29,8 +27,7 @@ const Section2 = ({content}: any) => {
       </motion.div>
 
       <div className="flex flex-col gap-6 mb-12">
-        {/* 2. Kartu Wanita - Muncul Perlahan dari Kiri */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -57,8 +54,7 @@ const Section2 = ({content}: any) => {
           </div>
         </motion.div>
 
-        {/* 3. Kartu Pria - Muncul Perlahan dari Kanan */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -86,8 +82,7 @@ const Section2 = ({content}: any) => {
         </motion.div>
       </div>
 
-      {/* Indikator Dot */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}
@@ -98,8 +93,7 @@ const Section2 = ({content}: any) => {
         <div className="w-4 h-4 rounded-full bg-[#FFF2EC]"></div>
       </motion.div>
 
-      {/* 4. Ayat - Muncul Perlahan dari Bawah */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -114,7 +108,6 @@ const Section2 = ({content}: any) => {
         </p>
         <p className="font-medium">( QS. Ar-Rum: 21 )</p>
       </motion.div>
-
     </div>
   )
 }

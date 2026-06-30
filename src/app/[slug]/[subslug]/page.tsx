@@ -5,6 +5,7 @@ import GreenFlagProd from "./GreenFlag";
 import { notFound } from "next/navigation";
 import BandWProd from "./B&W";
 import BumiRenjanaProd from "./BumiRenjana";
+import BlueSkyProd from "./BlueSky";
 
 export default async function PeachServer({ params }: { params: Promise<{ slug: string; subslug: string }> }) {
   try {
@@ -21,6 +22,8 @@ export default async function PeachServer({ params }: { params: Promise<{ slug: 
         return <BandWProd data={data} />;
        case "5":
         return <BumiRenjanaProd data={data} />;
+      case "4":
+        return <BlueSkyProd data={data} />;
       default:
         return notFound();
     }

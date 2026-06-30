@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "./components/button";
 import { useInView, motion, Variants, AnimatePresence } from "motion/react";
-import { Clock } from "@phosphor-icons/react"; // Pastikan sudah install phosphor-icons
+import { Clock } from "@phosphor-icons/react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
@@ -15,7 +15,7 @@ export default function Section6({ content }: any) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [formData, setFormData] = useState({ nama: "", kehadiran: "", pesan: "" });
 
-    const shortItem = [1, 2, 3, 4, 5]; // Contoh data lebih banyak untuk scroll
+    const shortItem = [1, 2, 3, 4, 5];
 
     const container: Variants = {
         hidden: {},
@@ -61,7 +61,6 @@ export default function Section6({ content }: any) {
                     <h2 className="text-[#212121] text-[32px] font-semibold">Konfirmasi Segera</h2>
                 </motion.div>
 
-                {/* Container dengan Scroll Area */}
                 <motion.div variants={fadeUp} className="relative">
                     <div className="flex flex-col gap-4 max-h-[450px]  overflow-y-auto pr-2 custom-scrollbar">
                         {shortItem.map((_, i) => (
@@ -94,7 +93,6 @@ export default function Section6({ content }: any) {
                 </motion.div>
             </motion.div>
 
-            {/* DRAWER KONFIRMASI */}
         <AnimatePresence>
     {isDrawerOpen && (
         <div className="fixed inset-0 z-[9999] flex flex-col justify-end">
@@ -113,14 +111,12 @@ export default function Section6({ content }: any) {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="relative bg-white rounded-t-[18px] p-4 h-fit w-full lg:min-h-[96vh] mx-auto lg:w-[600px] z-[10000] font-sarabun"
             >
-                {/* Header Form */}
                 <div className="flex flex-col mb-2">
                     <p className="text-[#D89F83] font-allison text-[32px] -mb-3">Kehadiran</p>
                     <h2 className="text-[#1A1A1A] text-[28px] font-bold leading-tight">Confirm Your Presence</h2>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-3">
-                    {/* Input Name */}
                     <div className="space-y-2">
                         <label className="text-[15px] font-medium text-gray-500 ml-1">Name</label>
                         <input
@@ -134,7 +130,6 @@ export default function Section6({ content }: any) {
                         />
                     </div>
 
-                    {/* Attendance Radio/Buttons */}
                     <div className="space-y-2">
                         <label className="text-[15px] font-medium text-gray-500 ml-1">Attendance</label>
                         <div className="flex gap-4">

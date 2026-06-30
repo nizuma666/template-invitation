@@ -1,13 +1,12 @@
 "use client"
-import bgFooter from "!/bumi-renjana/footer.svg"
+import bgFooter from "!/peach-love/bgFooter.png"
 import Image from "next/image"
 import Logo from "!/peach-love/Arunara.svg"
 import { Globe } from "lucide-react"
 import { motion, useInView, Variants } from "motion/react"
 import { useRef } from "react"
 import { InstagramLogoIcon } from "@phosphor-icons/react"
-
-export default function Section8() {
+export default function Section7() {
     const ref = useRef<HTMLDivElement | null>(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -64,7 +63,7 @@ export default function Section8() {
             </motion.div>
 
             <motion.div
-                className="absolute inset-0 z-10"
+                className="absolute inset-0 bg-[#629BC0E5]/90 z-10"
                 variants={overlayFade}
             ></motion.div>
 
@@ -90,14 +89,14 @@ export default function Section8() {
                     <div className="flex gap-4 items-center">
                         <motion.div
                             variants={fadeUp}
-                            className="bg-white flex gap-1 items-center text-[#A96139] font-semibold px-2 py-1 rounded-2xl"
+                            className="bg-white flex gap-1 items-center text-[#629BC0] font-semibold px-2 py-1 rounded-2xl"
                         >
-                            <InstagramLogoIcon size={18} className="text-[#A96139]" />
+                            <InstagramLogoIcon size={18} className="text-[#629BC0]" />
                             arunara
                         </motion.div>
                         <motion.div
                             variants={fadeUp}
-                            className="bg-white flex gap-1 items-center text-[#A96139] font-semibold px-2 py-1 rounded-2xl"
+                            className="bg-white flex gap-1 items-center text-[#629BC0] font-semibold px-2 py-1 rounded-2xl"
                         >
                             <Globe width={16} height={16} />
                             arunara.id

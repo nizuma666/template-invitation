@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Benne:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
 
 
 @font-face {
@@ -19,6 +20,13 @@
 
 
 
+@font-face {
+  font-family: "Adelia";
+  src: url("/fonts/adelia.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 
@@ -28,6 +36,12 @@
   --font-quicksand: "Quicksand", sans-serif;
   --font-alice: "Alice", sans-serif;
   --font-akatab: "Akatab", sans-serif;
+  --font-adelia: "Adelia", cursive;
+  --font-ceviche: "Ceviche One", cursive;
+  --color-game: #744F45;
+  --color-game-accent: #A0583A;
+  --color-game-gold: #D9A441;
+  --color-game-cream: #FFF4E0;
     --font-corsiva: "Corsiva", sans-serif;
   --font-playfair: "Playfair Display", sans-serif;
   --font-benne: "Benne", sans-serif ;
@@ -86,4 +100,30 @@ body {
 
 .shadow-tab {
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* Game template: all animations are transform/opacity only */
+.float-y { animation: float-y 2.6s ease-in-out infinite; }
+@keyframes float-y { 50% { transform: translateY(-12px); } }
+.bob { animation: bob 2.4s ease-in-out infinite; transform-origin: bottom center; }
+@keyframes bob { 50% { transform: translateY(-3px) scaleY(1.02); } }
+.hop { animation: hop 0.45s ease-out; }
+@keyframes hop { 40% { transform: translateY(-14px); } }
+.shake { animation: shake 0.4s ease-out; }
+@keyframes shake { 20% { transform: rotate(-6deg) scale(1.04); } 50% { transform: rotate(6deg) scale(1.04); } 80% { transform: rotate(-3deg); } }
+.cloud-drift { animation: cloud-drift 70s linear infinite; }
+@keyframes cloud-drift { from { transform: translateX(-30vw); } to { transform: translateX(130vw); } }
+
+.petal { position: absolute; top: -24px; width: 10px; height: 14px; border-radius: 50% 0 50% 0; background: #F4C4CD; opacity: 0; animation: petal-fall 7s linear infinite; }
+@keyframes petal-fall {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translate3d(var(--dx, 20px), 520px, 0) rotate(280deg); opacity: 0; }
+}
+
+.blink-caret { animation: blink-caret 1s steps(2) infinite; }
+@keyframes blink-caret { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-y, .bob, .hop, .shake, .cloud-drift, .petal, .blink-caret { animation: none; }
 }

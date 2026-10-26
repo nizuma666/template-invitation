@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Benne:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
 
 
 @font-face {
@@ -16,6 +17,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Adelia";
+  src: url("/fonts/adelia.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
 
 
 
@@ -32,6 +39,8 @@
   --font-playfair: "Playfair Display", sans-serif;
   --font-benne: "Benne", sans-serif ;
     --font-manrope: "Manrope", sans-serif ;
+  --font-adelia: "Adelia", cursive;
+  --font-ceviche: "Ceviche One", cursive;
     --font-sarabun: "Quicksand", sans-serif;
   --text-heading1: 32px;
   --text-heading2: 24px;
@@ -64,6 +73,8 @@
   --color-blue-sky: #629BC0 ;
   --color-brown: #D89F83 ;
     --color-brown-background: #FEFDFBCC ;
+  --color-javanera: #744F45;
+  --color-javanera-accent: #A0583A;
 }
 
 body {

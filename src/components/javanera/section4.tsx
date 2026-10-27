@@ -1,21 +1,65 @@
 "use client"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { X } from "lucide-react"
 import SectionHeading from "./components/section_heading"
 import Reveal from "./components/reveal"
 
 const photos = [
-    "/peach-love/PhotoWife.png",
-    "/peach-love/PhotoHusband.png",
-    "/bumi-renjana/foto-wanita.png",
-    "/bumi-renjana/foto-pria.png",
+    "/javanera/gallery_1.webp",
+    "/javanera/gallery_2.webp",
+    "/javanera/gallery_3.webp",
+    "/javanera/cewe_dumny.webp",
+    "/javanera/cowo_dumny.webp",
 ]
 
+const SWIPE_PX = 50
+const COPIES = 3 // strip is rendered 3x so it can wrap around without a visible jump
+
 export default function Section4() {
-    const [active, setActive] = useState(photos[0])
+    const [index, setIndex] = useState(0)
     const [preview, setPreview] = useState(false)
+    const strip = useRef<HTMLDivElement>(null)
+    const thumbs = useRef<(HTMLButtonElement | null)[]>([])
+    const autoScrolling = useRef(false) // normalizing mid smooth-scroll would cancel it
+    const mounted = useRef(false)
+    const swiped = useRef(false) // stops the tap that follows a swipe from opening the preview
+    const active = photos[index]
+
+    const go = (dir: number) => setIndex((i) => (i + dir + photos.length) % photos.length)
+
+    // the button's offsetParent is its Reveal wrapper, so position by the wrapper
+    const slotLeft = (i: number) => thumbs.current[i]?.parentElement?.offsetLeft ?? 0
+
+    // width of one full set of thumbnails, gaps included
+    const setWidth = () => slotLeft(photos.length) - slotLeft(0)
+
+    // keep scrollLeft inside the middle copy; the copies are identical so the jump is invisible
+    const normalize = () => {
+        const el = strip.current, w = setWidth()
+        if (!el || !w) return
+        if (el.scrollLeft < w * 0.5) el.scrollLeft += w
+        else if (el.scrollLeft > w * 1.5) el.scrollLeft -= w
+    }
+
+    useEffect(() => {
+        // scroll only the strip, never the page; pick the copy nearest to where the strip is now
+        const el = strip.current
+        if (!el) return
+        const target = (c: number) => {
+            const t = thumbs.current[c * photos.length + index]
+            return t ? slotLeft(c * photos.length + index) - (el.clientWidth - t.clientWidth) / 2 : 0
+        }
+        const left = mounted.current
+            ? [0, 1, 2].map(target).reduce((best, t) => (Math.abs(t - el.scrollLeft) < Math.abs(best - el.scrollLeft) ? t : best))
+            : target(1)
+        autoScrolling.current = true
+        el.scrollTo({ left, behavior: mounted.current ? "smooth" : "auto" })
+        mounted.current = true
+        const t = setTimeout(() => { autoScrolling.current = false; normalize() }, 700)
+        return () => clearTimeout(t)
+    }, [index])
 
     useEffect(() => {
         if (!preview) return
@@ -33,36 +77,55 @@ export default function Section4() {
             <SectionHeading title="Our Gallery" script />
 
             <Reveal from="zoom" className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-md bg-javanera/10">
-                <button type="button" onClick={() => setPreview(true)} aria-label="Perbesar foto" className="absolute inset-0 cursor-zoom-in">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={active}
-                            initial={{ opacity: 0, scale: 1.05 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="absolute inset-0"
-                        >
-                            <Image src={active} alt="Foto galeri" fill sizes="(max-width: 448px) 100vw, 448px" className="object-cover" />
-                        </motion.div>
-                    </AnimatePresence>
-                </button>
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={active}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        onPanEnd={(_, { offset }) => {
+                            if (Math.abs(offset.x) > SWIPE_PX) {
+                                swiped.current = true
+                                go(offset.x < 0 ? 1 : -1)
+                            }
+                        }}
+                        onTap={() => {
+                            if (swiped.current) swiped.current = false
+                            else setPreview(true)
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Perbesar foto"
+                        onKeyDown={(e) => e.key === "Enter" && setPreview(true)}
+                        className="absolute inset-0 cursor-zoom-in touch-pan-y"
+                    >
+                        <Image src={active} alt="Foto galeri" fill sizes="(max-width: 448px) 100vw, 448px" quality={90} draggable={false} className="object-cover pointer-events-none" />
+                    </motion.div>
+                </AnimatePresence>
             </Reveal>
 
-            <div className="grid grid-cols-4 gap-3">
-                {photos.map((src, i) => (
-                    <Reveal key={src} delay={i * 0.15}>
+            <div
+                ref={strip}
+                onScroll={() => !autoScrolling.current && normalize()}
+                className="relative flex gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain p-2 -m-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+                {Array.from({ length: COPIES }, (_, c) => photos.map((src, i) => (
+                    <Reveal key={`${c}-${src}`} delay={i * 0.15} className="shrink-0 basis-[calc((100%-36px)/4)]">
                         <motion.button
-                            onClick={() => setActive(src)}
-                            animate={{ scale: active === src ? 1.05 : 1 }}
+                            ref={(el) => { thumbs.current[c * photos.length + i] = el }}
+                            onClick={() => setIndex(i)}
+                            animate={{ scale: index === i ? 1.05 : 1 }}
                             whileTap={{ scale: 0.92 }}
                             aria-label={`Lihat foto ${i + 1}`}
-                            className={`relative w-full aspect-square rounded-xl overflow-hidden cursor-pointer transition-opacity ${active === src ? "ring-2 ring-javanera ring-offset-2" : "opacity-70"}`}
+                            aria-hidden={c !== 1}
+                            tabIndex={c === 1 ? 0 : -1}
+                            className={`relative w-full aspect-square rounded-xl overflow-hidden cursor-pointer transition-opacity ${index === i ? "ring-2 ring-javanera ring-offset-2" : "opacity-70"}`}
                         >
-                            <Image src={src} alt="" fill sizes="100px" className="object-cover" />
+                            <Image src={src} alt="" fill sizes="120px" quality={85} className="object-cover" />
                         </motion.button>
                     </Reveal>
-                ))}
+                )))}
             </div>
 
             <AnimatePresence>
@@ -86,7 +149,7 @@ export default function Section4() {
                             onClick={(e) => e.stopPropagation()}
                             className="relative w-full max-w-md h-[75dvh]"
                         >
-                            <Image src={active} alt="Foto galeri" fill sizes="448px" className="object-contain" />
+                            <Image src={active} alt="Foto galeri" fill sizes="448px" quality={90} className="object-contain" />
                         </motion.div>
                         <button
                             type="button"

@@ -18,10 +18,10 @@ export default function SectionHeading({ title, light, script }: SectionHeadingP
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-                <Image src={`/javanera/section_ornamen_${light ? "putih" : "coklat"}.svg`} alt="" width={78} height={36} />
+                <Image src={`/javanera/section_ornamen_${light ? "putih" : "coklat"}.svg`} alt="" width={117} height={54} />
             </motion.div>
             <Reveal delay={0.3}>
-                <h2 className={`${script ? "font-adelia text-[26px]" : "font-alice text-[26px]"} ${light ? "text-white" : "text-[#212121]"}`}>
+                <h2 className={`text-[24px] leading-[30px] ${script ? "font-charmonman font-bold" : "font-alice"} ${light ? "text-white" : "text-[#212121]"}`}>
                     {title}
                 </h2>
             </Reveal>

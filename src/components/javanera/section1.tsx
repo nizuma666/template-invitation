@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import CountdownTimer from './components/countdown_timer';
 import PatternBg from './components/pattern_bg';
 import Monogram from './components/monogram';
-import Reveal from './components/reveal';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -71,7 +70,7 @@ const Section1 = ({ onOpen }: { onOpen?: () => void }) => {
 								<motion.p initial={{ x: -40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1.2, ease, delay: 0.7 }} className="text-lg text-javanera">
 									the wedding of
 								</motion.p>
-								<motion.h1 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease, delay: 1 }} className="font-alice text-[52px] leading-[1.1] text-javanera">
+								<motion.h1 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease, delay: 1 }} className="font-alice text-[64px] leading-[1.1] text-javanera">
 									Sari &
 									<br />
 									Supri
@@ -107,7 +106,7 @@ const Section1 = ({ onOpen }: { onOpen?: () => void }) => {
 						<motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease, delay: 0.5 }} className="relative mt-8 text-javanera">
 							the wedding of
 						</motion.p>
-						<motion.h1 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease, delay: 0.8 }} className="relative font-alice text-[36px] text-javanera mt-2">
+						<motion.h1 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease, delay: 0.8 }} className="relative font-alice text-[40px] text-javanera mt-2">
 							Sari & Supri
 						</motion.h1>
 						<motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, ease, delay: 1.1 }} className="relative font-alice text-lg text-javanera mt-1">
@@ -133,15 +132,15 @@ const Section1 = ({ onOpen }: { onOpen?: () => void }) => {
 							>
 								<Image src="/javanera/wayang_cover_1.svg" alt="" width={100} height={163} className="w-full h-auto" />
 							</motion.div>
-							<motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.4, delay: 2.4, ease }} className="relative w-[300px] -mb-[26px]">
+							<div className="relative w-[300px] -mb-[26px]">
 								<Image src="/javanera/wayang_bawah_cover_1.svg" alt="" width={300} height={65} className="w-full h-auto" />
-							</motion.div>
-							<Reveal className="w-full bg-javanera text-white px-6 py-8 text-sm leading-relaxed text-left">
+							</div>
+							<div className="w-full bg-javanera text-white px-6 py-8 text-sm leading-relaxed text-left">
 								<p>
 									Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
 								</p>
 								<p className="mt-3 font-semibold">QS. Ar-Rum: 21</p>
-							</Reveal>
+							</div>
 						</div>
 					</motion.div>
 				)}

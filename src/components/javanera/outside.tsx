@@ -20,7 +20,7 @@ const Outside = () => {
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                 className="relative flex flex-col items-center justify-center"
             >
-                <p className='text-[#212121] font-adelia text-[32px] mb-3'>Sari & Supri</p>
+                <p className='text-[#212121] font-adelia text-[66px] mb-3'>Sari & Supri</p>
                 <p className='text-[#212121] font-akatab font-medium flex items-center'>
                     <span className='size-[8px] mr-2 rounded-full bg-[#212121] block'></span> 02 02 2027 <span className='size-[8px] ml-2 rounded-full bg-[#212121] block'></span>
                 </p>

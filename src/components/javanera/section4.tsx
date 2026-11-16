@@ -7,11 +7,10 @@ import SectionHeading from "./components/section_heading"
 import Reveal from "./components/reveal"
 
 const photos = [
-    "/javanera/gallery_1.webp",
-    "/javanera/gallery_2.webp",
-    "/javanera/gallery_3.webp",
-    "/javanera/cewe_dumny.webp",
-    "/javanera/cowo_dumny.webp",
+    "/javanera/javanera_gallery_1.svg",
+    "/javanera/javanera_gallery_2.svg",
+    "/javanera/javanera_gallery_3.svg",
+    "/javanera/javanera_gallery_4.svg",
 ]
 
 const SWIPE_PX = 50

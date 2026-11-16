@@ -25,7 +25,7 @@ export default function Section2() {
             </motion.div>
 
             <CoupleProfile
-                img="/javanera/cewe_dumny.webp"
+                img="/javanera/javanera_gallery_1.svg"
                 name="Sari Wulandari"
                 label="Putri Kedua dari"
                 parents="Bapak H. Ahmad Fauzi dan Ibu Hj. Nurhayati"
@@ -43,7 +43,7 @@ export default function Section2() {
             </motion.p>
 
             <CoupleProfile
-                img="/javanera/cowo_dumny.webp"
+                img="/javanera/javanera_gallery_3.svg"
                 name="Supri Hartono"
                 label="Putra Pertama dari"
                 parents="Bapak Suryadi dan Ibu Sumarni"
